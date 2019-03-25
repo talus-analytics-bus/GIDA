@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  deploy:
+    working_directory: ~/repo
+
+    docker:
+      - image: circleci/node:8.9.1
+
+    steps:
+      - checkout
+
+      - run:
+          name: Installing Deployment Dependencies
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python3-pip python3-dev g++ build-essential
+            sudo pip3 install --upgrade setuptools pytz
+            sudo pip3 install awsebcli --upgrade
+
+      - run:
+          name: Deploying
+          command: eb deploy --staged Gida-$CIRCLE_BRANCH
+
+          # command: eb deploy vaccine-$CIRCLE_BRANCH
+
+      - run:
+          name: Notify Slack
+          command: |
+            curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"http://Gida-$CIRCLE_BRANCH.us-west-1.elasticbeanstalk.com/\"}"
+            https://hooks.slack.com/services/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
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - dev
