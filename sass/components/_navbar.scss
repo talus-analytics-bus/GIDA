@@ -3,9 +3,14 @@
   padding-right: 25px;
   border-bottom: $lightpage-border;
   background-color: white;
-   //editing the nav bar on light 
+  font-size: 16px;
+  .container-fluid {
+    max-width: 1200px;
+    padding-left: 20px;
+  }
+   //editing the nav bar on light
   .nav-item{
-    padding: 15px; 
+    padding: 15px;
   }
   .navbar-nav>li>a{
     color: #777;
@@ -18,15 +23,15 @@
   .navbar-nav>.active>a{
     background-color: white !important;
     font-weight: 900;
-    color: #777; 
-    border-bottom: 2px solid #777; 
+    color: #777;
+    border-bottom: 2px solid #777;
     }
     .navbar-nav>.active>a:hover{
-    color: #777;   
+    color: #777;
     }
   //end editing nav bar on light
 
-    
+
   &.dark {
     background-color: $darkcolor;
     border-bottom: none;
@@ -44,7 +49,7 @@
       border-bottom: 2px solid white;
     }
     .navbar-nav>.active>a:hover{
-    color: white;   
+    color: white;
     }
     //end editing navbar on white
   }
@@ -100,7 +105,8 @@
   }
   .navbar-nav > li {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 13px;
+    padding-left: 60px;
 
     &.active,
     &:hover {

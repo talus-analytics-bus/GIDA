@@ -22,7 +22,7 @@ const Map = {};
 				y: 0,
 			};
 			this.zoomLevel = 1;
-            
+
 			this.countryData = this.topoworld.features
 				.filter(d => d.properties.NAME !== 'Antarctica');
 
@@ -33,9 +33,9 @@ const Map = {};
 			// this.chart.on('click', this.stopped, true);
 
             this.margin.top = 30;
-            
+
 			this.init();
-            
+
 		}
 
 		draw() {
@@ -60,7 +60,7 @@ const Map = {};
 			this.addOverlay();
 			this.addCountries();
             this.addButtons();
-            
+
 		}
 
 		addOverlay() {
@@ -98,20 +98,20 @@ const Map = {};
 		// pan and zoom function
 		zoomed() {
             this.zoomLevel = d3.event.transform.k;
-        
+
 			if (this.zoomLevel === 1) {
 				d3.event.transform.x = 0;
 				d3.event.transform.y = 0;
 			}
-            
+
             console.log(this.zoomLevel)
-            
+
 			this.countries.style('stroke-width', `${1.5 / d3.event.transform.k}px`);
 			this.countries.attr('transform', d3.event.transform);
-            
+
             this.toggleResetButton();
 		}
-        
+
         zoomIncrementally(value) {
 			this.svg
 				.transition()
@@ -148,7 +148,7 @@ const Map = {};
 			this.data = data;
 
 		}
-        
+
         addButtons() {
 			this.newGroup('buttons');
 
@@ -276,8 +276,8 @@ const Map = {};
 		}
 	}
 
-    
-    
+
+
 	Map.createWorldMap = (selector, world) => {
 		const map = new WorldMap(selector, { world });
 		return map;
@@ -347,7 +347,7 @@ const Map = {};
 		// 	// .attr('height', 20 + height * 0.703125)
 		// 	.attr('fill','black');
 
-		
+
 
 		const g = svg.append('g');
 		const nodeG = g.append('g')
@@ -358,7 +358,7 @@ const Map = {};
 		// attach zoom
 		svg.call(zoom);
 
-		// add world data, and exclude Antarctica until we can get it to 
+		// add world data, and exclude Antarctica until we can get it to
 		// display correctly on the map.
 		const countries = topojson.feature(world, world.objects.countries).features
 			.filter(d => d.properties.NAME !== 'Antarctica');
@@ -427,5 +427,5 @@ const Map = {};
 
 		return { element: svg, projection, path, zoomTo, reset };
 	};
-     
+
 })();
