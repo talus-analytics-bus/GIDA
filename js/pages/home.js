@@ -237,32 +237,12 @@
 				App.initCountrySearchBar('.search-box', (result) => {
 						$('.country-search-input').val(result.NAME);
 						currentSearchSelection = result;
-						App.navigateToAnalysisPage(currentSearchSelection);
-				}, { isReverse: true });
-
-				App.initCountrySearchBar('.nav-search-box', (result) => {
-						$('.nav-country-search-input').val(result.NAME);
-						currentSearchSelection = result;
-						$('.nav-search-control').toggle();
-						App.navigateToAnalysisPage(currentSearchSelection);
+						App.navigateToAnalysisPage(currentSearchSelection, moneyFlow);
 				}, { isReverse: true });
 
 				$('#profile-button').click(() => {
 						App.navigateToAnalysisPage(currentSearchSelection);
 				});
-		};
-
-		App.navigateToAnalysisPage = (currentSearchSelection) => {
-				if (currentSearchSelection !== undefined) {
-						const iso = currentSearchSelection.ISO2;
-						let page;
-						if (moneyFlow === 'funded') {
-								page = 'd';
-						} else {
-								page = 'r';
-						}
-						hasher.setHash(`analysis/${iso}/${page}`);
-				}
 		};
 
 		App.initMap = (params = {}) => {

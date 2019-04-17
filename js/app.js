@@ -377,6 +377,15 @@ const App = {};
 								App.funderCodes = _.unique(_.pluck(App.fundingData, 'donor_code'));
 								App.recipientCodes = _.unique(_.pluck(App.fundingData, 'recipient_country'));
 
+								let currentSearchSelection = undefined;
+
+								App.initCountrySearchBar('.nav-search-box', (result) => {
+										$('.nav-country-search-input').val(result.NAME);
+										currentSearchSelection = result;
+										$('.nav-search-control').toggle();
+										App.navigateToAnalysisPage(currentSearchSelection, 'funded');
+								}, { isReverse: true });
+
 								// call callback and finish progress bar
 								if (callback) callback();
 								NProgress.done();
@@ -384,6 +393,19 @@ const App = {};
 
 				// links
 				$('.navbar-brand span').click(() => hasher.setHash(''));
+		};
+
+		App.navigateToAnalysisPage = (currentSearchSelection, moneyFlow) => {
+				if (currentSearchSelection !== undefined) {
+						const iso = currentSearchSelection.ISO2;
+						let page;
+						if (moneyFlow === 'funded') {
+								page = 'd';
+						} else {
+								page = 'r';
+						}
+						hasher.setHash(`analysis/${iso}/${page}`);
+				}
 		};
 
 
