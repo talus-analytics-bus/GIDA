@@ -53,7 +53,14 @@
 
 .live-search-results-title {
 	font-weight: 600;
+    color: black !important;
+    background-color: transparent !important;
 }
 .live-search-results-subtitle {
   font-size: 0.9em;
+    color: black !important;
+    background-color: transparent !important;
+}
+.has-feedback i {
+  color: black;
 }

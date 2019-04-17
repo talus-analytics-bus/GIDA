@@ -12,8 +12,8 @@
 		const $input = $container.find('input');
 		const $resultsBox = $container.find('.live-search-results-container');
 		if (App.usingFirefox && $resultsBox.hasClass('reverse')) {
-			$resultsBox.css('top','-160px');	
-			// $resultsBox.css('top','-124px');	
+			$resultsBox.css('top','-160px');
+			// $resultsBox.css('top','-124px');
 		}
 		if (param.topLayout) $resultsBox.addClass('top-layout');
 		else $resultsBox.addClass('bottom-layout');

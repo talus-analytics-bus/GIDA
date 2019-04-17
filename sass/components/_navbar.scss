@@ -4,31 +4,55 @@
   border-bottom: $lightpage-border;
   background-color: white;
   font-size: 16px;
+
   .container-fluid {
     max-width: 1200px;
-    padding-left: 20px;
+    padding-left: 22px;
+    padding-right: 20px;
+    position: relative;
   }
-   //editing the nav bar on light
-  .nav-item{
+
+  //editing the nav bar on light
+  .nav-item {
     padding: 15px;
   }
-  .navbar-nav>li>a{
+
+  .navbar-nav > li > i {
+    line-height: 53px;
+  }
+
+  .navbar-nav > li > a, .navbar-nav > li > i {
     color: #777;
     padding: 0px !important;
-    }
-  .navbar-nav>li>a:hover{
-    color:#52a8e6;
-    font-weight: 900;
-    }
-  .navbar-nav>.active>a{
+  }
+
+  .navbar-nav > li > a:hover, .navbar-nav li:hover .glyphicon {
+    color: #52a8e6;
+  }
+
+  .navbar-nav > .active > a, .navbar-nav > .active > i {
     background-color: white !important;
     font-weight: 900;
     color: #777;
     border-bottom: 2px solid #777;
-    }
-    .navbar-nav>.active>a:hover{
+  }
+
+  .navbar-nav > .active > a:hover {
     color: #777;
-    }
+  }
+
+  .nav-search-control {
+    position: absolute;
+    right: 15px;
+    top: 62px;
+    width: 325px;
+    display: none;
+  }
+
+  .live-search-results-container {
+    top: 32px;
+  }
+
   //end editing nav bar on light
 
 
@@ -36,34 +60,48 @@
     background-color: $darkcolor;
     border-bottom: none;
     //editing nav bar on dark
-    .navbar-nav>li>a{
+    .navbar-nav > li > a, .navbar-nav > li > i {
       color: white;
     }
-    .navbar-nav>li>a:hover{
-      color:#52a8e6;
+
+    .navbar-nav > li > a:hover, .navbar-nav > li > i:hover {
+      color: #52a8e6;
       font-weight: 900;
     }
-    .navbar-nav>.active>a{
+
+    .navbar-nav > .active > a, .navbar-nav > .active > i {
       background-color: #222222 !important;
       color: white;
       border-bottom: 2px solid white;
     }
-    .navbar-nav>.active>a:hover{
-    color: white;
+
+    .navbar-nav > .active > a:hover {
+      color: white;
     }
+
+    .nav-search-control {
+      color: white;
+    }
+
     //end editing navbar on white
   }
 
   height: 80px;
-  @media (max-width: 440px) { height: 70px; }
-  @media (max-width: 340px) { height: 60px; }
+  @media (max-width: 440px) {
+    height: 70px;
+  }
+  @media (max-width: 340px) {
+    height: 60px;
+  }
   max-height: 80px;
+
   .navbar-header {
     .navbar-brand {
       padding-top: 3px;
       cursor: pointer;
       //width: 100%;
       height: auto;
+
       .logo {
         display: inline-block;
         max-height: 70px;
@@ -76,14 +114,20 @@
         background-size: contain;
 
         background-image: url('/img/logo-light.png');
+
         &.dark {
           background-image: url('/img/logo-dark.png');
         }
 
-        @media (max-width: 440px) { width: 200px; }
-        @media (max-width: 340px) { width: 150px; }
+        @media (max-width: 440px) {
+          width: 200px;
+        }
+        @media (max-width: 340px) {
+          width: 150px;
+        }
 
       }
+
       span:hover {
         color: #000;
       }
@@ -103,6 +147,7 @@
     //  }
     //}
   }
+
   .navbar-nav > li {
     cursor: pointer;
     margin-top: 13px;
@@ -116,6 +161,7 @@
     &.light {
       color: #555;
     }
+
     &.dark {
       color: white;
     }
