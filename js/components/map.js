@@ -45,7 +45,7 @@ const Map = {};
 				draw() {
 						this.projection = d3.geoNaturalEarth2()
 								.fitSize(
-										[this.width, this.height],
+										[this.width, this.height + 60], // The + 60 is to make the main map bigger. Is there a better way?
 										this.topoworld,
 								)
 								.precision(0.1);
