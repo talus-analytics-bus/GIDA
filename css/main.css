@@ -384,6 +384,9 @@
     top: 10px;
     background-image: url("/img/gida-logo.png"); }
 
+.zoomButtons .glyphicon {
+  color: #333333; }
+
 .container-content {
   padding: 10px 30px 30px; }
 

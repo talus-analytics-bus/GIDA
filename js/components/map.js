@@ -175,7 +175,7 @@ const Map = {};
 
 						this.buttons
 								.resetButton
-								.attr('transform', `translate(${this.width - resetWidth}, ${-resetHeight})`)
+								.attr('transform', `translate(8, ${this.height - 115})`)
 								.style('visibility', 'hidden');
 
 						this.buttons
@@ -227,7 +227,7 @@ const Map = {};
 
 						this.buttons
 								.zoomButtons
-								.attr('transform', `translate(${this.width - width})`)
+								.attr('transform', `translate(20, ${this.height - height - 36})`)
 								.style('cursor', 'pointer');
 
 						this.buttons
@@ -264,7 +264,7 @@ const Map = {};
 								.style('text-align', 'center')
 								.append('xhtml:span')
 								.style('vertical-align', 'middle')
-								.attr('class', 'control glyphicon glyphicon-zoom-in');
+								.attr('class', 'control glyphicon glyphicon-plus');
 
 						zoomInButton.on('click', () => {
 								this.zoomIncrementally(1.75);
@@ -277,7 +277,7 @@ const Map = {};
 								.attr('height', width)
 								.append('xhtml:span')
 								.style('vertical-align', 'middle')
-								.attr('class', 'control glyphicon glyphicon-zoom-out');
+								.attr('class', 'control glyphicon glyphicon-minus');
 
 						zoomOutButton.on('click', () => {
 								this.zoomIncrementally(.5);
