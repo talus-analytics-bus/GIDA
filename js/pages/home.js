@@ -245,9 +245,13 @@
 				});
 		};
 
-		App.initMap = (params = {}) => {
+		App.initMap = (tabSelect="countries", params = {}) => {
 				page = 'map';
 				setConstants(params);
+
+				if (tabSelect == 'org') {
+					$('#org-tab').prop("checked", true);
+				}
 
 				App.loadFundingData({ showGhsaOnly: params.showGhsaOnly === 'true' });
 				App.setSources();

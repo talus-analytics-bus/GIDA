@@ -53,6 +53,29 @@
     top: 32px;
   }
 
+  .explore-dropdown {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 5px;
+    right: 400px;
+    top: 62px;
+    width: 138px;
+    display: none;
+    .explore-dropdown-box {
+      cursor: pointer;
+      border-radius: 5px;
+      .explore-dropdown-item {
+        @include gradient(#fefefe, #f3f3f3);
+        padding: 10px 20px;
+        border-radius: 5px;
+        &:hover,
+        &.active {
+          @include gradient(#e6e6e6, #d9d9d9);
+        }
+      }
+    }
+  }
+
   //end editing nav bar on light
 
 
@@ -83,6 +106,18 @@
       color: #eeeeee;
     }
 
+    .explore-dropdown {
+      border: 1px solid #eeeeee;
+      .explore-dropdown-box {
+        .explore-dropdown-item {
+          @include gradient(#444444, #585858);
+          &:hover,
+          &.active {
+            @include gradient(#777777, #8b8b8b);
+          }
+        }
+      }
+    }
     //end editing navbar on white
   }
 

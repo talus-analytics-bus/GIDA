@@ -3,12 +3,18 @@ const App = {};
 (() => {
 		App.initialize = (callback) => {
 				// initialize nav menu items
-				$('.nav li').on('click', function () {
+				$('.nav li').on('click', function (e) {
+						e.stopPropagation();
 						const menuOption = $(this);
 						const page = menuOption.attr('page');
 
 						if (page === 'search') {
 								$('.nav-search-control').toggle();
+								return;
+						}
+
+						if (page === 'map') {
+								$('.explore-dropdown').toggle();
 								return;
 						}
 
@@ -68,6 +74,21 @@ const App = {};
 						} else {
 								App.toggleTheme('dark');
 						}
+				});
+
+				$('.explore-dropdown-map').click(() => {
+						$('.explore-dropdown').toggle();
+						hasher.setHash(`#map/countries`);
+				});
+
+				$('.explore-dropdown-org').click(() => {
+						$('.explore-dropdown').toggle();
+						hasher.setHash(`#map/org`);
+				});
+
+				$('body').click(() => {
+						$('.nav-search-control').hide();
+						$('.explore-dropdown').hide();
 				});
 
 				// data definition variables

@@ -117,6 +117,11 @@ const Routing = {};
 			$('#theme-toggle').bootstrapToggle('on');
 			loadPage('map', App.initMap);
 		});
+		crossroads.addRoute('/map/{tabSelect}', (tabSelect) => {
+			$('#theme-toggle').bootstrapToggle('enable');
+			$('#theme-toggle').bootstrapToggle('on');
+			loadPage('map', App.initMap, tabSelect);
+		});
 		// crossroads.addRoute('/', () => {
 		// 	loadPage('landing', App.initLanding, 'country');
 		// });

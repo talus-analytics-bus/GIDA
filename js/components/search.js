@@ -22,6 +22,9 @@
 		const up = isReverse ? 40 : 38;
 		// set search bar behavior
 		$input
+			.click((e) => {
+				e.stopPropagation();
+			})
 			.on('focus', function focus() {
 				searchForCountry($(this).val());
 			})
