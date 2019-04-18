@@ -34,7 +34,7 @@
 
   height: 50px;
   width: 250px;
-    
+
   margin-left: -7px;
 
   $fundingColor: #597251;
@@ -53,8 +53,8 @@ $border-width: 2px;
   border: $border-width solid transparent;
   margin: 5px;
   @include border-radius(5px);
-  vertical-align: middle;    
-    
+  vertical-align: middle;
+
     &.map-funding-details-btn {
         padding: 5px 10px;
         height:35px;
@@ -154,6 +154,7 @@ $border-width: 2px;
 .ghsa-button {
   position: relative;
   padding: 10px 15px 10px 45px;
+  font-size: 14px;
   &:before {
     // this is terrible but it's the best i got
     // todo -> be a better programmer

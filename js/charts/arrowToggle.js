@@ -18,6 +18,8 @@
 
 			this.normalTextWeight = 300;
 			this.selectedTextWeight = 500;
+			this.normalTextColor = "#cccccc";
+			this.selectedTextColor = "white";
 
 			this.state = params.default || 'funded';
 
@@ -100,7 +102,7 @@
 				.attr('transform', 'translate(7, 22)')
 				.append('text')
 				.style('stroke', 'none')
-				.style('fill', 'white')
+				.style('fill', this.normalTextColor)
 				.style('text-transform', 'uppercase')
 				.style('font-size', '16px')
 				.style('pointer-events', 'none')
@@ -124,7 +126,7 @@
 				.attr('transform', 'translate(16, 22)')
 				.append('text')
 				.style('stroke', 'none')
-				.style('fill', 'white')
+				.style('fill', this.normalTextColor)
 				.style('text-transform', 'uppercase')
 				.style('font-size', '16px')
 				.style('pointer-events', 'none')
@@ -146,7 +148,8 @@
 
 				this.chart
 					.selectAll('.label text')
-					.style('font-weight', this.normalTextWeight);
+					.style('font-weight', this.normalTextWeight)
+					.style('fill', this.normalTextColor);
 
 				this.funding
 					.selectAll('path')
@@ -154,7 +157,8 @@
 
 				this.funding
 					.selectAll('.label text')
-					.style('font-weight', this.selectedTextWeight);
+					.style('font-weight', this.selectedTextWeight)
+					.style('fill', this.selectedTextColor);
 
 				this.funderCallback();
 			};
@@ -168,7 +172,8 @@
 
 				this.chart
 					.selectAll('.label text')
-					.style('font-weight', this.normalTextWeight);
+					.style('font-weight', this.normalTextWeight)
+					.style('fill', this.normalTextColor);
 
 				this.receiving
 					.selectAll('path')
@@ -176,7 +181,8 @@
 
 				this.receiving
 					.selectAll('.label text')
-					.style('font-weight', this.selectedTextWeight);
+					.style('font-weight', this.selectedTextWeight)
+					.style('fill', this.selectedTextColor);
 
 				this.recipientCallback();
 			};

@@ -368,7 +368,8 @@
 
 .ghsa-button {
   position: relative;
-  padding: 10px 15px 10px 45px; }
+  padding: 10px 15px 10px 45px;
+  font-size: 14px; }
   .ghsa-button:before {
     vertical-align: middle;
     white-space: pre;
@@ -765,7 +766,7 @@ select.form-control {
     background-color: #222222;
     border-bottom: none; }
     .navbar.dark .navbar-nav > li > a, .navbar.dark .navbar-nav > li > i {
-      color: white; }
+      color: #eeeeee; }
     .navbar.dark .navbar-nav > li > a:hover, .navbar.dark .navbar-nav > li > i:hover {
       color: #52a8e6;
       font-weight: 900; }
@@ -776,7 +777,7 @@ select.form-control {
     .navbar.dark .navbar-nav > .active > a:hover {
       color: white; }
     .navbar.dark .nav-search-control {
-      color: white; }
+      color: #eeeeee; }
   @media (max-width: 440px) {
     .navbar {
       height: 70px; } }
@@ -2617,7 +2618,8 @@ b {
         flex-flow: row;
         justify-content: end;
         padding: 0;
-        margin-left: -5px; }
+        margin-left: -5px;
+        margin-right: -5px; }
   .home-container .map-container {
     -webkit-box-flex: 1 1 300px;
     -moz-box-flex: 1 1 300px;
@@ -2824,7 +2826,7 @@ body {
 
 .dark {
   background-color: #222222;
-  color: white; }
+  color: #eeeeee; }
   .dark table {
     color: #222222; }
 
