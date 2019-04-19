@@ -584,14 +584,15 @@ select.form-control {
 
 .collapse-arrow {
   position: relative;
-  top: -1px;
   width: 12px;
   height: 10px;
   -webkit-opacity: 0.75;
   -moz-opacity: 0.75;
-  opacity: 0.75; }
+  opacity: 0.75;
+  margin-right: 2px; }
   .collapse-arrow.rotated {
-    transform: rotate(180deg); }
+    transform: rotate(180deg);
+    top: 5px; }
 
 /* ------------------- */
 /* Generic Map Styling */
@@ -624,6 +625,9 @@ select.form-control {
 /* --- Map Legends --- */
 .legend-text {
   text-anchor: middle; }
+
+.dark .legend-text, .dark .legend-start-label, .dark .legend-title, .dark .collapse-arrow {
+  fill: #eeeeee; }
 
 .legend-title {
   font-size: 1.1em;
@@ -1641,7 +1645,7 @@ b {
         -webkit-flex: 0 0 0px;
         -ms-flex: 0 0 0px;
         flex: 0 0 0px;
-        width: auto;
+        width: 622px;
         background: transparent;
         border: white;
         /*bottom: 45px;*/
@@ -1666,7 +1670,7 @@ b {
           .map-page-container .map-page-tabs .content .legend-container .legend-display-tab .legend-tab-content {
             text-align: center; }
         .map-page-container .map-page-tabs .content .legend-container .legend-content {
-          padding: 13px;
+          padding: 5px 5px 0 5px;
           background-color: rgba(255, 255, 255, 0.8);
           border: 1px solid #b2b2b2; }
           .map-page-container .map-page-tabs .content .legend-container .legend-content.dark {

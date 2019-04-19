@@ -4,9 +4,9 @@
 .overlay {
 	fill: none;
 	pointer-events: all;
-    
+
     rect {
-       box-sizing: content-box; 
+       box-sizing: content-box;
     }
 }
 .country {
@@ -37,6 +37,9 @@
 }
 .legend-text {
   text-anchor: middle;
+}
+.dark .legend-text, .dark .legend-start-label, .dark .legend-title, .dark .collapse-arrow {
+  fill: #eeeeee;
 }
 .legend-title {
   font-size: 1.1em;
@@ -137,7 +140,7 @@
   font-size: 1.25em;
   // max-width: 180px;
   margin-bottom: 30px;
-  
+
   &.no-data {
     font-style: italic;
     // max-width: 270px;

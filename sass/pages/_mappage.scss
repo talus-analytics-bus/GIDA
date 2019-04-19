@@ -102,7 +102,7 @@
                 }
 
             }
-            
+
             .legend-position{
                 width:80%;
                 height:100px;
@@ -111,52 +111,52 @@
 
             .legend-container {
                 @include flex(0 0 0px);
-                width: auto;
+                width: 622px;
                 background: transparent;
                 border: white;
                 /*bottom: 45px;*/
                 /*new*/
                 position: absolute;
                 //left: 95px;
-                margin-left: auto; 
+                margin-left: auto;
                 margin-right: auto;
                 bottom: 0px;
                 /*new*/
                 div {
                     //background: transparent;
-                    //new    
+                    //new
                 }
 
                 .legend-display-tab {
-                    //background: #555;  
+                    //background: #555;
                     width: 140px;
                     margin-left: auto;
                     margin-right: auto;
                     border-radius: 5px 5px 0px 0px;
-                    background-color: $overlayLightColor; 
+                    background-color: $overlayLightColor;
                     border: $lightpage-border;
                     border-bottom-width:0px;
-                    
-                    
+
+
                     &.dark {
                         background-color: $overlayDarkColor;
                         border: $darkpage-border;
                         border-bottom-width:0px;
                     }
-                    
+
                     .legend-tab-content {
                         text-align: center;
                     }
                 }
                 .legend-content {
-                    padding: 13px;
+                    padding: 5px 5px 0 5px;
                     background-color: $overlayLightColor;
                     border: $lightpage-border;
-                    
+
                     &.dark {
                         background-color: $overlayDarkColor;
                         border: $darkpage-border;
-                        
+
                         .legend-box>svg>g>text{
                             color: white !important;
                         }
@@ -170,7 +170,7 @@
                 border: $lightpage-border;
                 width: 100%;
                 border-bottom-width: 0px;
-                
+
                 &.dark{
                     border: $darkpage-border;
                     border-bottom-width: 0px;
