@@ -440,6 +440,10 @@
     top: 13px;
     right: 20px;
     cursor: pointer;
+    background-color: #e6e6e6 !important;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
     -webkit-opacity: 0.75;
     -moz-opacity: 0.75;
     opacity: 0.75; }
@@ -449,7 +453,8 @@
       opacity: 1; }
     .info-container .info-close-button img {
       width: 20px;
-      height: 20px; }
+      height: 20px;
+      margin-left: 0; }
   .info-container .info-title {
     color: white !important;
     padding: 7px 50px 7px 11px;
@@ -1105,29 +1110,24 @@ b {
 
 .tooltip-title {
   font-size: 1.1em;
-  font-weight: 600;
-  text-align: center; }
+  font-weight: 600; }
 
 .tooltip-score-text {
-  text-align: center;
   margin-top: 5px; }
 
 .tooltip-profile-type {
-  text-align: center;
   margin-top: 5px;
   font-size: 0.95em; }
 
 .tooltip-main-value {
   margin-top: 20px;
   font-family: 'RawlineRegular';
-  font-size: 1.9em;
-  text-align: center; }
+  font-size: 1.9em; }
   .tooltip-main-value .inkind-value {
     font-size: .6em; }
 
 .tooltip-main-value-label {
-  margin: 15px 0 5px;
-  text-align: center; }
+  margin: 15px 0 5px; }
 
 .tooltip-row-content {
   margin-top: 10px; }

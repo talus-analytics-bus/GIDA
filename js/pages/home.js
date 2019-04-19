@@ -782,12 +782,6 @@
 												container.append('div')
 														.attr('class', 'tooltip-score-text')
 														.html(scoreText);
-										} else {
-												const infoLabel = (moneyFlow === 'funded') ?
-														'Funder Information' : 'Recipient Information';
-												container.append('div')
-														.attr('class', 'tooltip-profile-type')
-														.text(infoLabel);
 										}
 										container.append('div')
 												.attr('class', 'tooltip-main-value')
@@ -796,10 +790,6 @@
 												.attr('class', 'tooltip-main-value-label')
 												.html(label);
 								} else {
-										const infoLabel = (moneyFlow === 'funded') ? 'Funder Information' : 'Recipient Information';
-										container.append('div')
-												.attr('class', 'tooltip-profile-type')
-												.text(infoLabel);
 										container.append('div')
 												.attr('class', 'undetermined-value info-value')
 												.text(d.undetermined_message);
