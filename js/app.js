@@ -1214,6 +1214,7 @@ const App = {};
 				if (value < 100) return Math.round(value);
 				return App.siFormat(value);
 		};
+		App.formatMoneyFormatted = usdValue => `${App.formatMoneyShort(usdValue)} <span>${App.currencyIso}</span>`;
 		App.formatMoney = usdValue => `${App.formatMoneyShort(usdValue)} ${App.currencyIso}`;
 		App.formatMoneyFull = (usdValue) => {
 				if (usdValue < 100) return `${Math.round(usdValue)} ${App.currencyIso}`;

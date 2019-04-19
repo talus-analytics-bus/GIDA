@@ -34,7 +34,7 @@
 			$('.toggle-type').css('visibility', '');
 		}
 
-		// initializes the whole page 
+		// initializes the whole page
 		function init() {
 			App.setSources();
 			// fill title
@@ -247,8 +247,8 @@
 				$('.country-population').text(d3.format(',')(country.POP2005));
 
 			// fill summary values
-			$('.country-funded-value').text(App.formatMoney(totalFunded));
-			$('.country-received-value').text(App.formatMoney(totalReceived));
+			$('.country-funded-value').html(App.formatMoneyFormatted(totalFunded));
+			$('.country-received-value').html(App.formatMoneyFormatted(totalReceived));
 
 			// button behavior for getting to donor and recipient profile
 			$('.show-donor-btn').click(() => hasher.setHash(`analysis/${iso}/d`));
@@ -305,8 +305,8 @@
 				$('.toggle-recipient-profile')
 					.on('click', () => hasher.setHash(`analysis/${iso}/r`));
 
-				$('.country-summary-value.committed').text(App.formatMoney(totalFundedCommitted));
-				$('.country-summary-value.disbursed').text(App.formatMoney(totalFunded));
+				$('.country-summary-value.committed').html(App.formatMoneyFormatted(totalFundedCommitted));
+				$('.country-summary-value.disbursed').html(App.formatMoneyFormatted(totalFunded));
 			} else if (moneyType === 'r') {
 				hasNoData = projectsIncludingGroups === undefined || projectsIncludingGroups.length === 0;
 
@@ -316,8 +316,8 @@
 				$('.toggle-funder-profile')
 					.on('click', () => hasher.setHash(`analysis/${iso}/d`));
 
-				$('.country-summary-value.committed').text(App.formatMoney(totalReceivedCommitted));
-				$('.country-summary-value.disbursed').text(App.formatMoney(totalReceived));
+				$('.country-summary-value.committed').html(App.formatMoneyFormatted(totalReceivedCommitted));
+				$('.country-summary-value.disbursed').html(App.formatMoneyFormatted(totalReceived));
 			}
 
 			const codeField = moneyType === 'r' ? 'recipient_country' : 'donor_code';
@@ -542,7 +542,7 @@
 				const readyScores = App.getReadyScores(iso);
 
 				const findVerify = readyScores.detectScore;
-                
+
 				const findVerifyCol = App.readyColor(findVerify);
 				const findVerifyText = App.readyText(findVerify);
 
@@ -837,8 +837,8 @@
 			const unspecFieldOther = moneyType === 'r' ? 'donor_amount_unspec' : 'recipient_amount_unspec';
 
 
-			// nameField is the original 
-			// name field for the recipient if hte table is 
+			// nameField is the original
+			// name field for the recipient if hte table is
 			// "Top Recipients" or the donor if its "Top Funders"
 			const nameFieldOrig = (moneyTypeForTable === 'd') ? 'recipient_name_orig' : 'donor_name_orig';
 			const nameFieldOrigOther = (moneyTypeForTable === 'd') ? 'donor_name_orig' : 'recipient_name_orig';

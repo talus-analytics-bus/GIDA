@@ -53,7 +53,7 @@
         & ~ label {
           //background: white;
           //border: $light-border;
-          border-radius: 6px 6px 0px 0px; 
+          border-radius: 6px 6px 0px 0px;
           border-bottom: 0;
           //border-bottom: 1px solid white;
 
@@ -77,7 +77,7 @@
     &:hover {
       background-color: #EDEDED;
       &.dark {
-        background-color: #36404d;
+        background-color: #555555;
       }
     }
   }

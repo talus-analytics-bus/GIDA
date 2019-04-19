@@ -1056,7 +1056,7 @@ select.form-control {
     .tabs > .tab > label:hover {
       background-color: #EDEDED; }
       .tabs > .tab > label:hover.dark {
-        background-color: #36404d; }
+        background-color: #555555; }
   .tabs .content {
     position: absolute;
     top: 36px;
@@ -1647,7 +1647,7 @@ b {
         flex: 0 0 0px;
         width: 622px;
         background: transparent;
-        border: white;
+        border: #eeeeee;
         /*bottom: 45px;*/
         /*new*/
         position: absolute;
@@ -1677,7 +1677,7 @@ b {
             background-color: rgba(50, 50, 50, 0.9);
             border: 1px solid #666666; }
             .map-page-container .map-page-tabs .content .legend-container .legend-content.dark .legend-box > svg > g > text {
-              color: white !important; }
+              color: #eeeeee !important; }
       .map-page-container .map-page-tabs .content .info-container {
         background: transparent;
         color: #222222;
@@ -1691,13 +1691,10 @@ b {
           color: #222222;
           background: transparent; }
       .map-page-container .map-page-tabs .content .country-option-column {
-        margin-top: -1px;
-        /*width: auto;*/
-        /*new*/
         width: 25%;
         position: absolute;
-        right: 25px;
-        /*new*/ }
+        top: 20px;
+        right: 10px; }
       .map-page-container .map-page-tabs .content .map-and-search-container {
         -webkit-box-flex: 1 0 350px;
         -moz-box-flex: 1 0 350px;
@@ -1720,7 +1717,7 @@ b {
         .map-page-container .map-page-tabs .content .map-and-search-container .search-container {
           position: relative; }
           .map-page-container .map-page-tabs .content .map-and-search-container .search-container .live-search-results-container .live-search-results-contents {
-            background: white;
+            background: #eeeeee;
             position: absolute;
             top: 194px; }
         .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle),
@@ -1739,7 +1736,7 @@ b {
       .map-page-container .map-page-tabs .content .paginate_button.dark a {
         border: 1px solid #ccc;
         color: #ccc;
-        background-color: #36404d; }
+        background-color: #333333; }
       .map-page-container .map-page-tabs .content .table-content {
         display: -webkit-box;
         display: -moz-box;
@@ -1784,15 +1781,15 @@ b {
           .map-page-container .map-page-tabs .content table thead td.dark,
           .map-page-container .map-page-tabs .content table thead tr.dark {
             background-color: #36404d;
-            color: white; }
+            color: #eeeeee; }
         .map-page-container .map-page-tabs .content table tbody td,
         .map-page-container .map-page-tabs .content table tbody tr {
-          background-color: white;
+          background-color: #eeeeee;
           color: black; }
           .map-page-container .map-page-tabs .content table tbody td.dark,
           .map-page-container .map-page-tabs .content table tbody tr.dark {
             background-color: #222222;
-            color: white; }
+            color: #eeeeee; }
 
 .table-title-container {
   width: 100%; }
@@ -1967,7 +1964,7 @@ b {
 .analysis-country-content .profile-type-container {
   height: 90px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   font-color: #ffffff;
   text-align: left;
   line-height: 2;
@@ -2006,6 +2003,8 @@ b {
   font-family: 'Raleway', sans-serif;
   font-size: 25px;
   font-weight: 800; }
+  .country-summary-value span {
+    font-weight: 400; }
 
 /* --- Buffer Page --- */
 .country-summary-content {
@@ -2884,10 +2883,16 @@ svg .chart .funding path,
 svg .chart .receiving path {
   stroke: none;
   stroke-width: 1px;
-  stroke-opacity: 0; }
+  stroke-opacity: 0;
+  cursor: pointer; }
   svg .chart .funding path.dark,
   svg .chart .receiving path.dark {
-    stroke: white;
+    stroke: #eeeeee;
+    stroke-opacity: 1; }
+  svg .chart .funding path:hover, svg .chart .funding path:active,
+  svg .chart .receiving path:hover,
+  svg .chart .receiving path:active {
+    stroke: #eeeeee;
     stroke-opacity: 1; }
 
 .toggleForPrint {
