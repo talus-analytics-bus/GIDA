@@ -1,15 +1,26 @@
 (() => {
 		// colors
 		const colorIndex = 3;
+		// const purples = [
+		// 		// "#e0ecf4",
+		// 		'#bfd3e6',
+		// 		'#9ebcda',
+		// 		'#8c96c6',
+		// 		'#8c6bb1',
+		// 		'#88419d',
+		// 		'#810f7c',
+		// 		'#4d004b',
+		// 		// "#4d004b",
+		// ];
 		const purples = [
 				// "#e0ecf4",
 				'#bfd3e6',
-				'#9ebcda',
-				'#8c96c6',
-				'#8c6bb1',
-				'#88419d',
-				'#810f7c',
-				'#4d004b',
+				'#88aac3',
+				'#757fb6',
+				'#75559d',
+				'#713286',
+				'#6a1266',
+				'#3c003a',
 				// "#4d004b",
 		];
 
@@ -20,15 +31,25 @@
 		// const unspecifiedGray = '#515151';
 
 		// source: http://colorbrewer2.org/#type=sequential&scheme=Greens&n=8
+		// const greens = [
+		// 		// "#f7fcf5",
+		// 		// "#e5f5e0",
+		// 		'#c7e9c0',
+		// 		'#a1d99b',
+		// 		'#74c476',
+		// 		'#41ab5d',
+		// 		'#238b45',
+		// 		'#005a32',
+		// ];
 		const greens = [
 				// "#f7fcf5",
 				// "#e5f5e0",
-				'#c7e9c0',
-				'#a1d99b',
-				'#74c476',
-				'#41ab5d',
-				'#238b45',
-				'#005a32',
+				'#eaeff1',
+				'#99c2ae',
+				'#569778',
+				'#3d8662',
+				'#217249',
+				'#045f32',
 		];
 
 		// const purplesOrig = [
@@ -293,15 +314,11 @@
 
 						updateFilters();
 
-						switch (moneyFlow) {
-								case 'funded':
-										$('.info-title').css('background-color', App.fundColorPalette[colorIndex]);
-										break;
-								case 'received':
-										$('.info-title').css('background-color', App.receiveColorPalette[colorIndex]);
-										break;
-								default:
-										break;
+
+						if (activeCountry.node) {
+								setTimeout(() => {
+										$('.info-title').css('background-color', activeCountry.datum().color);
+								}, 50);
 						}
 				};
 
@@ -1079,6 +1096,11 @@
 
 				// populate info title
 				$('.info-title').text(country.NAME);
+				setTimeout(() => {
+						$('.info-title').css('background-color', countryTmp.color);
+				}, 50);
+
+
 				if (country.ISO2 === 'ghsa') {
 						d3.select('.info-title').append('img')
 								.attr('class', 'ghsa-info-img info-img')

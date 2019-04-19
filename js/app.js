@@ -112,18 +112,30 @@ const App = {};
 				// App.fundColorPalette= ['#00441b', '#1b7837', '#5aae61', '#a6dba0', '#d9f0d3', '#f7f7f7'];
 				App.receiveColor = '#440042';
 				App.fundColor = '#384434';
-				App.receiveColorPalette = ['#40004b',
-						'#762a83',
-						'#7c3991',
-						'#c2a5cf',
-						'#b89eb7',
-						'#f7f7f7'].reverse();
-				App.fundColorPalette = ['#00441b',
-						'#1b7837',
-						'#5aae61',
-						'#a6dba0',
-						'#d9f0d3',
-						'#f7f7f7'].reverse();
+				// App.receiveColorPalette = ['#40004b',
+				// 		'#762a83',
+				// 		'#7c3991',
+				// 		'#c2a5cf',
+				// 		'#b89eb7',
+				// 		'#f7f7f7'].reverse();
+				// App.fundColorPalette = ['#00441b',
+				// 		'#1b7837',
+				// 		'#5aae61',
+				// 		'#a6dba0',
+				// 		'#d9f0d3',
+				// 		'#f7f7f7'].reverse();
+				App.receiveColorPalette = ['#3c003a',
+						'#6a1266',
+						'#713286',
+						'#75559d',
+						'#757fb6',
+						'#88aac3'].reverse();
+				App.fundColorPalette = ['#045f32',
+						'#217249',
+						'#3d8662',
+						'#569778',
+						'#99c2ae',
+						'#eaeff1'].reverse();
 
 				// (blue, red) color scheme
 				/* App.fundColor = '#053061';
