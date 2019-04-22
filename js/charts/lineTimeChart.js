@@ -2,10 +2,10 @@
     App.buildLineTimeChart = (selector, data, param = {},country) => {
         // remove existing
         d3.select(selector).html('');
-        
+
         // start building the chart
-        const margin = { top: 30, right: 100, bottom: 30, left: 75 };
-        const width = 700;
+        const margin = { top: 30, right: 20, bottom: 30, left: 75 };
+        const width = 790;
         const height = 230;
         //const color = d3.color(param.color || 'steelblue');
         //const lightColor = param.lightColor || color.brighter(2);
@@ -23,7 +23,7 @@
         const x = d3.scaleLinear()
         .domain([d3.min(data,d => d.year), d3.max(data, d => d.year )])
         .range([0, width]);
-        
+
         const maxValue = d3.max(data, d => d3.max([d.total_spent, d.total_committed]));
 
         // define height of zero bar
@@ -31,12 +31,12 @@
         .domain([0, 1.2 * maxValue])
         .range([height, 0])
         .nice();
-                 
+
         // fill under the curve
         const areaSpent = chart.selectAll('area-const-spent')
             .data([data])
             .enter().append('g');
-        
+
         const area = d3.area()
             .x(d => x(d.year))
             .y0(height)
@@ -45,7 +45,8 @@
         areaSpent.append('path')
             .attr('class', 'area')
             .attr('d', area)
-            .style('fill', lightColor);
+            .style('fill', lightColor)
+            .attr('opacity', 0.5);
 
         const xAxis = d3.axisBottom()
         //.attr('class', 'tickBottom')
@@ -54,7 +55,7 @@
         .tickSizeOuter(4)
         .tickFormat(d => d.toString())
         .scale(x);
-        
+
         const yAxis = d3.axisLeft()
         //.attr('class', 'tickLeft')
         .ticks(4)
@@ -64,57 +65,57 @@
         .tickPadding(10)
         .tickFormat(App.siFormat)
         .scale(y);
-        
+
         //const bandwidth = x.bandwidth();
 
         chart.append('g')
         .attr('class', 'x axis')
         .attr('transform', `translate(0, ${height})`)
         .call(xAxis);
-        
+
         chart.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
-        
+
         chart.selectAll('.domain')
         .style('stroke','#c0c0c0');
-        
+
         chart.selectAll('g.tick line')
         .style('stroke','#c0c0c0');
-        
+
         // ** lines **
 
-        // committed line 
+        // committed line
         const lineConstComm = chart.selectAll('path-const-comm')
                .data([data])
-               .enter().append('g'); 
-        
+               .enter().append('g');
+
         const lineCommitted = d3.line()
             .x(d => x(d.year))
             .y(d => y(d.total_committed));
-        
+
         lineConstComm.append('path')
             .attr('d', lineCommitted)
             .attr('fill', 'none')
             .attr('stroke', middleColor)
             .attr('stroke-width', 2)
             .style("stroke-dasharray", ("3, 3"));
-        
+
         // spent line
         const lineConstSpent = chart.selectAll('path-const-spent')
             .data([data])
-            .enter().append('g'); 
-        
+            .enter().append('g');
+
         const lineSpent = d3.line()
             .x(d => x(d.year))
             .y(d => y(d.total_spent));
-        
+
         lineConstSpent.append('path')
             .attr('d', lineSpent)
             .attr('fill', 'none')
             .attr('stroke', color)
             .attr('stroke-width', 3);
-        
+
           /* const lineStyles = {
             All: {
                 'stroke': 'red',
@@ -128,13 +129,13 @@
 				'stroke': '#57285a',
 				'stroke-width': 4,
             },
-        }; */ 
-        
-        
+        }; */
+
+
         const pointGroups = chart.selectAll('.point-group')
             .data(data)
             .enter().append('g');
-        
+
         pointGroups.append('circle')
             .attr('class', (d,i)=> `point-circle-${i}`)
             .attr('transform',d => {
@@ -144,11 +145,11 @@
             .style('fill','white')
             .attr('stroke-width',3)
             .attr('stroke','grey')
-        
+
         /*const textGroups = chart.selectAll('.text-group')
             .data(data)
             .enter().append('g');
-        
+
         textGroups.append('text')
             .attr('class', 'point-text')
             .attr('x', d => x(d.year))
@@ -157,13 +158,13 @@
             .text((d) => {
             return App.formatMoneyShort(d.total_spent)
         }); */
- 
-        // TOOLTIPS 
-        
+
+        // TOOLTIPS
+
         const tooltipGroupsSpent = chart.selectAll('.tooltip-group')
             .data(data)
             .enter().append('g');
-        
+
         tooltipGroupsSpent.append('circle')
             .attr('transform',d => {
                 return `translate (${x(d.year)},${y(d.total_spent)})`;
@@ -202,11 +203,11 @@
                     theme: ['tooltipster-shadow', 'tooltipster-talus'],
                 });
             });
-        
+
         const tooltipGroupsComm = chart.selectAll('.tooltip-group')
             .data(data)
             .enter().append('g');
-        
+
         tooltipGroupsComm.append('circle')
             .attr('transform',d => {
                 return `translate (${x(d.year)},${y(d.total_committed)})`;
@@ -235,10 +236,10 @@
                     trigger: 'hover',
                     side: 'top',
                     distance: 0,
-                    theme: ['tooltipster-shadow', 'tooltipster-talus'], 
+                    theme: ['tooltipster-shadow', 'tooltipster-talus'],
                 });
             });
-        
+
         /* // add bars
         const barGroups = chart.selectAll('.bar-group')
         .data(data)
@@ -298,12 +299,12 @@
         // add legend
         const rectWidth = 50;
         const legend = chart.append('g')
-        .attr('transform', `translate(${width - 300}, -20)`);
+        .attr('transform', `translate(${width - 160}, -20)`);
         const legendGroups = legend.selectAll('g')
         .data([color, middleColor])
         .enter().append('g')
         .attr('transform', (d, i) => `translate(0, ${22 * i})`);
-        
+
         legendGroups.append('line')
         .attr('x1', 1)
         .attr('x2', 42)
@@ -314,13 +315,13 @@
         //.attr('height', 4)
         .style("stroke-dasharray", (d,i) => i * "6")
         .style('stroke', d => d);
-        
+
         legendGroups.append('text')
         .attr('class', 'legend-label')
         .attr('x', rectWidth + 8)
         .attr('y', 6)
         .text((d, i) => (i === 0 ? 'Committed' : 'Disbursed'));
-        
+
         legendGroups.append('text')
         .attr('class', 'legend-label')
         .attr('transform', (d, i) => `translate(${rectWidth + 8 + 68 - 6 * i}, 6)`)
