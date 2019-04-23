@@ -1212,8 +1212,9 @@
 
 				// initialize components
 				initFilters();
-				initSlider();
-				initSearch();
+				initSlider('.time-slider');
+				initSlider('.org-time-slider');
+				initSearch('.search-container');
 		}
 
 		// initializes search functionality
@@ -1264,8 +1265,8 @@
 		}
 
 		// initializes slider functionality
-		function initSlider() {
-				const slider = App.initSlider('.time-slider', {
+		function initSlider(tag) {
+				const slider = App.initSlider(tag, {
 						min: App.dataStartYear,
 						max: App.dataEndYear + 1,
 						value: [startYear, endYear],
@@ -1287,6 +1288,7 @@
 				// populate dropdowns
 				// App.populateCcDropdown('.cc-select', { dropRight: true });
 				App.populateCcDropdown('.cc-select', { dropUp: true, dropLeft: true });
+				App.populateCcDropdown('.org-cc-select', { dropUp: false, dropLeft: false });
 
 				d3.select('.dropdown-menu').classed('firefox', App.usingFirefox);
 

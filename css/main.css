@@ -1566,10 +1566,37 @@ b {
     .map-page-container .map-page-tabs .org-content {
       height: 750px !important;
       margin-bottom: 45px; }
+      .map-page-container .map-page-tabs .org-content .org-landing-page-options {
+        margin: 0;
+        padding: 0;
+        padding-left: 6px; }
+    .map-page-container .map-page-tabs .organization-content {
+      width: 100%; }
+    .map-page-container .map-page-tabs .org-heading {
+      margin: 25px -5px 0 -5px; }
+      .map-page-container .map-page-tabs .org-heading .landing {
+        line-height: 40px; }
+      .map-page-container .map-page-tabs .org-heading .dark .country-search-input {
+        background-color: #333333;
+        color: #eeeeee; }
+      .map-page-container .map-page-tabs .org-heading .dark .has-feedback i {
+        color: #eeeeee; }
+      .map-page-container .map-page-tabs .org-heading .live-search-results-container {
+        margin-top: -10px; }
+      .map-page-container .map-page-tabs .org-heading .live-search-results-container .live-search-results-box {
+        background: -webkit-linear-gradient(top, #fefefe 0%, #f3f3f3 100%); }
+      .map-page-container .map-page-tabs .org-heading .dark .live-search-results-container .live-search-results-box {
+        background: #333333; }
+      .map-page-container .map-page-tabs .org-heading .dark .live-search-results-container .live-search-results-box div {
+        color: #eeeeee !important; }
     .map-page-container .map-page-tabs .map-content {
       height: 648px !important;
       padding: 0px;
       margin-bottom: -100px; }
+    .map-page-container .map-page-tabs .multiselect-native-select li label {
+      color: #777777; }
+    .map-page-container .map-page-tabs .multiselect-native-select li.active label {
+      color: #eeeeee; }
     .map-page-container .map-page-tabs .content {
       display: -webkit-box;
       display: -moz-box;
@@ -1726,6 +1753,8 @@ b {
         .map-page-container .map-page-tabs .content .map-and-search-container div .slider-handle,
         .map-page-container .map-page-tabs .content .map-and-search-container label .slider-handle {
           background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%); }
+      .map-page-container .map-page-tabs .content .org-table-country-search .slider-handle {
+        background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%); }
       .map-page-container .map-page-tabs .content div,
       .map-page-container .map-page-tabs .content label {
         background: transparent; }

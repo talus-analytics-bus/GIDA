@@ -46,12 +46,55 @@
         .org-content {
             height: 750px !important;
             margin-bottom: 45px;
+            .org-landing-page-options {
+                margin: 0;
+                padding: 0;
+                padding-left: 6px;
+            }
+        }
+
+        .organization-content {
+            width: 100%;
+        }
+
+        .org-heading {
+            margin: 25px -5px 0 -5px;
+            .landing {
+                line-height: 40px;
+            }
+            .dark .country-search-input {
+                background-color: #333333;
+                color: #eeeeee;
+            }
+            .dark .has-feedback i {
+                color: #eeeeee;
+            }
+            .live-search-results-container {
+                margin-top: -10px;
+            }
+            .live-search-results-container .live-search-results-box {
+                background: -webkit-linear-gradient(top, #fefefe 0%, #f3f3f3 100%);
+            }
+            .dark .live-search-results-container .live-search-results-box {
+                background: #333333;
+            }
+            .dark .live-search-results-container .live-search-results-box div {
+                color: #eeeeee !important;
+            }
         }
 
         .map-content {
             height: 648px !important;
             padding: 0px;
             margin-bottom: -100px;
+        }
+
+        .multiselect-native-select li label {
+            color: #777777;
+        }
+
+        .multiselect-native-select li.active label {
+            color: #eeeeee;
         }
 
         .content {
@@ -230,10 +273,15 @@
                     &:not(.slider-handle) {
                         background: transparent;
                     }
+
                     .slider-handle {
                         background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%);
                     }
                 }
+            }
+
+            .org-table-country-search .slider-handle {
+                background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%);
             }
 
             div,
