@@ -2043,7 +2043,7 @@
 		function initTableSearch() {
 				App.initCountrySearchBar('.org-search-container', (result) => {
 						if (result.item !== undefined) result = result.item;
-						hasher.setHash(`analysis/${result.ISO2}`);
+						hasher.setHash(`analysis/${result.ISO2}/d`);
 				}, {
 						width: 400,
 						includeNonCountries: true,
