@@ -2041,7 +2041,7 @@
 		};
 
 		function initTableSearch() {
-				App.initCountrySearchBar('.table-country-search', (result) => {
+				App.initCountrySearchBar('.org-search-container', (result) => {
 						if (result.item !== undefined) result = result.item;
 						hasher.setHash(`analysis/${result.ISO2}`);
 				}, {
