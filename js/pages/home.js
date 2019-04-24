@@ -95,6 +95,7 @@
 				moneyFlow = 'funded';  // either 'funded' or 'received'
 				// let moneyType = 'disbursed';  // either 'committed' or 'disbursed'
 				moneyType = 'committed';  // either 'committed' or 'disbursed'
+				orgMoneyType = 'org-committed';  // either 'org-committed' or 'org-inkind'
 				scoreType = 'score';  // either 'score' or 'combined'
 
 
@@ -508,6 +509,10 @@
 				}
 		}
 
+		function updateTables() {
+				populateTables('.donor-table', '.recipient-table');
+		}
+
 
 		function getUnspecAmountCounts(iso2) {
 				const funderIsMulti = true; // TODO by checking if it's EU-like
@@ -530,9 +535,9 @@
 		}
 
 		// updates the country to value data map based on user settings
-		function updateDataMaps() {
+		function updateDataMaps(selector ='.cc-select') {
 				// get filter values
-				const ccs = $('.cc-select').val() || _.clone(App.capacities);
+				const ccs = $(selector).val() || _.clone(App.capacities);
 
 				// clear out current data
 				currentNodeDataMap.clear();
@@ -636,10 +641,9 @@
 						const p = payments[i];
 
 						// filter by core category
-						// TODO figure out if this is necessary
-						// if (!App.passesCategoryFilter(p.core_capacities, ccs)) {
-						// 	continue;
-						// }
+						if (!App.passesCategoryFilter(p.core_capacities, ccs)) {
+							continue;
+						}
 
 						// add payment values by year
 						for (let k = startYear; k < endYear; k++) {
@@ -1212,6 +1216,7 @@
 
 				// initialize components
 				initFilters();
+				initOrgFilters();
 				initSlider('.time-slider');
 				initSlider('.org-time-slider');
 				initSearch('.search-container');
@@ -1277,7 +1282,13 @@
 						if (+years[0] !== startYear || +years[1] !== endYear) {
 								startYear = +years[0];
 								endYear = +years[1];
-								updateAll();
+
+								if (tag === '.org-time-slider') {
+										updateTables();
+								}
+								else {
+										updateAll();
+								}
 						}
 				});
 				return slider;
@@ -1288,7 +1299,6 @@
 				// populate dropdowns
 				// App.populateCcDropdown('.cc-select', { dropRight: true });
 				App.populateCcDropdown('.cc-select', { dropUp: true, dropLeft: true });
-				App.populateCcDropdown('.org-cc-select', { dropUp: false, dropLeft: false });
 
 				d3.select('.dropdown-menu').classed('firefox', App.usingFirefox);
 
@@ -1396,6 +1406,45 @@
 
 				// update the map
 				updateAll();
+		}
+
+		// populates and initializes behavior for Organization table options
+		function initOrgFilters() {
+				// populate dropdowns
+				App.populateCcDropdown('.org-cc-select', { dropUp: false, dropLeft: false });
+
+				// update indicator type ('money' or 'score') on change
+				$('.org-ind-type-filter .org-radio-option').click(function updateOrgIndType() {
+						indType = $(this).find('input').attr('org-ind');
+						if (indType === 'org-money' || indType === 'org-inkind') {
+								$('.commit-toggle-options').slideDown();
+								App.showGhsaOnly = false;
+
+								if (indType === 'org-money') {
+										supportType = 'financial';
+								}
+								else {
+										supportType = 'inkind';
+								}
+						} else if (indType === 'org-score') {
+								$('.commit-toggle-options').slideUp();
+						}
+
+						updateTables();
+				});
+
+				// update money type ('committed' or 'disbursed') on change
+				$('.org-money-type-filter .org-radio-option').click(function updateMoneyType() {
+						orgMoneyType = $(this).find('input').attr('org-ind');
+						updateTables();
+				});
+
+				// update map on dropdown change
+				$('.org-cc-select').on('change', function() {
+						updateTables();
+				});
+
+				// Info tooltips were added in initFilters. They are being reused here.
 		}
 
 		function initCountryInfoBox() {
@@ -2011,14 +2060,33 @@
 				$(`${donorSelector}, ${recSelector}`).DataTable().destroy();
 				$(`${donorSelector} tbody tr, ${recSelector} tbody tr`).remove();
 
+				let spentFilter = {};
+				const ccs = $('.org-cc-select').val();
+
+				if (ccs.length <= App.capacities.length) {
+						spentFilter.ccs = ccs;
+				}
+
+				if (startYear > App.dataStartYear) {
+						spentFilter.startYear = startYear;
+				}
+
+				if (endYear < App.dataEndYear) {
+						spentFilter.endYear = endYear;
+				}
+
+				let committedFilter = _.clone(spentFilter);
+
+				committedFilter.committedOnly = true;
+
 				// get top funded countries
 				const fundedFunc = (supportType === 'financial') ? App.getTotalFunded : App.getInkindFunded;
 				const formatFunc = (supportType === 'financial') ? App.formatMoney : App.formatInkind;
 				const receivedFunc = (supportType === 'financial') ? App.getTotalReceived : App.getInkindReceived;
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 				const dNoun = (supportType === 'financial') ? 'Disbursed' : 'Provided';
-				$('.fund-table-title .text').text(`Top ${funderNoun}s (${App.dataStartYear} - ${App.dataEndYear})`);
-				$('.rec-table-title .text').text(`Top Recipients (${App.dataStartYear} - ${App.dataEndYear})`);
+				$('.fund-table-title .text').text(`Top ${funderNoun}s (${startYear} - ${endYear})`);
+				$('.rec-table-title .text').text(`Top Recipients (${startYear} - ${endYear})`);
 				$('.fund-col-name.head-text').text(funderNoun);
 				$('.d-col-name').text(dNoun);
 
@@ -2028,8 +2096,8 @@
 								const newObj = {
 										iso,
 										name: App.codeToNameMap.get(iso),
-										total_committed: fundedFunc(iso, { committedOnly: true }),
-										total_spent: fundedFunc(iso),
+										total_committed: fundedFunc(iso, committedFilter),
+										total_spent: fundedFunc(iso, spentFilter),
 								};
 								if (newObj.total_committed !== 0 || newObj.total_spent !== 0) {
 										countriesByFunding.push(newObj);
@@ -2045,8 +2113,8 @@
 								const newObj = {
 										iso,
 										name: App.codeToNameMap.get(iso),
-										total_committed: receivedFunc(iso, { committedOnly: true }),
-										total_spent: receivedFunc(iso),
+										total_committed: receivedFunc(iso, committedFilter),
+										total_spent: receivedFunc(iso, spentFilter),
 								};
 								if (newObj.total_committed !== 0 || newObj.total_spent !== 0) {
 										countriesByReceived.push(newObj);
@@ -2078,7 +2146,7 @@
 								`<div class="name-container">${name}</div>`;
 				});
 				// dRows.append('td').text(d => formatFunc(d.total_committed));
-				dRows.append('td').text(d => formatFunc(d.total_spent));
+				dRows.append('td').text(d => formatFunc((orgMoneyType === 'org-committed') ? d.total_committed : d.total_spent));
 
 				// populate recipient table
 				const rRows = d3.select(recSelector).select('tbody').selectAll('tr')
@@ -2101,7 +2169,7 @@
 								`<div class="name-container">${name}</div>`;
 				});
 				// rRows.append('td').text(d => formatFunc(d.total_committed));
-				rRows.append('td').text(d => formatFunc(d.total_spent));
+				rRows.append('td').text(d => formatFunc((orgMoneyType === 'org-committed') ? d.total_committed : d.total_spent));
 
 				$(`${donorSelector}, ${recSelector}`).DataTable({
 						pageLength: 10,

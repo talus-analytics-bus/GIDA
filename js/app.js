@@ -481,14 +481,60 @@ const App = {};
 				} else {
 						fundsToAdd = App.getFinancialProjectsWithAmounts(App.fundingLookup[iso], 'd', iso);
 				}
-				if (params.includeCommitments === true) {
+
+				return App.filterResults(fundsToAdd, params);
+		};
+
+		App.filterResults = (fundsToAdd, filter) => {
+				if (filter.ccs) {
+						fundsToAdd = App.filterOutResultsForCCS(fundsToAdd, filter);
+				}
+
+				if (filter.startYear || filter.endYear) {
+					return (filter.includeCommitments === true) ?
+							d3.sum(fundsToAdd, d=> App.sumYearData(d.spent_by_year, filter)) +
+									d3.sum(App.sumYearData(d.committed_by_year, filter)) :
+							(filter.committedOnly === true) ? d3.sum(fundsToAdd, d=> App.sumYearData(d.committed_by_year, filter)) :
+									d3.sum(fundsToAdd, d=> App.sumYearData(d.spent_by_year, filter));
+				}
+
+				if (filter.includeCommitments === true) {
 						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
-				} else if (params.committedOnly === true) {
+				} else if (filter.committedOnly === true) {
 						return d3.sum(fundsToAdd, d => d.total_committed);
 				} else {
 						return d3.sum(fundsToAdd, d => d.total_spent);
 				}
-		};
+		}
+
+		App.filterOutResultsForCCS = (fundsToAdd, filter) => {
+				if (filter.ccs) {
+						return fundsToAdd.filter( f => {
+								if (f.core_capacities.length == 0 && filter.ccs.includes("")) {
+										return f;
+								}
+
+								if (f.core_capacities.some(cc=> filter.ccs.includes(cc))) {
+										return f;
+								}
+						});
+				}
+		}
+
+		App.sumYearData = (yearList, filter) => {
+				var startYear = App.dataStartYear;
+				var endYear = App.dataEndYear;
+
+				if (filter.startYear) { startYear = filter.startYear; }
+				if (filter.endYear) { endYear = filter.endYear; }
+
+				const yearListKeys = Object.keys(yearList).map(Number);
+				const filteredYearList = yearListKeys.map(yval => {
+						return (yval >= startYear && yval <= endYear) ? yearList["" + yval] : 0;
+				});
+
+				return d3.sum(filteredYearList);
+		}
 
 		App.getReadyScores = (iso) => {
 				function isState(stt) {
@@ -544,6 +590,10 @@ const App = {};
 						fundsToAdd = Util.uniqueCollection(App.fundingLookup[iso], 'project_id');
 				} else {
 						fundsToAdd = App.getInkindSupportProjects(App.fundingLookup[iso], 'd', iso);
+
+						if (params.ccs) {
+								fundsToAdd = App.filterOutResultsForCCS(fundsToAdd, params);
+						}
 				}
 				if (params.includeCommitments === true) {
 						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
@@ -563,6 +613,10 @@ const App = {};
 						fundsToAdd = Util.uniqueCollection(App.recipientLookup[iso], 'project_id');
 				} else {
 						fundsToAdd = App.getInkindSupportProjects(App.recipientLookup[iso], 'r', iso);
+
+						if (params.ccs) {
+								fundsToAdd = App.filterOutResultsForCCS(fundsToAdd, params);
+						}
 				}
 				if (params.includeCommitments === true) {
 						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
@@ -584,13 +638,8 @@ const App = {};
 				} else {
 						fundsToAdd = App.getFinancialProjectsWithAmounts(App.recipientLookup[iso], 'r', iso);
 				}
-				if (params.includeCommitments === true) {
-						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
-				} else if (params.committedOnly === true) {
-						return d3.sum(fundsToAdd, d => d.total_committed);
-				} else {
-						return d3.sum(fundsToAdd, d => d.total_spent);
-				}
+
+				return App.filterResults(fundsToAdd, params);
 		};
 
 		App.getFundsByYear = (project) => {
