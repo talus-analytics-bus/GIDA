@@ -2440,9 +2440,6 @@ b {
   .network-map-options .search-container {
     position: relative;
     z-index: 100; }
-  .network-map-options .country-search-input,
-  .network-map-options .live-search-results-container {
-    width: 244px; }
   .network-map-options .slider-box {
     margin: 25px 0 40px; }
   .network-map-options .filter-box {
