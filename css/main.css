@@ -772,8 +772,6 @@ select.form-control {
     top: 62px;
     width: 325px;
     display: none; }
-  .navbar .live-search-results-container {
-    top: 32px; }
   .navbar .explore-dropdown {
     position: absolute;
     border: 1px solid black;
@@ -878,7 +876,7 @@ select.form-control {
   z-index: 100;
   display: none;
   position: absolute;
-  top: 44px;
+  top: 34px;
   width: 280px;
   background-color: white;
   color: black;
@@ -1583,8 +1581,6 @@ b {
         color: #eeeeee; }
       .map-page-container .map-page-tabs .org-heading .dark .has-feedback i {
         color: #eeeeee; }
-      .map-page-container .map-page-tabs .org-heading .live-search-results-container {
-        margin-top: -10px; }
       .map-page-container .map-page-tabs .org-heading .live-search-results-container .live-search-results-box {
         background: -webkit-linear-gradient(top, #fefefe 0%, #f3f3f3 100%); }
       .map-page-container .map-page-tabs .org-heading .dark .live-search-results-container .live-search-results-box {
@@ -2682,7 +2678,7 @@ b {
         .home-container .left-pane .search-container .search-title.dark {
           color: white; }
       .home-container .left-pane .search-container .search-box {
-        padding-top: 10px;
+        margin-top: 10px;
         padding-bottom: 5px;
         position: relative; }
       .home-container .left-pane .search-container .search-buttons {

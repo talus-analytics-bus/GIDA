@@ -11,17 +11,14 @@
 						initTabs();
 						updateTab();
 
-						if (tab === 'network') {
-								populateFilters();
-								initSlider();
-								initNetworkSearch();
-								initNetworkCountryBox();
-								networkMap = buildNetworkMap();
-								$('.submit-data-btn').click(() => hasher.setHash('submit'));
-						} else if (tab === 'country') {
-								initTableSearch();
-								populateTables('.donor-table', '.recipient-table');
-						}
+						populateFilters();
+						initSlider();
+						initNetworkSearch();
+						initNetworkCountryBox();
+						networkMap = buildNetworkMap();
+						$('.submit-data-btn').click(() => hasher.setHash('submit'));
+						initTableSearch();
+						populateTables('.donor-table', '.recipient-table');
 						initGhsaToggle(tab);
 				}
 
