@@ -20,9 +20,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy --staged Gida-$CIRCLE_BRANCH
-
-          # command: eb deploy vaccine-$CIRCLE_BRANCH
+          command: eb deploy --staged gida
 
       - run:
           name: Notify Slack
