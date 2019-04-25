@@ -84,7 +84,7 @@
     border-bottom: none;
     //editing nav bar on dark
     .navbar-nav > li > a, .navbar-nav > li > i {
-      color: #eeeeee;
+      color: $darkcolorText;
     }
 
     .navbar-nav > li > a:hover, .navbar-nav > li > i:hover {
@@ -93,7 +93,7 @@
     }
 
     .navbar-nav > .active > a, .navbar-nav > .active > i {
-      background-color: #222222 !important;
+      background-color: $darkcolor !important;
       color: white;
       border-bottom: 2px solid white;
     }
@@ -103,11 +103,11 @@
     }
 
     .nav-search-control {
-      color: #eeeeee;
+      color: $darkcolorText;
     }
 
     .explore-dropdown {
-      border: 1px solid #eeeeee;
+      border: 1px solid $darkcolorText;
       .explore-dropdown-box {
         .explore-dropdown-item {
           @include gradient(#444444, #585858);

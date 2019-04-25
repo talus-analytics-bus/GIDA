@@ -1071,11 +1071,11 @@ select.form-control {
     display: none;
     background-color: #f4f4f4; }
     .tabs .content.dark {
-      background-color: #444; }
+      background-color: #333333; }
   .tabs > .tab > [type=radio]:checked + label {
     background-color: #f4f4f4; }
     .tabs > .tab > [type=radio]:checked + label.dark {
-      background-color: #444; }
+      background-color: #333333; }
 
 .dataTables_wrapper .row:last-child {
   margin-top: 10px; }
@@ -1570,6 +1570,8 @@ b {
         margin: 0;
         padding: 0;
         padding-left: 6px; }
+      .map-page-container .map-page-tabs .org-content .table-content .sorting_disabled:after {
+        content: ""; }
     .map-page-container .map-page-tabs .organization-content {
       width: 100%; }
     .map-page-container .map-page-tabs .org-heading {
@@ -1577,7 +1579,7 @@ b {
       .map-page-container .map-page-tabs .org-heading .landing {
         line-height: 40px; }
       .map-page-container .map-page-tabs .org-heading .dark .country-search-input {
-        background-color: #333333;
+        background-color: #222222;
         color: #eeeeee; }
       .map-page-container .map-page-tabs .org-heading .dark .has-feedback i {
         color: #eeeeee; }
@@ -1809,7 +1811,7 @@ b {
           color: black; }
           .map-page-container .map-page-tabs .content table thead td.dark,
           .map-page-container .map-page-tabs .content table thead tr.dark {
-            background-color: #36404d;
+            background-color: black;
             color: #eeeeee; }
         .map-page-container .map-page-tabs .content table tbody td,
         .map-page-container .map-page-tabs .content table tbody tr {

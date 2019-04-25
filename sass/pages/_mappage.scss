@@ -51,6 +51,9 @@
                 padding: 0;
                 padding-left: 6px;
             }
+            .table-content .sorting_disabled:after {
+                content: "";
+            }
         }
 
         .organization-content {
@@ -63,11 +66,11 @@
                 line-height: 40px;
             }
             .dark .country-search-input {
-                background-color: #333333;
-                color: #eeeeee;
+                background-color: $darkcolor;
+                color: $darkcolorText;
             }
             .dark .has-feedback i {
-                color: #eeeeee;
+                color: $darkcolorText;
             }
             .live-search-results-container {
                 margin-top: -10px;
@@ -76,10 +79,10 @@
                 background: -webkit-linear-gradient(top, #fefefe 0%, #f3f3f3 100%);
             }
             .dark .live-search-results-container .live-search-results-box {
-                background: #333333;
+                background: $darkColorContainer;
             }
             .dark .live-search-results-container .live-search-results-box div {
-                color: #eeeeee !important;
+                color: $darkcolorText !important;
             }
         }
 
@@ -94,7 +97,7 @@
         }
 
         .multiselect-native-select li.active label {
-            color: #eeeeee;
+            color: $darkcolorText;
         }
 
         .content {
@@ -156,7 +159,7 @@
                 @include flex(0 0 0px);
                 width: 622px;
                 background: transparent;
-                border: #eeeeee;
+                border: $darkcolorText;
                 /*bottom: 45px;*/
                 /*new*/
                 position: absolute;
@@ -201,7 +204,7 @@
                         border: $darkpage-border;
 
                         .legend-box>svg>g>text{
-                            color: #eeeeee !important;
+                            color: $darkcolorText !important;
                         }
                     }
                 }
@@ -303,7 +306,7 @@
                     a {
                         border: 1px solid #ccc;
                         color: #ccc;
-                        background-color: #333333;
+                        background-color: $darkColorContainer;
                     }
                 }
             }
@@ -349,8 +352,8 @@
                         background-color: #eaeaea;
                         color: black;
                         &.dark {
-                            background-color: #36404d;
-                            color: #eeeeee;
+                            background-color: black;
+                            color: $darkcolorText;
                         }
                     }
                 }
@@ -361,7 +364,7 @@
                         color: black;
                         &.dark {
                             background-color: $darkcolor;
-                            color: #eeeeee;
+                            color: $darkcolorText;
                         }
                     }
                 }
