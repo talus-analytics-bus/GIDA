@@ -3,6 +3,7 @@ const Routing = {};
 (() => {
 	const templates = {};
 	const partials = {};
+	const tooltipTemplates = {};
 
 	const hbTemplates = [
 		'home',
@@ -17,13 +18,13 @@ const Routing = {};
 		'map',
 		'settings',
 		'submit',
+		'tooltip-fr',
 	]; // Add the name of the new template here
 	const hbPartials = []; // Add name of new partial here
 	const hbDirectory = 'templates/'; // Don't touch
 	const hbFileSuffix = '.hbs'; // Don't touch
 
 
-	//
 	// Logic: 	1) Load the handlebar templates from disk
 	//			2) Precompile the templates
 	//			3) Initialize the routes
@@ -92,6 +93,10 @@ const Routing = {};
 		$("script[type='text/x-handlebars-template']").each((i, e) => {
 			templates[e.id.replace('-template', '')] = Handlebars.compile($(e).html());
 		});
+		$("script[type='text/x-handlebars-tooltip-template']").each((i, e) => {
+			tooltipTemplates[e.id.replace('-template', '')] = Handlebars.compile($(e).html());
+		});
+		Routing.tooltipTemplates = tooltipTemplates;
 
 		if (callback) {
 			callback();
@@ -108,6 +113,10 @@ const Routing = {};
 			callback();
 		}
 	};
+
+	Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+		return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+	});
 
 	crossroads.ignoreState = true;
 	Routing.initializeRoutes = () => {

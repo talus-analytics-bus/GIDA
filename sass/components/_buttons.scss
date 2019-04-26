@@ -91,7 +91,7 @@ $border-width: 2px;
 
   $secondaryColor: #e6e6e6;
   $secondaryColor2: #f2f2f2;
-  $secondaryFont: black;
+  $secondaryFont: #4d4d4d;
 
   @include gradient($primaryColor, $primaryColor2, 'vert', 0%, 100%);
   color: $primaryFont;
