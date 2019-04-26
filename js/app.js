@@ -322,6 +322,33 @@ const App = {};
 												d.assistance_type = 'Direct financial support';
 										}
 
+										// Get year range
+										function getYearRange (datum) {
+											const t = datum.transactions;
+											if (t.length > 0) {
+												const min = Math.min(...t.map(tt => {
+													if (tt.cy === '') return Infinity;
+													if (+tt.cy > +App.dataEndYear) {
+														return Infinity;
+													} else return +tt.cy;
+												}
+											)
+										);
+										const max = Math.max(...t.map(tt => {
+											if (tt.cy === '') return -Infinity;
+											if (+tt.cy > +App.dataEndYear) {
+												return -Infinity;
+											} else return +tt.cy;
+										}
+									)
+								);
+								if (isNaN(min) || isNaN(max)) return '';
+								if (min === Infinity || max === -Infinity) return '';
+								if (min === max) return min;
+								else return `${min} - ${max}`;
+							} else return '';
+						}
+										d.year_range = getYearRange(d).toString();
 										d.core_capacities.forEach(cc => {
 												if (cc === 'General GHSA assistance') {
 														idx = d.core_capacities.indexOf(cc);
