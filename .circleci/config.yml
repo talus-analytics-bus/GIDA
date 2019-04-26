@@ -1,4 +1,8 @@
-version: 2
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
 jobs:
   deploy:
     working_directory: ~/repo
@@ -17,6 +21,8 @@ jobs:
             sudo apt-get install python3-pip python3-dev g++ build-essential
             sudo pip3 install --upgrade setuptools pytz
             sudo pip3 install awsebcli --upgrade
+
+      - aws-cli/configure
 
       - run:
           name: Deploying
