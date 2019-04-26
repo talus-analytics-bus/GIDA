@@ -169,6 +169,25 @@
 						const fundColor = App.fundColorPalette;
 						const receiveColor = App.receiveColorPalette;
 
+						let spentFilter = {};
+						const ccs = $('.cc-select').val();
+
+						if (ccs.length <= App.capacities.length) {
+								spentFilter.ccs = ccs;
+						}
+
+						if (startYear > App.dataStartYear) {
+								spentFilter.startYear = startYear;
+						}
+
+						if (endYear < App.dataEndYear) {
+								spentFilter.endYear = endYear;
+						}
+
+						let committedFilter = _.clone(spentFilter);
+
+						committedFilter.committedOnly = true;
+
 						// get top funded countries
 						const countriesByFunding = [];
 						for (const iso in App.fundingLookup) {
@@ -176,14 +195,15 @@
 										const newObj = {
 												iso,
 												name: App.codeToNameMap.get(iso),
-												total_committed: d3.sum(App.fundingLookup[iso], d => d.total_committed),
-												total_spent: d3.sum(App.fundingLookup[iso], d => d.total_spent),
+												total_committed: App.getTotalFunded(iso, committedFilter),
+												total_spent: App.getTotalFunded(iso, spentFilter),
 										};
 										if (newObj.total_committed !== 0 || newObj.total_spent !== 0) {
 												countriesByFunding.push(newObj);
 										}
 								}
 						}
+
 						Util.sortByKey(countriesByFunding, 'total_spent', true);
 
 						// get top recipient countries
@@ -193,8 +213,8 @@
 										const newObj = {
 												iso,
 												name: App.codeToNameMap.get(iso),
-												total_committed: d3.sum(App.recipientLookup[iso], d => d.total_committed),
-												total_spent: d3.sum(App.recipientLookup[iso], d => d.total_spent),
+												total_committed: App.getTotalReceived(iso, committedFilter),
+												total_spent: App.getTotalReceived(iso, spentFilter),
 										};
 										if (newObj.total_committed !== 0 || newObj.total_spent !== 0) {
 												countriesByReceived.push(newObj);
