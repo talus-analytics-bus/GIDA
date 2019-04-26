@@ -1814,6 +1814,9 @@ b {
           .map-page-container .map-page-tabs .content .table-content .left-table div.dataTables_wrapper,
           .map-page-container .map-page-tabs .content .table-content .right-table div.dataTables_wrapper {
             width: 100%; }
+          .map-page-container .map-page-tabs .content .table-content .left-table .table-title-container,
+          .map-page-container .map-page-tabs .content .table-content .right-table .table-title-container {
+            position: relative; }
       .map-page-container .map-page-tabs .content table {
         width: 100%; }
         .map-page-container .map-page-tabs .content table td,
@@ -1826,7 +1829,8 @@ b {
         .map-page-container .map-page-tabs .content table thead td,
         .map-page-container .map-page-tabs .content table thead tr {
           background-color: #eaeaea;
-          color: black; }
+          color: black;
+          vertical-align: middle; }
           .map-page-container .map-page-tabs .content table thead td.dark,
           .map-page-container .map-page-tabs .content table thead tr.dark {
             background-color: black;
@@ -1858,7 +1862,7 @@ b {
   width: 100%; }
   .table-title-container .fund-table-title,
   .table-title-container .rec-table-title {
-    float: left; }
+    margin-left: 35px; }
 
 .analysis-container {
   padding: 0;
