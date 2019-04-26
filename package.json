@@ -80,7 +80,6 @@
     "express": "^4.15.4",
     "formidable": "^1.1.1",
     "google-translate-api": "^2.3.0",
-    "jsontocsv": "^0.3.0",
-    "xlsx": "^0.14.2"
+    "jsontocsv": "^0.3.0"
   }
 }
