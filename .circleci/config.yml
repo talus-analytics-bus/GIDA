@@ -22,6 +22,7 @@ jobs:
             sudo pip3 install --upgrade setuptools pytz
             sudo pip3 install awsebcli --upgrade
 
+      - aws-cli/install
       - aws-cli/configure
 
       - run:
