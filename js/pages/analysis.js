@@ -164,10 +164,17 @@
 						return true;
 				};
 
+				function updateTables() {
+						populateTables('.donor-table', '.recipient-table');
+				}
+
 				function populateTables(donorSelector, recSelector) {
 						const numRows = 10;
 						const fundColor = App.fundColorPalette;
 						const receiveColor = App.receiveColorPalette;
+
+						$(`${donorSelector}, ${recSelector}`).DataTable().destroy();
+						$(`${donorSelector} tbody tr, ${recSelector} tbody tr`).remove();
 
 						let spentFilter = {};
 						const ccs = $('.cc-select').val();
@@ -694,6 +701,7 @@
 				}
 
 				function updateNetworkMap() {
+						updateTables();
 						const moneyType = $('.money-type-filter input:checked').attr('ind');
 						const networkData = getNetworkData();
 						toggleNetworkContent(networkData);
