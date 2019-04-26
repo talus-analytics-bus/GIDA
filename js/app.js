@@ -594,6 +594,8 @@ const App = {};
 						if (params.ccs) {
 								fundsToAdd = App.filterOutResultsForCCS(fundsToAdd, params);
 						}
+
+						fundsToAdd = App.filterOutInKindResultsYears(fundsToAdd, params);
 				}
 				if (params.includeCommitments === true) {
 						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
@@ -617,6 +619,8 @@ const App = {};
 						if (params.ccs) {
 								fundsToAdd = App.filterOutResultsForCCS(fundsToAdd, params);
 						}
+
+						fundsToAdd = App.filterOutInKindResultsYears(fundsToAdd, params);
 				}
 				if (params.includeCommitments === true) {
 						return d3.sum(fundsToAdd, d => d.total_spent + d.total_committed);
@@ -628,6 +632,27 @@ const App = {};
 						// return d3.sum(fundsToAdd, d => d.total_spent);
 				}
 		};
+
+		App.filterOutInKindResultsYears = (fundsToAdd, filter) => {
+				if (filter.startYear || filter.endYear) {
+						var startYear = App.dataStartYear;
+						var endYear = App.dataEndYear;
+
+						if (filter.startYear) { startYear = filter.startYear; }
+						if (filter.endYear) { endYear = filter.endYear; }
+
+						fundsToAdd = fundsToAdd.filter(f => {
+							const yearListKeys = f.years.map(Number);
+							if (yearListKeys.some(yval => {
+									return (Number.isInteger(yval) && yval >= startYear && yval <= endYear);
+							})) {
+									return f;
+							}
+						});
+				}
+
+				return fundsToAdd;
+		}
 
 		// returns the total amount of money received by a given country
 		App.getTotalReceived = (iso, params = {}) => {

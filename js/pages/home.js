@@ -86,6 +86,8 @@
 				currentNodeDataMap,
 				startYear,
 				endYear,
+				orgStartYear,
+				orgEndYear,
 				supportType,
 				page;
 
@@ -108,6 +110,8 @@
 				currentNodeDataMap = d3.map();  // maps country iso to the value on map
 				startYear = App.dataStartYear;  // the start year of the time range shown
 				endYear = App.dataEndYear + 1;  // the end year of the time range shown
+				orgStartYear = App.dataStartYear;
+				orgEndYear = App.dataEndYear + 1;
 				params.ghsaOnly = true;
 
 				if (App.mapSet !== undefined) {
@@ -1241,7 +1245,7 @@
 				initFilters();
 				initOrgFilters();
 				initSlider('.time-slider');
-				initSlider('.org-time-slider');
+				initOrgSlider();
 				initSearch('.search-container');
 		}
 
@@ -1306,12 +1310,26 @@
 								startYear = +years[0];
 								endYear = +years[1];
 
-								if (tag === '.org-time-slider') {
-										updateTables();
-								}
-								else {
-										updateAll();
-								}
+								updateAll();
+						}
+				});
+				return slider;
+		}
+
+		// initializes slider functionality
+		function initOrgSlider() {
+				const slider = App.initSlider('.org-time-slider', {
+						min: App.dataStartYear,
+						max: App.dataEndYear + 1,
+						value: [orgStartYear, orgEndYear],
+						tooltip: 'hide',
+				});
+				slider.on('change', (event) => {
+						const years = event.target.value.split(',');
+						if (+years[0] !== orgStartYear || +years[1] !== orgEndYear) {
+								orgStartYear = +years[0];
+								endYear = +years[1];
+								updateTables();
 						}
 				});
 				return slider;
