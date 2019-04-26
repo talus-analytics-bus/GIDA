@@ -1652,6 +1652,18 @@ select.form-control {
   border-bottom: 1px solid #eee;
 }
 
+/* line 8, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_tables.scss */
+.organization-content table.table-bordered {
+  border: 1px solid #666666;
+  border-top: 2px solid #666666;
+}
+
+/* line 11, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_tables.scss */
+.organization-content table.table-bordered.dark {
+  border-color: #ddd;
+  border-top-width: 1px;
+}
+
 /* line 1, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_text.scss */
 h2 {
   font-weight: 600;
