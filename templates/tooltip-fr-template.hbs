@@ -1,0 +1,39 @@
+<script id="tooltip-fr-template" type="text/x-handlebars-tooltip-template">
+  <div class="info-container">
+    <div class="info-box">
+      <div class="info-title" style="background-color: {{headerColor}}">{{name}}</div>
+      {{#ifEquals mode "jee-score"}}
+      <div class="info-score-text-container">
+        <span class="info-score-text"></span>
+        <img class="score-text-info-img info-img" src="img/info.png"/>
+      </div>
+      {{/ifEquals}}
+      {{#ifEquals mode "money-inkind"}}
+      <div class="row c-and-d">
+        <div class="info-value-box col-sm-6">
+          <div class="info-committed-value info-value">{{totalCommittedFmt}}</div>
+          <div class="info-committed-value-label info-value-label">{{{committedLabel}}}</div>
+        </div>
+        <div class="info-value-box col-sm-6">
+          <div class="info-spent-value info-value">{{totalSpentFmt}}</div>
+          <div class="info-spent-value-label info-value-label">{{{spentLabel}}}</div>
+        </div>
+      </div>
+      {{/ifEquals}}
+      {{#ifEquals mode "undetermined"}}
+      <div class="row undetermined">
+        <div class="info-value-box info-inkind-details col-sm-12">
+          <div class="undetermined-value info-value">Not Reported <img
+            class="undetermined-info-img info-img" src="img/info.png"/></div>
+            <div class="undetermined-unit">in-kind contributions</div>
+            <div class="undetermined-value-label info-value-label">{{spentLabel}}</div>
+          </div>
+        </div>
+      </div>
+      {{/ifEquals}}
+      <div class="info-button-container">
+        <button class="info-analysis-button talus-btn map-funding-details-btn talus-primary-btn" value="View Funding Details"></button>
+      </div>
+    </div>
+  </div>
+</script>

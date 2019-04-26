@@ -4,3 +4,12 @@
 .dataTables_wrapper .dataTables_scroll {
 	border-bottom: 1px solid #eee;
 }
+
+.organization-content table.table-bordered {
+	border: 1px solid #666666;
+  border-top: 2px solid #666666;
+	&.dark {
+		border-color: #ddd;
+		border-top-width: 1px;
+	}
+}

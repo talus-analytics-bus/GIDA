@@ -1,10 +1,14 @@
-version: 2
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
 jobs:
   deploy:
     working_directory: ~/repo
 
     docker:
-      - image: circleci/node:8.9.1
+      - image: circleci/node:10.12.0-stretch
 
     steps:
       - checkout
@@ -18,16 +22,17 @@ jobs:
             sudo pip3 install --upgrade setuptools pytz
             sudo pip3 install awsebcli --upgrade
 
+      - aws-cli/install
+      - aws-cli/configure
+
       - run:
           name: Deploying
-          command: eb deploy --staged Gida-$CIRCLE_BRANCH
-
-          # command: eb deploy vaccine-$CIRCLE_BRANCH
+          command: eb deploy --staged gida
 
       - run:
           name: Notify Slack
           command: |
-            curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"http://Gida-$CIRCLE_BRANCH.us-west-1.elasticbeanstalk.com/\"}"
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://gida.us-west-1.elasticbeanstalk.com/"}' \
             https://hooks.slack.com/services/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
 
 workflows:

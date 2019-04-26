@@ -31,6 +31,7 @@ const App = {};
 						const elementsToChange = [
 								'html',
 								'body',
+								'table',
 								'body div',
 								'.info-img',
 								'label',

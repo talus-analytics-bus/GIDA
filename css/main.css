@@ -309,7 +309,7 @@
     background: -moz-linear-gradient(top, #e6e6e6 0%, #f2f2f2 100%);
     background: -ms-linear-gradient(top, #e6e6e6 0%, #f2f2f2 100%);
     background: -o-linear-gradient(top, #e6e6e6 0%, #f2f2f2 100%);
-    color: black; }
+    color: #4d4d4d; }
   .talus-primary-btn:hover {
     border: 2px solid #425379;
     background-color: white;
@@ -321,7 +321,7 @@
     color: #213561; }
     .talus-primary-btn:hover.dark {
       border: 2px solid transparent;
-      color: black;
+      color: #4d4d4d;
       background-color: #f2f2f2;
       background: -webkit-gradient(linear, left-top, left-bottom, from(#f2f2f2 0%), to(#f2f2f2 100%));
       background: -webkit-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
@@ -437,8 +437,8 @@
       margin: 10px auto 0 auto; }
   .info-container .info-close-button {
     position: absolute;
-    top: 13px;
-    right: 20px;
+    top: 8px;
+    right: 10px;
     cursor: pointer;
     background-color: #e6e6e6 !important;
     width: 20px;
@@ -458,6 +458,7 @@
   .info-container .info-title {
     color: white !important;
     padding: 7px 50px 7px 11px;
+    line-height: 1.2em;
     font-size: 1.4em;
     font-weight: 600;
     text-align: left; }
@@ -489,7 +490,7 @@
     text-align: left;
     margin-left: 0px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: .84em;
     max-width: 350px;
     color: black !important; }
     .info-container .info-value-label.dark {
@@ -497,7 +498,7 @@
   .info-container .info-button-container {
     margin-top: 20px;
     margin-bottom: 10px;
-    margin-right: 15px;
+    margin-right: 10px;
     float: right;
     border: #cccccc; }
   .info-container img {
@@ -1081,6 +1082,13 @@ select.form-control {
 .dataTables_wrapper .dataTables_scroll {
   border-bottom: 1px solid #eee; }
 
+.organization-content table.table-bordered {
+  border: 1px solid #666666;
+  border-top: 2px solid #666666; }
+  .organization-content table.table-bordered.dark {
+    border-color: #ddd;
+    border-top-width: 1px; }
+
 h2 {
   font-weight: 600; }
 
@@ -1239,6 +1247,20 @@ b {
     .tooltipster-sidetip.tooltipster-shadow.tooltipster-talus .tooltipster-content .tooltip-contents .tooltip-button {
       align-self: flex-end;
       margin-top: 10px; }
+
+.tooltipster-fr-table .info-container {
+  display: block;
+  background: transparent;
+  color: #222222;
+  border: 1px solid #b2b2b2;
+  width: 100%; }
+  .tooltipster-fr-table .info-container .info-value-label {
+    font-size: .84em; }
+  .tooltipster-fr-table .info-container.dark {
+    border: 1px solid #666666; }
+  .tooltipster-fr-table .info-container div {
+    color: #222222;
+    background: transparent; }
 
 .source-text {
   margin-bottom: 0px;
@@ -1813,6 +1835,20 @@ b {
         .map-page-container .map-page-tabs .content table tbody tr {
           background-color: #eeeeee;
           color: black; }
+          .map-page-container .map-page-tabs .content table tbody td.active,
+          .map-page-container .map-page-tabs .content table tbody tr.active {
+            transform: translate(0, 0);
+            background: transparent;
+            outline: #3b88fd solid 3px;
+            transition-timing-function: linear;
+            transition: background 125ms, outline 125ms; }
+            .map-page-container .map-page-tabs .content table tbody td.active td,
+            .map-page-container .map-page-tabs .content table tbody tr.active td {
+              border-color: #3b88fd;
+              background-color: transparent;
+              font-weight: bold;
+              transition-timing-function: linear;
+              transition: background-color 125ms, border-color 125ms, font-weight 125ms; }
           .map-page-container .map-page-tabs .content table tbody td.dark,
           .map-page-container .map-page-tabs .content table tbody tr.dark {
             background-color: #222222;

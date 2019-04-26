@@ -1,3 +1,4 @@
+"use strict";
 (() => {
 		// colors
 		const colorIndex = 3;
@@ -79,6 +80,7 @@
 				indType,
 				moneyFlow,
 				moneyType,
+				orgMoneyType,
 				scoreType,
 				activeCountry,
 				currentNodeDataMap,
@@ -88,6 +90,9 @@
 				orgEndYear,
 				supportType,
 				page;
+
+		const fundingColor = '#597251';
+		const recipientColor = '#623B63';
 
 		const setConstants = (params) => {
 				// state variables for current map indicator
@@ -99,7 +104,6 @@
 				moneyType = 'committed';  // either 'committed' or 'disbursed'
 				orgMoneyType = 'org-committed';  // either 'org-committed' or 'org-inkind'
 				scoreType = 'score';  // either 'score' or 'combined'
-
 
 				// variables used throughout home page
 				activeCountry = d3.select(null);  // the active country
@@ -127,6 +131,26 @@
 				supportType = 'financial'; // 'financial' or 'inkind'
 
 		};
+
+		/**
+		 * Returns formatting function for values in tooltips.
+		 * @param  {[type]} indType [description]
+		 * @return {[type]}         [description]
+		 */
+		const getValueFormat = (indType, params = {}) => {
+
+			// For big table tooltips, return the simple version.
+			if (params.bigTooltip === true) {
+				return (indType === 'inkind' || indType === 'org-inkind') ? (val) => {
+					return Util.comma(val) + ` project${val !== 1 ? 's' : ''}`;
+				} : App.formatMoney;
+			} else {
+				return (indType === 'inkind') ? (val) => {
+					return Util.comma(val) + ` <br><span class="inkind-value">in-kind support project${val !== 1 ? 's' : ''}</span>`;
+				} : App.formatMoney;
+			}
+		};
+
 
 		App.initHome = (params = {}) => {
 				page = 'home';
@@ -440,6 +464,7 @@
 				}
 				let noun = '';
 				let br = '<br>';
+				const isInKind = indType.includes('inkind');
 				if (mType === 'committed') {
 						noun = 'Committed';
 				} else if (mType === 'disbursed') {
@@ -752,9 +777,7 @@
 								let label = getMoneyTypeLabel(moneyFlow, moneyType);
 								let value = d.value;
 
-								let format = (indType === 'inkind') ? (val) => {
-										return Util.comma(val) + ` <br><span class="inkind-value">in-kind support project${val !== 1 ? 's' : ''}</span>`;
-								} : App.formatMoney;
+								let format = getValueFormat(indType);
 								if (d.undetermined === true) {
 										// format = (indType === 'inkind') ? (val) => { return 'Unspecified Value' + ` <br><span class="inkind-value">in-kind support project${val !== 1 ? 's' : ''}</span>`; } : () => { return 'Unspecified Value';};
 										format = (d) => {
@@ -2069,8 +2092,6 @@
 		}
 
 		function populateTables(donorSelector, recSelector) {
-				const taBlue = '#082b84';
-				const taRed = '#c91414';
 				const numRows = Infinity;
 				const fundColor = greens;
 				const receiveColor = purples;
@@ -2141,6 +2162,79 @@
 				}
 				Util.sortByKey(countriesByReceived, 'total_spent', true);
 
+				/**
+				 * Initializes / Updates tooltips for Explore/Org tables.
+				 * @param  {object} $tooltipTarget jQuery selection of tooltip target
+				 * @param  {object} entity         Data about the table row entity
+				 * @param  {object} entityType     Params defining table type
+				 */
+				const initTooltips = ($tooltipTarget, entity, entityType) => {
+
+					/**
+					* Returns the context for the table tooltip HB template.
+					* @param  {object} entity     Data about table row entity
+					* @return {object}            Context for HB template
+					*/
+					const getTableTooltipContext = (entity) => {
+						const getIndTypeForTooltip = (indType) => {
+							switch (indType) {
+								case 'org-money':
+								case 'money':
+								case 'org-inkind':
+								case 'inkind':
+									return 'money-inkind';
+									break;
+								case 'org-score':
+									return 'jee-score';
+									break;
+								default:
+									console.log('Unexpected indicator type: ' + indType);
+									return 'money-inkind';
+								break;
+							}
+							console.log('Unexpected indicator type: ' + indType);
+							return '';
+						};
+						const format = getValueFormat (
+							indType, // from the radio toggle
+							{
+								bigTooltip: true, // special formatting and language
+							}
+						);
+						const isGhsa = false;
+						const context = {
+							...entity,
+							mode: getIndTypeForTooltip(indType),
+							totalCommittedFmt: format(entity.total_committed),
+							totalSpentFmt: format(entity.total_spent),
+							committedLabel: getMoneyTypeLabel('funded', 'committed', isGhsa),
+							spentLabel: getMoneyTypeLabel('funded', 'disbursed', isGhsa),
+							headerColor: entityType.color,
+						};
+						return context;
+					};
+					const context = getTableTooltipContext(entity);
+					$tooltipTarget.tooltipster({
+						trigger: 'hover',
+						minWidth: 300,
+						maxWidth: 350,
+						interactive: true,
+						functionAfter: (helper, instance) => { $(instance.origin).removeClass('active'); },
+						functionReady: (helper, instance) => {
+							const theme = App.currentTheme === 'dark' ? 'light' : 'dark';
+							App.toggleTheme(theme);
+							$(instance.origin).addClass('active');
+							$('.tooltipster-fr-table .info-analysis-button').on('click', function onClick () {
+								if (entity.iso !== 'Not reported') {
+									hasher.setHash(`analysis/${entity.iso}/${entityType.code}`);
+								}
+							})
+						},
+						theme: ['tooltipster-shadow', 'tooltipster-talus', 'tooltipster-sidetip', 'tooltipster-fr-table'],
+						content: Routing.tooltipTemplates['tooltip-fr'](context),
+					});
+				}
+
 				// populate funding table
 				const dRows = d3.select(donorSelector).select('tbody').selectAll('tr')
 						.data(countriesByFunding.slice(0, numRows))
@@ -2150,11 +2244,23 @@
 						// .style('background-color', (d, i) => fundColor[Math.floor(i / 2)])
 						// .style('color', 'black')
 						// .style('color', (d, i) => (i < 4 ? '#fff' : 'black'))
-						.on('click', (d) => {
-								if (d.iso !== 'Not reported') {
-										hasher.setHash(`analysis/${d.iso}/d`);
-								}
-						});
+						// .on('click', (d) => {
+						// 		if (d.iso !== 'Not reported') {
+						// 				hasher.setHash(`analysis/${d.iso}/d`);
+						// 		}
+						// })
+						.each(function (entity) {
+							initTooltips(
+								$(this), // tooltip target
+								entity, // tooltip initial data
+								{
+									code: 'r',
+									name: 'received',
+									color: fundingColor,
+								} // tooltip parameters
+							);
+						}
+					);
 				dRows.append('td').html((d) => {
 						const country = App.countries.find(c => c.ISO2 === d.iso);
 						const flagHtml = country ? App.getFlagHtml(d.iso) : '';
@@ -2173,11 +2279,23 @@
 						// .style('background-color', '#eaeaea')
 						.style('background', 'transparent')
 						// .style('color', 'black')
-						.on('click', (d) => {
-								if (d.iso !== 'Not reported') {
-										hasher.setHash(`analysis/${d.iso}/r`);
-								}
-						});
+						// .on('click', (d) => {
+						// 		if (d.iso !== 'Not reported') {
+						// 				hasher.setHash(`analysis/${d.iso}/r`);
+						// 		}
+						// })
+						.each(function (entity) {
+							initTooltips(
+								$(this), // tooltip target
+								entity, // tooltip initial data
+								{
+									code: 'r',
+									name: 'received',
+									color: recipientColor,
+								} // tooltip parameters
+							);
+						}
+					);
 				rRows.append('td').html((d) => {
 						const country = App.countries.find(c => c.ISO2 === d.iso);
 						const flagHtml = country ? App.getFlagHtml(d.iso) : '';
