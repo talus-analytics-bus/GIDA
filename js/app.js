@@ -252,10 +252,11 @@ const App = {};
 						.defer(d3.csv, 'data/unsd_data.csv')
 						.defer(d3.csv, 'data/donor_codes_live.csv')
 						// .defer(d3.json, 'data/donor_codes.json')
-						.defer(d3.json, 'data/funding_data.json') // VERSION 17, created 11 June 2018, with old WHO data
+						.defer(d3.json, 'data/funding_data-032119-v2.json')
 						.defer(d3.json, 'data/jee_score_data.json')
 						.defer(d3.json, 'data/currencies.json')
-						.defer(d3.json, 'data/submitted_data.json') // non-iati data, created 15 June 2018
+						.defer(d3.json, 'data/submitted_data-032119-v5.json') // non-iati data
+						// .defer(d3.json, 'data/submitted_data.json') // non-iati data, created 15 June 2018
 						// .defer(d3.json, 'data/who-iati-v15.json') // WHO projects from funding data v15
 						.defer(d3.tsv, 'data/geographic_groupings.tsv')
 						.defer(d3.csv, 'data/resolve_scores.csv')
@@ -317,10 +318,39 @@ const App = {};
 
 								// Set undefined assistance types to financial
 								fundingData.forEach(d => {
+									if (d.project_description === undefined) d.project_description = '';
+									if (d.donor_name === undefined) d.donor_name = '';
 										if (d.assistance_type === undefined) {
 												d.assistance_type = 'Direct financial support';
 										}
 
+										// Get year range
+										function getYearRange (datum) {
+											const t = datum.transactions;
+											if (t.length > 0) {
+												const min = Math.min(...t.map(tt => {
+													if (tt.cy === '') return Infinity;
+													if (+tt.cy > +App.dataEndYear) {
+														return Infinity;
+													} else return +tt.cy;
+												}
+											)
+										);
+										const max = Math.max(...t.map(tt => {
+											if (tt.cy === '') return -Infinity;
+											if (+tt.cy > +App.dataEndYear) {
+												return -Infinity;
+											} else return +tt.cy;
+										}
+									)
+								);
+								if (isNaN(min) || isNaN(max)) return '';
+								if (min === Infinity || max === -Infinity) return '';
+								if (min === max) return min;
+								else return `${min} - ${max}`;
+							} else return '';
+						}
+										d.year_range = getYearRange(d).toString();
 										d.core_capacities.forEach(cc => {
 												if (cc === 'General GHSA assistance') {
 														idx = d.core_capacities.indexOf(cc);
