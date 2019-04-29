@@ -31,6 +31,7 @@
   .filter-container {
     width: 100%;
     margin: 10px 0;
+    font-size: 20px;
 
     @include flexbox(column nowrap);
     justify-content: flex-start;
@@ -40,7 +41,9 @@
       background-color: #E6E6E6;
       width: 100%;
       padding: 5px 10px 5px 5px;
-      text-transform: uppercase;
+      text-transform: none;
+      font-weight: bold;
+      font-size: 1em;
       cursor: pointer;
 
       @include flexbox(row nowrap);
@@ -58,6 +61,7 @@
       padding: 5px;
       border: $lightpage-border;
       width: 100%;
+      font-size: .75em;
       &.dark {
         background-color: $darkcolor;
         border: 1px solid #666666;
