@@ -165,8 +165,7 @@
 				App.loadFundingData({ showGhsaOnly: App.showGhsaOnly });
 
 				// get filter values
-				// const ccs = _.clone(App.capacities);
-				const ccs = [];
+				 const ccs = _.clone(App.capacities).map(a => a.id);
 
 				// clear out current data
 				currentNodeDataMap.clear();
