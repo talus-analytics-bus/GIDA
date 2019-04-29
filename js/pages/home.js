@@ -2254,8 +2254,8 @@
 								$(this), // tooltip target
 								entity, // tooltip initial data
 								{
-									code: 'r',
-									name: 'received',
+									code: 'd',
+									name: 'funded',
 									color: fundingColor,
 								} // tooltip parameters
 							);
