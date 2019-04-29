@@ -4525,7 +4525,7 @@ display: inline;
 /* line 98, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .select-data-container .select-data-contents .separator {
   grid-area: separator;
-  background: transparent;
+  background: white;
   height: 2px;
 }
 
