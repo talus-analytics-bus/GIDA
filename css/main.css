@@ -4525,7 +4525,7 @@ display: inline;
 /* line 98, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .select-data-container .select-data-contents .separator {
   grid-area: separator;
-  background: white;
+  background: transparent;
   height: 2px;
 }
 
@@ -4590,46 +4590,61 @@ display: inline;
   background-color: #36404d;
 }
 
+/* line 159, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+.data-container .preview-container {
+  width: 100%;
+}
+
 /* line 160, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+.data-container table {
+  width: 100%;
+}
+
+/* line 162, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+.data-container table td {
+  min-width: 200px;
+}
+
+/* line 163, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td, .data-container table tr {
   border: 1px solid #666666;
 }
 
-/* line 163, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 166, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td:nth-child(1) {
   border-right: none;
 }
 
-/* line 166, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 169, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td:nth-child(2) {
   border-left: none;
   border-right: none;
 }
 
-/* line 170, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 173, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td:nth-child(3) {
   border-left: none;
 }
 
-/* line 175, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td, .data-container table thead tr {
   background-color: #eaeaea;
   color: black;
 }
 
-/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 181, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td.dark, .data-container table thead tr.dark {
   background-color: #555;
   color: white;
 }
 
-/* line 185, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 188, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td, .data-container table tbody tr {
   background-color: white;
   color: black;
 }
 
-/* line 188, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 191, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td.dark, .data-container table tbody tr.dark {
   background-color: #222222;
   color: white;

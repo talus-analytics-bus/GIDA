@@ -97,7 +97,7 @@ display: inline;
 
       .separator {
         grid-area: separator;
-        background: white;
+        background: transparent;
         height: 2px;
       }
 
@@ -156,7 +156,10 @@ display: inline;
     }
   }
 
+  .preview-container { width: 100%; }
   table {
+    width: 100%;
+    td { min-width: 200px; }
     td,tr {
       border: 1px solid #666666;
     }

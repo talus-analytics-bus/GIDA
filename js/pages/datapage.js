@@ -116,21 +116,21 @@ populateFieldCheckboxes(defaultExportCols);
 table = initTable();
 function updateTable (dataToShow) {
 	const enabledCols = ['project_name:name'];
-	// const enabledCols = ['project_name:name', 'source:name'];
-	// Dev
-	// d3.selectAll('.field-options input:checked').property('checked', false);
-
 	$('.field-options input:checked').each((d, i) => enabledCols.push($(i).val() + ':name'));
-	dataToShow = App.fundingData; // TODO
-	table
-	.clear()
-	.rows.add(dataToShow)
-	.columns().visible(false)
-	.columns(enabledCols).visible(true)
-	.draw();
+
+	table.columns().visible(false)
+		.columns(enabledCols).visible(true);
+
+	if (dataToShow !== undefined) {
+		table
+		.clear()
+		.rows.add(dataToShow);
+	}
+	table.draw();
 }
 table.update = updateTable;
-table.update([App.fundingData[0]])
+table.update(App.fundingData)
+// table.update(_.sample(App.fundingData, 100))
 
 $('.select-data-contents').hide();
 $('.select-data-header').on('click', () => {
@@ -211,6 +211,7 @@ const defaultExportCols = [
 		noDataText: 'Unspecified',
 		func: true,
 		displayName: 'Project description', // name of checkbox
+		showByDefault: true,
 		hasCheckbox: true,
 	},
 	{
@@ -347,19 +348,17 @@ function initTable(){
 	console.log('cols')
 	console.log(cols)
 	return $('table.download-data-table').DataTable( {
-		data: [],
+		data: App.fundingData,
 		scrollCollapse: false,
-		autoWidth: false,
+		autoWidth: true,
 		ordering: true,
+		scrollX: true,
+		// sScrollXInner: "100%",
+		order: [[4, 'desc']],
 		searching: true,
 		pageLength: 25,
 		bLengthChange: false,
-		// bInfo: false,
 		columns: cols,
-		// columns: [
-		//     { title: "States (Top 10)", data: 'state', width: '50%', type: 'html'},
-		//     { title: ("Calls " + datetimeTemplate), data: 'calls', type: 'num-fmt', width: '50%' },
-		// ]
 	} );
 	// return stateTable;
 }
@@ -401,7 +400,7 @@ const populateFieldCheckboxes = (cols) => {
 
 	$('.field-options input').change(function () {
 		console.log($(this).val());
-		table.update(App.fundingData); // TODO
+		table.update(); // TODO
 	});
 };
 })();
