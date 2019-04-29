@@ -1,35 +1,37 @@
 <script id="data-template" type="text/x-handlebars-template">
-    <div class="data-container container container-text">
-        <div class="title-container">
-            <div class="title">
-                Download Data
-            </div>
-            <div class="data-toggle"></div>
-            <button class="talus-btn talus-secondary-btn ghsa-button" value="GHSA"></button>
-        </div>
-
-        <div class="filter-container">
-            <div class="filter-header">
-                <span class="filter-title">Select Data</span>
-                <span class="filter-glyph glyphicon glyphicon-chevron-up"></span>
-            </div>
-            <div class="filter-contents">
-                This feature is currently being developed.
-            </div>
-        </div>
-        <div class="download-container btn talus-primary-btn">
-        </div>
-        <div class="preview-container">
-            <table class="download-data-table table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>Funder</td>
-                        <td>Recipient</td>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+  <div class="data-container container container-text">
+    <div class="title-container">
+      <div class="title">
+        Download Data
+      </div>
+      <div class="data-toggle"></div>
+      <button class="talus-btn talus-secondary-btn ghsa-button" value="GHSA"></button>
     </div>
+
+    <div class="select-data-container">
+      <div class="select-data-header">
+        <span class="select-data-title">Select Data</span>
+        <span class="select-data-glyph glyphicon glyphicon-chevron-up"></span>
+      </div>
+      <div class="select-data-contents">
+        <div class="filter-contents">
+          Select filters to apply to selected data.
+          <div class="filter-options"></div>
+          <div class="filter-selections"></div>
+        </div>
+        <div class="separator"></div>
+        <div class="field-contents">
+          <div class="field-options">
+            <span>Select data fields to include in download.</span>
+          </div>
+          <div class="download-container btn talus-primary-btn"></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-container">
+      <table class="download-data-table table table-bordered table-hover">
+
+      </table>
+    </div>
+  </div>
 </script>

@@ -318,6 +318,8 @@ const App = {};
 
 								// Set undefined assistance types to financial
 								fundingData.forEach(d => {
+									if (d.project_description === undefined) d.project_description = '';
+									if (d.donor_name === undefined) d.donor_name = '';
 										if (d.assistance_type === undefined) {
 												d.assistance_type = 'Direct financial support';
 										}

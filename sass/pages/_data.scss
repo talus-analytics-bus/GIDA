@@ -1,6 +1,6 @@
 /*table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting:after {
-   position: static;
-   display: inline;
+position: static;
+display: inline;
 }*/
 
 .data-container {
@@ -28,7 +28,7 @@
     }
   }
 
-  .filter-container {
+  .select-data-container {
     width: 100%;
     margin: 10px 0;
     font-size: 20px;
@@ -37,10 +37,11 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    .filter-header {
+    .select-data-header {
       background-color: #E6E6E6;
       width: 100%;
-      padding: 5px 10px 5px 5px;
+      padding: 10px;
+      // padding: 5px 10px 5px 5px;
       text-transform: none;
       font-weight: bold;
       font-size: 1em;
@@ -50,21 +51,86 @@
       justify-content: space-between;
       align-items: center;
 
+      .glyphicon.glyphicon-chevron-up {
+        color: #4682b4;
+        font-weight: lighter;
+        transform: rotate(180deg);
+        &.flip {
+          transform: rotate(0deg);
+          transition: transform 1000msec;
+        }
+      }
+
       &.dark {
         background-color: #555;
         border: 1px solid #ddd;
       }
     }
 
-    .filter-contents {
-      background: transparent;
-      padding: 5px;
-      border: $lightpage-border;
+    .select-data-contents {
       width: 100%;
+      // padding: 10px 15px;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(2,auto);
+      grid-template-areas: "filters"
+      "separator"
+      "fields";
+      grid-gap: 10px 0;
+      // grid-template-areas: "filters filters"
+      // "filters filters"
+      // "filters filters"
+      // "fields download";
+      background: #f2f2f2;
+      border: none;
       font-size: .75em;
       &.dark {
         background-color: $darkcolor;
         border: 1px solid #666666;
+      }
+
+      .filter-contents, .field-contents { padding: 10px 15px; }
+
+      .filter-contents {
+        grid-area: filters;
+      }
+
+      .separator {
+        grid-area: separator;
+        background: white;
+        height: 2px;
+      }
+
+      .field-contents {
+        grid-area: fields;
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-template-rows: auto;
+        grid-template-areas: "fields download";
+        .field-options {
+          grid-area: fields;
+          form {
+            padding-left: 5px;
+            label {
+              margin: 0 !important;
+              padding-left: 20px;
+              font-weight: normal;
+            }
+            input {
+              position: absolute;
+              margin-left: 0;
+              left: 0;
+            }
+            padding-left: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            grid-auto-flow: column;
+            grid-template-rows: repeat(3, auto);
+          }
+        }
+        .download-container {
+          grid-area: download;
+        }
       }
     }
   }
@@ -72,7 +138,7 @@
   .download-container {
     align-self: flex-end;
     padding: 10px;
-    margin: 10px 0;
+    // margin: 10px 0;
   }
 
   .paginate_button {
@@ -125,9 +191,5 @@
         }
       }
     }
-  }
-
-  .flip {
-    transform: rotate(180deg);
   }
 }
