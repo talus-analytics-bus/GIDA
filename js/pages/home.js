@@ -335,8 +335,8 @@
 				initTableSearch();
 				populateTables('.donor-table', '.recipient-table');
 
-				App.fundIcon('.fund-col-name');
-				App.receiveIcon('.receive-col-name');
+				App.fundIcon('.fund-table-title span');
+				App.receiveIcon('.rec-table-title span');
 
 				const handleToggle = (key) => {
 						moneyFlow = key;
@@ -2123,7 +2123,8 @@
 				const formatFunc = (supportType === 'financial') ? App.formatMoney : App.formatInkind;
 				const receivedFunc = (supportType === 'financial') ? App.getTotalReceived : App.getInkindReceived;
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
-				const dNoun = (supportType === 'financial') ? 'Disbursed' : 'Provided';
+				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Distributed';
+				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
 				$('.fund-table-title .text').text(`Top ${funderNoun}s (${startYear} - ${endYear})`);
 				$('.rec-table-title .text').text(`Top Recipients (${startYear} - ${endYear})`);
 				$('.fund-col-name.head-text').text(funderNoun);
