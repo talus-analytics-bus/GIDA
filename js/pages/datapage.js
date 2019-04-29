@@ -144,8 +144,6 @@
 		}).then((result) => {
 			return Promise.resolve(result.blob());
 		}).then((blobTmp) => {
-			console.log('blobTmp')
-			console.log(blobTmp)
 			try {
 				const blob = new Blob([blobTmp], {type: 'application/vnd.ms-excel'});
 				const downloadUrl = URL.createObjectURL(blob);
@@ -165,7 +163,6 @@
 				a.download = fn + filenameStr + ".xlsx";
 				document.body.appendChild(a);
 				a.click();
-				if (callback) callback(null);
 				return;
 			} catch (err) {
 				console.log(err);

@@ -67,7 +67,8 @@ app.post('/download_data', function(req, res) {
   const exportColFuncs = {
     project_description: function (datum, col) {
       if (datum.source.name !== 'IATI via D-Portal') {
-        return datum[col.name];
+        if (unspecifiedValues.includes(datum[col.name])) return null;
+        else return datum[col.name];
       } else return 'n/a (descriptions not available for IATI projects)';
     },
     core_capacities: function (datum, col) {
