@@ -234,8 +234,6 @@
 						const dRows = d3.select(donorSelector).select('tbody').selectAll('tr')
 								.data(countriesByFunding.slice(0, numRows))
 								.enter().append('tr')
-								.style('background-color', (d, i) => fundColor[Math.floor(i / 2)])
-								.style('color', (d, i) => (i < 4 ? '#fff' : 'black'))
 								.on('click', (d) => {
 										if (d.iso !== 'Not reported') {
 												hasher.setHash(`analysis/${d.iso}/d`);
@@ -256,8 +254,6 @@
 						const rRows = d3.select(recSelector).select('tbody').selectAll('tr')
 								.data(countriesByReceived.slice(0, numRows))
 								.enter().append('tr')
-								.style('background-color', (d, i) => receiveColor[Math.floor(i / 2)])
-								.style('color', (d, i) => (i < 4 ? '#fff' : 'black'))
 								.on('click', (d) => {
 										if (d.iso !== 'Not reported') {
 												hasher.setHash(`analysis/${d.iso}/r`);

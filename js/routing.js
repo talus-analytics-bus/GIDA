@@ -139,11 +139,13 @@ const Routing = {};
 			loadPage('home', App.initHome);
 		});
 		crossroads.addRoute('/analysis', () => {
-			$('#theme-toggle').bootstrapToggle('enable');
+			$('#theme-toggle').bootstrapToggle('off');
+			$('#theme-toggle').bootstrapToggle('disable');
 			loadPage('analysis', App.initAnalysis, 'network');
 		});
 		crossroads.addRoute('/analysis/country', () => {
-			$('#theme-toggle').bootstrapToggle('enable');
+			$('#theme-toggle').bootstrapToggle('off');
+			$('#theme-toggle').bootstrapToggle('disable');
 			loadPage('analysis', App.initAnalysis, 'country');
 		});
 		crossroads.addRoute('/analysis/{iso}', (iso) => {
