@@ -325,7 +325,9 @@
           div.dataTables_wrapper {
             width: 100%;
           }
-
+          .table-title-container {
+            position: relative;
+          }
         }
       }
 
@@ -348,6 +350,7 @@
           tr {
             background-color: #eaeaea;
             color: black;
+            vertical-align: middle;
             &.dark {
               background-color: black;
               color: $darkcolorText;
@@ -392,6 +395,6 @@
 
   .fund-table-title,
   .rec-table-title {
-    float: left;
+    margin-left: 35px;
   }
 }

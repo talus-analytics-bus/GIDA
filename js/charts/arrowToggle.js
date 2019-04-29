@@ -257,8 +257,8 @@
 				const icon = d3.selectAll(selector)
 						.append('svg')
 						.style('position', 'absolute')
-						.style('top', '6px')
-						.style('left', `${$(thead).width() + 15}px`)
+						.style('top', '21px')
+						.style('left', '0px')
 						.attr('width', '30px')
 						.attr('height', '30px');
 				icon.append('path')
