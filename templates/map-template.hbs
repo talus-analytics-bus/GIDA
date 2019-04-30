@@ -1,7 +1,7 @@
 <script id="map-template" type="text/x-handlebars-template">
     <div class="map-page-container container">
-        <div class="map-page-title row">
-            Explore Countries on a map
+        <div class="map-page-title">
+            Explore countries on a map
         </div>
         <div class="map-page-buttons">
             <button class="talus-btn talus-secondary-btn ghsa-button" value="GHSA"></button>
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="info-button-container">
-                                <button class="info-analysis-button talus-btn map-funding-details-btn talus-primary-btn" value="View Funding Details"></button>
+                                <button class="info-analysis-button talus-btn map-funding-details-btn talus-primary-btn" value="View funding details"></button>
                             </div>
                             <!--<div class="source-text">-->
                                 <!--<b>Source:</b> IATI registry via-->
@@ -89,7 +89,7 @@
                                                 <div class="map-options-title">
                                                     <div class="top-state-toggle-container top-state-toggle-switch toggle-container">
                                                         <label>
-                                                            <input class="form-check-input ghsa-only-checkbox" type="checkbox" value="" id="ghsa-only-checkbox"> Show GHSA Projects Only
+                                                            <input class="form-check-input ghsa-only-checkbox" type="checkbox" value="" id="ghsa-only-checkbox"> Show GHSA projects only
                                                             <img class="ghsa-info-img info-img" src="img/info.png" />
                                                         </label>
                                                     </div>
@@ -129,7 +129,7 @@
                                     <div class="filter-box">
                                         <label>
                                             <input class="form-check-input ghsa-only-checkbox" type="checkbox" value=""
-                                                   id="ghsa-only-checkbox"> Show GHSA Projects Only
+                                                   id="ghsa-only-checkbox"> Show GHSA projects only
                                             <img class="ghsa-info-img info-img" src="img/info.png"/>
                                         </label>
                                         <br>
@@ -137,16 +137,16 @@
                                         <div class="ind-type-filter">
                                             <div class="radio-option">
                                                 <input type="radio" name="ind" ind="money" checked/>
-                                                <span>Financial Support</span>
+                                                <span>Financial support</span>
                                             </div>
                                             <div class="radio-option multi-line">
                                                 <input type="radio" name="ind" ind="inkind"/>
-                                                In-kind Support
+                                                In-kind support
                                                 <img class="inkind-support-info-img info-img" src="img/info.png"/>
                                             </div>
                                             <div class="radio-option">
                                                 <input type="radio" name="ind" ind="score"/>
-                                                <span>JEE Score</span>
+                                                <span>JEE score</span>
                                             </div>
                                         </div>
                                         <br>
@@ -173,7 +173,7 @@
                                                 {{!<div class="or-text money-type-or-text">or</div>}}
                                                 <div class="radio-option d-type">
                                                     <input type="radio" ind="disbursed"/>
-                                                    <span>Distributed</span>
+                                                    <span>Disbursed</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,13 +236,13 @@
                                             <div class="org-radio-option">
                                                 <label>
                                                     <input type="radio" name="org-ind" value="org-money" org-ind="org-money" checked/>
-                                                    Financial Support
+                                                    Financial support
                                                 </label>
                                             </div>
                                             <div class="org-radio-option">
                                                 <label>
                                                     <input type="radio" name="org-ind" value="org-inkind" org-ind="org-inkind"/>
-                                                    In-kind Support <img class="inkind-support-info-img info-img" src="img/info.png"/
+                                                    In-kind support <img class="inkind-support-info-img info-img" src="img/info.png"/
                                                 </label>
                                             </div>
                                         </div>
@@ -257,7 +257,7 @@
                                                 </div>
                                                 <div class="org-radio-option">
                                                     <input type="radio" name="org-money" value="org-disbursed" org-ind="org-disbursed"/>
-                                                    <span>Distributed</span>
+                                                    <span>Disbursed</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -283,7 +283,7 @@
                         <div class="table-content">
                             <div class="left-table">
                                 <div class="table-title-container">
-                                    <h3 class="fund-table-title"><span class="text">Top Funders</span>
+                                    <h3 class="fund-table-title"><span class="text">Top funders</span>
                                         <!--<button class="btn btn-sm btn-primary alt-btn btn-funders-map">View on Map</button>-->
                                     </h3>
                                 </div>
@@ -291,7 +291,7 @@
                                 <table class="donor-table country-table table table-bordered table-hover">
                                     <thead>
                                     <tr class="fund-header-row">
-                                        <td class="fund-col-name"><span class="head-text">Top Funders&nbsp;&nbsp</span></td>
+                                        <td class="fund-col-name"><span class="head-text">Top funders&nbsp;&nbsp</span></td>
                                         <td class="d-col-name">Disbursed</td>
                                     </tr>
                                     </thead>
@@ -300,14 +300,14 @@
                             </div>
                             <div class="right-table">
                                 <div class="table-title-container">
-                                    <h3 class="rec-table-title"><span class="text">Top Recipients</span>
+                                    <h3 class="rec-table-title"><span class="text">Top recipients</span>
                                         <!--<button class="btn btn-sm btn-primary alt-btn btn-recipients-map">View on Map</button>-->
                                     </h3>
                                 </div>
                                 <table class="recipient-table country-table table table-bordered table-hover">
                                     <thead>
                                     <tr class="rec-header-row">
-                                        <td class="receive-col-name"><span class="head-text">Top Recipients&nbsp;&nbsp</span></td>
+                                        <td class="receive-col-name"><span class="head-text">Top recipients&nbsp;&nbsp</span></td>
                                         <td class="d-col-name">Disbursed</td>
                                     </tr>
                                     </thead>

@@ -65,7 +65,7 @@
 			$('.end-year').text(App.dataEndYear);
 			$('.money-type').text('disbursed');
 			// $('.money-type').text(moneyType === 'd' ? 'disbursed' : 'committed');
-			$('.provided-or-received').text(moneyType === 'd' ? 'Provided' : 'Received');
+			$('.provided-or-received').text(moneyType === 'd' ? 'provided' : 'received');
 			$('.money-type-cap').text(moneyType === 'd' ? 'Disbursed' : 'Received');
 			$('.money-type-noun').text(moneyType === 'd' ? 'funder' : 'recipient');
 			$('.money-type-noun-cap').text(moneyType === 'd' ? 'Funder' : 'Recipient');
@@ -812,22 +812,22 @@
 		};
 
 		/**
-		 * Draws the "Top Recipients" or "Top Funders" table that appears on a
+		 * Draws the "Top recipients" or "Top funders" table that appears on a
 		 * country analysis page.
 		 */
 		function drawCountryTable(selector, moneyTypeForTable) {
 			const $tableContainer = $(selector);
 			if (moneyTypeForTable === 'd') {
-				$tableContainer.find('.section-title').text('Top Recipients');
+				$tableContainer.find('.section-title').text('Top recipients');
 			} else {
-				$tableContainer.find('.section-title').text('Top Funders');
+				$tableContainer.find('.section-title').text('Top funders');
 			}
 
 			// get table data
 			const countryInd = (moneyTypeForTable === 'd') ? 'recipient_country' : 'donor_code';
 			const countryIndOther = (moneyTypeForTable === 'd') ? 'donor_code' : 'recipient_country';
 
-			// If "Top Funders" table:
+			// If "Top funders" table:
 			let fundedData = [];
 			const fundedByCountry = {};
 
@@ -840,7 +840,7 @@
 
 			// nameField is the original
 			// name field for the recipient if hte table is
-			// "Top Recipients" or the donor if its "Top Funders"
+			// "Top recipients" or the donor if its "Top funders"
 			const nameFieldOrig = (moneyTypeForTable === 'd') ? 'recipient_name_orig' : 'donor_name_orig';
 			const nameFieldOrigOther = (moneyTypeForTable === 'd') ? 'donor_name_orig' : 'recipient_name_orig';
 			const nameField = (moneyTypeForTable === 'd') ? 'recipient_name' : 'donor_name';

@@ -23,7 +23,7 @@ Read on for an example and list of supported sub-components.
 
 Navbars come with built-in support for a handful of sub-components. Choose from the following as needed:
 
-- `.navbar-brand` for your company, product, or project name.
+- `.navbar-brand` for your company, product, or Project name.
 - `.navbar-nav` for a full-height and lightweight navigation (including support for dropdowns).
 - `.navbar-toggler` for use with our collapse plugin and other [navigation toggling](#responsive-behaviors) behaviors.
 - `.form-inline` for any form controls and actions.

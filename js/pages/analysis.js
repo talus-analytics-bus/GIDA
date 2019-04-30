@@ -321,9 +321,9 @@
 								'FIPS': 'Not reported',
 								'ISO2': 'Not reported',
 								'NAME': 'Not reported',
-								'regionName': 'Other Funders / Recipients',
-								'subRegionName': 'Other Funders / Recipients',
-								'intermediateRegionName': 'Other Funders / Recipients',
+								'regionName': 'Other funders / recipients',
+								'subRegionName': 'Other funders / recipients',
+								'intermediateRegionName': 'Other funders / recipients',
 								'country': false,
 						});
 
@@ -600,10 +600,10 @@
 						// }
 
 						// // add non-countries
-						// fundsByRegion['Other Funders / Recipients'] = { 'Other Funders / Recipients': {} };
+						// fundsByRegion['Other funders / recipients'] = { 'Other funders / recipients': {} };
 						// for (const iso in App.recipientLookup) {
 						// 	if (App.countries.find(c => c.ISO2 === iso && c.country === false)) {
-						// 		fundsByRegion['Other Funders / Recipients']['Other Funders / Recipients'][iso] = {
+						// 		fundsByRegion['Other funders / recipients']['Other funders / recipients'][iso] = {
 						// 			totalReceived: d3.sum(App.recipientLookup[iso], d => totalFunc(d)),
 						// 			totalFunded: 0,
 						// 			fundsByC: {},
@@ -612,10 +612,10 @@
 						// 			const value = totalFunc(p);
 						// 			if (value) {
 						// 				const rIso = p.recipient_country;
-						// 				if (!fundsByRegion['Other Funders / Recipients']['Other Funders / Recipients'][iso].fundsByC[rIso]) {
-						// 					fundsByRegion['Other Funders / Recipients']['Other Funders / Recipients'][iso].fundsByC[rIso] = 0;
+						// 				if (!fundsByRegion['Other funders / recipients']['Other funders / recipients'][iso].fundsByC[rIso]) {
+						// 					fundsByRegion['Other funders / recipients']['Other funders / recipients'][iso].fundsByC[rIso] = 0;
 						// 				}
-						// 				fundsByRegion['Other Funders / Recipients']['Other Funders / Recipients'][iso].fundsByC[rIso] += value;
+						// 				fundsByRegion['Other funders / recipients']['Other funders / recipients'][iso].fundsByC[rIso] += value;
 						// 			}
 						// 		});
 						// 	}
@@ -753,7 +753,7 @@
 						const moneyType = $('.money-type-filter input:checked').attr('ind');
 						if (data.totalFunded) {
 								$('.nci-donor-value').text(App.formatMoney(data.totalFunded));
-								$('.nci-donor-section .nci-value-label').text(moneyType === 'committed' ? 'Total Funded Commitments' : 'Total Funded Disbursements');
+								$('.nci-donor-section .nci-value-label').text(moneyType === 'committed' ? 'Total funded commitments' : 'Total funded disbursements');
 								$('.nci-donor-section').slideDown();
 						} else {
 								$('.nci-donor-section').slideUp();

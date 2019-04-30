@@ -29,11 +29,11 @@
 			.on('click', () => hasher.setHash(`analysis/${iso}`));
 
 			// fill in other text
-			$('.money-type-noun').text(moneyFlow === 'd' ? 'Funder' : 'Recipient');
-			$('.opp-money-type-noun').text(moneyFlow === 'd' ? 'Recipient' : 'Funder');
+			$('.money-type-noun').text(moneyFlow === 'd' ? 'funder' : 'recipient');
+			$('.opp-money-type-noun').text(moneyFlow === 'd' ? 'recipient' : 'funder');
 			$('.money-type-cap').text(moneyFlow === 'd' ? 'Disbursed' : 'Received');
-			$('.commit-noun').text(moneyFlow === 'd' ? 'Committed Funds' :
-				'Committed Funds to Receive');
+			$('.commit-noun').text(moneyFlow === 'd' ? 'Committed funds' :
+				'Committed funds to Receive');
 			$('.start-year').text(App.dataStartYear);
 			$('.end-year').text(App.dataEndYear);
 
@@ -146,7 +146,7 @@
 				headerData = [
 				{ name: 'Funder', value: 'donor_name', valueFunc: (p) => { return p.donor_name_orig || p.donor_name; } },
 				{ name: 'Recipient', value: 'recipient_name', valueFunc: (p) => { return p.recipient_name_orig || p.recipient_name; } },
-				{ name: 'Project Name', value: 'project_name' },
+				{ name: 'Project name', value: 'project_name' },
 				{ name: 'Committed', value: 'total_committed', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_committed'); } },
 				{ name: 'Disbursed', value: 'total_spent', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_spent'); } },
 				];
@@ -176,10 +176,10 @@
 						return 'None';
 					},
 				},
-				{ name: 'Committed Funds', value: 'total_committed', type: 'money' },
-				{ name: 'Disbursed Funds', value: 'total_spent', type: 'money' },
-				{ name: 'Committed In-kind Projects', value: 'total_other_c', type: 'num' },
-				{ name: 'Disbursed In-kind Projects', value: 'total_other_d', type: 'num' },
+				{ name: 'Committed funds', value: 'total_committed', type: 'money' },
+				{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
+				{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num' },
+				{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num' },
 				];
 			} else if (currentInfoTab === 'cc') {
 				headerData = [
@@ -191,16 +191,16 @@
 						return cap ? cap.name : d.cc;
 					},
 				},
-				{ name: 'Committed Funds', value: 'total_committed', type: 'money', valueFunc: (d) => { if (d.unspecified) return 'Specific amount unknown'; else return d.total_committed; }},
-				{ name: 'Disbursed Funds', value: 'total_spent', type: 'money' },
-				{ name: 'Committed In-kind Projects', value: 'total_other_c', type: 'num' },
-				{ name: 'Disbursed In-kind Projects', value: 'total_other_d', type: 'num' },
+				{ name: 'Committed funds', value: 'total_committed', type: 'money', valueFunc: (d) => { if (d.unspecified) return 'Specific amount unknown'; else return d.total_committed; }},
+				{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
+				{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num' },
+				{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num' },
 				];
 			} else if (currentInfoTab === 'inkind') {
 				headerData = [
 				{ name: 'Provider', value: 'donor_name', valueFunc: (p) => { return p.donor_name_orig || p.donor_name; } },
 				{ name: 'Recipient', value: 'recipient_name', value2: 'recipient_name_orig', valueFunc: (p) => { return p.recipient_name_orig || p.recipient_name; }  },
-				{ name: 'Commitment or Disbursement', value: 'commitment_disbursements', valueFunc: (p) => { const lower = p.commitment_disbursements; return lower.charAt(0).toUpperCase() + lower.substr(1); }},
+				{ name: 'Commitment or disbursement', value: 'commitment_disbursements', valueFunc: (p) => { const lower = p.commitment_disbursements; return lower.charAt(0).toUpperCase() + lower.substr(1); }},
 				{ name: 'Description', value: 'project_name' },
 				];
 				// headerData = [

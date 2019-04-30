@@ -189,7 +189,7 @@
 
                         <div class="tooltip-row">
                             <div class="tooltip-row-title"> Committed </div>
-                            <div class="tooltip-row-detail"> ${App.formatMoneyShort(d.total_committed)}&nbsp;USD </div> 
+                            <div class="tooltip-row-detail"> ${App.formatMoneyShort(d.total_committed)}&nbsp;USD </div>
                         </div>
                         <div class="tooltip-row">
                             <div class="tooltip-row-title"> Disbursed </div>
@@ -225,7 +225,7 @@
 
                         <div class= "tooltip-row">
                             <div class="tooltip-row-title"> Committed </div>
-                            <div class="tooltip-row-detail"> ${App.formatMoneyShort(d.total_committed)}USD </div> 
+                            <div class="tooltip-row-detail"> ${App.formatMoneyShort(d.total_committed)}USD </div>
                         </div>
                         <div class="tooltip-row">
                             <div class="tooltip-row-title"> Disbursed </div>
@@ -298,8 +298,9 @@
 
         // add legend
         const rectWidth = 50;
+        // const legendShift = 
         const legend = chart.append('g')
-        .attr('transform', `translate(${width - 160}, -20)`);
+        .attr('transform', `translate(${(param.moneyType === 'r') ? width - 160 - 50 : width - 160}, -20)`);
         const legendGroups = legend.selectAll('g')
         .data([color, middleColor])
         .enter().append('g')
@@ -327,9 +328,9 @@
         .attr('transform', (d, i) => `translate(${rectWidth + 8 + 68 - 6 * i}, 6)`)
         .text((d, i) => {
             if (param.moneyType === 'r') {
-                return (i === 0) ? 'Funds to Receive' : 'Funds Received';
+                return (i === 0) ? 'funds to receive' : 'funds received';
             }
-            return 'Funds';
+            return 'funds';
         });
 
         return chart;

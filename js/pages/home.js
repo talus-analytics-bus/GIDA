@@ -457,7 +457,7 @@
 		}
 
 		function getMoneyTypeLabel(mFlow, mType, isGhsa = false) {
-				let flowNoun = (mFlow === 'funded') ? '(Funder)' : '(Recipient)';
+				let flowNoun = (mFlow === 'funded') ? '(funder)' : '(recipient)';
 				if (isGhsa) {
 						flowNoun = '';
 				}
@@ -465,14 +465,14 @@
 				let br = '<br>';
 				const isInKind = indType.includes('inkind');
 				if (mType === 'committed') {
-						noun = 'Committed';
+						noun = 'committed';
 				} else if (mType === 'disbursed') {
 						if (mFlow === 'funded' && indType === 'inkind') {
-								noun = 'Provided';
+								noun = 'provided';
 						} else if (mFlow === 'funded' && indType !== 'inkind') {
-								noun = 'Disbursed';
+								noun = 'disbursed';
 						} else {
-								noun = 'Received';
+								noun = 'received';
 						}
 				} else if (mType === 'inkind') {
 						noun = '';
@@ -799,7 +799,7 @@
 										.text(d.properties.NAME);
 								if (d.undetermined !== true) {
 										if (indType === 'score') {
-												let scoreText = 'Avg. JEE Score: ';
+												let scoreText = 'Avg. JEE score: ';
 												let score = 0;
 												if (currentNodeDataMap.has(d.properties.ISO2)) {
 														score = currentNodeDataMap.get(d.properties.ISO2).score;
@@ -999,29 +999,29 @@
 				let titleText = '';
 				if (indType === 'money' || indType === 'ghsa') {
 						if (moneyType === 'committed') {
-								titleText = 'Funds Committed';
+								titleText = 'Funds committed';
 						} else {
 								if (moneyFlow === 'funded') {
-										titleText = 'Funds Disbursed';
+										titleText = 'Funds disbursed';
 								} else {
-										titleText = 'Funds Received';
+										titleText = 'Funds received';
 								}
 						}
 						titleText += ` (in ${App.currencyIso})`;
 				} else if (indType === 'score') {
 						if (scoreType === 'score') {
-								titleText = 'Average JEE Score for Selected Core Capacities';
+								titleText = 'Average JEE score for selected Core Capacities';
 						} else if (scoreType === 'combined') {
-								titleText = 'Financial Resources / Needs Metric';
+								titleText = 'Financial resources / needs metric';
 						}
 				} else if (indType === 'inkind') {
 						if (moneyType === 'committed') {
-								titleText = 'In-kind Support Projects Committed';
+								titleText = 'In-kind support projects committed';
 						} else {
 								if (moneyFlow === 'funded') {
-										titleText = 'In-kind Support Projects Provided';
+										titleText = 'In-kind support projects provided';
 								} else {
-										titleText = 'In-kind Support Projects Received';
+										titleText = 'In-kind support projects received';
 								}
 						}
 				}
@@ -1062,7 +1062,7 @@
 								.attr('transform', `translate(${barWidth * hatchSpacing + (barWidth * (colors.length - 1))}, 0)`);
 						undetermined.select('text')
 								.attr('x', barWidth / 2)
-								.text('Unspecified Value');
+								.text('Unspecified value');
 						const rectMask = undetermined.select('rect')
 								.attr('class', 'mask-bar');
 						const clone = Util.clone_d3_selection(rectMask, 1)
@@ -1159,7 +1159,7 @@
 						if (indType === 'money' || indType === 'ghsa' || indType === 'inkind') {
 								$('.info-score-text-container').slideUp();
 						} else if (indType === 'score') {
-								let scoreText = 'Average JEE Score: ';
+								let scoreText = 'Average JEE score: ';
 								if (valueObj.score) {
 										scoreText = App.getScoreNameHtml(valueObj.score);
 								} else {
@@ -2122,10 +2122,10 @@
 				const formatFunc = (supportType === 'financial') ? App.formatMoney : App.formatInkind;
 				const receivedFunc = (supportType === 'financial') ? App.getTotalReceived : App.getInkindReceived;
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
-				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Distributed';
+				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Disbursed';
 				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
 				$('.fund-table-title .text').text(`Top ${funderNoun}s (${startYear} - ${endYear})`);
-				$('.rec-table-title .text').text(`Top Recipients (${startYear} - ${endYear})`);
+				$('.rec-table-title .text').text(`Top recipients (${startYear} - ${endYear})`);
 				$('.fund-col-name.head-text').text(funderNoun);
 				$('.d-col-name').text(dNoun);
 

@@ -20,7 +20,7 @@ The data/ subdirectory also includes the following files:
 
 Specific Information regarding each subdirectory is included below.
 
-# Data Sources
+# Data sources
 
 ## CRS
 

@@ -76,7 +76,7 @@
 				func: false,
 				noDataText: 'Unspecified',
 				showByDefault: true,
-				displayName: 'Assistance type',
+				displayName: 'Support type',
 				hasCheckbox: true,
 			},
 			{

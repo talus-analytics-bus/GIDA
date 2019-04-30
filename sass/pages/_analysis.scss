@@ -5,7 +5,7 @@
 	//border-bottom: $border;
 	min-height: calc(100% - 51px);
 	//@include gradient(#fff, #f0f0f0);
-    background-color: $lightcolor;
+	background-color: $lightcolor;
 	&.dark {
 		background-color: $darkcolor;
 	}
@@ -37,8 +37,16 @@
 	.analysis-content {
 		position: relative;
 		margin: 0;
-		padding: 0px 30px 10px;
+		padding: 10px 0;
+		// padding: 0px 30px 10px;
 		z-index: 100;
+
+		&:not(.analysis-country-content) h3 {
+			color: $headerColor;
+			line-height: unset;
+			font-size: 24px;
+			text-transform: uppercase;
+		}
 	}
 	.flag {
 		position: relative;

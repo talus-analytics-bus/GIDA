@@ -1185,9 +1185,9 @@ const App = {};
 								'NAME': name,
 								'acronym': codeObj.acronym,
 								'POP2005': 0,
-								'regionName': 'Other Funders / Recipients',
-								'subRegionName': 'Other Funders / Recipients',
-								'intermediateRegionName': 'Other Funders / Recipients',
+								'regionName': 'Other funders / recipients',
+								'subRegionName': 'Other funders / recipients',
+								'intermediateRegionName': 'Other funders / recipients',
 								'country': false,
 						},
 				);
@@ -1249,8 +1249,8 @@ const App = {};
 		];
 		App.setSources = () => {
 
-				const linkHtml = '<a href="#about" class="source-text">Data Sources</a>';
-				let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data Sources</a><div class="data-source-sep"></div><ul>';
+				const linkHtml = '<a href="#about" class="source-text">Data sources</a>';
+				let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data sources</a><div class="data-source-sep"></div><ul>';
 				sourceNames.forEach((sourceName) => {
 						tooltipContent += `<li>${sourceName}</li>`;
 				});

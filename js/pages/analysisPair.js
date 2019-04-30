@@ -207,16 +207,16 @@
 							return cap ? cap.name : d.cc;
 						},
 					},
-					{ name: 'Committed Funds', value: 'total_committed', type: 'money' },
-					{ name: 'Disbursed Funds', value: 'total_spent', type: 'money' },
-					{ name: 'Committed In-kind Projects', value: 'total_other_c', type: 'num', supportType: 'inkind' },
-					{ name: 'Disbursed In-kind Projects', value: 'total_other_d', type: 'num', supportType: 'inkind' },
+					{ name: 'Committed funds', value: 'total_committed', type: 'money' },
+					{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
+					{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num', supportType: 'inkind' },
+					{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num', supportType: 'inkind' },
 				];
 			} else if (currentInfoTab === 'inkind') {
 				headerData = [
 					{ name: 'Provider', value: 'donor_name', valueFunc: (p) => { return p.donor_name_orig || p.donor_name; } },
 					{ name: 'Recipient', value: 'recipient_name', value2: 'recipient_name_orig', valueFunc: (p) => { return p.recipient_name_orig || p.recipient_name; }  },
-					{ name: 'Commitment or Disbursement', value: 'commitment_disbursements', valueFunc: (p) => { const lower = p.commitment_disbursements; return lower.charAt(0).toUpperCase() + lower.substr(1); }},
+					{ name: 'Commitment or disbursement', value: 'commitment_disbursements', valueFunc: (p) => { const lower = p.commitment_disbursements; return lower.charAt(0).toUpperCase() + lower.substr(1); }},
 					{ name: 'Description', value: 'project_name' },
 				];
 			}

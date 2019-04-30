@@ -220,7 +220,7 @@
 			const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 			const dNoun = (supportType === 'financial') ? 'Disbursed' : 'Provided';
 			$('.fund-table-title .text').text(`Top ${funderNoun}s (${App.dataStartYear} - ${App.dataEndYear})`);
-			$('.rec-table-title .text').text(`Top Recipients (${App.dataStartYear} - ${App.dataEndYear})`);
+			$('.rec-table-title .text').text(`Top recipients (${App.dataStartYear} - ${App.dataEndYear})`);
 			$('.fund-col-name').text(funderNoun);
 			$('.d-col-name').text(dNoun);
 

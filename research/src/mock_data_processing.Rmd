@@ -873,7 +873,7 @@ ggplot(demo_data, aes(log(amount_dispersed), fill = data_source)) +
 ggplot(demo_data, aes(log(amount_committed), fill = data_source)) +
     geom_histogram(bins = 25) +
   ylab("Number of Commitments") +
-  xlab("Log Amount Committed") +
+  xlab("Log Amount committed") +
   ggtitle("Commitment Amount by Data Source") +
   ## rename legend
   scale_fill_discrete(name = "Data Source")

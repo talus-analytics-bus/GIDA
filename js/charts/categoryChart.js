@@ -187,25 +187,25 @@
 							content: `<b>Core Capacity:</b> ${d.cc}` +
 							`<br><b>Recipient:</b> ${d.country.name}` +
 							`<br><b>Funder:</b> ${d.country.otherName}` +
-							`<br><b>Total Committed Funds:</b> ${App.formatMoney(d.country.total_committed)}` +
-							`<br><b>Total Disbursed Funds:</b> ${App.formatMoney(d.country.total_spent)}`,
+							`<br><b>Total committed funds:</b> ${App.formatMoney(d.country.total_committed)}` +
+							`<br><b>Total disbursed funds:</b> ${App.formatMoney(d.country.total_spent)}`,
 						});
 					} else {
 						$(this).tooltipster({
 							content: `<b>Core Capacity:</b> ${d.cc}` +
 							`<br><b>${oppNoun}:</b> ${d.country.name}` +
-							`<br><b>Total Committed Funds:</b> ${App.formatMoney(d.country.total_committed)}` +
-							`<br><b>Total Disbursed Funds:</b> ${App.formatMoney(d.country.total_spent)}`,
+							`<br><b>Total committed funds:</b> ${App.formatMoney(d.country.total_committed)}` +
+							`<br><b>Total disbursed funds:</b> ${App.formatMoney(d.country.total_spent)}`,
 						});
 					}
-					
+
 				});
 
 			// set axes labels
 			let xLabelPreText = 'Disbursed';
 			if (param.moneyType === 'r') {
 				if (newSelector === 'total_spent') {
-					// legendTitle.text(`Funds Disbursed (${App.formatMoney(0).split(' ')[1]})`);
+					// legendTitle.text(`Funds disbursed (${App.formatMoney(0).split(' ')[1]})`);
                     xLabelPreText = 'Disbursed';
 				} else {
 					// legendTitle.text(`Funds Committed (${App.formatMoney(0).split(' ')[1]})`);
@@ -213,14 +213,14 @@
 				}
 			} else {
 				if (newSelector === 'total_spent') {
-					//legendTitle.text(`Funds Disbursed (${App.formatMoney(0).split(' ')[1]})`);
+					//legendTitle.text(`Funds disbursed (${App.formatMoney(0).split(' ')[1]})`);
                     xLabelPreText = 'Disbursed';
 				} else {
 					//legendTitle.text(`Funds Committed (${App.formatMoney(0).split(' ')[1]})`);
                     xLabelPreText = 'Committed';
 				}
 			}
-			xLabel.text(`Funds ${xLabelPreText} (${App.formatMoney(0).split(' ')[1]})`);
+			xLabel.text(`${xLabelPreText} funds (${App.formatMoney(0).split(' ')[1]})`);
 			//chart.select('.axis-label').text('Funds by Core Capacity');
 
 			chart.select('.y-label-text')
@@ -299,7 +299,7 @@
 						.attr('cy', 0);
 				});
 			}
-				
+
 
 			// if no data, hide chart and show message
 			if (d3.selectAll('.bar-group').nodes().length === 0) {

@@ -362,9 +362,9 @@
 		function getFundLabel(moneyFlow, moneyType) {
 			if (moneyType === 'committed') {
 				if (moneyFlow === 'funded') return 'Funds Committed to Disburse';
-				return 'Committed Funds to Receive';
+				return 'Committed funds to Receive';
 			}
-			if (moneyFlow === 'funded') return 'Disbursed Funds';
+			if (moneyFlow === 'funded') return 'Disbursed funds';
 			return 'Received Funds';
 		}
 

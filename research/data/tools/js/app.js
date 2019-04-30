@@ -525,12 +525,12 @@ const sectorAid = [
 		const output = [];
 		let projId = 0;
 		
-		// Grab unique project names
+		// Grab unique Project names
 		let projNames = _.unique(_.pluck(transactions, 'aid'));
 		
 		for (let i  = 0; i < projNames.length; i++) {
 				if (i % 1000 === 0) console.log('i = ' + i);
-			// get current project name ("aid" data field)
+			// get current Project name ("aid" data field)
 			const curProj_aid = projNames[i];
 
 			// get all transactions associated with this project
@@ -817,7 +817,7 @@ const sectorAid = [
 		// otherwise, perform the translation on its description and add it
 	}; 
 
-	// translate each project name
+	// translate each Project name
 	App.translateProjectNames = (i, projectNames) => {
 		console.log(i);
 		if (i >= projectNames.length || projectNames[i] === null) return;
