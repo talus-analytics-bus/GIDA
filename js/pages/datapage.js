@@ -1,6 +1,11 @@
 (() => {
-	let data, table;
 
+	let data; // data to be exported
+	let table; // jQuery DataTable handle
+
+	/**
+	 * Initialize the "Data" page content.
+	 */
 	App.initData = () => {
 		const exportColFuncs = {
 			project_description: function (datum, col) {
@@ -179,20 +184,7 @@ const downloadData = (params = {}) => {
 	});
 };
 
-const download = (filename, text) => {
-	// https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
-	var element = document.createElement('a');
-	element.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(text));
-	element.setAttribute('download', filename);
-
-	element.style.display = 'none';
-	document.body.appendChild(element);
-
-	element.click();
-
-	document.body.removeChild(element);
-};
-
+// Information about columns shown in the DataTable.
 const defaultExportCols = [
 	{
 		name: 'project_name',
@@ -320,6 +312,10 @@ const defaultExportCols = [
 	},
 ];
 
+/**
+ * Initialize the jQuery DataTable on this page that lists project data.
+ * @return {Object} jQuery DataTable
+ */
 function initTable(){
 	// define Columns
 	const cols = [];
@@ -359,28 +355,10 @@ function initTable(){
 	// return stateTable;
 }
 
-// const populateTable = () => {
-// 	$('table.download-data-table').DataTable({
-// 		data,
-// 		columns: [
-// 			{ title: 'Project&nbsp;&nbsp;', width: '60%' },
-// 			{ title: '<img style="width:25px;" src="/img/logo-tableFunder.svg" alt="">&nbsp;&nbsp;Funder&nbsp;&nbsp;', width: '20%' },
-// 			{ title: '<img style="width:25px;" src="/img/logo-tableRecipient.svg" alt="">&nbsp;&nbsp;Recipient&nbsp;&nbsp;', width: '20%' },
-// 		],
-// 		pageLength: 25,
-// 		scrollCollapse: false,
-// 		autoWidth: false,
-// 		ordering: true,
-// 		searching: true,
-// 		// pagingType: 'simple',
-// 		// order: [[1, 'asc']],
-// 		// columnDefs: [
-// 		// 	{ targets: [1,2,3], orderable: false},
-// 		// ],
-// 		bLengthChange: false,
-// 	});
-// }
-
+/**
+ * Populate and turn on callbacks for checkboxes in data field selection area.
+ * @param  {array} cols Columns data to check for checkbox data.
+ */
 const populateFieldCheckboxes = (cols) => {
 	const labels = d3.select('.field-options').append('form').selectAll('input')
 	.data(cols.filter(d => d.hasCheckbox === true), d => d.name)
