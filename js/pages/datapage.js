@@ -83,12 +83,7 @@
 };
 
 // data = [App.fundingData[0]] // DEV
-data = App.fundingData
-.map(d => [
-	(d.project_name || 'Not Reported').toString(),
-	(d.donor_name || 'Not Reported').toString(),
-	(d.recipient_name || 'Not Reported').toString(),
-]);
+data = App.fundingData;
 
 var downloadImg = document.createElement("img");
 downloadImg.src = '/img/logo-download-light.svg';
@@ -112,6 +107,7 @@ $('.download-container').html(`<span class="glyphicon glyphicon-download-alt"></
 });
 
 populateFieldCheckboxes(defaultExportCols);
+populateFilters();
 
 table = initTable();
 function updateTable (dataToShow) {
@@ -129,8 +125,8 @@ function updateTable (dataToShow) {
 	table.draw();
 }
 table.update = updateTable;
-table.update(App.fundingData)
-// table.update(_.sample(App.fundingData, 100))
+// table.update(App.fundingData)
+table.update(_.sample(App.fundingData, 100))
 
 $('.select-data-contents').hide();
 $('.select-data-header').on('click', () => {
@@ -403,4 +399,13 @@ const populateFieldCheckboxes = (cols) => {
 		table.update(); // TODO
 	});
 };
+
+/**
+ * Populate and turn on functionality for filters.
+ */
+const populateFilters = () => {
+	// Core Capacities
+	App.populateCcDropdown('.cc-select', { dropUp: false, dropLeft: true, selected: false, });
+};
+
 })();

@@ -6,7 +6,7 @@
 		Util.populateSelect(selector, capacities, {
 			valKey: 'id',
 			nameKey: 'name',
-			selected: true,
+			selected: param.selected || true, // for data page, don't select
 		});
 		$(selector).multiselect({
 			maxHeight: 260,
