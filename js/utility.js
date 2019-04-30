@@ -50,44 +50,48 @@ const Util = {};
 		return val;
 	};
 
-	Util.uniqueCollection = (collection, key) => {
-	    const output = [];
-	    const groupedCollection = _.groupBy(collection, key);
+	Util.unique = (collection, key) => {
+		return [...new Set(collection.map(item => item[key]))];
+	};
 
-	    _.mapObject(groupedCollection, (val) => {
-	        output.push(val[0]);
-	    });
-	    return output;
+	Util.uniqueCollection = (collection, key) => {
+		const output = [];
+		const groupedCollection = _.groupBy(collection, key);
+
+		_.mapObject(groupedCollection, (val) => {
+			output.push(val[0]);
+		});
+		return output;
 	};
 
 
 	Util.uniqueCollection2 = (collection, key1, key2) => {
-	    const output = [];
-	    const groupedCollection = _.groupBy(collection, d => {
-	    	return d[key1] + d[key2];
-	    });
+		const output = [];
+		const groupedCollection = _.groupBy(collection, d => {
+			return d[key1] + d[key2];
+		});
 
-	    _.mapObject(groupedCollection, (val) => {
-	        output.push(val[0]);
-	    });
-	    return output;
+		_.mapObject(groupedCollection, (val) => {
+			output.push(val[0]);
+		});
+		return output;
 	};
 
 	// populates a select element with the given data using d3
 	Util.populateSelect = (selector, data, param = {}) => {
 		let options = d3.selectAll(selector).selectAll('option')
-			.data(data);
+		.data(data);
 		options.exit().remove();
 		const newOptions = options.enter().append('option');
 		options = newOptions.merge(options)
-			.attr('value', (d) => {
-				if (typeof param.valKey === 'function') return param.valKey(d);
-				return param.valKey ? d[param.valKey] : d;
-			})
-			.text((d) => {
-				if (typeof param.nameKey === 'function') return param.nameKey(d);
-				return param.nameKey ? d[param.nameKey] : d;
-			});
+		.attr('value', (d) => {
+			if (typeof param.valKey === 'function') return param.valKey(d);
+			return param.valKey ? d[param.valKey] : d;
+		})
+		.text((d) => {
+			if (typeof param.nameKey === 'function') return param.nameKey(d);
+			return param.nameKey ? d[param.nameKey] : d;
+		});
 		if (param.selected) {
 			if (typeof param.selected === 'boolean') {
 				options.attr('selected', param.selected);
@@ -101,14 +105,14 @@ const Util = {};
 	};
 
 	// Save output for the console as JSON
-Util.save = function(data, filename){
+	Util.save = function(data, filename){
 
-	if(!data) {
-		console.error('Console.save: No data')
-		return;
-	}
+		if(!data) {
+			console.error('Console.save: No data')
+			return;
+		}
 
-	if(!filename) filename = 'console.json'
+		if(!filename) filename = 'console.json'
 
 		if(typeof data === "object"){
 			data = JSON.stringify(data, undefined, 4)
@@ -129,27 +133,27 @@ Util.save = function(data, filename){
 	// from 0 to π
 	Util.sineScale = (domain) => {
 		const scaleTmp = d3.scaleLinear()
-			.domain([domain.min, domain.max])
-			.range([0, 3.1415]);
+		.domain([domain.min, domain.max])
+		.range([0, 3.1415]);
 		const scale = (val) => {
 			return Math.sin(scaleTmp(val));
 		};
 		return scale;
 	};
 	Util.clone_d3_selection = (selection, i) => {
-            // Assume the selection contains only one object, or just work
-            // on the first object. 'i' is an index to add to the id of the
-            // newly cloned DOM element.
-    var attr = selection.node().attributes;
-    var length = attr.length;
-    var node_name = selection.property("nodeName");
-    var parent = d3.select(selection.node().parentNode);
-    var cloned = parent.append(node_name)
-                 .attr("id", selection.attr("id") + i);
-    for (var j = 0; j < length; j++) { // Iterate on attributes and skip on "id"
-        if (attr[j].nodeName == "id") continue;
-        cloned.attr(attr[j].name,attr[j].value);
-    }
-    return cloned;
+		// Assume the selection contains only one object, or just work
+		// on the first object. 'i' is an index to add to the id of the
+		// newly cloned DOM element.
+		var attr = selection.node().attributes;
+		var length = attr.length;
+		var node_name = selection.property("nodeName");
+		var parent = d3.select(selection.node().parentNode);
+		var cloned = parent.append(node_name)
+		.attr("id", selection.attr("id") + i);
+		for (var j = 0; j < length; j++) { // Iterate on attributes and skip on "id"
+		if (attr[j].nodeName == "id") continue;
+		cloned.attr(attr[j].name,attr[j].value);
+	}
+	return cloned;
 }
 })();
