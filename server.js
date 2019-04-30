@@ -64,6 +64,11 @@ app.post('/download_data', function(req, res) {
   // const exportCols = debugCols;
   const unspecifiedValues = ['', null, undefined];
   const exportCols = req.body.params.exportCols;
+  const hideCols = req.body.params.hideCols;
+  hideCols.forEach(col => {
+    console.log('hiding ' + col);
+    wb.definedName(col).hidden(true);
+  });
   const exportColFuncs = {
     project_description: function (datum, col) {
       if (datum.source.name !== 'IATI via D-Portal') {
@@ -75,20 +80,43 @@ app.post('/download_data', function(req, res) {
       const colData = datum[col.name].filter(d => d !== '');
       if (colData && colData.length > 0) {
         return colData.map(id => {
-          if (id === 'POE') return col.params.capacitiesDict['PoE'];
+          if (id === 'POE') return col.params.capacitiesDict['PoE'].name;
           else return col.params.capacitiesDict[id].name
         }).join(';\n');
       } else return null;
     },
+    recipient_name: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return datum.recipient_name_orig;
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) return colData;
+      else return null;
+    },
+    donor_name: function (datum, col) {
+      if (datum.donor_name_orig !== undefined) return datum.donor_name_orig;
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) return colData;
+      else return null;
+    },
     donor_code: function (datum, col) {
       const colData = datum[col.name];
+      if (datum.donor_name_orig !== undefined) return 'Multiple';
       if (!unspecifiedValues.includes(colData)) {
         if (datum.donor_sector === 'Government') {
           return col.params.codeToNameMap['$' + colData];
         } else return 'n/a';
       } else return null;
     },
+    donor_sector: function (datum, col) {
+      if (datum.donor_name_orig !== undefined) return 'Multiple';
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) {
+        if (colData === 'Country') {
+          return 'Government';
+        } else return colData;
+      } else return null;
+    },
     recipient_sector: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return 'Multiple';
       const colData = datum[col.name];
       if (!unspecifiedValues.includes(colData)) {
         if (colData === 'Country') {
@@ -97,6 +125,7 @@ app.post('/download_data', function(req, res) {
       } else return null;
     },
     recipient_country: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return 'Multiple';
       const colData = datum[col.name];
       if (!unspecifiedValues.includes(colData)) {
         if (datum.recipient_sector === 'Country') {
@@ -145,15 +174,6 @@ else return `${min} - ${max}`;
 };
 
 const exportData = req.body.params.exportData;
-// const endCol = wb.sheet(0).usedRange().endCell().columnName();
-// const styles = wb.sheet(0).cell(startRow, "B").style([
-//   'borderColor',
-//   'borderStyle',
-//   'wrapText',
-// ])
-// console.log('styles')
-// console.log(styles)
-// const endRow = startRow + exportData.length;
 exportCols.forEach(col => {
   for (let i = 0; i < exportData.length; i++) {
     // formatting row
@@ -171,9 +191,8 @@ exportCols.forEach(col => {
     wb.definedName(col.name).cell(startRow).relativeCell(i,0).value(cellValue);
     }
   });
-  // wb.sheet(0).usedRange().style(styles);
 
-  // Delete extra rows
+  // Hide unused rows
 
 
   // Download report

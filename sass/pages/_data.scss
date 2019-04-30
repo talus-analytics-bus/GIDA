@@ -21,7 +21,8 @@ display: inline;
       font-size: 28px;
       text-transform: uppercase;
       font-family: 'Raleway', sans-serif;
-      color: #11315D;
+      color: #000;
+      // color: #11315D;
       &.dark {
         color: white;
       }
@@ -93,6 +94,17 @@ display: inline;
 
       .filter-contents {
         grid-area: filters;
+        .clear-filter-btn {
+          visibility: hidden;
+          float:right;
+        }
+        .filter-options {
+          margin-top: 10px;
+          display: grid;
+          grid-auto-flow: column dense;
+          grid-gap: 10px;
+          justify-content: left;
+        }
       }
 
       .separator {
@@ -110,6 +122,7 @@ display: inline;
         .field-options {
           grid-area: fields;
           form {
+            margin-top: 10px;
             padding-left: 5px;
             label {
               margin: 0 !important;
@@ -156,7 +169,10 @@ display: inline;
     }
   }
 
+  .preview-container { width: 100%; }
   table {
+    width: 100%;
+    td { min-width: 200px; }
     td,tr {
       border: 1px solid #666666;
     }

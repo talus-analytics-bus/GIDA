@@ -14,7 +14,14 @@ const App = {};
 						}
 
 						if (page === 'map') {
+								$('.explore-dropdown').siblings('.menu-dropdown').hide();
 								$('.explore-dropdown').toggle();
+								return;
+						}
+
+						if (page === 'about') {
+								$('.about-dropdown').siblings('.menu-dropdown').hide();
+								$('.about-dropdown').toggle();
 								return;
 						}
 
@@ -87,9 +94,15 @@ const App = {};
 						hasher.setHash(`#map/org`);
 				});
 
+				$('.about-dropdown-item').click(function () {
+					$('.about-dropdown').toggle();
+					const subpage = $(this).attr('page');
+					hasher.setHash(`#about/${subpage}`);
+				});
+
 				$('body').click(() => {
 						$('.nav-search-control').hide();
-						$('.explore-dropdown').hide();
+						$('.menu-dropdown').hide();
 				});
 
 				// data definition variables
@@ -335,7 +348,7 @@ const App = {};
 								fundingData.forEach(d => {
 									if (d.project_description === undefined) d.project_description = '';
 									if (d.donor_name === undefined) d.donor_name = '';
-										if (d.assistance_type === undefined) {
+										if (d.assistance_type === undefined || d.assistance_type === 'NA' || d.assistance_type.toLowerCase().includes("financial")) {
 												d.assistance_type = 'Direct financial support';
 										}
 

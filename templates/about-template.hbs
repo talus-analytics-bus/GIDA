@@ -1,42 +1,15 @@
 <script id="about-template" type="text/x-handlebars-template">
-    <div class="about-page-container container container-text">
-        <h3>About</h3>
-        <div class="description">
-            Global health security requires international and cross-sector partnerships to effectively prevent, detect, and respond to infectious disease threats. Ensuring adequate funding for health security initiatives is critical for the advancement of global health security, and requires awareness of the current status of funding. To identify funding requirements, develop a compelling case for investment, and prioritize future funding decisions, it is necessary to understand who is funding what, and where, in the broad context of global health security.
-            <br>
-            <br>The global health security tracking dashboard was developed to provide a shared resource which maps the flow of committed and disbursed funds for global health security. This dashboard will allow both funders and recipients to identify gaps and prioritize future investments, and will help to highlight the ways in which funds can be allocated most effectively to have the greatest impact. This platform and effort will serve as the basis for mutual accountability within the global health security community, promoting public accounting, and providing an opportunity for countries, organizations, and other funders to showcase their successes and identify priorities for future investments.
-            <br>
-            <br>The global health security tracking dashboard was developed by Talus Analytics and the Georgetown University Center for Global Health Science and Security. This project was funded by a grant to Georgetown University by the Open Philanthropy Project.
-            <br>
-            <br> A poster describing the global health security tracking dashboard project is available
-            <a href="./export/GHS Tracking Poster 101817.pdf" target="_blank">here</a>.
-            <br>
-            <br> We welcome user questions and comments. Please submit feedback on the GHS tracking dashboard by email at <a href="mailto:ihrcosting@georgetown.edu" target="_blank">ihrcosting@georgetown.edu</a>.
+    <div class="about-page-container">
+        <div class="container container-content">
+          {{#if background}}
+            {{> background }}
+          {{/if}}
+          {{#if data}}
+            {{> data }}
+          {{/if}}
+          {{#if research}}
+            {{> research }}
+          {{/if}}
         </div>
-        <hr>
-        <h3>Data Sources</h3>
-        <div class="description">
-            The global health security tracking dashboard currently aggregates data from the International Aid Transparency Initiative, a compendium of projects related to Article X of the Biological and Toxin Weapons Convention, the 2018 US Global Health Security Agenda Progress and Impact Report, the Ebola Recovery Tracking Initiative, the Nuclear Threat Initiative Commitment Tracker, and the WHO Contingency Fund for Emergencies. In addition to these data sources, we also receive data directly from donor countries, and users may <a href="https://tracking.ghscosting.org/#submit" target="_blank">submit additional data </a>for incorporation into the tool. Additional information on the types of data included in the tracking dashboard is available <a href="#glossary">here</a>.
-            <br>
-            <br>
-            <h4>International Aid Transparency Initiative (IATI)</h4> The International Aid Transparency Initiative (IATI) is a publically-available, voluntary registry of funding initiatives which aggregates data shared by over 600 organizations. IATI data from selected sectors are included in the GHS Tracking Dashboard. Data were accessed via <a href="http://d-portal.org/" target="_blank">d-portal</a>.
-            <br>
-            <br>
-            <h4>Article X Compendium </h4> A compendium of projects related to Article X of the Biological and Toxin Weapons Convention was submitted by Canada, Denmark, the European Union, Finland, Germany, Italy, Japan, Netherlands, Spain, Sweden, the United Kingdom, and the United States of America. These member countries of the Global Partnership Against the Spread of Weapons and Materials of Mass Destruction are mutually committed to implementing global projects to combat WMD-related terrorism and proliferation. A compendium of Article X-relevant projects implemented and/or funded by Global Partnership members was created in accordance with the Final Document of the Eighth Review Conference. The compendium includes detailed information on Article X-relevant projects implemented and/or funded by GP members since December 2016.
-            <br>
-            <br>
-            <h4>2018 US GHSA Progress and Impact Report</h4> In February of 2018, the United States published its second annual report on progress and impact from U.S. investment in the GHSA. Where specific funders, recipients, and funding transactions were referenced in this report, data were incorporated into the GHSA Tracking Dashboard. The 2018 US GHSA Progress and Impact Report is publically available <a href="https://www.ghsagenda.org/docs/default-source/default-document-library/global-health-security-agenda-2017-progress-and-impact-from-u-s-investments.pdf" target="_blank">online</a>.
-            <br>
-            <br>
-            <h4>Ebola Recovery Tracking Initiative</h4> The <a href="https://ebolarecovery.org/" target="_blank">Ebola Recovery Tracking Initiative</a> tracks official development assistance towards Ebola recovery efforts in Guinea, Liberia, Sierra Leone, and the Mano River Union. The initiative is a partnership between the governments of Guinea, Liberia and Sierra Leone, the United Nations Office of the Secretary-General’s Special Adviser on Community Based Medicine and Lessons from Haiti, and the United Nations Development Programme (UNDP).
-            <br>
-            <br>
-            <h4>Nuclear Threat Initiative Commitment Tracker</h4> The Nuclear Threat Initiative (NTI) Commitment Tracker was developed to track global health security funding commitments and to foster accountability for existing commitments. The NTI Commitment Tracker tracks financial commitments as well as commitments to complete or support the JEE process, advance GHSA action packages, or to participate in other activities to build global health security.
-            <br>
-            <br>
-            <h4>WHO Contingency Fund for Emergencies</h4> In March of 2018, Canada, Denmark, Estonia, Germany, the Republic of Korea, Kuwait, Luxembourg, Malta, Netherlands, Norway, and the United Kingdom of Great Britain and Northern Ireland announced their commitments to the World Health Organization (WHO) Contingency Fund for Emergencies. These funds are intended to support the rapid financing of response operations.
-            <br>
-            <br>
-            <h4>Data from Donor Countries</h4> In addition to the above data sources, we also receive data directly from donor countries.
-        </div>
+    </div>
 </script>

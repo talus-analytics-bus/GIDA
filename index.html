@@ -2,114 +2,128 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122495993-1"></script>
-    <script>
-		window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122495993-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
 
-		function gtag() {
-			dataLayer.push(arguments);
-		}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
 
-		gtag('js', new Date());
+  gtag('js', new Date());
 
-		gtag('config', 'UA-122495993-1');
-    </script>
+  gtag('config', 'UA-122495993-1');
+  </script>
 
 
-    <meta charset="utf-8">
-    <title>GIDA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon.ico">
-    <!-- Stylesheets -->
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:600,400,300' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-slider.min.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tooltipster.bundle.min.css" rel="stylesheet" type="text/css">
-    <link href="css/tooltipster-sideTip-shadow.css" rel="stylesheet" type="text/css">
-    <link href="css/tooltipster-follower.min.css" rel="stylesheet" type="text/css">
-    <link href="css/datatables.min.css" rel="stylesheet" type="text/css">
-    <link href="css/nprogress.min.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-toggle.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css"/>
+  <meta charset="utf-8">
+  <title>GIDA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="img/favicon.ico">
+  <!-- Stylesheets -->
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:600,400,300' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-slider.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
+  <link href="css/tooltipster.bundle.min.css" rel="stylesheet" type="text/css">
+  <link href="css/tooltipster-sideTip-shadow.css" rel="stylesheet" type="text/css">
+  <link href="css/tooltipster-follower.min.css" rel="stylesheet" type="text/css">
+  <link href="css/datatables.min.css" rel="stylesheet" type="text/css">
+  <link href="css/nprogress.min.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-toggle.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css"/>
 
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="navbar-brand">
-                <a href="/" class="logo"></a>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <!--<li class="nav-item dropdown">-->
-                    <!--<a class="nav-link dropdown-toggle"-->
-                       <!--href="#"-->
-                       <!--id="nav-explore-dropdown"-->
-                       <!--role="button"-->
-                       <!--data-toggle="dropdown"-->
-                       <!--aria-haspopup="true"-->
-                       <!--aria-expanded="false">Explore</a>-->
-                    <!--<div class="dropdown-menu" aria-labelledby="nav-explore-dropdown">-->
-                        <!--<a class="dropdown-item" page="map">Map</a>-->
-                        <!--<a class="dropdown-item" page="map">Organizations</a>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <li class="nav-item" page="map"><a page="map">Explore</a></li>
-                <li class="nav-item" page="analysis"><a page="analysis">Analysis</a></li>
-                <li class="nav-item" page="data"><a page="data">Data</a></li>
-                <li class="nav-item" page="about"><a page="about">About</a></li>
-                <li class="nav-item" page="search"><i class="glyphicon glyphicon-search form-control-feedback"></i></li>
-            </ul>
-        </div>
-        <div class="explore-dropdown">
-            <div class="explore-dropdown-box">
-                <div class="explore-dropdown-item explore-dropdown-map">Map</div>
-                <div class="explore-dropdown-item explore-dropdown-org">Organizations</div>
-            </div>
-        </div>
-        <div class="nav-search-control nav-search-box">
-            <div class="form-group has-feedback">
-                <input type="text"
-                    class="nav-country-search-input form-control"
-                    placeholder="search for a country or organization">
-                    <i class="glyphicon glyphicon-search form-control-feedback"></i>
-                <div class="live-search-results-container">
-                    <div class="live-search-no-results-text">No results found</div>
-                    <div class="live-search-results-contents"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- /.navbar-collapse -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand">
+        <a href="/" class="logo"></a>
+      </div>
     </div>
-    <!-- /.container-fluid -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li class="nav-item dropdown">-->
+        <!--<a class="nav-link dropdown-toggle"-->
+        <!--href="#"-->
+        <!--id="nav-explore-dropdown"-->
+        <!--role="button"-->
+        <!--data-toggle="dropdown"-->
+        <!--aria-haspopup="true"-->
+        <!--aria-expanded="false">Explore</a>-->
+        <!--<div class="dropdown-menu" aria-labelledby="nav-explore-dropdown">-->
+        <!--<a class="dropdown-item" page="map">Map</a>-->
+        <!--<a class="dropdown-item" page="map">Organizations</a>-->
+        <!--</div>-->
+        <!--</li>-->
+        <li class="nav-item" page="map"><a page="map">Explore <span class="caret"></span></a></li>
+        <li class="nav-item" page="analysis"><a page="analysis">Analysis</a></li>
+        <li class="nav-item" page="data"><a page="data">Data</a></li>
+        <li class="nav-item" page="about"><a page="about">About <span class="caret"></span></a></li>
+        <!-- <li>
+          <a href="#" page="about" class="dropdown-toggle" data-toggle="dropdown" role="button"
+          aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+          <ul id='about-dropdown' class="center-dropdown-menu dropdown-menu scrollable-menu">
+          </ul>
+        </li> -->
+        <li class="nav-item" page="search"><i class="glyphicon glyphicon-search form-control-feedback"></i></li>
+      </ul>
+    </div>
+    <div class="explore-dropdown menu-dropdown">
+      <div class="explore-dropdown-box menu-dropdown-box">
+        <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-map">Map</div>
+        <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-org">Organizations</div>
+      </div>
+    </div>
+    <div class="about-dropdown menu-dropdown">
+      <div class="about-dropdown-box menu-dropdown-box">
+        <div class="about-dropdown-item menu-dropdown-item about-dropdown-bg" page="background">Background</div>
+        <div class="about-dropdown-item menu-dropdown-item about-dropdown-data" page="data">Data sources</div>
+        <div class="about-dropdown-item menu-dropdown-item about-dropdown-research" page="research">Research</div>
+        <div class="about-dropdown-item menu-dropdown-item about-dropdown-submit" page="submit">Submit data</div>
+      </div>
+    </div>
+    <div class="nav-search-control nav-search-box">
+      <div class="form-group has-feedback">
+        <input type="text"
+        class="nav-country-search-input form-control"
+        placeholder="search for a country or organization">
+        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+        <div class="live-search-results-container">
+          <div class="live-search-no-results-text">No results found</div>
+          <div class="live-search-results-contents"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
 </nav>
 
 <div id="page-content"></div>
 
 <!-- THEME SWITCHER -->
 <input id="theme-toggle"
-    type="checkbox"
-    data-toggle="toggle"
-    data-size="mini"
-    data-style="toggle-theme"
-    data-on="Dark"
-    data-off="Light"
+type="checkbox"
+data-toggle="toggle"
+data-size="mini"
+data-style="toggle-theme"
+data-on="Dark"
+data-off="Light"
 />
 
 <div class="toggleForPrint">For Printing:</div>

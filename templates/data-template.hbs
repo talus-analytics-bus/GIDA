@@ -15,23 +15,27 @@
       </div>
       <div class="select-data-contents">
         <div class="filter-contents">
-          Select filters to apply to selected data.
-          <div class="filter-options"></div>
+          <span>Select filters to apply to selected data.</span>
+          <div class="clear-filter-btn btn btn-sm talus-secondary-btn">Clear selections</div>
+          <div class="filter-options">
+            <select class="cc-select form-control" multiple="multiple"></select>
+            <select key="assistance_type" title="Assistance type" class="other-select form-control" multiple="multiple"></select>
+            <select key="donor_name" title="Funder" class="other-select form-control" multiple="multiple"></select>
+            <select key="recipient_name" title="Recipient" class="other-select form-control" multiple="multiple"></select>
+          </div>
           <div class="filter-selections"></div>
         </div>
         <div class="separator"></div>
         <div class="field-contents">
           <div class="field-options">
-            <span>Select data fields to include in download.</span>
+            <span>Choose data fields to include in table/download.</span>
           </div>
           <div class="download-container btn talus-primary-btn"></div>
         </div>
       </div>
     </div>
     <div class="preview-container">
-      <table class="download-data-table table table-bordered table-hover">
-
-      </table>
+      <table class="download-data-table table table-bordered table-hover"></table>
     </div>
   </div>
 </script>
