@@ -3,6 +3,7 @@ const Routing = {};
 (() => {
 	const templates = {};
 	const partials = {};
+	Routing.templates = templates;
 	const tooltipTemplates = {};
 
 	const hbTemplates = [
@@ -20,7 +21,11 @@ const Routing = {};
 		'submit',
 		'tooltip-fr',
 	]; // Add the name of the new template here
-	const hbPartials = []; // Add name of new partial here
+	const hbPartials = [
+		'background',
+		'data',
+		'research',
+	]; // Add name of new partial here
 	const hbDirectory = 'templates/'; // Don't touch
 	const hbFileSuffix = '.hbs'; // Don't touch
 
@@ -47,7 +52,7 @@ const Routing = {};
 		hbPartials.forEach((d) => {
 			$.ajax({
 				url: `${hbDirectory}${d}-partial${hbFileSuffix}`,
-				cache: true,
+				cache: false,
 				success: function (data, status, error) {
 					source = data;
 					$('body').append(data);
@@ -105,8 +110,11 @@ const Routing = {};
 
 	Routing.registerPartials = (callback) => {
 		$("script[type='text/x-handlebars-partial']").each((i, e) => {
+			console.log(e)
 			const name = e.id.replace('-template', '');
 			partials[name] = Handlebars.registerPartial(name, $(e).html());
+			console.log(Handlebars.registerPartial(name, $(e).html()))
+			console.log(partials[name])
 		});
 
 		if (callback) {
@@ -187,9 +195,14 @@ const Routing = {};
 			$('#theme-toggle').bootstrapToggle('enable');
 			loadPage('settings', App.initSettings);
 		});
-		crossroads.addRoute('/about', () => {
+		crossroads.addRoute('/about/{tab_name}', (tab_name) => {
 			$('#theme-toggle').bootstrapToggle('enable');
-			loadPage('about');
+			const context = {
+				background: tab_name === 'background',
+				data: tab_name === 'data',
+				research: tab_name === 'research',
+			};
+			loadPage('about', App.initAbout, context);
 		});
 
 		crossroads.addRoute('/data', () => {
@@ -215,7 +228,7 @@ const Routing = {};
 		$('nav li').removeClass('active');
 		$(`nav li[page="${navName}"]`).addClass('active');
 		// load page
-		loadTemplate(pageName);
+		loadTemplate(pageName, data);
 		if (func) func(...data);
 		window.scrollTo(0, 0);
 		if (App.currentTheme === 'light') {
@@ -231,6 +244,6 @@ const Routing = {};
 	}
 	function parseHash(newHash) { crossroads.parse(newHash); }
 	function loadTemplate(page, data) {
-		$('#page-content').html(templates[page](data));
+		$('#page-content').html(templates[page](data[0]));
 	}
 })();

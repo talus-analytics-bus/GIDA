@@ -1,0 +1,21 @@
+<script id="research-template" type="text/x-handlebars-partial">
+  <h1>Data source documentation</h1>
+  <table>
+    <tbody>
+      <tr>
+        <td>Data source</td>
+        <td>Data source references</td>
+      </tr>
+    {{#each dataSources}}
+      {{#each refs}}
+        <tr>
+          {{#if include}}
+            <td class="{{bandClass}}" rowspan="{{../rowspan}}">{{../source}}</td>
+          {{/if}}
+          <td class="{{bandClass}}"><a target="_blank" href="{{link}}">{{{ref}}}</a></td>
+        </tr>
+      {{/each}}
+    {{/each}}
+    </tbody>
+  </table>
+</script>
