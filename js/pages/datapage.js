@@ -55,7 +55,7 @@
 			},
 			{
 				name: 'donor_name',
-				func: false,
+				func: true,
 				noDataText: 'Unspecified',
 				showByDefault: true,
 				displayName: 'Funder',
@@ -64,7 +64,7 @@
 			},
 			{
 				name: 'recipient_name',
-				func: false,
+				func: true,
 				noDataText: 'Unspecified',
 				showByDefault: true,
 				displayName: 'Recipient',
@@ -97,7 +97,7 @@
 			},
 			{
 				name: 'donor_sector',
-				func: false,
+				func: true,
 				noDataText: 'Unspecified',
 				hasCheckbox: false,
 			},
@@ -133,7 +133,11 @@
 		];
 
 		// data = [App.fundingData[0]] // DEV
-		data = App.fundingData;
+		console.log('initData')
+		data = Util.uniqueCollection(App.fundingData, 'project_id').map(d => {
+			delete d.transactions;
+			return d;
+		});
 
 		var downloadImg = document.createElement("img");
 		downloadImg.src = '/img/logo-download-light.svg';
@@ -162,9 +166,9 @@
 			};
 
 			/**
-			 * Return list of column names to hide in export XLSX file.
-			 * @return {array} Column names to hide (Strings)
-			 */
+			* Return list of column names to hide in export XLSX file.
+			* @return {array} Column names to hide (Strings)
+			*/
 			const getHideCols = () => {
 				let names = d3.selectAll('.field-options input:not(:checked)').data().map(d => d.name);
 				if (names.includes('donor_name')) {
@@ -179,7 +183,7 @@
 				const hideCols = names;
 				return hideCols;
 			}
-			const getExportData = () => { return _.sortBy(App.fundingData, d => +d.year_range.split(' - ')[0] ).reverse(); }; // TODO
+			const getExportData = () => { return _.sortBy(data, d => +d.year_range.split(' - ')[0] ).reverse(); };
 
 			// Download the filtered data including only the selected data fields (columns).
 			downloadData(
@@ -194,8 +198,12 @@
 		populateFieldCheckboxes(defaultExportCols);
 		populateFilters();
 
+		console.log('initTable')
 		table = initTable(defaultExportCols);
+		console.log('Completed initTable')
 		function updateTable (dataToShow) {
+			console.log('updateTable')
+			NProgress.start();
 			const enabledCols = ['project_name:name'];
 			$('.field-options input:checked').each((d, i) => enabledCols.push($(i).val() + ':name'));
 
@@ -205,23 +213,29 @@
 			if (dataToShow !== undefined) {
 				table
 				.clear()
+				// .fnAddData(dataToShow,false);
 				.rows.add(dataToShow);
 			}
 			table.draw();
+			console.log('Completed updateTable')
+			NProgress.done();
 		}
 		table.update = updateTable;
 		// table.update(App.fundingData)
-		const updateData = _.sample(App.fundingData, 100);
+		// const updateData = _.sample(App.fundingData, 100);
 		// const updateData = App.fundingData;
-		console.log('updateData')
-		console.log(updateData)
+		// const updateData = [];
+		const updateData = data;
+		// const updateData = _.sample(data, 50);
 		table.update(updateData)
 
-		$('.select-data-contents').hide();
+		$('.select-data-contents').show();
+		$('.select-data-glyph').addClass('flip');
 		$('.select-data-header').on('click', () => {
 			$('.select-data-contents').slideToggle();
 			$('.select-data-glyph').toggleClass('flip');
 		});
+		console.log('completed initdata')
 	};
 
 	/**
@@ -294,6 +308,12 @@
 			total_committed: moneyFunc,
 			total_spent: moneyFunc,
 			recipient_name: function (datum, type, row) {
+				if (row.recipient_name_orig !== undefined) return row.recipient_name_orig;
+				if (!unspecifiedValues.includes(datum)) return datum;
+				else return null;
+			},
+			donor_name: function (datum, type, row) {
+				if (row.donor_name_orig !== undefined) return row.donor_name_orig;
 				if (!unspecifiedValues.includes(datum)) return datum;
 				else return null;
 			},
@@ -302,7 +322,7 @@
 				if (colData && colData.length > 0) {
 					const capacitiesDict = _.indexBy(App.capacities, 'id');
 					return colData.map(id => {
-						if (id === 'POE') return capacitiesDict['PoE'];
+						if (id === 'POE') return capacitiesDict['PoE'].name;
 						else return capacitiesDict[id].name
 					}).join(';\n');
 				} else return null;
@@ -342,6 +362,8 @@
 				} else return null;
 			},
 			year_range: function (datum, type, row) {
+				if (datum !== undefined) return datum;
+				else return null;
 				const t = row.transactions;
 				if (t.length > 0) {
 					const min = Math.min(...t.map(tt => {
@@ -386,7 +408,8 @@ defaultExportCols.forEach(colDatum => {
 
 // activate Datatable
 return $('table.download-data-table').DataTable( {
-	data: App.fundingData,
+	data: [],
+	deferRender: true,
 	scrollCollapse: false,
 	autoWidth: true,
 	ordering: true,
@@ -426,33 +449,108 @@ const populateFieldCheckboxes = (cols) => {
 * Populate and turn on functionality for filters.
 */
 const populateFilters = () => {
+	const getButtonTextFunc = (title, nMax) => {
+		return function(options, select) {
+			if (options.length === 0 || options.length === nMax) {
+				return `${title} (all)`;
+			}
+			return `${title} (${options.length} of ${nMax})`;
+
+		}
+	};
+	const filterCallback = () => {
+		// get ccs
+		const ccs = $('.cc-select').val();
+		ccs.key = 'core_capacities';
+		let someFilters = false;
+		if (ccs.length > 0) someFilters = true;
+		const filters = [ccs];
+
+		// get other filters
+		$('.other-select').each(function(){
+			const select = $(this);
+			const vals = select.val();
+			vals.key = select.attr('key');
+			if (vals.length > 0) someFilters = true;
+			filters.push(vals);
+		})
+
+
+		// do filtering (update data)
+		updatedData = data.filter(p => {
+			let match = true;
+			filters.forEach(filterSet => {
+				let pVals = p[filterSet.key];
+				if (typeof pVals !== 'object') pVals = [pVals];
+				if (!App.passesCategoryFilter(pVals, filterSet)) match = false;
+			});
+			return match;
+		});
+
+		// update table
+		table.update(updatedData);
+
+		// update filters enabled
+
+		// update download button
+		const type = someFilters ? 'selected' : 'all available';
+		$('.download-container').html(`<span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;Download ${type} data (${Util.comma(updatedData.length)} records)`)
+
+		// show/hide clear filters
+		$('.clear-filter-btn').css('visibility', someFilters ? 'visible' : 'hidden');
+	};
+	const clearFiltersCallback = () => {
+		// clear all filters
+		$('.cc-select, .other-select').multiselect('deselectAll', false);
+		$('.cc-select, .other-select').multiselect('updateButtonText');
+		$('.clear-filter-btn').css('visibility', 'hidden');
+		filterCallback();
+	};
+	$('.clear-filter-btn').click(clearFiltersCallback);
+
 	// Core Capacities
 	App.populateCcDropdown('.cc-select',
 	{
 		dropUp: false,
 		dropLeft: true,
 		selected: false,
-	 }
- );
+		multiselectParam: {
+			buttonText: getButtonTextFunc('Funding by Core Capacity', App.capacities.length + 1),
+			enableFiltering: true,
+			enableCaseInsensitiveFiltering: true,
+			onChange: filterCallback,
+			onSelectAll: filterCallback,
+		}
+	});
 
- 	const filterCallback = () => {
-		// get ccs
-		// get assistance type
-		// get Funders
-		// get recipients
-		// do filtering (update data)
-		// update table
-		// update filters enabled
-		// show/hide clear filters
-	};
-
-	const clearFiltersCallback = () => {
-		// clear all filters
-		// clear filters enabled
-		// do filtering (update data)
-		// update table
-		// hide clear filters
-	};
+	// Other filter selections
+	d3.selectAll('.filter-options .other-select').each(function () {
+		const select = d3.select(this);
+		const key = select.attr('key');
+		const selector = `select[key="${key}"]`;
+		const valKey = 'val';
+		const nameKey = 'name';
+		const title = select.attr('title');
+		const items = Util.unique(App.fundingData, key).filter(d => d).sort().map(d => {
+			return {
+				name: d,
+				val: d,
+			}
+		});
+		App.populateOtherDropdown(selector, items, valKey, nameKey,
+			{
+				dropUp: false,
+				dropLeft: true,
+				selected: false,
+				multiselectParam: {
+					buttonText: getButtonTextFunc(title, items.length),
+					enableFiltering: true,
+					enableCaseInsensitiveFiltering: true,
+					onChange: filterCallback,
+					onSelectAll: filterCallback,
+				}
+			});
+		});
 };
 
 })();

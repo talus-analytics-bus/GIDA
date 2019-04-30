@@ -80,20 +80,43 @@ app.post('/download_data', function(req, res) {
       const colData = datum[col.name].filter(d => d !== '');
       if (colData && colData.length > 0) {
         return colData.map(id => {
-          if (id === 'POE') return col.params.capacitiesDict['PoE'];
+          if (id === 'POE') return col.params.capacitiesDict['PoE'].name;
           else return col.params.capacitiesDict[id].name
         }).join(';\n');
       } else return null;
     },
+    recipient_name: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return datum.recipient_name_orig;
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) return colData;
+      else return null;
+    },
+    donor_name: function (datum, col) {
+      if (datum.donor_name_orig !== undefined) return datum.donor_name_orig;
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) return colData;
+      else return null;
+    },
     donor_code: function (datum, col) {
       const colData = datum[col.name];
+      if (datum.donor_name_orig !== undefined) return 'Multiple';
       if (!unspecifiedValues.includes(colData)) {
         if (datum.donor_sector === 'Government') {
           return col.params.codeToNameMap['$' + colData];
         } else return 'n/a';
       } else return null;
     },
+    donor_sector: function (datum, col) {
+      if (datum.donor_name_orig !== undefined) return 'Multiple';
+      const colData = datum[col.name];
+      if (!unspecifiedValues.includes(colData)) {
+        if (colData === 'Country') {
+          return 'Government';
+        } else return colData;
+      } else return null;
+    },
     recipient_sector: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return 'Multiple';
       const colData = datum[col.name];
       if (!unspecifiedValues.includes(colData)) {
         if (colData === 'Country') {
@@ -102,6 +125,7 @@ app.post('/download_data', function(req, res) {
       } else return null;
     },
     recipient_country: function (datum, col) {
+      if (datum.recipient_name_orig !== undefined) return 'Multiple';
       const colData = datum[col.name];
       if (!unspecifiedValues.includes(colData)) {
         if (datum.recipient_sector === 'Country') {

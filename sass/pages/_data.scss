@@ -93,6 +93,17 @@ display: inline;
 
       .filter-contents {
         grid-area: filters;
+        .clear-filter-btn {
+          visibility: hidden;
+          float:right;
+        }
+        .filter-options {
+          margin-top: 10px;
+          display: grid;
+          grid-auto-flow: column dense;
+          grid-gap: 10px;
+          justify-content: left;
+        }
       }
 
       .separator {
