@@ -960,12 +960,12 @@
 								.style('display', 'inline')
 								.style('text-anchor', 'end')
 								.text((d, i) => {
-										if (i === 6) return 'Needs Met';
+										if (i === 6) return 'Needs met';
 										return '';
 								});
 						legendStartLabel
 								.style('text-anchor', 'start')
-								.text('Needs Unmet');
+								.text('Needs unmet');
 				} else if (indType === 'inkind') {
 						legendText
 								.style('display', 'inline')
