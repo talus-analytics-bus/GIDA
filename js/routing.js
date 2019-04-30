@@ -110,11 +110,8 @@ const Routing = {};
 
 	Routing.registerPartials = (callback) => {
 		$("script[type='text/x-handlebars-partial']").each((i, e) => {
-			console.log(e)
 			const name = e.id.replace('-template', '');
 			partials[name] = Handlebars.registerPartial(name, $(e).html());
-			console.log(Handlebars.registerPartial(name, $(e).html()))
-			console.log(partials[name])
 		});
 
 		if (callback) {
