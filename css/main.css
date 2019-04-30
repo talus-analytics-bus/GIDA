@@ -602,11 +602,8 @@
 /* line 44, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details .undetermined-value {
   font-family: 'Raleway', sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
   max-width: 370px;
-  margin-top: 20px;
-  margin: 20px auto 0;
-  text-align: center;
 }
 
 /* line 55, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
