@@ -96,7 +96,8 @@ const App = {};
 
 				$('.about-dropdown-item').click(function () {
 					$('.about-dropdown').toggle();
-					hasher.setHash(`#about/${$(this).attr('page')}`);
+					const subpage = $(this).attr('page');
+					hasher.setHash(`#about/${subpage}`);
 				});
 
 				$('body').click(() => {

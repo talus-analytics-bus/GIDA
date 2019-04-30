@@ -197,12 +197,16 @@ const Routing = {};
 		});
 		crossroads.addRoute('/about/{tab_name}', (tab_name) => {
 			$('#theme-toggle').bootstrapToggle('enable');
-			const context = {
-				background: tab_name === 'background',
-				data: tab_name === 'data',
-				research: tab_name === 'research',
-			};
-			loadPage('about', App.initAbout, context);
+			if (tab_name === 'submit') {
+				loadPage('submit', App.initSubmit);
+			} else {
+				const context = {
+					background: tab_name === 'background',
+					data: tab_name === 'data',
+					research: tab_name === 'research',
+				};
+				loadPage('about', App.initAbout, context);
+			}
 		});
 
 		crossroads.addRoute('/data', () => {
@@ -222,6 +226,8 @@ const Routing = {};
 		// let navName = pageName.split('-')[0];
 		if (pageName === "landing") {
 			navName = "";
+		} else if (pageName === 'submit') {
+			navName = 'about';
 		}
 
 		// set nav
