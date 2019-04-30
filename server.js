@@ -64,6 +64,11 @@ app.post('/download_data', function(req, res) {
   // const exportCols = debugCols;
   const unspecifiedValues = ['', null, undefined];
   const exportCols = req.body.params.exportCols;
+  const hideCols = req.body.params.hideCols;
+  hideCols.forEach(col => {
+    console.log('hiding ' + col);
+    wb.definedName(col).hidden(true);
+  });
   const exportColFuncs = {
     project_description: function (datum, col) {
       if (datum.source.name !== 'IATI via D-Portal') {
@@ -145,15 +150,6 @@ else return `${min} - ${max}`;
 };
 
 const exportData = req.body.params.exportData;
-// const endCol = wb.sheet(0).usedRange().endCell().columnName();
-// const styles = wb.sheet(0).cell(startRow, "B").style([
-//   'borderColor',
-//   'borderStyle',
-//   'wrapText',
-// ])
-// console.log('styles')
-// console.log(styles)
-// const endRow = startRow + exportData.length;
 exportCols.forEach(col => {
   for (let i = 0; i < exportData.length; i++) {
     // formatting row
@@ -171,9 +167,8 @@ exportCols.forEach(col => {
     wb.definedName(col.name).cell(startRow).relativeCell(i,0).value(cellValue);
     }
   });
-  // wb.sheet(0).usedRange().style(styles);
 
-  // Delete extra rows
+  // Hide unused rows
 
 
   // Download report
