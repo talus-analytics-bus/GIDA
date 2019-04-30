@@ -46,7 +46,7 @@
 				.html(`${flagHtml}${name} `);
 			// .on('click', () => hasher.setHash(`analysis/${iso}`));
 
-			const countryTitleDiv = d3.select('.profile')
+			const countryTitleDiv = d3.select('.profile').html('')
 				.style('background-color', color);
 			//countryTitleDiv.append('br');
 			countryTitleDiv.append('div')

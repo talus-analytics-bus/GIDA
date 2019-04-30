@@ -78,17 +78,21 @@ svg .chart {
     bottom: 40px;
     left: 10px;
     font-size: 11px;
+    visibility: hidden;
     &.dark {
-        display: none;
+        // display: none;
+        color: white;
     }
 }
+
+body > div.toggle { visibility: hidden; }
 
 .toggle-theme {
     position: fixed !important;
     bottom: 10px !important;
     left: 10px !important;
     z-index: 100;
-
+    // visibility: hidden;
     .toggle-off {
         background-color: $lightcolor;
     }
