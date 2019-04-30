@@ -96,7 +96,6 @@
 
 		const setConstants = (params) => {
 				// state variables for current map indicator
-				// let indType = 'inkind';  // either 'money' or 'score'
 				indType = 'money';  // either 'money' or 'score'
 				// let moneyFlow = 'funded';  // either 'funded' or 'received'
 				moneyFlow = 'funded';  // either 'funded' or 'received'
@@ -122,8 +121,6 @@
 
 				if (App.mapType !== undefined) {
 						indType = App.mapType === 'inkind' ? 'inkind' : 'money';
-						console.log('App.mapType');
-						console.log(App.mapType);
 						$(`input[name="ind"][ind="${indType}"]`).prop('checked', true);
 						App.mapType = undefined;
 				}
@@ -331,6 +328,10 @@
 						interactive: true,
 						content: App.inKindDefinition,
 				});
+				$('.combined-tooltip').tooltipster({
+						interactive: true,
+						content: App.combinedDefinition,
+				});
 				initTableSearch();
 				populateTables('.donor-table', '.recipient-table');
 
@@ -490,6 +491,9 @@
 		 * @return {array}         Array of HEX strings representing a color series.
 		 */
 		function getRangeColors(indType) {
+				if (indType == 'score' && scoreType == 'combined') {
+						return App.combinedColors;
+				}
 				if (moneyFlow === 'received') {
 						return App.receiveColorPalette;
 				} else if (moneyFlow === 'funded') {
@@ -500,7 +504,6 @@
 		// gets the color scale used for the map
 		function getColorScale() {
 				if (indType === 'score' && scoreType === 'score') {
-						// return App.getScoreColor;
 						return d3.scaleThreshold()
 								.domain([1.5, 2, 2.5, 3, 3.5, 4, 4.5])
 								.range(App.jeeColors);
@@ -854,14 +857,6 @@
 
 				// add legend title
 				legend.append('text').attr('class', 'legend-title');
-
-				// add tooltip for legend title
-				legend.append('image')
-						.attr('class', 'legend-tooltip')
-						.attr('xlink:href', 'img/info.png')
-						.each(function addTooltip() {
-								$(this).tooltipster();
-						});
 		}
 
 		/**
@@ -1037,24 +1032,6 @@
 						// .attr('x', barWidth * colors.length / 2)
 						.attr('y', barHeight + 45)
 						.text(titleText);
-
-				legend.select('.legend-tooltip')
-						.attr('x', barWidth * colors.length / 2 + 134)
-						.attr('y', barHeight + 33.5);
-
-				// if showing combination metric, populate tooltip
-				if (indType === 'score' && scoreType === 'combined') {
-						$('.legend-tooltip')
-								.show()
-								.tooltipster('content', 'This metric combines both a country\'s JEE scores and ' +
-										'the amount of disbursed funds that the country has received. ' +
-										'We use JEE scores as a proxy for country-specific needs, and ' +
-										'calculate the ratio of financial resources to need. The goal ' +
-										'of this metric is to highlight areas whose needs may still be ' +
-										'unmet based on their ratio of financial resources to need.');
-				} else {
-						$('.legend-tooltip').hide();
-				}
 
 				if (needHatch) {
 						const undetermined = d3.select('.legend-group').select('g:last-child');
@@ -1353,9 +1330,16 @@
 								$('.score-filters').slideUp();
 								$('.money-filters').slideDown();
 								App.showGhsaOnly = true;
-						} else if (indType === 'score') {
+						} else if (indType === 'score' || indType === 'combined') {
 								$('.money-filters').slideUp();
 								$('.score-filters').slideDown();
+								if (indType == 'combined') {
+										indType = 'score';
+										scoreType = 'combined'
+								}
+								else {
+										scoreType = 'score';
+								}
 						}
 						updateFilters();
 				});
@@ -1410,10 +1394,15 @@
 		}
 
 		function updateFilters() {
+				let currIndType = indType;
+
+				if (indType === 'score' && scoreType === 'combined') {
+						currIndType = 'combined';
+				}
 				// update indicator type radio button
 				$('.ind-type-filter input').each(function updateInputs() {
 						const $this = $(this);
-						$this.prop('checked', $this.attr('ind') === indType);
+						$this.prop('checked', $this.attr('ind') === currIndType);
 				});
 
 				// update which radio buttons are checked based on state variables
