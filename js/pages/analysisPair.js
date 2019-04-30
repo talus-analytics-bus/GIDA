@@ -91,7 +91,7 @@
 				// Load correct funding data
 				indType = $(this).find('input').attr('ind');
 				App.showGhsaOnly = indType === 'ghsa';
-				
+
 				// Reload profile graphics and data
 				crossroads.parse(hasher.getHash());
 				// hasher.setHash(`analysis/${iso}/${moneyFlow}/table${App.showGhsaOnly ? '?ghsa_only=true' : '?ghsa_only=false'}`);
@@ -134,10 +134,10 @@
 			const expectedNameOrigFieldF = 'donor_name_orig';
 
 
-			function getMoneyCellValue (d, moneyField) { 
+			function getMoneyCellValue (d, moneyField) {
 				const allValuesUnspec = d.all_unspec === true;
 				const noValueReported = d.no_value_reported === true;
-				
+
 				if (noValueReported || allValuesUnspec) return 'Specific amount unknown';
 				else if (d[expectedNameOrigFieldR] && d[expectedNameOrigFieldR] !== expectedNameR)
 					return 'Specific amount unknown';
@@ -153,7 +153,7 @@
 				else return d[moneyField];
 			};
 
-			function getMoneyCellValue (d, moneyField, param = {}) { 
+			function getMoneyCellValue (d, moneyField, param = {}) {
 			const unspecified = param.unspecifiedIsZero === true ? 0 : 'Specific amount unknown';
 				const allValuesUnspec = d.all_unspec === true;
 				const noValueReported = d.no_value_reported === true;
@@ -162,12 +162,12 @@
 					if (moneyField === 'total_other_d') {
 						returnFunc = (p) => {
 							const isInkind = p.assistance_type.toLowerCase() === "in-kind support" || p.assistance_type.toLowerCase() === "other support";
-							return (isInkind && p.commitment_disbursements === 'disbursement') ? 1 : 0; 
+							return (isInkind && p.commitment_disbursements === 'disbursement') ? 1 : 0;
 						};
 					} else {
 						returnFunc = (p) => {
 							const isInkind = p.assistance_type.toLowerCase() === "in-kind support" || p.assistance_type.toLowerCase() === "other support";
-							return (isInkind && p.commitment_disbursements === 'commitment') ? 1 : 0; 
+							return (isInkind && p.commitment_disbursements === 'commitment') ? 1 : 0;
 						};
 					}
 				}
@@ -219,7 +219,7 @@
 					{ name: 'Commitment or Disbursement', value: 'commitment_disbursements', valueFunc: (p) => { const lower = p.commitment_disbursements; return lower.charAt(0).toUpperCase() + lower.substr(1); }},
 					{ name: 'Description', value: 'project_name' },
 				];
-			} 
+			}
 
 			// define row data
 			let paymentTableData = [];
@@ -274,7 +274,7 @@
 				}
 			} else if (currentInfoTab === 'inkind') {
 				paymentTableData = App.getInkindSupportProjects(allPayments, 'r', recIso);
-			} 
+			}
 
 			// clear DataTables plugin from table
 			if (infoTableHasBeenInit) infoDataTable.destroy();
@@ -340,12 +340,13 @@
 			} else if (currentInfoTab === 'inkind') {
 				order = [1, 'desc'];
 				columnDefs = [{ targets: [2], width: '450px' }];
-			} 
+			}
 
 			// re-initialize DataTables plugin
 			infoDataTable = $content.find('.funds-table').DataTable({
 				scrollY: '30vh',
 				scrollCollapse: true,
+				deferRender: true,
 				order,
 				columnDefs,
 			});

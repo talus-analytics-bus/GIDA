@@ -65,7 +65,7 @@
 				// Load correct funding data
 				indType = $(this).find('input').attr('ind');
 				App.showGhsaOnly = indType === 'ghsa';
-				
+
 				// Reload profile graphics and data
 				crossroads.parse(hasher.getHash());
 				// hasher.setHash(`analysis/${iso}/${moneyFlow}/table${App.showGhsaOnly ? '?ghsa_only=true' : '?ghsa_only=false'}`);
@@ -112,7 +112,7 @@
 			const expectedNameField = moneyFlow === 'd' ? 'donor_name' : 'recipient_name';
 			const expectedNameOrigField = moneyFlow === 'd' ? 'donor_name_orig' : 'recipient_name_orig';
 
-			function getMoneyCellValue (d, moneyField, param = {}) { 
+			function getMoneyCellValue (d, moneyField, param = {}) {
 				const allValuesUnspec = d.all_unspec === true;
 				const noValueReported = d.no_value_reported === true;
 				const unspecified = param.unspecifiedIsZero === true ? 0 : 'Specific amount unknown';
@@ -121,12 +121,12 @@
 					if (moneyField === 'total_other_d') {
 						returnFunc = (p) => {
 							const isInkind = p.assistance_type.toLowerCase() === "in-kind support" || p.assistance_type.toLowerCase() === "other support";
-							return (isInkind && p.commitment_disbursements === 'disbursement') ? 1 : 0; 
+							return (isInkind && p.commitment_disbursements === 'disbursement') ? 1 : 0;
 						};
 					} else {
 						returnFunc = (p) => {
 							const isInkind = p.assistance_type.toLowerCase() === "in-kind support" || p.assistance_type.toLowerCase() === "other support";
-							return (isInkind && p.commitment_disbursements === 'commitment') ? 1 : 0; 
+							return (isInkind && p.commitment_disbursements === 'commitment') ? 1 : 0;
 						};
 					}
 				}
@@ -209,7 +209,7 @@
 				// { name: 'Name', value: 'project_name' },
 				// { name: 'Description', value: 'project_description' },
 				// ];
-			} 
+			}
 
 			// define row data
 			const unspecified = 'Specific amount unknown';
@@ -366,7 +366,7 @@
 				}
 			} else if (currentInfoTab === 'inkind') {
 				paymentTableData = App.getInkindSupportProjects(App.fundingData, moneyFlow, iso);
-			} 
+			}
 
 
 			// clear DataTables plugin from table
@@ -424,7 +424,7 @@
 					d3.select(this).attr('data-sort', cellValue);
 					return Util.comma(cellValue);
 				}
-				
+
 				return cellValue;
 			});
 
@@ -448,17 +448,18 @@
 			} else if (currentInfoTab === 'inkind') {
 				order = [1, 'desc'];
 				columnDefs = [{ targets: [2], width: '450px' }];
-			} 
+			}
 
 			// re-initialize DataTables plugin
 			infoDataTable = $('.funds-table').DataTable({
+				deferRender: true,
 				scrollY: '40vh',
 				scrollCollapse: true,
 				order,
 				columnDefs,
 			});
 			infoTableHasBeenInit = true;
-			
+
 			// Tooltip for General IHR Implementation
 			$('.funds-table').find('.general-ihr-info-img').tooltipster({
 				interactive: true,

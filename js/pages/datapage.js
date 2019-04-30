@@ -134,10 +134,7 @@
 
 		// data = [App.fundingData[0]] // DEV
 		console.log('initData')
-		data = Util.uniqueCollection(App.fundingData, 'project_id').map(d => {
-			delete d.transactions;
-			return d;
-		});
+		data = Util.uniqueCollection(App.fundingData, 'project_id');
 
 		var downloadImg = document.createElement("img");
 		downloadImg.src = '/img/logo-download-light.svg';
