@@ -320,7 +320,7 @@ const App = {};
 								fundingData.forEach(d => {
 									if (d.project_description === undefined) d.project_description = '';
 									if (d.donor_name === undefined) d.donor_name = '';
-										if (d.assistance_type === undefined || d.assistance_type.toLowerCase().includes("financial")) {
+										if (d.assistance_type === undefined || d.assistance_type === 'NA' || d.assistance_type.toLowerCase().includes("financial")) {
 												d.assistance_type = 'Direct financial assistance';
 										}
 
