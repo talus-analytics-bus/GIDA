@@ -8,8 +8,6 @@ const Map = {};
 		 */
 		class WorldMap extends Chart {
 
-				mapSelector;
-
 				constructor(selector, params = {}) {
 						super(selector, params);
 
