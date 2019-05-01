@@ -186,7 +186,7 @@ const Map = {};
 
 						this.buttons
 								.resetButton
-								.attr('transform', `translate(8, ${this.height - 115})`)
+								.attr('transform', `translate(40, ${this.height - 61})`)
 								.style('visibility', 'hidden');
 
 						this.buttons
@@ -238,7 +238,7 @@ const Map = {};
 
 						this.buttons
 								.zoomButtons
-								.attr('transform', `translate(20, ${this.height - height - 36})`)
+								.attr('transform', `translate(5, ${this.height - height - 36})`)
 								.style('cursor', 'pointer');
 
 						this.buttons
@@ -300,7 +300,7 @@ const Map = {};
 		Map.createWorldMap = (selector, world) => {
 				const map = new WorldMap(selector, { world });
 				map.addHatchDefs();
-				
+
 				return map;
 
 				// --- old ---
