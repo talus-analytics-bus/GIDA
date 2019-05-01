@@ -89,6 +89,7 @@
 				orgStartYear,
 				orgEndYear,
 				supportType,
+				showTooltips = true,
 				page;
 
 		const fundingColor = '#597251';
@@ -103,6 +104,13 @@
 				moneyType = 'committed';  // either 'committed' or 'disbursed'
 				orgMoneyType = 'org-committed';  // either 'org-committed' or 'org-inkind'
 				scoreType = 'score';  // either 'score' or 'combined'
+
+				if (page === 'home') {
+						showTooltips = false;
+				}
+				else {
+						showTooltips = true;
+				}
 
 				// variables used throughout home page
 				activeCountry = d3.select(null);  // the active country
@@ -243,7 +251,6 @@
 						});
 				});
 
-				moneyFlow = 'funded';
 				updateMap(false);
 
 				const updatedFlags = () => {
@@ -314,24 +321,26 @@
 
 				updateAll();
 
-				$('.core-capacity-text').tooltipster({
-						interactive: true,
-						html: true,
-						content: App.coreCapacitiesText,
-				});
+				if (showTooltips) {
+						$('.core-capacity-text').tooltipster({
+								interactive: true,
+								html: true,
+								content: App.coreCapacitiesText,
+						});
 
-				$('.undetermined-info-img').tooltipster({
-						interactive: true,
-						content: 'Unreported funding amounts or in-kind support project counts may occur if the most specific funder or recipient named in a project is a general region or other group of countries.',
-				});
-				$('.inkind-support-info-img').tooltipster({
-						interactive: true,
-						content: App.inKindDefinition,
-				});
-				$('.combined-tooltip').tooltipster({
-						interactive: true,
-						content: App.combinedDefinition,
-				});
+						$('.undetermined-info-img').tooltipster({
+								interactive: true,
+								content: 'Unreported funding amounts or in-kind support project counts may occur if the most specific funder or recipient named in a project is a general region or other group of countries.',
+						});
+						$('.inkind-support-info-img').tooltipster({
+								interactive: true,
+								content: App.inKindDefinition,
+						});
+						$('.combined-tooltip').tooltipster({
+								interactive: true,
+								content: App.combinedDefinition,
+						});
+				}
 				initTableSearch();
 				populateTables('.donor-table', '.recipient-table');
 
@@ -381,47 +390,49 @@
 				// add map to map container
 				const mapObj = Map.createWorldMap(selector, App.geoData);
 
-				// define country click behavior and attach tooltips
-				d3.selectAll('.country')
-						.on('click', function onClick(d) {
-								// set country as active
-								if (activeCountry.node && activeCountry.node() === this) return resetMap();
+				if (showTooltips) {
+						// define country click behavior and attach tooltips
+						d3.selectAll('.country')
+								.on('click', function onClick(d) {
+										// set country as active
+										if (activeCountry.node && activeCountry.node() === this) return resetMap();
 
-								d3.selectAll('.country').classed('active', false);
-								// activeCountry.classed('active', false);
-								activeCountry = d3.select(this).classed('active', true);
+										d3.selectAll('.country').classed('active', false);
+										// activeCountry.classed('active', false);
+										activeCountry = d3.select(this).classed('active', true);
 
-								// zoom in to country
-								// mapObj.zoomTo.call(this, d);
-								mapObj.zoomTo(d);
+										// zoom in to country
+										// mapObj.zoomTo.call(this, d);
+										mapObj.zoomTo(d);
 
-								// display info box
-								displayCountryInfo();
+										// display info box
+										displayCountryInfo();
 
-								// deselect all list items
-								d3.selectAll('.list-item').classed('active', false);
+										// deselect all list items
+										d3.selectAll('.list-item').classed('active', false);
 
-								switch (moneyFlow) {
-										case 'funded':
-												$('.info-title').css('background-color', App.fundColorPalette[colorIndex]);
-												break;
-										case 'received':
-												$('.info-title').css('background-color', App.receiveColorPalette[colorIndex]);
-												break;
-										default:
-												break;
-								}
+										switch (moneyFlow) {
+												case 'funded':
+														$('.info-title').css('background-color', App.fundColorPalette[colorIndex]);
+														break;
+												case 'received':
+														$('.info-title').css('background-color', App.receiveColorPalette[colorIndex]);
+														break;
+												default:
+														break;
+										}
 
-								return true;
-						})
-						.each(function addTooltip(d) {
-								$(this).tooltipster({
-										plugins: ['follower'],
-										delay: 100,
-										minWidth: 200,
-										content: d.properties.NAME,
+										return true;
+								})
+								.each(function addTooltip(d) {
+										$(this).tooltipster({
+												plugins: ['follower'],
+												delay: 100,
+												minWidth: 200,
+												content: d.properties.NAME,
+										});
 								});
-						});
+				}
 
 				// define legend display toggle behavior
 				$('.legend-display-tab').click(function toggleLegendDIsplay() {
@@ -511,7 +522,7 @@
 						return d3.scaleThreshold()
 								.domain([5, 10, 15, 20, 25, 30])
 								// .domain([10,20,30,40,50,60])
-								.range(greens);
+								.range(getRangeColors(indType));
 				}
 
 				const valueAttrName = getValueAttrName();
@@ -775,63 +786,65 @@
 								return d.color;
 						})
 						.each(function updateTooltip(d) {
-								// define labels and value to be shown
-								let label = getMoneyTypeLabel(moneyFlow, moneyType);
-								let value = d.value;
+								if (showTooltips) {
+										// define labels and value to be shown
+										let label = getMoneyTypeLabel(moneyFlow, moneyType);
+										let value = d.value;
 
-								let format = getValueFormat(indType);
-								if (d.undetermined === true) {
-										// format = (indType === 'inkind') ? (val) => { return 'Unspecified Value' + ` <br><span class="inkind-value">in-kind support project${val !== 1 ? 's' : ''}</span>`; } : () => { return 'Unspecified Value';};
-										format = (d) => {
-												return d.undetermined_message;
-										};
-								}
-
-
-								// value shows received if showing JEE score
-								if (indType === 'score') {
-										label = getMoneyTypeLabel('received', 'disbursed');
-										if (currentNodeDataMap.has(d.properties.ISO2)) {
-												value = currentNodeDataMap.get(d.properties.ISO2).receivedSpent;
+										let format = getValueFormat(indType);
+										if (d.undetermined === true) {
+												// format = (indType === 'inkind') ? (val) => { return 'Unspecified Value' + ` <br><span class="inkind-value">in-kind support project${val !== 1 ? 's' : ''}</span>`; } : () => { return 'Unspecified Value';};
+												format = (d) => {
+														return d.undetermined_message;
+												};
 										}
-								}
-								// build tooltip
-								const container = d3.select(document.createElement('div'));
-								container.append('div')
-										.attr('class', 'tooltip-title info-box')
-										.text(d.properties.NAME);
-								if (d.undetermined !== true) {
+
+
+										// value shows received if showing JEE score
 										if (indType === 'score') {
-												let scoreText = 'Avg. JEE score: ';
-												let score = 0;
+												label = getMoneyTypeLabel('received', 'disbursed');
 												if (currentNodeDataMap.has(d.properties.ISO2)) {
-														score = currentNodeDataMap.get(d.properties.ISO2).score;
+														value = currentNodeDataMap.get(d.properties.ISO2).receivedSpent;
 												}
-												if (score) {
-														scoreText = App.getScoreNameHtml(score);
-												} else {
-														scoreText = 'No JEE score data available';
+										}
+										// build tooltip
+										const container = d3.select(document.createElement('div'));
+										container.append('div')
+												.attr('class', 'tooltip-title info-box')
+												.text(d.properties.NAME);
+										if (d.undetermined !== true) {
+												if (indType === 'score') {
+														let scoreText = 'Avg. JEE score: ';
+														let score = 0;
+														if (currentNodeDataMap.has(d.properties.ISO2)) {
+																score = currentNodeDataMap.get(d.properties.ISO2).score;
+														}
+														if (score) {
+																scoreText = App.getScoreNameHtml(score);
+														} else {
+																scoreText = 'No JEE score data available';
+														}
+														container.append('div')
+																.attr('class', 'tooltip-score-text')
+																.html(scoreText);
 												}
 												container.append('div')
-														.attr('class', 'tooltip-score-text')
-														.html(scoreText);
+														.attr('class', 'tooltip-main-value')
+														.html(format(value));
+												container.append('div')
+														.attr('class', 'tooltip-main-value-label')
+														.html(label);
+										} else {
+												container.append('div')
+														.attr('class', 'undetermined-value info-value')
+														.text(d.undetermined_message);
+												container.append('div')
+														.attr('class', 'undetermined-value-label info-value-label')
+														.text('Specific amounts not indicated');
 										}
-										container.append('div')
-												.attr('class', 'tooltip-main-value')
-												.html(format(value));
-										container.append('div')
-												.attr('class', 'tooltip-main-value-label')
-												.html(label);
-								} else {
-										container.append('div')
-												.attr('class', 'undetermined-value info-value')
-												.text(d.undetermined_message);
-										container.append('div')
-												.attr('class', 'undetermined-value-label info-value-label')
-												.text('Specific amounts not indicated');
-								}
 
-								$(this).tooltipster('content', container.html());
+										$(this).tooltipster('content', container.html());
+								}
 						});
 
 				// update legend

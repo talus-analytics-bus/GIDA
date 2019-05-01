@@ -173,13 +173,13 @@ const App = {};
 				];
 
 				App.combinedColors = [
-						'#fee391',
-						'#fec44f',
-						'#fe9929',
-						'#ec7014',
-						'#cc4c02',
-						'#993404',
-						'#662506'].reverse();
+						'#e0eed8',
+						'#d0e4c3',
+						'#a3cfca',
+						'#99c9c3',
+						'#82b8d1',
+						'#6296be',
+						'#32649f'].reverse();
 
 				/* App.fundColorPalette = [
 					'#053061',

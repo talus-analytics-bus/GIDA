@@ -372,20 +372,21 @@
   -moz-background-clip: padding;
   background-clip: padding-box;
   vertical-align: middle;
+  outline: none;
 }
 
-/* line 58, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 59, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-btn.map-funding-details-btn {
   padding: 5px 10px;
   height: 35px;
 }
 
-/* line 63, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 64, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-btn:hover {
   font-weight: 600;
 }
 
-/* line 67, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 68, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-btn.active, .talus-btn:active {
   font-weight: 400;
   -webkit-box-shadow: 0 0 5px black;
@@ -393,12 +394,12 @@
   box-shadow: 0 0 5px black;
 }
 
-/* line 73, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 74, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-btn:before {
   content: attr(value);
 }
 
-/* line 77, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 78, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-btn:after {
   display: block;
   visibility: hidden;
@@ -408,7 +409,7 @@
   overflow: hidden;
 }
 
-/* line 87, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 88, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-primary-btn {
   background-color: #425379;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#425379 0%), to(#213561 100%));
@@ -419,7 +420,7 @@
   color: white;
 }
 
-/* line 98, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 99, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-primary-btn.dark {
   background-color: #e6e6e6;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#e6e6e6 0%), to(#f2f2f2 100%));
@@ -430,7 +431,7 @@
   color: #4d4d4d;
 }
 
-/* line 103, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 104, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-primary-btn:hover {
   border: 2px solid #425379;
   background-color: white;
@@ -442,7 +443,7 @@
   color: #213561;
 }
 
-/* line 104, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 105, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-primary-btn:hover.dark {
   border: 2px solid transparent;
   color: #4d4d4d;
@@ -454,7 +455,7 @@
   background: -o-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
 }
 
-/* line 114, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 115, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-primary-btn.active, .talus-primary-btn:active {
   background-color: #425379;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#425379 0%), to(#213561 100%));
@@ -465,7 +466,7 @@
   color: white;
 }
 
-/* line 123, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 124, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn {
   border: 1px solid #cccccc;
   background-color: #e6e6e6;
@@ -477,12 +478,12 @@
   color: black;
 }
 
-/* line 137, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 138, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn.dark {
   color: black;
 }
 
-/* line 141, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 142, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn:hover {
   background-color: #808080;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#808080 0%), to(#808080 100%));
@@ -494,7 +495,7 @@
   font-weight: 400;
 }
 
-/* line 147, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 148, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn.active, .talus-secondary-btn:active {
   background-color: #e6e6e6;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#e6e6e6 0%), to(#f2f2f2 100%));
@@ -505,14 +506,14 @@
   color: black;
 }
 
-/* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 155, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .ghsa-button {
   position: relative;
   padding: 10px 15px 10px 45px;
   font-size: 14px;
 }
 
-/* line 158, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 159, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .ghsa-button:before {
   vertical-align: middle;
   white-space: pre;
@@ -528,7 +529,7 @@
   background-image: url("/img/gida-logo.png");
 }
 
-/* line 176, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 177, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .zoomButtons .glyphicon {
   color: #333333;
 }

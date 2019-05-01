@@ -54,6 +54,7 @@ $border-width: 2px;
   margin: 5px;
   @include border-radius(5px);
   vertical-align: middle;
+  outline: none;
 
     &.map-funding-details-btn {
         padding: 5px 10px;
