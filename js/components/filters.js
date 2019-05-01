@@ -36,6 +36,9 @@
 		});
 		const selectParams = prepMultiselectParams(param);
 		$(selector).multiselect(selectParams);
+		const selectorBox = $(selector).siblings('.btn-group').children('button.multiselect');
+		selectorBox.click(); // TODO remove this if/when doubleclick bug fixed
+		document.activeElement.blur()
 	};
 
 	/**
@@ -52,6 +55,9 @@
 		});
 		const selectParams = prepMultiselectParams(param);
 		$(selector).multiselect(selectParams);
+		const selectorBox = $(selector).siblings('.btn-group').children('button.multiselect');
+		selectorBox.click(); // TODO remove this if/when doubleclick bug fixed
+		document.activeElement.blur()
 	};
 
 	// tests whether a payment satisfies a category filter

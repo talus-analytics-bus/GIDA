@@ -2216,14 +2216,15 @@
 						);
 						const isGhsa = false;
 						const context = {
-							...entity,
 							mode: getIndTypeForTooltip(indType),
 							totalCommittedFmt: format(entity.total_committed),
 							totalSpentFmt: format(entity.total_spent),
 							committedLabel: getMoneyTypeLabel('funded', 'committed', isGhsa),
 							spentLabel: getMoneyTypeLabel('funded', 'disbursed', isGhsa),
 							headerColor: entityType.color,
+							...entity,
 						};
+						// for (field in entity) { context[field] = entity[field]; }
 						return context;
 					};
 					const context = getTableTooltipContext(entity);
