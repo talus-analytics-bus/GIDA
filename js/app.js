@@ -1228,7 +1228,7 @@ const App = {};
 						return '';
 				} // older flags that have different shapes sometimes
 				else {
-						return `<img class="flag" src="img/flags/${iso.toLowerCase()}.png" />`;
+						return `<img class="flag" src="img/newFlags/${iso.toUpperCase()}.png" />`;
 				}
 				// newer flags that are all the same size but still not good
 				/* else {

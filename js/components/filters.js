@@ -13,7 +13,6 @@
 			dropUp: param.dropUp || false,
 			dropLeft: param.dropLeft || false,
 			dropRight: param.dropRight || false,
-			...param.multiselectParam,
 		};
 		for (paramName in param.multiselectParam) {
 			selectParams[paramName] = param.multiselectParam[paramName];
