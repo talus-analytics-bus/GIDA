@@ -129,6 +129,20 @@ const Util = {};
 		a.dispatchEvent(e)
 	};
 
+	/**
+	 * Given the iso code, returns true if it represents and organization (e.g.,
+	 * World Bank), false otherwise.
+	 * @param  {string}  iso Code uniquely identifying the entity (two-char iso for countries)
+	 * @return {Boolean}     Whether the code identifies an organization (as opposed to a country)
+	 */
+	Util.isOrg = (iso) => {
+		const entityDict = _.indexBy(App.countries, 'ISO2');
+		if (iso === 'ghsa' || iso === 'General Global Benefit' || iso === 'Not reported') return false;
+		const dictEntry = entityDict[iso];
+		if (dictEntry === undefined) return false;
+		return dictEntry.country === false;
+	};
+
 	// Creates a scale that maps a domain to the domain of the sine function
 	// from 0 to π
 	Util.sineScale = (domain) => {
