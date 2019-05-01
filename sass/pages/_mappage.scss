@@ -144,6 +144,10 @@
           /*new*/
           margin-top: 0px;
           /*new*/
+          .country.hatch, .legend-bar.hatch, circle.hatch {
+            mask: url(#mask-stripe);
+            fill: #515151 !important;
+          }
         }
 
       }
