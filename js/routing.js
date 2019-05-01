@@ -218,6 +218,8 @@ const Routing = {};
 		// set nav
 		$('nav li').removeClass('active');
 		$(`nav li[page="${navName}"]`).addClass('active');
+		$('.menu-dropdown').hide();
+		
 		// load page
 		loadTemplate(pageName, data);
 		if (func) func(...data);
