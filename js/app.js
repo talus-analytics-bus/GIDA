@@ -107,7 +107,7 @@ const App = {};
 
 				// data definition variables
 				App.dataStartYear = 2014;
-				App.dataEndYear = 2018;
+				App.dataEndYear = 2019;
 
 				// Settings
 				App.showGhsaOnly = false;
@@ -748,6 +748,7 @@ const App = {};
 						2016: 0.0,
 						2017: 0.0,
 						2018: 0.0,
+						2019: 0.0,
 				};
 				spendTrans.forEach(transaction => {
 						const transCy = transaction.cy;
@@ -765,6 +766,7 @@ const App = {};
 						2016: 0.0,
 						2017: 0.0,
 						2018: 0.0,
+						2019: 0.0,
 				};
 				commitmentTrans.forEach(transaction => {
 						const transCy = transaction.cy;

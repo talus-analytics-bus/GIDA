@@ -2198,8 +2198,9 @@
 							committedLabel: getMoneyTypeLabel('funded', 'committed', isGhsa),
 							spentLabel: getMoneyTypeLabel('funded', 'disbursed', isGhsa),
 							headerColor: entityType.color,
+							...entity,
 						};
-						for (field in entity) { context[field] = entity[field]; }
+						// for (field in entity) { context[field] = entity[field]; }
 						return context;
 					};
 					const context = getTableTooltipContext(entity);

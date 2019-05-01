@@ -180,7 +180,10 @@
 				const hideCols = names;
 				return hideCols;
 			}
-			const getExportData = () => { return _.sortBy(filteredData, d => +d.year_range.split(' - ')[0] ).reverse(); };
+			const getExportData = () => {
+				if (filteredData === undefined) filteredData = data;
+				return _.sortBy(filteredData, d => +d.year_range.split(' - ')[0] ).reverse();
+			};
 
 			// Download the filtered data including only the selected data fields (columns).
 			downloadData(
