@@ -57,7 +57,7 @@ app.post('/download_data', function(req, res) {
   // Process data for certain fields, if needed
   // Core Capacities - Merge into single cell
   // Amount committed / Amount disbursed - Include currency (one col)
-  // Project year range - Calculate from transactions (maybe do client-side)
+  // Transaction year range - Calculate from transactions (maybe do client-side)
 
   // Add data
   // const debugCols = [{name: 'project_name'}];
@@ -66,8 +66,8 @@ app.post('/download_data', function(req, res) {
   const exportCols = req.body.params.exportCols;
   const hideCols = req.body.params.hideCols;
   hideCols.forEach(col => {
-    console.log('hiding ' + col);
     wb.definedName(col).hidden(true);
+    wb.definedName(col + '_legend').hidden(true);
   });
   const exportColFuncs = {
     project_description: function (datum, col) {

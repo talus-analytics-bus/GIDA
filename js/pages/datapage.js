@@ -49,7 +49,7 @@
 				func: false,
 				noDataText: 'Unspecified',
 				showByDefault: true,
-				displayName: 'Project year range', // should have info tooltip probably
+				displayName: 'Transaction year range', // should have info tooltip probably
 				hasCheckbox: true,
 				// func: true, // calc from transactions
 				// params: { dataEndYear: App.dataEndYear }

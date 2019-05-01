@@ -136,7 +136,7 @@ const Util = {};
 	 * @return {Boolean}     Whether the code identifies an organization (as opposed to a country)
 	 */
 	Util.isOrg = (iso) => {
-		if (iso === 'ghsa' || iso === 'General Global Benefit' || iso === 'Not reported') return false;
+		if (iso === 'NA' || iso === 'ghsa' || iso === 'General Global Benefit' || iso === 'Not reported') return false;
 		const regionNames = Util.unique(App.codes.filter(d => d.donor_sector ==='Region'),'donor_code');
 		const isRegion = regionNames.includes(iso);
 		if (isRegion) return false;
