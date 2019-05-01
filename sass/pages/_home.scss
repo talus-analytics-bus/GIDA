@@ -104,7 +104,7 @@
 
     .country.hatch, .legend-bar.hatch, circle.hatch {
       mask: url(#mask-stripe);
-      fill: #515151 !important;
+      fill: rgb(204, 204, 204) !important;
     }
     .map-title {
       @include flex(1 0 20px);

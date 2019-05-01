@@ -728,7 +728,19 @@
 		function updateMap(updateLegendFlag = true) {
 				const valueAttrName = getValueAttrName();
 				const colorScale = getColorScale();
-
+				const flow = valueAttrName.includes('received') ? 'r' : 'd';
+				const type = valueAttrName.includes('Comm') ? 'total_committed' : 'total_spent';
+				const setMapTitle = () => {
+					if (indType === 'score') {
+						return (scoreType === 'score') ? 'JEE score by country' : 'Combined financial resources and need metric';
+					} else {
+						const titleFlow = (flow === 'r') ? 'Recipients' : 'Funders';
+						const titleType = (type === 'total_committed') ? 'committed' : 'disbursed';
+						const titleKind = indType === 'inkind' ? 'in-kind support' : 'funds';
+						return `${titleFlow} by country (${titleType} ${titleKind})`;
+					}
+				};
+				$('.map-title').text(setMapTitle());
 				// color countries and update tooltip content
 				map.chart
 						.selectAll('.country')
@@ -746,8 +758,6 @@
 										} else if (indType !== 'score' && indType !== 'combo') {
 												// check whether to make it dark gray
 												if (indType !== 'inkind') {
-														const flow = valueAttrName.includes('received') ? 'r' : 'd';
-														const type = valueAttrName.includes('Comm') ? 'total_committed' : 'total_spent';
 														const unmappableFinancials = App.getFinancialProjectsWithUnmappableAmounts(App.fundingData, flow, d.properties.ISO2);
 														if (unmappableFinancials.length > 0) {
 																const someMoney = true;
@@ -761,8 +771,6 @@
 																}
 														}
 												} else {
-														const flow = valueAttrName.includes('received') ? 'r' : 'd';
-														const type = valueAttrName.includes('Comm') ? 'total_committed' : 'total_spent';
 														const unmappableFinancials = App.getInkindProjectsWithUnmappableAmounts(App.fundingData, flow, d.properties.ISO2);
 														if (unmappableFinancials.length > 0) {
 																country.classed('hatch', true);
