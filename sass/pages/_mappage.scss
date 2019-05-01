@@ -146,7 +146,8 @@
           /*new*/
           .country.hatch, .legend-bar.hatch, circle.hatch {
             mask: url(#mask-stripe);
-            fill: #515151 !important;
+            fill: rgb(204, 204, 204) !important;
+            // fill: #515151 !important;
           }
         }
 
@@ -267,6 +268,13 @@
         label {
           &:not(.slider-handle) {
             background: transparent;
+            &.radio-option.multiline {
+              input { vertical-align: top; }
+              p {
+                display: inline-block;
+                max-width: 220px;
+              }
+            }
           }
 
           .slider-handle {
