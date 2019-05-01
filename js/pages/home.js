@@ -272,8 +272,6 @@
 				});
 
 				$('.map-buttons button').click(function () {
-						$('.map-buttons button').removeClass('active');
-						$(this).addClass('active');
 						switch ($(this).data('value')) {
 								case 'jee':
 										indType = 'score';
@@ -282,9 +280,8 @@
 										indType = 'money';
 										break;
 						}
-						updatedFlags();
+						hasher.setHash(`map/map/${indType}`);
 				});
-				$('.map-buttons button[value="Funding Map"]').addClass('active');
 
 				let currentSearchSelection = undefined;
 				App.initCountrySearchBar('.search-box', (result) => {
@@ -298,9 +295,10 @@
 				});
 		};
 
-		App.initMap = (tabSelect="countries", params = {}) => {
+		App.initMap = (tabSelect="countries", indTypeParam="money", params = {}) => {
 				page = 'map';
 				setConstants(params);
+				indType = indTypeParam;
 
 				if (tabSelect == 'org') {
 					$('#org-tab').prop("checked", true);
@@ -1331,6 +1329,19 @@
 				App.populateCcDropdown('.cc-select', { dropUp: true, dropLeft: true });
 
 				d3.select('.dropdown-menu').classed('firefox', App.usingFirefox);
+
+				// The map page handles a indTypeParam. Update the filter to match it.
+				$(`input[name="ind"][ind="${indType}"]`).prop('checked', true);
+				if (indType === 'score' || indType === 'combined') {
+						$('.money-filters').slideUp();
+						$('.score-filters').slideDown();
+						if (indType == 'combined') {
+								indType = 'score';
+								scoreType = 'combined'
+						} else {
+								scoreType = 'score';
+						}
+				}
 
 				// update indicator type ('money' or 'score') on change
 				$('.ind-type-filter .radio-option').click(function updateIndType() {

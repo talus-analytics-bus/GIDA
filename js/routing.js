@@ -132,6 +132,9 @@ const Routing = {};
 		crossroads.addRoute('/map/{tabSelect}', (tabSelect) => {
 			loadPage('map', App.initMap, tabSelect);
 		});
+		crossroads.addRoute('/map/{tabSelect}/{indTypeParam}', (tabSelect, indTypeParam) => {
+			loadPage('map', App.initMap, tabSelect, indTypeParam);
+		});
 		// crossroads.addRoute('/', () => {
 		// 	loadPage('landing', App.initLanding, 'country');
 		// });
@@ -216,7 +219,7 @@ const Routing = {};
 		$('nav li').removeClass('active');
 		$(`nav li[page="${navName}"]`).addClass('active');
 		$('.menu-dropdown').hide();
-		
+
 		// load page
 		loadTemplate(pageName, data);
 		if (func) func(...data);
