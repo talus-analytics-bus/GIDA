@@ -1,6 +1,7 @@
 (() => {
 
-	let data; // data to be exported
+	let data; // data
+	let filteredData; // data to be exported
 	let table; // jQuery DataTable handle
 
 	/**
@@ -179,7 +180,7 @@
 				const hideCols = names;
 				return hideCols;
 			}
-			const getExportData = () => { return _.sortBy(data, d => +d.year_range.split(' - ')[0] ).reverse(); };
+			const getExportData = () => { return _.sortBy(filteredData, d => +d.year_range.split(' - ')[0] ).reverse(); };
 
 			// Download the filtered data including only the selected data fields (columns).
 			downloadData(
@@ -463,7 +464,7 @@ const populateFilters = () => {
 
 
 		// do filtering (update data)
-		updatedData = data.filter(p => {
+		filteredData = data.filter(p => {
 			let match = true;
 			filters.forEach(filterSet => {
 				let pVals = p[filterSet.key];
@@ -474,13 +475,13 @@ const populateFilters = () => {
 		});
 
 		// update table
-		table.update(updatedData);
+		table.update(filteredData);
 
 		// update filters enabled
 
 		// update download button
 		const type = someFilters ? 'selected' : 'all available';
-		$('.download-container').html(`<span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;Download ${type} data (${Util.comma(updatedData.length)} records)`)
+		$('.download-container').html(`<span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;Download ${type} data (${Util.comma(filteredData.length)} records)`)
 
 		// show/hide clear filters
 		$('.clear-filter-btn').css('visibility', someFilters ? 'visible' : 'hidden');
