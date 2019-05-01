@@ -1,9 +1,31 @@
 (() => {
+
 	/**
-	 * Populates Core Capacity dropdown multiselect.
-	 * @param  {string} selector   Selector to target
-	 * @param  {Object} [param={}] parameters
+	 * Prepare parameters to intialize Bootstrap Multiselect
+	 * @param  {Object} [extraParams={}] Extra parameters beyond defaults (op.)
+	 * @return {Object}                  Parameters
 	 */
+	const prepMultiselectParams = (param = {}) => {
+		const selectParams = {
+			maxHeight: 260,
+			includeSelectAllOption: true,
+			numberDisplayed: 0,
+			dropUp: param.dropUp || false,
+			dropLeft: param.dropLeft || false,
+			dropRight: param.dropRight || false,
+			...param.multiselectParam,
+		};
+		for (paramName in param.multiselectParam) {
+			selectParams[paramName] = param.multiselectParam[paramName];
+		}
+		return selectParams;
+	};
+
+	/**
+	* Populates Core Capacity dropdown multiselect.
+	* @param  {string} selector   Selector to target
+	* @param  {Object} [param={}] parameters
+	*/
 	App.populateCcDropdown = (selector, param = {}) => {
 		const emptyObj = { id: '', name: 'None - No core capacity tagged' };
 		const capacities = App.capacities.concat(emptyObj);
@@ -13,22 +35,15 @@
 			nameKey: 'name',
 			selected: param.selected, // for data page, don't select
 		});
-		$(selector).multiselect({
-			maxHeight: 260,
-			includeSelectAllOption: true,
-			numberDisplayed: 0,
-			dropUp: param.dropUp || false,
-			dropLeft: param.dropLeft || false,
-			dropRight: param.dropRight || false,
-			...param.multiselectParam,
-		});
+		const selectParams = prepMultiselectParams(param);
+		$(selector).multiselect(selectParams);
 	};
 
 	/**
-	 * Populates other dropdown multiselects.
-	 * @param  {string} selector   Selector to target
-	 * @param  {Object} [param={}] parameters
-	 */
+	* Populates other dropdown multiselects.
+	* @param  {string} selector   Selector to target
+	* @param  {Object} [param={}] parameters
+	*/
 	App.populateOtherDropdown = (selector, items, valKey, nameKey, param = {}) => {
 		// const emptyObj = { id: '', name: 'None - No core capacity tagged' };
 		// const capacities = App.capacities.concat(emptyObj);
@@ -38,15 +53,8 @@
 			nameKey: nameKey,
 			selected: param.selected, // for data page, don't select
 		});
-		$(selector).multiselect({
-			maxHeight: 260,
-			includeSelectAllOption: true,
-			numberDisplayed: 0,
-			dropUp: param.dropUp || false,
-			dropLeft: param.dropLeft || false,
-			dropRight: param.dropRight || false,
-			...param.multiselectParam,
-		});
+		const selectParams = prepMultiselectParams(param);
+		$(selector).multiselect(selectParams);
 	};
 
 	// tests whether a payment satisfies a category filter
