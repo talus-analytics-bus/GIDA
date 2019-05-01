@@ -116,9 +116,9 @@
 				activeCountry = d3.select(null);  // the active country
 				currentNodeDataMap = d3.map();  // maps country iso to the value on map
 				startYear = App.dataStartYear;  // the start year of the time range shown
-				endYear = App.dataEndYear + 1;  // the end year of the time range shown
+				endYear = App.dataEndYear+1;  // the end year of the time range shown
 				orgStartYear = App.dataStartYear;
-				orgEndYear = App.dataEndYear + 1;
+				orgEndYear = App.dataEndYear+1;
 				params.ghsaOnly = true;
 
 				if (App.mapSet !== undefined) {
@@ -466,7 +466,9 @@
 				return moneyType === 'committed' ? 'receivedCommitted' : 'receivedSpent';
 		}
 
-		function getMoneyTypeLabel(mFlow, mType, isGhsa = false) {
+		function getMoneyTypeLabel(mFlow, mType, isGhsa = false, isOrgTab = false) {
+				const labelStartYear = isOrgTab ? orgStartYear : startYear;
+				const labelEndYear = isOrgTab ? orgEndYear : endYear;
 				let flowNoun = (mFlow === 'funded') ? '(funder)' : '(recipient)';
 				if (isGhsa) {
 						flowNoun = '';
@@ -488,9 +490,15 @@
 						noun = '';
 						br = ' ';
 				}
-				return `Total <b>${noun}</b>` +
-						`&nbsp;from ${br}${startYear} to ${endYear - 1}` +
-						`&nbsp;${flowNoun}`;
+				if (labelStartYear === (labelEndYear - 1)) {
+					return `Total <b>${noun}</b>` +
+					`&nbsp;in ${br}${labelStartYear}` +
+					`&nbsp;${flowNoun}`;
+				} else {
+					return `Total <b>${noun}</b>` +
+					`&nbsp;from ${br}${labelStartYear} to ${labelEndYear - 1}` +
+					`&nbsp;${flowNoun}`;
+				}
 		}
 
 		/**
@@ -1301,7 +1309,9 @@
 				});
 				slider.on('change', (event) => {
 						const years = event.target.value.split(',');
-						if (+years[0] !== startYear || +years[1] !== endYear) {
+						console.log('years')
+						console.log(years)
+						if (+years[0] !== startYear || +years[1] !== (endYear)) {
 								startYear = +years[0];
 								endYear = +years[1];
 
@@ -1321,9 +1331,10 @@
 				});
 				slider.on('change', (event) => {
 						const years = event.target.value.split(',');
-						if (+years[0] !== orgStartYear || +years[1] !== orgEndYear) {
+						if (+years[0] !== orgStartYear || +years[1] !== (orgEndYear)) {
+						// if (+years[0] !== orgStartYear || +years[1] !== (orgEndYear+1)) {
 								orgStartYear = +years[0];
-								endYear = +years[1];
+								orgEndYear = +years[1];
 								updateTables();
 						}
 				});
@@ -2126,12 +2137,12 @@
 						spentFilter.ccs = ccs;
 				}
 
-				if (startYear > App.dataStartYear) {
-						spentFilter.startYear = startYear;
+				if (orgStartYear > App.dataStartYear) {
+						spentFilter.startYear = orgStartYear;
 				}
 
-				if (endYear < App.dataEndYear) {
-						spentFilter.endYear = endYear;
+				if (orgEndYear < App.dataEndYear) {
+						spentFilter.endYear = orgEndYear;
 				}
 
 				let committedFilter = _.clone(spentFilter);
@@ -2145,8 +2156,10 @@
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Disbursed';
 				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
-				$('.fund-table-title .text').text(`Top ${funderNoun.toLowerCase()}s (${startYear} - ${endYear})`);
-				$('.rec-table-title .text').text(`Top recipients (${startYear} - ${endYear})`);
+				$('.fund-table-title .text').text(`Top ${funderNoun.toLowerCase()}s (${orgStartYear} - ${orgEndYear-1})`);
+				$('.rec-table-title .text').text(`Top recipients (${orgStartYear} - ${orgEndYear-1})`);
+				App.fundIcon('.fund-table-title span');
+				App.receiveIcon('.rec-table-title span');
 				$('.fund-col-name.head-text').text(funderNoun);
 				$('.d-col-name').text(dNoun);
 
@@ -2231,8 +2244,8 @@
 							mode: getIndTypeForTooltip(indType),
 							totalCommittedFmt: format(entity.total_committed),
 							totalSpentFmt: format(entity.total_spent),
-							committedLabel: getMoneyTypeLabel('funded', 'committed', isGhsa),
-							spentLabel: getMoneyTypeLabel('funded', 'disbursed', isGhsa),
+							committedLabel: getMoneyTypeLabel('funded', 'committed', isGhsa, true),
+							spentLabel: getMoneyTypeLabel('funded', 'disbursed', isGhsa, true),
 							headerColor: entityType.color,
 							...entity,
 						};
