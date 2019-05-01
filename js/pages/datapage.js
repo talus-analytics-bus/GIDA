@@ -133,7 +133,6 @@
 		];
 
 		// data = [App.fundingData[0]] // DEV
-		console.log('initData')
 		data = Util.uniqueCollection(App.fundingData, 'project_id');
 
 		var downloadImg = document.createElement("img");
@@ -195,11 +194,8 @@
 		populateFieldCheckboxes(defaultExportCols);
 		populateFilters();
 
-		console.log('initTable')
 		table = initTable(defaultExportCols);
-		console.log('Completed initTable')
 		function updateTable (dataToShow) {
-			console.log('updateTable')
 			NProgress.start();
 			const enabledCols = ['project_name:name'];
 			$('.field-options input:checked').each((d, i) => enabledCols.push($(i).val() + ':name'));
@@ -214,16 +210,10 @@
 				.rows.add(dataToShow);
 			}
 			table.draw();
-			console.log('Completed updateTable')
 			NProgress.done();
 		}
 		table.update = updateTable;
-		// table.update(App.fundingData)
-		// const updateData = _.sample(App.fundingData, 100);
-		// const updateData = App.fundingData;
-		// const updateData = [];
 		const updateData = data;
-		// const updateData = _.sample(data, 50);
 		table.update(updateData)
 
 		$('.select-data-contents').show();
@@ -232,7 +222,6 @@
 			$('.select-data-contents').slideToggle();
 			$('.select-data-glyph').toggleClass('flip');
 		});
-		console.log('completed initdata')
 	};
 
 	/**
@@ -548,6 +537,6 @@ const populateFilters = () => {
 				}
 			});
 		});
-};
+	};
 
 })();

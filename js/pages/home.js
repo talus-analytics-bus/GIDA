@@ -973,12 +973,12 @@
 								.style('display', 'inline')
 								.style('text-anchor', 'end')
 								.text((d, i) => {
-										if (i === 6) return 'Needs Met';
+										if (i === 6) return 'Needs met';
 										return '';
 								});
 						legendStartLabel
 								.style('text-anchor', 'start')
-								.text('Needs Unmet');
+								.text('Needs unmet');
 				} else if (indType === 'inkind') {
 						legendText
 								.style('display', 'inline')
@@ -1754,7 +1754,7 @@
 		function initLeftList(selector, ccs = []) {
 				const $list = d3.select(selector).html('');
 				const label = 'Non-government Organization ';
-				const dNounPlural = indType === 'inkind' ? 'Providers' : 'Funders';
+				const dNounPlural = indType === 'inkind' ? 'providers' : 'funders';
 				d3.select('.list-title.left').html(label + (moneyFlow === 'funded' ? dNounPlural : 'Recipients'));
 				const dFlow = indType === 'inkind' ? 'Provided' : 'Funded';
 				const dType = indType === 'inkind' ? 'Sent' : 'Disbursed';
@@ -1926,7 +1926,7 @@
 
 				const $list = d3.select(selector).html('');
 				const label = 'Foundations, Philanthropies, and Private Sector';
-				const dNounPlural = indType === 'inkind' ? 'Providers' : 'Funders';
+				const dNounPlural = indType === 'inkind' ? 'providers' : 'funders';
 				d3.select('.list-title.right').text(label + (moneyFlow === 'funded' ? ' ' + dNounPlural : ' Recipients'));
 
 				// get data for funders and group it by funder
@@ -2126,7 +2126,7 @@
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Disbursed';
 				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
-				$('.fund-table-title .text').text(`Top ${funderNoun}s (${startYear} - ${endYear})`);
+				$('.fund-table-title .text').text(`Top ${funderNoun.toLowerCase()}s (${startYear} - ${endYear})`);
 				$('.rec-table-title .text').text(`Top recipients (${startYear} - ${endYear})`);
 				$('.fund-col-name.head-text').text(funderNoun);
 				$('.d-col-name').text(dNoun);

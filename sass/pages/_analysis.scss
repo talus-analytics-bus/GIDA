@@ -38,6 +38,7 @@
 		position: relative;
 		margin: 0;
 		padding: 10px 0;
+		&.analysis-country-content { padding-top: 0; };
 		// padding: 0px 30px 10px;
 		z-index: 100;
 
@@ -50,11 +51,15 @@
 	}
 	.flag {
 		position: relative;
-		top: -2px;
-		height: 30px;
+		/* top: -2px; */
+		/* height: 30px; */
+		width: 35px;
 		margin: 0 0px;
 	}
 	.table {
+		td, th {
+		vertical-align: middle;
+	}
 		.flag-container {
 			display: inline-block;
 			width: 40px;
@@ -62,7 +67,7 @@
 			text-align: right;
 		}
 		.flag {
-			height: 16px;
+			// height: 16px;
 			margin: 0;
 		}
 	}
@@ -86,13 +91,14 @@
 			text-align: right;
 		}
 		.flag-container {
-			vertical-align: top;
+			vertical-align: middle;
 		}
 		.name-container {
 			display: inline-block;
 			width: 220px;
 			white-space: normal;
-			vertical-align: top;
+			vertical-align: middle;
+			// vertical-align: top;
 			font-weight: 600;
 			cursor: pointer;
 		}

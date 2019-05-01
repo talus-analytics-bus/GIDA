@@ -204,7 +204,7 @@ exportCols.forEach(col => {
 });
 
 // If enableS3 is true, then the aws-sdk package will be loaded (can cause some
-// Mac machines to crash). This package is required for the "Submit Data" page
+// Mac machines to crash). This package is required for the "Submit data" page
 // and functions on that page will fail unless it is true.
 // To run locally, disable S3, otherwise you will receive a Node.js error about credentials not being correct
 //
