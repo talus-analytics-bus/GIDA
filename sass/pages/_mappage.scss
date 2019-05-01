@@ -267,6 +267,13 @@
         label {
           &:not(.slider-handle) {
             background: transparent;
+            &.radio-option.multiline {
+              input { vertical-align: top; }
+              p {
+                display: inline-block;
+                max-width: 220px;
+              }
+            }
           }
 
           .slider-handle {
