@@ -1309,8 +1309,6 @@
 				});
 				slider.on('change', (event) => {
 						const years = event.target.value.split(',');
-						console.log('years')
-						console.log(years)
 						if (+years[0] !== startYear || +years[1] !== (endYear)) {
 								startYear = +years[0];
 								endYear = +years[1];
