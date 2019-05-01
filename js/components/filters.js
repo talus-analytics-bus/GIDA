@@ -45,8 +45,6 @@
 	* @param  {Object} [param={}] parameters
 	*/
 	App.populateOtherDropdown = (selector, items, valKey, nameKey, param = {}) => {
-		// const emptyObj = { id: '', name: 'None - No core capacity tagged' };
-		// const capacities = App.capacities.concat(emptyObj);
 		if (param.selected === undefined) param.selected = true;
 		Util.populateSelect(selector, items, {
 			valKey: valKey,
