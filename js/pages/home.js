@@ -1206,6 +1206,8 @@
 
 				// display content
 				$('.info-container').slideDown();
+				$('.country-option-column').slideDown();
+				$('.filter-collapse i').removeClass('rotated');
 		}
 
 		function initGhsaToggle() {
@@ -1230,6 +1232,12 @@
 
 		// initalizes components in the map options, incl. search and display toggle
 		function initMapOptions() {
+				// define legend display toggle behavior
+				$('.filter-collapse i').click(() => {
+						$('.filter-collapse i').toggleClass('rotated');
+						$('.country-option-column').slideToggle();
+				});
+
 				// define display toggle behavior
 				$('.map-options-title.main-options-title').click(function toggleContent() {
 						$(this).find('.collapse-arrow').toggleClass('rotated');

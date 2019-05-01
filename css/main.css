@@ -1673,7 +1673,7 @@ b {
           /*new*/ }
           .map-page-container .map-page-tabs .content .left-pane .map-container .country.hatch, .map-page-container .map-page-tabs .content .left-pane .map-container .legend-bar.hatch, .map-page-container .map-page-tabs .content .left-pane .map-container circle.hatch {
             mask: url(#mask-stripe);
-            fill: #515151 !important; }
+            fill: #cccccc !important; }
       .map-page-container .map-page-tabs .content .legend-position {
         width: 80%;
         position: absolute;
@@ -1723,6 +1723,17 @@ b {
         .map-page-container .map-page-tabs .content .info-container div {
           color: #222222;
           background: transparent; }
+      .map-page-container .map-page-tabs .content .filter-collapse {
+        width: 25%;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        text-align: center;
+        border: 1px solid #666666; }
+        .map-page-container .map-page-tabs .content .filter-collapse span {
+          float: right;
+          padding-right: 10px;
+          font-size: 16px; }
       .map-page-container .map-page-tabs .content .country-option-column {
         width: 25%;
         position: absolute;
@@ -1756,6 +1767,13 @@ b {
         .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle),
         .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle) {
           background: transparent; }
+          .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle).radio-option.multiline input,
+          .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle).radio-option.multiline input {
+            vertical-align: top; }
+          .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle).radio-option.multiline p,
+          .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle).radio-option.multiline p {
+            display: inline-block;
+            max-width: 220px; }
         .map-page-container .map-page-tabs .content .map-and-search-container div .slider-handle,
         .map-page-container .map-page-tabs .content .map-and-search-container label .slider-handle {
           background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%); }
@@ -2756,7 +2774,7 @@ b {
       background-color: #222222; }
     .home-container .map-container .country.hatch, .home-container .map-container .legend-bar.hatch, .home-container .map-container circle.hatch {
       mask: url(#mask-stripe);
-      fill: #515151 !important; }
+      fill: #cccccc !important; }
     .home-container .map-container .map-title {
       -webkit-box-flex: 1 0 20px;
       -moz-box-flex: 1 0 20px;
