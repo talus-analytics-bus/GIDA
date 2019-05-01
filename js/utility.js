@@ -136,8 +136,11 @@ const Util = {};
 	 * @return {Boolean}     Whether the code identifies an organization (as opposed to a country)
 	 */
 	Util.isOrg = (iso) => {
-		const entityDict = _.indexBy(App.countries, 'ISO2');
 		if (iso === 'ghsa' || iso === 'General Global Benefit' || iso === 'Not reported') return false;
+		const regionNames = Util.unique(App.codes.filter(d => d.donor_sector ==='Region'),'donor_code');
+		const isRegion = regionNames.includes(iso);
+		if (isRegion) return false;
+		const entityDict = _.indexBy(App.countries, 'ISO2');
 		const dictEntry = entityDict[iso];
 		if (dictEntry === undefined) return false;
 		return dictEntry.country === false;

@@ -2152,9 +2152,9 @@
 
 				const countriesByFunding = [];
 				for (const iso in App.fundingLookup) {
-						// const isOrg = Util.isOrg(iso);
-						// if (isOrg) {
-							if (iso !== 'Not reported' && iso !== 'ghsa' && iso !== 'General Global Benefit') {
+						const isOrg = Util.isOrg(iso);
+						if (isOrg) {
+							// if (iso !== 'Not reported' && iso !== 'ghsa' && iso !== 'General Global Benefit') {
 								const newObj = {
 										iso,
 										name: App.codeToNameMap.get(iso),
@@ -2171,9 +2171,9 @@
 				// get top recipient countries
 				const countriesByReceived = [];
 				for (const iso in App.recipientLookup) {
-					// const isOrg = Util.isOrg(iso);
-						// if (isOrg) {
-						if (iso !== 'Not reported' && iso !== 'ghsa' && iso !== 'General Global Benefit') {
+					const isOrg = Util.isOrg(iso);
+						if (isOrg) {
+						// if (iso !== 'Not reported' && iso !== 'ghsa' && iso !== 'General Global Benefit') {
 								const newObj = {
 										iso,
 										name: App.codeToNameMap.get(iso),
