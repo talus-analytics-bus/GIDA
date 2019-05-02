@@ -181,16 +181,16 @@ display: inline;
     td,tr {
       border: 1px solid #666666;
     }
-    td:nth-child(1) {
-      border-right: none;
-    }
-    td:nth-child(2) {
-      border-left: none;
-      border-right: none;
-    }
-    td:nth-child(3) {
-      border-left: none;
-    }
+    // td:nth-child(1) {
+    //   border-right: none;
+    // }
+    // td:nth-child(2) {
+    //   border-left: none;
+    //   border-right: none;
+    // }
+    // td:nth-child(3) {
+    //   border-left: none;
+    // }
 
     thead {
       td,tr {

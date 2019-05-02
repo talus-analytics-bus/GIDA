@@ -4667,22 +4667,6 @@ display: inline;
   border: 1px solid #666666;
 }
 
-/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
-.data-container table td:nth-child(1) {
-  border-right: none;
-}
-
-/* line 187, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
-.data-container table td:nth-child(2) {
-  border-left: none;
-  border-right: none;
-}
-
-/* line 191, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
-.data-container table td:nth-child(3) {
-  border-left: none;
-}
-
 /* line 196, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td, .data-container table thead tr {
   background-color: #eaeaea;
