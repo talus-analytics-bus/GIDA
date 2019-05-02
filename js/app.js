@@ -268,12 +268,14 @@ const App = {};
 				App.coreCapacitiesText = 'Core capacities were tagged based on names and descriptions of commitments and disbursements. A single commitment or disbursement may support more than one core capacity. Additional information on how core capacities were tagged can be found on the <a href="#glossary" onlick="function(){hasher.setHash(`#glossary`)}">data definitions</a> page.';
 				App.generalIhrText = 'Funds or support for "General IHR Implementation" are not associated with any specific core capacities, but instead provide general support for capacity-building under the International Health Regulations (e.g., supporting JEE missions, overall capacity building).';
 				App.inKindDefinition = 'In-kind support is the contribution of goods or services to a recipient. Examples of in-kind support include providing technical expertise or programming support, or  supporting GHSA action packages.';
-				App.combinedDefinition = 'This metric combines both a country\'s JEE scores and ' +
-										'the amount of disbursed funds that the country has received. ' +
-										'We use JEE scores as a proxy for country-specific needs, and ' +
-										'calculate the ratio of financial resources to need. The goal ' +
-										'of this metric is to highlight areas whose needs may still be ' +
-										'unmet based on their ratio of financial resources to need.';
+				App.combinedDefinition = `This metric combines both a country's JEE scores and 
+										the amount of disbursed funds that the country has received. 
+										We use JEE scores as a proxy for country-specific needs, and 
+										calculate the ratio of financial resources to need. The goal 
+										of this metric is to highlight areas whose needs may still be 
+										unmet based on their ratio of financial resources to need.`;
+				App.jeeDefinition = `The Joint External Evaluation tool (JEE) measures country-specific progress in 
+										developing the capacities needed to prevent, detect, and respond to public health threats.`;
 
 				// front-load all the data
 				NProgress.start();
@@ -1266,22 +1268,26 @@ const App = {};
 				'Nuclear Threat Initiative Commitment Tracker',
 				'WHO Contingency Fund for Emergencies',
 		];
-		App.setSources = () => {
+		App.setSources = (showTooltip = true) => {
 
-				const linkHtml = '<a href="#about" class="source-text">Data sources</a>';
-				let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data sources</a><div class="data-source-sep"></div><ul>';
-				sourceNames.forEach((sourceName) => {
-						tooltipContent += `<li>${sourceName}</li>`;
-				});
-				tooltipContent += '</ul></div>';
-				$('.source-text,.funds-source-text').html(linkHtml)
-						.tooltipster({
-								minWidth: 400,
-								content: tooltipContent,
-								contentAsHTML: true,
-								interactive: true,
-								side: 'bottom',
+				const linkHtml = '<a href="#about/data" class="source-text">Data sources</a>';
+				const sourceDiv = $('.source-text,.funds-source-text');
+				sourceDiv.html(linkHtml);
+
+				if (!showTooltip) {
+						let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data sources</a><div class="data-source-sep"></div><ul>';
+						sourceNames.forEach((sourceName) => {
+								tooltipContent += `<li>${sourceName}</li>`;
 						});
+						tooltipContent += '</ul></div>';
+						sourceDiv.tooltipster({
+										minWidth: 400,
+										content: tooltipContent,
+										contentAsHTML: true,
+										interactive: true,
+										side: 'bottom',
+								});
+				}
 		};
 
 		App.setGhsaOnly = (ghsaOnly) => {

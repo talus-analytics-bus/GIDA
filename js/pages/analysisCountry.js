@@ -367,6 +367,10 @@
 			});
 
 			// draw charts
+			if (Util.isOrg(iso)) {
+					$('.readyscore-circle-section').hide();
+			}
+
 			if (!hasNoData && hasNoFinancialData) {
 				$('.progress-circle-section, .category-chart-section, .country-flow-summary .data-area').remove();
 				$('.no-data-message.funds').show();

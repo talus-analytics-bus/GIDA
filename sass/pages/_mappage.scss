@@ -308,6 +308,14 @@
         font-weight: normal;
       }
 
+      .legend-box:not(.dark) .mask-bar {
+        &:first-child {
+          fill: none !important;
+        }
+        &:last-child {
+          fill: rgb(144, 144, 144) !important;
+        }
+      }
       .slider-tick-vert {
         background-color: #999 !important;
       }

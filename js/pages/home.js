@@ -334,6 +334,10 @@
 								interactive: true,
 								content: App.inKindDefinition,
 						});
+						$('.jee-info-img').tooltipster({
+								interactive: true,
+								content: App.jeeDefinition,
+						});
 						$('.combined-tooltip').tooltipster({
 								interactive: true,
 								content: App.combinedDefinition,
