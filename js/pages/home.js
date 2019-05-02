@@ -1050,7 +1050,7 @@
 						titleText += ` (in ${App.currencyIso})`;
 				} else if (indType === 'score') {
 						if (scoreType === 'score') {
-								titleText = 'Average JEE score for selected Core Capacities';
+								titleText = 'Average JEE score for selected core capacities';
 						} else if (scoreType === 'combined') {
 								titleText = 'Financial resources / needs metric';
 						}

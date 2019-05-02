@@ -21,12 +21,12 @@
 	};
 
 	/**
-	* Populates Core Capacity dropdown multiselect.
+	* Populates core capacity dropdown multiselect.
 	* @param  {string} selector   Selector to target
 	* @param  {Object} [param={}] parameters
 	*/
 	App.populateCcDropdown = (selector, param = {}) => {
-		const emptyObj = { id: '', name: 'None - No Core Capacity tagged' };
+		const emptyObj = { id: '', name: 'None - No core capacity tagged' };
 		const capacities = App.capacities.concat(emptyObj);
 		if (param.selected === undefined) param.selected = true;
 		Util.populateSelect(selector, capacities, {
