@@ -284,7 +284,7 @@ const App = {};
 						.defer(d3.csv, 'data/unsd_data.csv')
 						.defer(d3.csv, 'data/donor_codes_live.csv')
 						// .defer(d3.json, 'data/donor_codes.json')
-						.defer(d3.json, 'data/funding_data-032119-v3.json') // use updated CC tagging
+						.defer(d3.json, 'data/funding_data-032119-v4.json') // use updated CC tagging
 						.defer(d3.json, 'data/jee_score_data.json')
 						.defer(d3.json, 'data/currencies.json')
 						.defer(d3.json, 'data/submitted_data-032119-v5.json') // non-iati data

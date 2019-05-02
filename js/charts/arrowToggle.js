@@ -17,6 +17,7 @@
 						};
 
 						this.setupDefs();
+						this.setupCountryShadowDefs();
 
 						this.normalTextWeight = 300;
 						this.selectedTextWeight = 500;
@@ -47,17 +48,17 @@
 						const g = 84 / 251;
 						const b = 128 / 251;
 						const darkShadow = `
-				0 0 0 0 ${r} 
-				0 0 0 0 ${g} 
-				0 0 0 0 ${b} 
-				0 0 0 1 0 
-			`;
+							0 0 0 0 ${r}
+							0 0 0 0 ${g}
+							0 0 0 0 ${b}
+							0 0 0 1 0
+						`;
 						this.defs
 								.dropShadow
 								.append('feColorMatrix')
 								.attr('in', 'blur')
 								.attr('result', 'matrixOut')
-								.attr('values', darkShadow);
+								.attr('values', 	darkShadow);
 
 						const merge = this.defs
 								.dropShadow
@@ -72,10 +73,61 @@
 								.append('feColorMatrix')
 								.attr('in', 'SourceGraphic')
 								.attr('values', `
-				1 0 0 0 1 
-				0 1 0 0 1 
-				0 0 1 0 1 
-				0 0 0 1 0 
+				1 0 0 0 1
+				0 1 0 0 1
+				0 0 1 0 1
+				0 0 0 1 0
+			`);
+				}
+				setupCountryShadowDefs() {
+						// http://bl.ocks.org/cpbotha/5200394
+						this.newDef('dropShadowCountry', 'filter')
+								.attr('x', '-50%')
+								.attr('y', '-50%')
+								.attr('width', '200%')
+								.attr('height', '200%');
+
+						this.defs
+								.dropShadowCountry
+								.append('feGaussianBlur')
+								.attr('in', 'SourceAlpha')
+								.attr('stdDeviation', 1)
+								.attr('result', 'blur');
+
+						const r = 39 / 251;
+						const g = 84 / 251;
+						const b = 128 / 251;
+						const val = 0;
+						const darkShadow = `
+							0 0 0 0 ${val}
+							0 0 0 0 ${val}
+							0 0 0 0 ${val}
+							0 0 0 1 0
+						`;
+						this.defs
+								.dropShadowCountry
+								.append('feColorMatrix')
+								.attr('in', 'blur')
+								.attr('result', 'matrixOut')
+								.attr('values', 	darkShadow);
+
+						const merge = this.defs
+								.dropShadowCountry
+								.append('feMerge');
+
+						merge.append('feMergeNode')
+								.attr('in', 'matrixOut');
+						merge.append('feMergeNode')
+								.attr('in', 'SourceGraphic');
+
+						this.newDef('toWhite', 'filter')
+								.append('feColorMatrix')
+								.attr('in', 'SourceGraphic')
+								.attr('values', `
+				1 0 0 0 1
+				0 1 0 0 1
+				0 0 1 0 1
+				0 0 0 1 0
 			`);
 				}
 
@@ -279,4 +331,3 @@
 		App.receiveIcon = (selector) => newIcon(selector, 'receive');
 
 })();
-
