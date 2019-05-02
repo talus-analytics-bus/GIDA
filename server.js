@@ -57,7 +57,7 @@ app.post('/download_data', function(req, res) {
   // Process data for certain fields, if needed
   // Core Capacities - Merge into single cell
   // Amount committed / Amount disbursed - Include currency (one col)
-  // Transaction year range - Calculate from transactions (maybe do client-side)
+  // Project year range - Calculate from transactions (maybe do client-side)
 
   // Add data
   // const debugCols = [{name: 'project_name'}];
@@ -66,8 +66,8 @@ app.post('/download_data', function(req, res) {
   const exportCols = req.body.params.exportCols;
   const hideCols = req.body.params.hideCols;
   hideCols.forEach(col => {
+    console.log('hiding ' + col);
     wb.definedName(col).hidden(true);
-    wb.definedName(col + '_legend').hidden(true);
   });
   const exportColFuncs = {
     project_description: function (datum, col) {
@@ -204,7 +204,7 @@ exportCols.forEach(col => {
 });
 
 // If enableS3 is true, then the aws-sdk package will be loaded (can cause some
-// Mac machines to crash). This package is required for the "Submit data" page
+// Mac machines to crash). This package is required for the "Submit Data" page
 // and functions on that page will fail unless it is true.
 // To run locally, disable S3, otherwise you will receive a Node.js error about credentials not being correct
 //
@@ -281,3 +281,5 @@ server.listen(process.env.PORT || 8805, function() {
   console.log('Server set up!');
   console.log(server.address());
 });
+
+server.timeout = 900000;

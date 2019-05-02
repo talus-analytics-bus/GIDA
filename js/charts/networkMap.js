@@ -3,8 +3,8 @@
 		console.log('initData');
 		console.log(initData);
 		// define colors
-		const fundColor = App.fundColor;
-		const receiveColor = App.receiveColor;
+		const fundColor = App.networkFundColor;
+		const receiveColor = App.networkReceiveColor;
 
 		// define geo collection variables and maps
 		let subregions = [];
@@ -266,7 +266,7 @@
 
 		function drawLinks(moneyType) {
 			funds = funds.filter(d => countryMapByIso.get(d.recipient) !== undefined);
-			
+
 			// create links
 			const links = linkG.selectAll('.link')
 				.data(funds);

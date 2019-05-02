@@ -126,6 +126,8 @@ const App = {};
 				// App.fundColorPalette= ['#00441b', '#1b7837', '#5aae61', '#a6dba0', '#d9f0d3', '#f7f7f7'];
 				App.receiveColor = '#440042';
 				App.fundColor = '#384434';
+				App.networkReceiveColor = '#67001f';
+				App.networkFundColor = '#053061'
 				// App.receiveColorPalette = ['#40004b',
 				// 		'#762a83',
 				// 		'#7c3991',

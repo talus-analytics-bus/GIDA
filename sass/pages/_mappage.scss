@@ -221,6 +221,20 @@
         }
       }
 
+      .filter-collapse {
+        width: 25%;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        text-align: center;
+        border: $darkpage-border;
+        span {
+          float: right;
+          padding-right: 10px;
+          font-size: 16px;
+        }
+      }
+
       .country-option-column {
         width: 25%;
         position: absolute;
