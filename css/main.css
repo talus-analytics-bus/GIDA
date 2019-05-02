@@ -1765,6 +1765,11 @@ b {
             background: #eeeeee;
             position: absolute;
             top: 194px; }
+        .map-page-container .map-page-tabs .content .map-and-search-container .dropdown-label {
+          margin-top: 5px; }
+        .map-page-container .map-page-tabs .content .map-and-search-container .time-slider-box {
+          height: 70px;
+          margin: 15px 0px; }
         .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle),
         .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle) {
           background: transparent; }

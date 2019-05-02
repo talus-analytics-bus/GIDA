@@ -355,7 +355,7 @@
 						updateFilters();
 
 
-						if (activeCountry.node) {
+						if (!activeCountry.empty()) {
 								setTimeout(() => {
 										$('.info-title').css('background-color', activeCountry.datum().color);
 								}, 50);
@@ -364,10 +364,13 @@
 
 				App.newToggle(
 						'.funder-recipient-toggle',
-						{},
+						{default: 'received'},
 						() => handleToggle('funded'),
 						() => handleToggle('received'),
 				);
+
+				// Set the default to received.
+				handleToggle('received');
 
 		};
 
@@ -1363,6 +1366,8 @@
 				$(`input[name="ind"][ind="${indType}"]`).prop('checked', true);
 				if (indType === 'score' || indType === 'combined') {
 						$('.money-filters').slideUp();
+						$('.time-slider-box').slideUp();
+						$('.funder-recipient-toggle').css('visibility','hidden');
 						$('.score-filters').slideDown();
 						if (indType == 'combined') {
 								indType = 'score';
@@ -1378,14 +1383,20 @@
 						if (indType === 'money' || indType === 'inkind') {
 								$('.score-filters').slideUp();
 								$('.money-filters').slideDown();
+								$('.time-slider-box').slideDown();
+								$('.funder-recipient-toggle').css('visibility','visible');
 								// App.showGhsaOnly = false;
 						} else if (indType === 'ghsa') {
 								$('.score-filters').slideUp();
 								$('.money-filters').slideDown();
+								$('.time-slider-box').slideDown();
+								$('.funder-recipient-toggle').css('visibility','visible');
 								App.showGhsaOnly = true;
 						} else if (indType === 'score' || indType === 'combined') {
 								$('.money-filters').slideUp();
 								$('.score-filters').slideDown();
+								$('.time-slider-box').slideUp();
+								$('.funder-recipient-toggle').css('visibility','hidden');
 								if (indType == 'combined') {
 										indType = 'score';
 										scoreType = 'combined'
@@ -2233,6 +2244,7 @@
 									return 'money-inkind';
 									break;
 								case 'org-score':
+									case 'score':
 									return 'jee-score';
 									break;
 								default:
