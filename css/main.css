@@ -1533,19 +1533,20 @@ b {
   align-items: flex-start;
   padding: 10px 0; }
   .map-page-container .map-page-title {
-    -webkit-box-flex: 0 0 50px;
-    -moz-box-flex: 0 0 50px;
-    -webkit-flex: 0 0 50px;
-    -ms-flex: 0 0 50px;
-    flex: 0 0 50px;
+    -webkit-box-flex: 0 0 32px;
+    -moz-box-flex: 0 0 32px;
+    -webkit-flex: 0 0 32px;
+    -ms-flex: 0 0 32px;
+    flex: 0 0 32px;
     font-size: 24px;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-weight: 700; }
     .map-page-container .map-page-title:not(.dark) {
       color: #11315D; }
+  .map-page-container .map-page-instructions {
+    font-style: italic;
+    margin-bottom: 10px; }
   .map-page-container .map-page-buttons {
     -webkit-box-flex: 0 0 50px;
     -moz-box-flex: 0 0 50px;
