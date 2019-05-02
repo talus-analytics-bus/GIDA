@@ -97,10 +97,11 @@
 						const r = 39 / 251;
 						const g = 84 / 251;
 						const b = 128 / 251;
+						const val = 0;
 						const darkShadow = `
-							0 0 0 0 .75
-							0 0 0 0 .75
-							0 0 0 0 .75
+							0 0 0 0 ${val}
+							0 0 0 0 ${val}
+							0 0 0 0 ${val}
 							0 0 0 1 0
 						`;
 						this.defs
