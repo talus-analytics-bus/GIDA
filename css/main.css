@@ -4060,11 +4060,6 @@ font-size: 0.95em;
   right: 50px;
 }
 
-/* line 31, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisPair.scss */
-.analysis-pair-content .flag {
-  border: 1px solid #555;
-}
-
 /* line 1, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisTable.scss */
 .analysis-table.ghsa-toggle-options {
   margin: 14px 0 0 50px !important;
@@ -4098,11 +4093,6 @@ font-size: 0.95em;
   position: absolute;
   top: -3px;
   right: 50px;
-}
-
-/* line 26, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisTable.scss */
-.analysis-table-content .flag {
-  border: 1px solid #555;
 }
 
 /* line 28, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisTable.scss */
