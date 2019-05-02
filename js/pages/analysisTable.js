@@ -166,7 +166,7 @@
 			} else if (currentInfoTab === 'ce') {
 				headerData = [
 				{
-					name: 'Core Element',
+					name: 'Core element',
 					value: (d) => {
 						if (d.ce === 'P') return 'Prevent';
 						if (d.ce === 'D') return 'Detect';
@@ -184,7 +184,7 @@
 			} else if (currentInfoTab === 'cc') {
 				headerData = [
 				{
-					name: 'Core Capacity',
+					name: 'Core capacity',
 					value: (d) => {
 						const cap = App.capacities.find(cc => cc.id === d.cc);
 						if (cap && cap.name === 'General IHR Implementation') return cap.name + ' <img class="general-ihr-info-img info-img" src="img/info.png" />';

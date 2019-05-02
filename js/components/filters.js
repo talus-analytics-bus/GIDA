@@ -21,7 +21,7 @@
 	};
 
 	/**
-	* Populates Core Capacity dropdown multiselect.
+	* Populates core capacity dropdown multiselect.
 	* @param  {string} selector   Selector to target
 	* @param  {Object} [param={}] parameters
 	*/

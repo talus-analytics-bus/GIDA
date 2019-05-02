@@ -99,7 +99,7 @@
 			.style('font-weight', 600)
 			.style('text-anchor', 'middle')
 			.style('font-size', '14px')
-			.text('Core Capacity');
+			.text('Core capacity');
 
 		chart.update = (rawData, newSelector = selected, params = {}) => {
 			// determine whether this is a country with jee scores available
@@ -184,7 +184,7 @@
 					}
 					if (params.isGhsaPage === true) {
 						$(this).tooltipster({
-							content: `<b>Core Capacity:</b> ${d.cc}` +
+							content: `<b>Core capacity:</b> ${d.cc}` +
 							`<br><b>Recipient:</b> ${d.country.name}` +
 							`<br><b>Funder:</b> ${d.country.otherName}` +
 							`<br><b>Total committed funds:</b> ${App.formatMoney(d.country.total_committed)}` +
@@ -192,7 +192,7 @@
 						});
 					} else {
 						$(this).tooltipster({
-							content: `<b>Core Capacity:</b> ${d.cc}` +
+							content: `<b>Core capacity:</b> ${d.cc}` +
 							`<br><b>${oppNoun}:</b> ${d.country.name}` +
 							`<br><b>Total committed funds:</b> ${App.formatMoney(d.country.total_committed)}` +
 							`<br><b>Total disbursed funds:</b> ${App.formatMoney(d.country.total_spent)}`,
@@ -221,7 +221,7 @@
 				}
 			}
 			xLabel.text(`${xLabelPreText} funds (${App.formatMoney(0).split(' ')[1]})`);
-			//chart.select('.axis-label').text('Funds by Core Capacity');
+			//chart.select('.axis-label').text('Funds by core capacity');
 
 			chart.select('.y-label-text')
 				.attr('x', -newHeight / 2);

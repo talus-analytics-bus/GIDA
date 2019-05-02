@@ -41,7 +41,7 @@
 				noDataText: 'None identified',
 				params: { capacitiesDict: _.indexBy(App.capacities, 'id') },
 				showByDefault: true,
-				displayName: 'Core Capacities',
+				displayName: 'Core capacities',
 				hasCheckbox: true,
 			},
 			{
@@ -505,7 +505,7 @@ const populateFilters = () => {
 		dropLeft: true,
 		selected: false,
 		multiselectParam: {
-			buttonText: getButtonTextFunc('Funding by Core Capacity', App.capacities.length + 1),
+			buttonText: getButtonTextFunc('Funding by core capacity', App.capacities.length + 1),
 			enableFiltering: true,
 			enableCaseInsensitiveFiltering: true,
 			onChange: filterCallback,
