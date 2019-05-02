@@ -1266,22 +1266,26 @@ const App = {};
 				'Nuclear Threat Initiative Commitment Tracker',
 				'WHO Contingency Fund for Emergencies',
 		];
-		App.setSources = () => {
+		App.setSources = (showTooltip = true) => {
 
-				const linkHtml = '<a href="#about" class="source-text">Data sources</a>';
-				let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data sources</a><div class="data-source-sep"></div><ul>';
-				sourceNames.forEach((sourceName) => {
-						tooltipContent += `<li>${sourceName}</li>`;
-				});
-				tooltipContent += '</ul></div>';
-				$('.source-text,.funds-source-text').html(linkHtml)
-						.tooltipster({
-								minWidth: 400,
-								content: tooltipContent,
-								contentAsHTML: true,
-								interactive: true,
-								side: 'bottom',
+				const linkHtml = '<a href="#about/data" class="source-text">Data sources</a>';
+				const sourceDiv = $('.source-text,.funds-source-text');
+				sourceDiv.html(linkHtml);
+
+				if (!showTooltip) {
+						let tooltipContent = '<a href="#about#sources" class="no-link data-source-header">Data sources</a><div class="data-source-sep"></div><ul>';
+						sourceNames.forEach((sourceName) => {
+								tooltipContent += `<li>${sourceName}</li>`;
 						});
+						tooltipContent += '</ul></div>';
+						sourceDiv.tooltipster({
+										minWidth: 400,
+										content: tooltipContent,
+										contentAsHTML: true,
+										interactive: true,
+										side: 'bottom',
+								});
+				}
 		};
 
 		App.setGhsaOnly = (ghsaOnly) => {
