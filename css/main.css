@@ -4313,7 +4313,6 @@ font-size: 0.95em;
 
 /* line 89, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container {
-  pointer-events: none;
   -webkit-box-flex: 1 1 300px;
   -moz-box-flex: 1 1 300px;
   -webkit-flex: 1 1 300px;
@@ -4338,18 +4337,18 @@ font-size: 0.95em;
   }
 }
 
-/* line 96, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 95, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container.dark {
   background-color: #222222;
 }
 
-/* line 106, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 105, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container .country.hatch, .home-container .map-container .legend-bar.hatch, .home-container .map-container circle.hatch {
   mask: url(#mask-stripe);
   fill: #cccccc !important;
 }
 
-/* line 111, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 110, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container .map-title {
   -webkit-box-flex: 1 0 20px;
   -moz-box-flex: 1 0 20px;
@@ -4366,12 +4365,12 @@ font-size: 0.95em;
   margin-left: 20px;
 }
 
-/* line 121, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 120, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container .map-title.dark {
   color: white;
 }
 
-/* line 126, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 125, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container .map-buttons {
   -webkit-box-flex: 1 0 20px;
   -moz-box-flex: 1 0 20px;
@@ -4383,8 +4382,9 @@ font-size: 0.95em;
   margin-bottom: 50px;
 }
 
-/* line 133, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
+/* line 132, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_home.scss */
 .home-container .map-container .funding-recipient-map {
+  pointer-events: none;
   -webkit-box-flex: 5 5 auto;
   -moz-box-flex: 5 5 auto;
   -webkit-flex: 5 5 auto;

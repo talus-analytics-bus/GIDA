@@ -87,7 +87,6 @@
 
   }
   .map-container {
-    pointer-events: none; // disable interactivity
     @include flex(1 1 300px);
 
     @media (max-width: 720px) { margin-top: 20px; }
@@ -131,6 +130,7 @@
     }
 
     .funding-recipient-map {
+      pointer-events: none;
       @include flex(5 5 auto);
       justify-self: flex-start;
     }
