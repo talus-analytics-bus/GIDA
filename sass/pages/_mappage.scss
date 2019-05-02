@@ -146,7 +146,8 @@
           /*new*/
           .country.hatch, .legend-bar.hatch, circle.hatch {
             mask: url(#mask-stripe);
-            fill: rgb(204, 204, 204) !important;
+            fill: #989898 !important;
+            &.dark { fill: rgb(204, 204, 204) !important; }
             // fill: #515151 !important;
           }
         }

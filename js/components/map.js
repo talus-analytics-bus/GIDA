@@ -45,14 +45,25 @@ const Map = {};
 				 * contributions as a group only.
 				 */
 				addHatchDefs() {
-					const maskHtml = `<pattern id="pattern-stripe" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+					const html = `<pattern id="pattern-stripe" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 													<rect width="3.5" height="4" transform="translate(0,0)" fill="lightgray"></rect>
 											</pattern>
 											<mask id="mask-stripe">
 													<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
 											</mask>`;
-					this.svg.append('defs').html(maskHtml);
+					this.svg.append('defs').html(html);
 				}
+
+				// addShadowDefs() {
+				// 	const html = `<defs>
+				// 	<filter id="dropshadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+				// 	<feGaussianBlur in="StrokePaint" stdDeviation="2" result="strokeBlur"/>
+				// 	<feOffset dx="0" dy="0" result="shadow"/>
+				// 	<feComposite in="strokeBlur" in2="shadow" operator="over"/>
+				// 	</filter>
+				// 	</defs>`;
+				// 	this.svg.append('defs').html(html);
+				// }
 				draw() {
 						this.projection = d3.geoNaturalEarth2()
 								.fitSize(
@@ -300,6 +311,7 @@ const Map = {};
 		Map.createWorldMap = (selector, world) => {
 				const map = new WorldMap(selector, { world });
 				map.addHatchDefs();
+				// map.addShadowDefs();
 
 				return map;
 

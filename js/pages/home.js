@@ -391,16 +391,27 @@
 				if (showTooltips) {
 						// define country click behavior and attach tooltips
 						d3.selectAll('.country')
+								.on('mouseenter', function onMouseEnter() {
+									// raise hovered country above others
+									d3.select(this.parentElement).raise();
+								})
+								.on('mouseleave', function onMouseEnter() {
+									// lower formerly hovered country below others, if not active
+									if (d3.select(this).classed('active')) return;
+									else d3.select(this.parentElement).lower();
+								})
 								.on('click', function onClick(d) {
+										// raise active country above others
+										d3.select(this.parentElement).raise();
+
 										// set country as active
 										if (activeCountry.node && activeCountry.node() === this) return resetMap();
 
-										d3.selectAll('.country').classed('active', false);
-										// activeCountry.classed('active', false);
+										d3.selectAll('.country').classed('active', false).attr('filter', '');
 										activeCountry = d3.select(this).classed('active', true);
+										if (!activeCountry.classed('hatch')) activeCountry.attr('filter', 'url(#dropShadowCountry)');
 
 										// zoom in to country
-										// mapObj.zoomTo.call(this, d);
 										mapObj.zoomTo(d);
 
 										// display info box
@@ -444,7 +455,7 @@
 
 		function resetMap() {
 				map.reset();
-				d3.selectAll('.country, .list-item').classed('active', false);
+				d3.selectAll('.country, .list-item').classed('active', false).attr('filter','')
 				activeCountry = d3.select(null);
 				$('.info-container').slideUp();
 		}
@@ -757,6 +768,7 @@
 						.style('fill', function (d) {
 								const country = d3.select(this);
 								country.classed('hatch', false);
+								if (country.classed('active')) country.attr('filter', 'url(#dropShadowCountry)');
 								d.undetermined = false;
 								const isoCode = d.properties.ISO2;
 								if (currentNodeDataMap.has(isoCode)) {
@@ -770,6 +782,7 @@
 														if (unmappableFinancials.length > 0) {
 																const someMoney = true;
 																if (someMoney) {
+																		country.attr('filter','')
 																		country.classed('hatch', true);
 																		d.undetermined = true;
 
@@ -781,6 +794,7 @@
 												} else {
 														const unmappableFinancials = App.getInkindProjectsWithUnmappableAmounts(App.fundingData, flow, d.properties.ISO2);
 														if (unmappableFinancials.length > 0) {
+																country.attr('filter','');
 																country.classed('hatch', true);
 																d.undetermined = true;
 																// Get tooltip text
@@ -1748,6 +1762,7 @@
 										if (unmappableFinancials.length > 0) {
 												// const someMoney = d3.sum(unmappableFinancials, d => d.total_spent + d.total_committed) > 0;
 												if (true) {
+														country.attr('filter','')
 														country.classed('hatch', true);
 														d.undetermined = true;
 
@@ -1761,6 +1776,7 @@
 										const type = valueAttrName.includes('Comm') ? 'total_committed' : 'total_spent';
 										const unmappableFinancials = App.getInkindProjectsWithUnmappableAmounts(App.fundingData, flow, isoCode);
 										if (unmappableFinancials.length > 0) {
+												country.attr('filter','')
 												country.classed('hatch', true);
 												d.undetermined = true;
 												// Get tooltip text

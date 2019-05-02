@@ -87,6 +87,7 @@
 
   }
   .map-container {
+    pointer-events: none; // disable interactivity
     @include flex(1 1 300px);
 
     @media (max-width: 720px) { margin-top: 20px; }
@@ -106,6 +107,7 @@
       mask: url(#mask-stripe);
       fill: rgb(204, 204, 204) !important;
     }
+
     .map-title {
       @include flex(1 0 20px);
       justify-self: flex-start;

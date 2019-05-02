@@ -11,13 +11,17 @@
 }
 .country {
   fill: #ccc;
-  stroke: none;
+  // stroke: none;
+  stroke: $lightCountryBorder;
+	&.dark { stroke: $darkCountryBorder; }
   stroke-width: 0.5;
   &:hover {
-  	stroke: rgba(255,255,255,0.8);
+  	stroke: $hoverCountryBorder;
+  	// stroke: rgba(255,255,255,0.8);
   }
   &.active {
-    stroke: rgba(255,109,0,0.8);
+    stroke: $activeCountryBorder;
+    // stroke: rgba(255,109,0,0.8);
   }
 }
 .boundary {
