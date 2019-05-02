@@ -91,7 +91,7 @@
 								.dropShadowCountry
 								.append('feGaussianBlur')
 								.attr('in', 'SourceAlpha')
-								.attr('stdDeviation', 2)
+								.attr('stdDeviation', 1)
 								.attr('result', 'blur');
 
 						const r = 39 / 251;
