@@ -268,12 +268,14 @@ const App = {};
 				App.coreCapacitiesText = 'Core capacities were tagged based on names and descriptions of commitments and disbursements. A single commitment or disbursement may support more than one core capacity. Additional information on how core capacities were tagged can be found on the <a href="#glossary" onlick="function(){hasher.setHash(`#glossary`)}">data definitions</a> page.';
 				App.generalIhrText = 'Funds or support for "General IHR Implementation" are not associated with any specific core capacities, but instead provide general support for capacity-building under the International Health Regulations (e.g., supporting JEE missions, overall capacity building).';
 				App.inKindDefinition = 'In-kind support is the contribution of goods or services to a recipient. Examples of in-kind support include providing technical expertise or programming support, or  supporting GHSA action packages.';
-				App.combinedDefinition = 'This metric combines both a country\'s JEE scores and ' +
-										'the amount of disbursed funds that the country has received. ' +
-										'We use JEE scores as a proxy for country-specific needs, and ' +
-										'calculate the ratio of financial resources to need. The goal ' +
-										'of this metric is to highlight areas whose needs may still be ' +
-										'unmet based on their ratio of financial resources to need.';
+				App.combinedDefinition = `This metric combines both a country's JEE scores and 
+										the amount of disbursed funds that the country has received. 
+										We use JEE scores as a proxy for country-specific needs, and 
+										calculate the ratio of financial resources to need. The goal 
+										of this metric is to highlight areas whose needs may still be 
+										unmet based on their ratio of financial resources to need.`;
+				App.jeeDefinition = `The Joint External Evaluation tool (JEE) measures country-specific progress in 
+										developing the capacities needed to prevent, detect, and respond to public health threats.`;
 
 				// front-load all the data
 				NProgress.start();

@@ -1906,7 +1906,8 @@ b {
       color: #11315D;
       line-height: unset;
       font-size: 24px;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      font-family: 'Raleway'; }
   .analysis-container .flag {
     position: relative;
     /* top: -2px; */
