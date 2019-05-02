@@ -1015,14 +1015,18 @@
 				const body = table.append('tbody');
 				fundedData = tableData2;
 
-				const rows = body.selectAll('tr')
-					.data(fundedData.sort((a, b) => {
+				fundedData = fundedData.sort((a, b) => {
 						if (a[type] < b[type]) {
 							return 1;
 						} else {
 							return -1;
 						}
-					}))
+					});
+
+				fundedData = fundedData.slice(0, 10);
+
+				const rows = body.selectAll('tr')
+					.data(fundedData)
 					.enter().append('tr')
 					.on('click', (d) => {
 						if (d.iso !== 'Not reported' && d.iso !== '') {
@@ -1084,6 +1088,8 @@
 					ordering: true,
 					order: [1, 'desc'],
 					bLengthChange: false,
+					bPaginate: false,
+					bInfo: false,
 				});
 
 				// Tooltip for General IHR Implementation
