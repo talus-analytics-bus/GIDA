@@ -734,26 +734,27 @@
   max-width: 370px;
   margin-top: 20px;
   margin: 20px auto 0;
-  text-align: center;
+  text-align: left;
   line-height: 20px;
 }
 
-/* line 171, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 172, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .undetermined-label {
   max-width: 100px;
   margin: 10px auto 0 auto;
+  text-align: left;
 }
 
-/* line 175, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 177, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-value {
   font-family: 'Raleway', sans-serif;
   margin-top: 10px;
-  text-align: center;
+  text-align: left;
 }
 
-/* line 181, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 183, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-value-label {
-  text-align: center;
+  text-align: left;
   font-size: .8em;
   margin: 10px auto 0;
   max-width: 350px;
