@@ -279,6 +279,15 @@
           }
         }
 
+        .dropdown-label {
+          margin-top: 5px;
+        }
+
+        .time-slider-box {
+          height: 70px;
+          margin: 15px 0px;
+        }
+
         div,
         label {
           &:not(.slider-handle) {
