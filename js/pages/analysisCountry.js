@@ -109,7 +109,7 @@
 
 		/**
 		 * If the page shown is a recipient country with published JEE scores, they will be visible in
-		 * the core capacity bar chart, and need a legend to define them.
+		 * the Core Capacity bar chart, and need a legend to define them.
 		 */
 		function addJeeScoreLegendBox() {
 			// Show the legend box (hidden by default)
@@ -363,7 +363,7 @@
 				interactive: true,
 				html: true,
 				content: App.coreCapacitiesText,
-				// content: 'Each core element is associated with one or more core capacities, indicated by prefix.',
+				// content: 'Each Core Element is associated with one or more core capacities, indicated by prefix.',
 			});
 
 			// draw charts
@@ -514,7 +514,7 @@
 						const pValue = fundsByCc[ind].total_spent / totalSpent;
 						$(valueSelector).text(percFormat(pValue));
 					} else {
-						$(valueSelector).parent().text('No funds disbursed for this core element');
+						$(valueSelector).parent().text('No funds disbursed for this Core Element');
 					}
 
 				} else {
@@ -522,7 +522,7 @@
 						const pValue = fundsByCc[ind].total_committed / totalCommitted;
 						$(valueSelector).text(percFormat(pValue));
 					} else {
-						$(valueSelector).parent().text('No funds committed for this core element');
+						$(valueSelector).parent().text('No funds committed for this Core Element');
 					}
 				}
 
@@ -1240,7 +1240,7 @@
 				// init tooltip
 				$('.jee-info-img').tooltipster({
 					interactive: true,
-					content: `The colored circles represent the average rounded score of the indicators in each core capacity (e.g., P.1) published in the country\'s most recent JEE Assessment.`,
+					content: `The colored circles represent the average rounded score of the indicators in each Core Capacity (e.g., P.1) published in the country\'s most recent JEE Assessment.`,
 				});
 
 				// if showing JEE scores, build the legend for them

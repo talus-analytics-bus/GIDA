@@ -26,7 +26,7 @@
 	* @param  {Object} [param={}] parameters
 	*/
 	App.populateCcDropdown = (selector, param = {}) => {
-		const emptyObj = { id: '', name: 'None - No core capacity tagged' };
+		const emptyObj = { id: '', name: 'None - No Core Capacity tagged' };
 		const capacities = App.capacities.concat(emptyObj);
 		if (param.selected === undefined) param.selected = true;
 		Util.populateSelect(selector, capacities, {
