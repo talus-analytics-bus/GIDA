@@ -1650,7 +1650,6 @@ b {
           -ms-flex: 1;
           flex: 1;
           align-self: flex-start;
-          width: 380px;
           margin-left: 20px;
           display: -webkit-box;
           display: -moz-box;
@@ -1661,11 +1660,14 @@ b {
           justify-content: flex-start;
           align-content: flex-start; }
           .map-page-container .map-page-tabs .content .left-pane .map-header .map-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
-            margin-left: 3px; }
+            margin-left: 3px;
+            font-family: "Raleway"; }
           .map-page-container .map-page-tabs .content .left-pane .map-header .map-title-2 {
-            margin-left: 3px; }
+            margin-left: 3px;
+            font-size: 20px;
+            font-family: "Raleway"; }
         .map-page-container .map-page-tabs .content .left-pane .funder-recipient-toggle {
           position: absolute;
           right: 295px;

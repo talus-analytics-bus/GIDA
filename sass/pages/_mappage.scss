@@ -127,19 +127,21 @@
         .map-header {
           @include flex(1);
           align-self: flex-start;
-          width: 380px; //new
           margin-left: 20px; //new
           @include flexbox(column nowrap);
           justify-content: flex-start;
           align-content: flex-start;
 
           .map-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
             margin-left: 3px;
+            font-family: "Raleway";
           }
           .map-title-2 {
             margin-left: 3px;
+            font-size: 20px;
+            font-family: "Raleway";
           }
         }
 

@@ -763,7 +763,7 @@
 						title = (scoreType === 'score') ? 'JEE score by country' : 'Combined financial resources and need metric';
 					} else {
 						const titleFlow = (flow === 'r') ? 'Recipients' : 'Funders';
-						const titleType = (type === 'total_committed') ? 'committed' : 'disbursed';
+						const titleType = (type === 'total_committed') ? 'Committed' : 'Disbursed';
 						const titleKind = indType === 'inkind' ? 'in-kind support' : 'funds';
 						title = `${titleFlow} by country`;
 						title2 = `${titleType} ${titleKind}`;
