@@ -135,9 +135,18 @@
 
           .map-title {
             font-size: 16px;
-            font-style: italic;
+            font-weight: bold;
             margin-left: 3px;
           }
+          .map-title-2 {
+            margin-left: 3px;
+          }
+        }
+
+        .funder-recipient-toggle {
+          position: absolute;
+          right: 295px;
+          top: 10px;
         }
 
         .map-container {

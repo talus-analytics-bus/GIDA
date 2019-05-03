@@ -1662,8 +1662,14 @@ b {
           align-content: flex-start; }
           .map-page-container .map-page-tabs .content .left-pane .map-header .map-title {
             font-size: 16px;
-            font-style: italic;
+            font-weight: bold;
             margin-left: 3px; }
+          .map-page-container .map-page-tabs .content .left-pane .map-header .map-title-2 {
+            margin-left: 3px; }
+        .map-page-container .map-page-tabs .content .left-pane .funder-recipient-toggle {
+          position: absolute;
+          right: 295px;
+          top: 10px; }
         .map-page-container .map-page-tabs .content .left-pane .map-container {
           -webkit-box-flex: 0 3 545px;
           -moz-box-flex: 0 3 545px;
