@@ -156,22 +156,22 @@ app.post('/download_data', function(req, res) {
             return Infinity;
           } else return +tt.cy;
         }
-      )
-    );
-    const max = Math.max(...t.map(tt => {
-      if (tt.cy === '') return -Infinity;
-      if (+tt.cy > +col.params.dataEndYear) {
-        return -Infinity;
-      } else return +tt.cy;
-    }
-  )
-);
-if (min === Infinity || max === -Infinity) return null;
-if (min === max) return min;
-else return `${min} - ${max}`;
-} else return null;
-},
-};
+        )
+        );
+        const max = Math.max(...t.map(tt => {
+          if (tt.cy === '') return -Infinity;
+          if (+tt.cy > +col.params.dataEndYear) {
+            return -Infinity;
+          } else return +tt.cy;
+        }
+        )
+        );
+        if (min === Infinity || max === -Infinity) return null;
+        if (min === max) return min;
+        else return `${min} - ${max}`;
+      } else return null;
+    },
+  };
 
 const exportData = req.body.params.exportData;
 exportCols.forEach(col => {
@@ -277,9 +277,9 @@ if (enableS3 === 'true') {
 
 
 // Start the HTTP Server
-server.listen(process.env.PORT || 8805, function() {
+server.listen(process.env.PORT || 8081, function() {
   console.log('Server set up!');
   console.log(server.address());
 });
 
-server.timeout = 900000;
+//server.timeout = 900000;

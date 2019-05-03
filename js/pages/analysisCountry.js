@@ -816,22 +816,22 @@
 		};
 
 		/**
-		 * Draws the "Top recipients" or "Top funders" table that appears on a
-		 * country analysis page.
-		 */
+		* Draws the "Top Recipients" or "Top Funders" table that appears on a
+		* country analysis page.
+		*/
 		function drawCountryTable(selector, moneyTypeForTable) {
 			const $tableContainer = $(selector);
 			if (moneyTypeForTable === 'd') {
-				$tableContainer.find('.section-title').text('Top recipients');
+				$tableContainer.find('.section-title').text('Top Recipients');
 			} else {
-				$tableContainer.find('.section-title').text('Top funders');
+				$tableContainer.find('.section-title').text('Top Funders');
 			}
 
 			// get table data
 			const countryInd = (moneyTypeForTable === 'd') ? 'recipient_country' : 'donor_code';
 			const countryIndOther = (moneyTypeForTable === 'd') ? 'donor_code' : 'recipient_country';
 
-			// If "Top funders" table:
+			// If "Top Funders" table:
 			let fundedData = [];
 			const fundedByCountry = {};
 
@@ -841,10 +841,9 @@
 			const unspecField = moneyType === 'r' ? 'recipient_amount_unspec' : 'donor_amount_unspec';
 			const unspecFieldOther = moneyType === 'r' ? 'donor_amount_unspec' : 'recipient_amount_unspec';
 
-
 			// nameField is the original
 			// name field for the recipient if hte table is
-			// "Top recipients" or the donor if its "Top funders"
+			// "Top Recipients" or the donor if its "Top Funders"
 			const nameFieldOrig = (moneyTypeForTable === 'd') ? 'recipient_name_orig' : 'donor_name_orig';
 			const nameFieldOrigOther = (moneyTypeForTable === 'd') ? 'donor_name_orig' : 'recipient_name_orig';
 			const nameField = (moneyTypeForTable === 'd') ? 'recipient_name' : 'donor_name';
@@ -852,13 +851,12 @@
 
 			// Get financial data for the table
 			const tableDataTmp = lookup[iso]
-				.filter(payment => payment.assistance_type.toLowerCase() !== 'in-kind support' && payment.assistance_type.toLowerCase() !== 'other support');
+			.filter(payment => payment.assistance_type.toLowerCase() !== 'in-kind support' && payment.assistance_type.toLowerCase() !== 'other support');
 
 			// Get the "entities" (either top funders/recipients)
 			const projectArrays = _.values(_.groupBy(tableDataTmp, 'project_id'));
 
 			const tableRowsByCodeOrName = {};
-
 
 			// GHSA special code:
 			// keep only first project in each array
@@ -885,11 +883,13 @@
 						spent_on_respond: 0,
 						spent_on_other: 0,
 						spent_on_general: 0,
+						spent_on_unspec: 0,
 						committed_on_prevent: 0,
 						committed_on_detect: 0,
 						committed_on_respond: 0,
 						committed_on_other: 0,
 						committed_on_general: 0,
+						committed_on_unspec: 0,
 						all_unspec_amounts: true, // will always show full proj value for GHSA page
 					};
 				}
@@ -905,27 +905,46 @@
 					tableRowsByCodeOrName[codeOrName].total_committed += p.total_committed;
 					tableRowsByCodeOrName[codeOrName].total_spent += p.total_spent;
 
-					p.core_capacities.forEach(cc => {
-						const ccAbbrev = cc.split('.')[0];
-						if (ccAbbrev === 'P') {
-							tableRowsByCodeOrName[codeOrName].spent_on_prevent += p.total_spent;
-							tableRowsByCodeOrName[codeOrName].committed_on_prevent += p.total_committed;
-						} else if (ccAbbrev === 'D') {
-							tableRowsByCodeOrName[codeOrName].spent_on_detect += p.total_spent;
-							tableRowsByCodeOrName[codeOrName].committed_on_detect += p.total_committed;
-						} else if (ccAbbrev === 'R') {
-							tableRowsByCodeOrName[codeOrName].spent_on_respond += p.total_spent;
-							tableRowsByCodeOrName[codeOrName].committed_on_respond += p.total_committed;
-						} else if (ccAbbrev === 'General IHR Implementation') {
-							tableRowsByCodeOrName[codeOrName].spent_on_general += p.total_spent;
-							tableRowsByCodeOrName[codeOrName].committed_on_general += p.total_committed;
-						} else {
-							tableRowsByCodeOrName[codeOrName].spent_on_other += p.total_spent;
-							tableRowsByCodeOrName[codeOrName].committed_on_other += p.total_committed;
-						}
-					});
+					const someTags = p.core_capacities.length > 0;
+					if (someTags) {
+						const ccAbbrevs = ['P','D','R','General IHR Implementation'];
+						const alreadyCounted = {
+							'P': false,
+							'D': false,
+							'R': false,
+							'General IHR Implementation': false,
+							'Other': false,
+						};
+						p.core_capacities.forEach(cc => {
+							const ccAbbrev = cc.split('.')[0];
+							if (ccAbbrev === 'P' && !alreadyCounted[ccAbbrev]) {
+								alreadyCounted[ccAbbrev] = true;
+								tableRowsByCodeOrName[codeOrName].spent_on_prevent += p.total_spent;
+								tableRowsByCodeOrName[codeOrName].committed_on_prevent += p.total_committed;
+							} else if (ccAbbrev === 'D' && !alreadyCounted[ccAbbrev]) {
+								alreadyCounted[ccAbbrev] = true;
+								tableRowsByCodeOrName[codeOrName].spent_on_detect += p.total_spent;
+								tableRowsByCodeOrName[codeOrName].committed_on_detect += p.total_committed;
+							} else if (ccAbbrev === 'R' && !alreadyCounted[ccAbbrev]) {
+								alreadyCounted[ccAbbrev] = true;
+								tableRowsByCodeOrName[codeOrName].spent_on_respond += p.total_spent;
+								tableRowsByCodeOrName[codeOrName].committed_on_respond += p.total_committed;
+							} else if (ccAbbrev === 'General IHR Implementation' && !alreadyCounted[ccAbbrev]) {
+								alreadyCounted[ccAbbrev] = true;
+								tableRowsByCodeOrName[codeOrName].spent_on_general += p.total_spent;
+								tableRowsByCodeOrName[codeOrName].committed_on_general += p.total_committed;
+							} else if (!ccAbbrevs.includes(ccAbbrev) && !alreadyCounted['Other']) {
+								alreadyCounted['Other'] = true;
+								tableRowsByCodeOrName[codeOrName].spent_on_other += p.total_spent;
+								tableRowsByCodeOrName[codeOrName].committed_on_other += p.total_committed;
+							}
+						});
+					} else {
+						// Add to "Unspecified" table column if no CC tags on project.
+						tableRowsByCodeOrName[codeOrName].spent_on_unspec += p.total_spent;
+						tableRowsByCodeOrName[codeOrName].committed_on_unspec += p.total_committed;
+					}
 				}
-
 			});
 
 			// Map data for display in table
@@ -935,53 +954,78 @@
 			}
 
 			lookup[iso]
-				.filter(payment => payment.assistance_type.toLowerCase() !== 'in-kind support' && payment.assistance_type.toLowerCase() !== 'other support')
-				.forEach((p) => {
-					const recIso = p[countryInd];
-					if (recIso !== 'Not reported') {
-						if (!fundedByCountry[recIso]) {
-							fundedByCountry[recIso] = {
-								iso: recIso,
-								total_committed: 0,
-								total_spent: 0,
-								spent_on_prevent: 0,
-								spent_on_detect: 0,
-								spent_on_respond: 0,
-								spent_on_other: 0,
-								spent_on_general: 0,
-								committed_on_prevent: 0,
-								committed_on_detect: 0,
-								committed_on_respond: 0,
-								committed_on_other: 0,
-								committed_on_general: 0,
-								all_unspec_amounts: true,
-							};
-						}
-						fundedByCountry[recIso].total_committed += p.total_committed;
-						fundedByCountry[recIso].total_spent += p.total_spent;
-						const isoMatch = (p[countryIndOther] === iso || iso === 'ghsa');
-						if (isoMatch && !p.no_value_reported) fundedByCountry[recIso].all_unspec_amounts = false;
+			.filter(payment => payment.assistance_type.toLowerCase() !== 'in-kind support' && payment.assistance_type.toLowerCase() !== 'other support')
+			.forEach((p) => {
+				const recIso = p[countryInd];
+				if (recIso !== 'Not reported') {
+					if (!fundedByCountry[recIso]) {
+						fundedByCountry[recIso] = {
+							iso: recIso,
+							total_committed: 0,
+							total_spent: 0,
+							spent_on_prevent: 0,
+							spent_on_detect: 0,
+							spent_on_respond: 0,
+							spent_on_other: 0,
+							spent_on_general: 0,
+							spent_on_unspec: 0,
+							committed_on_prevent: 0,
+							committed_on_detect: 0,
+							committed_on_respond: 0,
+							committed_on_other: 0,
+							committed_on_general: 0,
+							committed_on_unspec: 0,
+							all_unspec_amounts: true,
+						};
+					}
+					fundedByCountry[recIso].total_committed += p.total_committed;
+					fundedByCountry[recIso].total_spent += p.total_spent;
+					const isoMatch = (p[countryIndOther] === iso || iso === 'ghsa');
+					if (isoMatch && !p.no_value_reported) fundedByCountry[recIso].all_unspec_amounts = false;
+
+					// get value for each core capacity breakdown
+					// TODO Here is where we need to add "Unspecified (i)"
+					const someTags = p.core_capacities.length > 0;
+					if (someTags) {
+						const ccAbbrevs = ['P','D','R','General IHR Implementation'];
+						const alreadyCounted = {
+							'P': false,
+							'D': false,
+							'R': false,
+							'General IHR Implementation': false,
+							'Other': false,
+						};
 						p.core_capacities.forEach(cc => {
 							const ccAbbrev = cc.split('.')[0];
 							if (ccAbbrev === 'P') {
+								alreadyCounted[ccAbbrev] = true;
 								fundedByCountry[recIso].spent_on_prevent += p.total_spent;
 								fundedByCountry[recIso].committed_on_prevent += p.total_committed;
 							} else if (ccAbbrev === 'D') {
+								alreadyCounted[ccAbbrev] = true;
 								fundedByCountry[recIso].spent_on_detect += p.total_spent;
 								fundedByCountry[recIso].committed_on_detect += p.total_committed;
 							} else if (ccAbbrev === 'R') {
+								alreadyCounted[ccAbbrev] = true;
 								fundedByCountry[recIso].spent_on_respond += p.total_spent;
 								fundedByCountry[recIso].committed_on_respond += p.total_committed;
 							} else if (ccAbbrev === 'General IHR Implementation') {
+								alreadyCounted[ccAbbrev] = true;
 								fundedByCountry[recIso].spent_on_general += p.total_spent;
 								fundedByCountry[recIso].committed_on_general += p.total_committed;
-							} else {
+							} else if (!ccAbbrevs.includes(ccAbbrev) && !alreadyCounted['Other']) {
+								alreadyCounted['Other'] = true;
 								fundedByCountry[recIso].spent_on_other += p.total_spent;
 								fundedByCountry[recIso].committed_on_other += p.total_committed;
 							}
 						})
+					} else {
+						// Add to "Unspecified" table column if no CC tags on project.
+						fundedByCountry[recIso].spent_on_unspec += p.total_spent;
+						fundedByCountry[recIso].committed_on_unspec += p.total_committed;
 					}
-				});
+				}
+			});
 
 			// If the only payments are for "group" F/R then mark value as unspecified
 			for (const recIso in fundedByCountry) {
@@ -993,11 +1037,11 @@
 			const drawTable = (type) => {
 				$tableContainer.find('.table-container').empty();
 				const table = d3.select(selector).select('.table-container')
-					.append('table')
-					.classed('country-table funds-table', true)
-					.classed('table', true)
-					.classed('table-bordered', true)
-					.classed('table-hover', true);
+				.append('table')
+				.classed('country-table funds-table', true)
+				.classed('table', true)
+				.classed('table-bordered', true)
+				.classed('table-hover', true);
 
 				const header = table.append('thead').append('tr');
 				const firstColLabel = (moneyTypeForTable === 'd') ? 'Recipient' : 'Funder';
@@ -1011,32 +1055,31 @@
 				header.append('td').html('Respond');
 				header.append('td').html('Other');
 				header.append('td').html('General IHR <img class="general-ihr-info-img info-img" src="img/info.png" />');
+				header.append('td').html('Unspecified <img class="unspec-ihr-info-img info-img" src="img/info.png" />');
 
 				const body = table.append('tbody');
 				fundedData = tableData2;
 
-				fundedData = fundedData.sort((a, b) => {
-						if (a[type] < b[type]) {
-							return 1;
-						} else {
-							return -1;
-						}
-					});
-
 				fundedData = fundedData.slice(0, 10);
 
 				const rows = body.selectAll('tr')
-					.data(fundedData)
-					.enter().append('tr')
-					.on('click', (d) => {
-						if (d.iso !== 'Not reported' && d.iso !== '') {
-							if (moneyTypeForTable === 'd') {
-								hasher.setHash(`analysis/${iso}/${d.iso}`);
-							} else {
-								hasher.setHash(`analysis/${d.iso}/${iso}`);
-							}
+				.data(fundedData.sort((a, b) => {
+					if (a[type] < b[type]) {
+						return 1;
+					} else {
+						return -1;
+					}
+				}))
+				.enter().append('tr')
+				.on('click', (d) => {
+					if (d.iso !== 'Not reported' && d.iso !== '') {
+						if (moneyTypeForTable === 'd') {
+							hasher.setHash(`analysis/${iso}/${d.iso}`);
+						} else {
+							hasher.setHash(`analysis/${d.iso}/${iso}`);
 						}
-					});
+					}
+				});
 				rows.append('td').html((d) => {
 					const recCountry = App.countries.find(c => c.ISO2 === d.iso);
 					const flagHtml = recCountry ? App.getFlagHtml(d.iso) : '';
@@ -1046,17 +1089,17 @@
 					}
 					const onClickStr = `event.stopPropagation();hasher.setHash('analysis/${d.iso}/${moneyTypeForTable === 'd' ? 'r' : 'd'}')`;
 					return `<div class="flag-container">${flagHtml}</div>` +
-						'<div class="name-container">' +
-						`<span onclick="${onClickStr}">${cName}</span>` +
-						'</div>';
+					'<div class="name-container">' +
+					`<span onclick="${onClickStr}">${cName}</span>` +
+					'</div>';
 				});
 
-				function getCellText(d, val) {
+				function getCellText (d, val) {
 					if (d.all_unspec_amounts) return '--';
 					return App.formatMoney(val)
 				};
 
-				rows.append('td').text(function (d) {
+				rows.append('td').text(function(d) {
 					if (d.all_unspec_amounts) {
 						d3.select(this).attr('data-sort', -1000);
 						return 'Specific amount unknown';
@@ -1071,12 +1114,14 @@
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.spent_on_respond));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.spent_on_other));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.spent_on_general));
+					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.spent_on_unspec));
 				} else {
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_prevent));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_detect));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_respond));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_other));
 					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_general));
+					rows.append('td').attr('class', 'slightly-dark').text(d => getCellText(d, d.committed_on_unspec));
 				}
 
 				// initialize DataTables plugin
@@ -1084,12 +1129,10 @@
 					pageLength: 10,
 					scrollCollapse: false,
 					autoWidth: false,
-					deferRender: true,
 					ordering: true,
 					order: [1, 'desc'],
 					bLengthChange: false,
-					bPaginate: false,
-					bInfo: false,
+					paging: false,
 				});
 
 				// Tooltip for General IHR Implementation
@@ -1097,12 +1140,18 @@
 					interactive: true,
 					content: App.generalIhrText,
 				});
+
+				// Tooltip for unspecified CC
+				$tableContainer.find('.unspec-ihr-info-img').tooltipster({
+					interactive: true,
+					content: `Funds or support marked "Unspecified" are not associated with any specific IHR core capacities or with general IHR implementation.`,
+				});
 			};
 
 			const tableType = $(`input[name=fundtype]:checked`).val();
 			drawTable(tableType);
 
-			$('input[name=fundtype]').change(function () {
+			$('input[name=fundtype]').change(function(){
 				// Get selection and set all radio buttons to that
 				const fundTypeChoice = $(this).val();
 				$(`input[name=fundtype][value=${fundTypeChoice}]`).prop('checked', true);
