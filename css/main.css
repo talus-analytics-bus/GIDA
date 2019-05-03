@@ -1633,7 +1633,7 @@ b {
         /*padding: 30px 0px 30px 0px;*/
         max-height: 800px;
         /*new*/
-        padding: 30px 0px 0px 0px;
+        padding: 0px;
         /*new*/
         display: -webkit-box;
         display: -moz-box;
@@ -1671,7 +1671,7 @@ b {
         .map-page-container .map-page-tabs .content .left-pane .funder-recipient-toggle {
           position: absolute;
           right: 295px;
-          top: 10px; }
+          top: 0px; }
         .map-page-container .map-page-tabs .content .left-pane .map-container {
           -webkit-box-flex: 0 3 545px;
           -moz-box-flex: 0 3 545px;
@@ -1742,7 +1742,9 @@ b {
         position: absolute;
         top: 0px;
         right: 10px;
-        text-align: center;
+        height: 46px;
+        line-height: 50px;
+        padding-left: 20px;
         border: 1px solid #666666; }
         .map-page-container .map-page-tabs .content .filter-collapse span {
           float: right;
@@ -1751,7 +1753,7 @@ b {
       .map-page-container .map-page-tabs .content .country-option-column {
         width: 25%;
         position: absolute;
-        top: 20px;
+        top: 45px;
         right: 10px; }
       .map-page-container .map-page-tabs .content .map-and-search-container {
         -webkit-box-flex: 1 0 350px;

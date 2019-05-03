@@ -216,6 +216,10 @@
 										.style('font-weight', this.selectedTextWeight)
 										.style('fill', this.selectedTextColor);
 
+								this.receiving
+										.selectAll('path')
+										.style('stroke', 'none');
+
 								this.funderCallback();
 						};
 
@@ -241,6 +245,10 @@
 										.selectAll('.label text')
 										.style('font-weight', this.selectedTextWeight)
 										.style('fill', this.selectedTextColor);
+
+								this.funding
+										.selectAll('path')
+										.style('stroke', 'none');
 
 								this.recipientCallback();
 						};
