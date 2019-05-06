@@ -151,7 +151,7 @@ const App = {};
 						'#3d8662',
 						'#569778',
 						'#99c2ae',
-						'#eaeff1'].reverse();
+						'#b6ccc0'].reverse();
 
 				// (blue, red) color scheme
 				/* App.fundColor = '#053061';
