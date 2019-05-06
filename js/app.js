@@ -621,7 +621,7 @@ const App = {};
 
 		App.readyColor = (num) => {
 				if (num === '?') {
-						return '#2d2d34';
+						return '#bbb';
 				} else if (num > 79) {
 						return App.jeeColors[4];
 				} else if (num > 39) {
@@ -633,7 +633,7 @@ const App = {};
 
 		App.readyText = (num) => {
 				if (num === '?') {
-						return 'Unknown';
+						return '';
 				} else if (num > 79) {
 						return 'Better Prepared';
 				} else if (num > 39) {
