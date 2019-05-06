@@ -349,9 +349,9 @@
 		if (d3.selectAll('.bar-group').nodes().length === 0) {
 			const fundType = $('input[name="fundtype"]:checked').val();
 			const fundNoun = (fundType === 'total_spent') ? 'disbursed' : 'committed';
-			$('.no-data-message.core-capacity').text(`No ${fundNoun} funds were assigned a core capacity`);
-			$('.no-data-message.core-element').text(`No ${fundNoun} funds were assigned a core element`);
-			$('.progress-circle-text')
+			$('.category-chart-container .no-data-message.core-capacity').text(`No ${fundNoun} funds were assigned a core capacity`);
+			$('.progress-circle-container .no-data-message.core-element').text(`No ${fundNoun} funds were assigned a core element`);
+			$('.progress-circle-container  .progress-circle-text')
 			.css('float','none');
 			$('.category-chart-container, .progress-circle-container')
 			.css('display', 'none')

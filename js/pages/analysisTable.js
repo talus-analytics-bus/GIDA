@@ -355,7 +355,6 @@
 				};
 
 				for (const cc in totalByCc) {
-					console.log(cc);
 					paymentTableData.push({
 						cc: cc || "None",
 						total_committed: getDisplayValForCc(totalByCc[cc], 'total_committed'),

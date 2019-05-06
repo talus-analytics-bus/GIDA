@@ -173,7 +173,6 @@
             .style('fill','red')
             .attr('opacity',0)
             .on('mouseover', (d,i)=> {
-            console.log(i);
                 d3.selectAll(`point-circle-${i}`).style('fill','grey')
             })
             .on('mouseout', ()=> {
@@ -298,7 +297,7 @@
 
         // add legend
         const rectWidth = 50;
-        // const legendShift = 
+        // const legendShift =
         const legend = chart.append('g')
         .attr('transform', `translate(${(param.moneyType === 'r') ? width - 160 - 50 : width - 160}, -20)`);
         const legendGroups = legend.selectAll('g')

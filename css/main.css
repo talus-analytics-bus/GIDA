@@ -3391,6 +3391,7 @@ td:nth-child(n+2) ~ .analysis-container .country-table.inkind-table {
 
 /* line 265, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .show-table-btn {
+  width: min-content;
   margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3400,25 +3401,25 @@ td:nth-child(n+2) ~ .analysis-container .country-table.inkind-table {
   align-items: center;
 }
 
-/* line 275, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 276, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary-empty {
   display: none;
   margin-top: 55px;
   text-align: center;
 }
 
-/* line 280, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 281, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary-empty .no-text {
   font-size: 1.1em;
   text-align: center;
 }
 
-/* line 284, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 285, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary-empty .submit-data-btn {
   margin-top: 20px;
 }
 
-/* line 289, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 290, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary,
 .progress-circle-section,
 .readyscore-circle-section {
@@ -3448,7 +3449,7 @@ font-size: 0.95em;
 }*/
 }
 
-/* line 307, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 308, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .country-summary-label,
 .progress-circle-section .country-summary-label,
 .readyscore-circle-section .country-summary-label {
@@ -3457,7 +3458,7 @@ font-size: 0.95em;
   margin-top: -5px;
 }
 
-/* line 312, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 313, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .country-summary-value,
 .progress-circle-section .country-summary-value,
 .readyscore-circle-section .country-summary-value {
@@ -3467,7 +3468,7 @@ font-size: 0.95em;
   font-style: normal;
 }
 
-/* line 319, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 320, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .country-summary-text,
 .progress-circle-section .country-summary-text,
 .readyscore-circle-section .country-summary-text {
@@ -3477,14 +3478,14 @@ font-size: 0.95em;
   padding-bottom: 20px;
 }
 
-/* line 326, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 327, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .time-chart-container,
 .progress-circle-section .time-chart-container,
 .readyscore-circle-section .time-chart-container {
   text-align: right;
 }
 
-/* line 331, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 332, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .progress-circle-text,
 .progress-circle-section .progress-circle-text,
 .readyscore-circle-section .progress-circle-text {
@@ -3493,7 +3494,7 @@ font-size: 0.95em;
   max-width: 400px;
 }
 
-/* line 337, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 338, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .readyscore-circle-text,
 .progress-circle-section .readyscore-circle-text,
 .readyscore-circle-section .readyscore-circle-text {
@@ -3502,14 +3503,14 @@ font-size: 0.95em;
   max-width: 400px;
 }
 
-/* line 343, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 344, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .time-chart-container,
 .progress-circle-section .time-chart-container,
 .readyscore-circle-section .time-chart-container {
   margin-left: 255px;
 }
 
-/* line 347, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 348, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .progress-circle-description,
 .country-flow-summary .readyscore-circle-description,
 .progress-circle-section .progress-circle-description,
@@ -3521,7 +3522,7 @@ font-size: 0.95em;
   max-width: 320px;
 }
 
-/* line 354, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 355, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .progress-circle-container,
 .progress-circle-section .progress-circle-container,
 .readyscore-circle-section .progress-circle-container {
@@ -3529,7 +3530,7 @@ font-size: 0.95em;
   margin-top: -40px;
 }
 
-/* line 359, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 360, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .readyscore-circle-container,
 .progress-circle-section .readyscore-circle-container,
 .readyscore-circle-section .readyscore-circle-container {
@@ -3537,7 +3538,7 @@ font-size: 0.95em;
   margin-top: -40px;
 }
 
-/* line 364, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 365, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .progress-circle-title,
 .country-flow-summary .readyscore-circle-title,
 .progress-circle-section .progress-circle-title,
@@ -3550,7 +3551,7 @@ font-size: 0.95em;
   margin-top: 0px;
 }
 
-/* line 371, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 372, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .progress-circle-title .info-img,
 .country-flow-summary .readyscore-circle-title .info-img,
 .progress-circle-section .progress-circle-title .info-img,
@@ -3563,7 +3564,7 @@ font-size: 0.95em;
   margin-left: 5px;
 }
 
-/* line 379, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 380, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-content,
 .progress-circle-section .circle-chart-content,
 .readyscore-circle-section .circle-chart-content {
@@ -3575,7 +3576,7 @@ font-size: 0.95em;
   vertical-align: top;
 }
 
-/* line 387, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 388, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-label1,
 .progress-circle-section .circle-chart-label1,
 .readyscore-circle-section .circle-chart-label1 {
@@ -3585,7 +3586,7 @@ font-size: 0.95em;
   font-weight: 600;
 }
 
-/* line 393, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 394, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-label2,
 .progress-circle-section .circle-chart-label2,
 .readyscore-circle-section .circle-chart-label2 {
@@ -3595,7 +3596,7 @@ font-size: 0.95em;
   font-weight: 600;
 }
 
-/* line 399, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 400, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-sublabel,
 .progress-circle-section .circle-chart-sublabel,
 .readyscore-circle-section .circle-chart-sublabel {
@@ -3604,7 +3605,7 @@ font-size: 0.95em;
   margin-top: 4px;
 }
 
-/* line 405, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 406, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .country-flow-summary-container,
 .progress-circle-section .country-flow-summary-container,
 .readyscore-circle-section .country-flow-summary-container {
@@ -3614,7 +3615,7 @@ font-size: 0.95em;
   padding-left: 20px;
 }
 
-/* line 420, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 421, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-label,
 .progress-circle-section .circle-chart-label,
 .readyscore-circle-section .circle-chart-label {
@@ -3624,7 +3625,7 @@ font-size: 0.95em;
   min-width: 160px;
 }
 
-/* line 426, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 427, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-flow-summary .circle-chart-sublabel,
 .progress-circle-section .circle-chart-sublabel,
 .readyscore-circle-section .circle-chart-sublabel {
@@ -3633,7 +3634,7 @@ font-size: 0.95em;
   margin-top: 4px;
 }
 
-/* line 439, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 440, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container {
   position: relative;
   padding: 10px 30px 20px;
@@ -3642,45 +3643,45 @@ font-size: 0.95em;
   min-height: 180px;
 }
 
-/* line 446, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 447, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container .circle-pack-content {
   text-align: center;
 }
 
-/* line 449, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 450, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container .circle-pack-description {
   max-width: 500px;
 }
 
-/* line 452, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 453, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container .country-table-container {
   margin-top: 20px;
   padding-right: 25px;
   width: 100%;
 }
 
-/* line 459, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 460, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container .country-table {
   width: 100%;
 }
 
-/* line 462, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 463, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .country-chart-container .name-container {
   width: 200px;
 }
 
-/* line 467, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 468, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .progress-container {
   border-bottom: 1px solid #b2b2b2;
   padding-bottom: 10px;
 }
 
-/* line 475, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 476, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .inkind-table-section .no-data-description {
   display: none;
 }
 
-/* line 480, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 481, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .category-chart-section {
   padding-bottom: 40px;
   padding-top: 20px;
@@ -3689,46 +3690,46 @@ font-size: 0.95em;
   border-bottom: 1px solid #b2b2b2;
 }
 
-/* line 487, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 488, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .category-chart-section.no-data {
   padding-bottom: 20px;
 }
 
-/* line 495, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 496, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .category-chart-section .description {
   width: 100%;
   max-width: 100%;
   margin-top: 0px;
 }
 
-/* line 502, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 503, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-type {
   text-align: right;
   margin-top: 10px;
   vertical-align: middle;
 }
 
-/* line 508, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 509, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-disbursed-container {
   padding-top: 10px;
   text-align: left;
   float: left;
 }
 
-/* line 514, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 515, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-disbursed-chart-container {
   padding-top: 10px;
   display: inline-block;
 }
 
-/* line 519, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 520, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-disbursed-chart-container2 {
   padding-top: 10px;
   padding-left: 30px;
   display: inline-block;
 }
 
-/* line 525, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 526, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .sort-label,
 .fund-toggle {
   display: inline-block;
@@ -3736,44 +3737,44 @@ font-size: 0.95em;
   margin-left: 10px;
 }
 
-/* line 532, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 533, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .sort-label {
   font-weight: 600;
 }
 
-/* line 536, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 537, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .return-button {
   margin-top: 10px;
 }
 
-/* line 540, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 541, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-category-chart {
   text-align: center;
   font-style: italic;
 }
 
-/* line 545, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 546, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .vert-space-20 {
   height: 20px;
 }
 
-/* line 549, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 550, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .toggle-pie-div {
   padding-left: 40px;
 }
 
-/* line 553, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 554, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .category-chart-controls {
   width: 100%;
   padding-left: 45px;
 }
 
-/* line 558, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 559, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .right-border {
   border-right: 1px solid #b2b2b2;
 }
 
-/* line 562, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 563, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .circle-pack-title,
 .inkind-table-title,
 .category-chart-title,
@@ -3783,12 +3784,12 @@ font-size: 0.95em;
   margin-top: 0px;
 }
 
-/* line 572, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 573, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .slightly-dark {
   background-color: #fbfbfb;
 }
 
-/* line 576, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 577, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .circle-pack-container,
 .inkind-table-section {
   padding-bottom: 40px;
@@ -3798,32 +3799,32 @@ font-size: 0.95em;
   padding-top: 20px;
 }
 
-/* line 579, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 580, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .circle-pack-container:not(:last-child),
 .inkind-table-section:not(:last-child) {
   border-bottom: 1px solid #b2b2b2;
 }
 
-/* line 590, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 591, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .circle-pack-container .dataTables_filter,
 .inkind-table-section .dataTables_filter {
   text-align: right;
   margin-top: -24px;
 }
 
-/* line 595, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 596, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .circle-pack-container .description,
 .inkind-table-section .description {
   margin-top: 0px;
   max-width: unset;
 }
 
-/* line 601, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 602, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .ghsa-recipient-cell {
   white-space: nowrap;
 }
 
-/* line 605, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 606, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .legend-box.category-chart-legend-box {
   display: none;
   padding: 5px;
@@ -3833,34 +3834,34 @@ font-size: 0.95em;
   font-size: 12px;
 }
 
-/* line 612, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 613, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .legend-box.category-chart-legend-box .legend-header {
   font-weight: 600;
 }
 
-/* line 615, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 616, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .legend-box.category-chart-legend-box .legend-col {
   display: inline-block;
 }
 
-/* line 617, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 618, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .legend-box.category-chart-legend-box .legend-col:not(:first-child) {
   margin-left: 10px;
 }
 
-/* line 620, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 621, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .legend-box.category-chart-legend-box .legend-col .legend-entry {
   font-size: 0.9em;
 }
 
-/* line 626, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 627, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .no-data-message.funds {
   margin-left: 0;
   display: none;
   font-style: italic;
 }
 
-/* line 630, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
+/* line 631, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisCountry.scss */
 .no-data-message.funds .btn {
   font-style: normal;
 }
