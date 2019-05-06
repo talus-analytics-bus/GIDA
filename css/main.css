@@ -2009,6 +2009,17 @@ b {
   transform-origin: center;
 }
 
+/* line 16, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/charts/_charts.scss */
+.score-badge.unscored rect {
+  fill: none !important;
+  stroke: #333 !important;
+}
+
+/* line 20, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/charts/_charts.scss */
+.score-badge.unscored text {
+  fill: #333 !important;
+}
+
 /* line 2, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/charts/_circlePack.scss */
 .circle-pack-chart .node--root {
   fill: none;

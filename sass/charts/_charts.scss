@@ -8,6 +8,16 @@
 }
 .scoreChartCirc {
 	text {
-    transform-origin: center;
+		transform-origin: center;
+	}
+}
+
+.score-badge.unscored {
+	rect {
+		fill: none !important;
+		stroke: #333 !important;
+	}
+	text {
+		fill: #333 !important;
 	}
 }

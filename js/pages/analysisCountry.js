@@ -151,15 +151,18 @@
 						.datum(entry)
 						.attr('class', 'legend-entry');
 					// add a circle to the entry
-					const circleYShift = 1;
+					const xShift = 1;
+					const yShift = 3;
 					$entry.append('svg')
 						.attr('width', 10)
 						.attr('height', 10)
-						.append('circle')
+						.append('rect')
 						.style('fill', d => d.color)
-						.attr('r', 3)
-						.attr('cx', 5)
-						.attr('cy', 5 + circleYShift);
+						.attr('rx', 2)
+						.attr('width', 6)
+						.attr('height', 6)
+						.attr('x', xShift)
+						.attr('y', yShift);
 					// add a label to entry
 					$entry.append('span')
 						.text(d => d.title);
