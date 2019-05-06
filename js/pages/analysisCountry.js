@@ -370,7 +370,7 @@
 			});
 
 			// draw charts
-			if (Util.isOrg(iso)) {
+			if (Util.isOrg(iso) || moneyType === 'd') {
 					$('.readyscore-circle-section').hide();
 			}
 			drawReadyScoreCircles();
