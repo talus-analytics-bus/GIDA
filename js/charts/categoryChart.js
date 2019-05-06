@@ -99,10 +99,20 @@
 		.style('font-size', '14px')
 		.text('Funds');
 
+		const getYLabelPos = (data) => {
+			const fakeText = chart.selectAll('.fake-text').data(data).enter().append("text").text(d => d.tickText)
+			.attr('class','tick fake-text')
+			.style('font-size','12px');
+			const maxLabelWidth = d3.max(fakeText.nodes(), d => d.getBBox().width)
+			fakeText.remove();
+			const margin = 60;
+			return -(maxLabelWidth + margin);
+		};
+
 		const yLabel = chart.append('text')
 		.attr('class', 'y-label-text')
 		.attr('transform', 'rotate(-90)')
-		.attr('y', -330)
+		.attr('y', 0)
 		.attr('x', -height / 2)
 		.style('font-weight', 600)
 		.style('text-anchor', 'middle')
@@ -147,11 +157,11 @@
 			data.forEach(datum => {
 				datum.tickText = yAxis.tickFormat()(datum.displayName);
 			})
-			chart.selectAll('.fake-text').data(data).enter().append("text").text(d => d.tickText)
+			const fakeText = chart.selectAll('.fake-text').data(data).enter().append("text").text(d => d.tickText)
 			.attr('class','tick')
 			.style('font-size','12px')
 			.each(function(d) { d.tickTextWidth = this.getBBox().width; })
-			.remove();
+			fakeText.remove();
 
 			const newHeight = 30 * data.length;
 			d3.select('.category-chart')
@@ -280,20 +290,16 @@
 				App.jeeColors[6],
 			]
 		);
-		// if (!chart.badged) {
-			// chart.badged = true;
 			chart.selectAll('.y.axis .tick:not(.badged)').each(function addJeeIcons(d) {
 				const scoreData = data.find(dd => dd.displayName === d);
 				const score = scoreData.avgScore;
 				const g = d3.select(this).classed('badged', true);
 				const xOffset = -1 * (scoreData.tickTextWidth + 7) - 5 - 5;
 				const axisGap = -7;
-				console.log('showJee');
-				console.log(showJee);
 				const badgeGroup = g.append('g')
 				.attr('class','score-badge')
 				.attr('transform', `translate(${axisGap}, 0)`)
-				.classed('unscored', !showJee && score === undefined);
+				.classed('unscored', !showJee);
 
 				const badgeHeight = 16;
 				const badgeWidth = 30;
@@ -321,7 +327,6 @@
 					.style('fill','white')
 					.text(badgeLabelText)
 			});
-		// }
 
 			// attach tooltips to y-axis labels
 			$('.category-chart .y.axis .tick.tooltipstered').tooltipster('destroy');
@@ -363,6 +368,7 @@
 			// $('div.circle-chart-content')
 			// 	.css('display', 'inline-block')
 		}
+		yLabel.transition().duration(1000).attr('y', getYLabelPos(data));
 
 	};
 
