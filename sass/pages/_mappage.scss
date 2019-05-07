@@ -1,3 +1,15 @@
+// Uncomment the following lines to show JEE score colors.
+.info-box {
+  &.combined, &.score {
+    .info-score-text-container {
+      span, b {
+        color: unset !important; // override JEE score color
+      }
+    }
+  }
+}
+.tooltip-score-text { b { color: unset !important; }}
+
 .map-page-container {
   @include flexbox(column nowrap);
   justify-content: space-between;
@@ -6,6 +18,7 @@
 
   .map-page-title {
     @include flex(0 0 32px);
+    margin-top:20px;
     font-size: 24px;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
@@ -49,7 +62,7 @@
     }
 
     .org-content {
-      height: 750px !important;
+      height: 800px !important;
       margin-bottom: 45px;
       .org-landing-page-options {
         margin: 0;
@@ -63,6 +76,19 @@
 
     .organization-content {
       width: 100%;
+      .source-text-row {
+        position: absolute;
+        right: 20px;
+        bottom: 25px;
+        > div {
+          height: 50px;
+          display: grid;
+          .source-text{
+            align-self: end;
+            justify-self: end;
+          }
+        }
+      }
     }
 
     .org-heading {
@@ -135,11 +161,11 @@
           .map-title {
             font-size: 20px;
             font-weight: bold;
-            margin-left: 3px;
+            margin: 3px 0 0 3px;
             font-family: "Raleway";
           }
           .map-title-2 {
-            margin-left: 3px;
+            margin: -3px 0 0 3px;
             font-size: 20px;
             font-family: "Raleway";
           }
@@ -220,35 +246,42 @@
 
       .info-container {
         background: transparent;
-        color: $darkcolor;
         border: $lightpage-border;
         width: 100%;
         border-bottom-width: 0px;
+        color: #333;
 
         &.dark{
+          color: $darkcolor;
           border: $darkpage-border;
           border-bottom-width: 0px;
         }
 
-        div {
-          color: $darkcolor;
-          background: transparent;
-        }
+        // div {
+        //   color: $darkcolor;
+        //   background: transparent;
+        // }
       }
 
       .filter-collapse {
+        cursor: pointer;
         width: 25%;
         position: absolute;
         top: 0px;
         right: 10px;
         height: 46px;
-        line-height: 50px;
+        line-height: 43px;
+        // line-height: 50px;
         padding-left: 20px;
-        border: $darkpage-border;
+        border: $lightpage-border;
+        &.dark { border: $darkpage-border; }
         span {
           float: right;
           padding-right: 10px;
           font-size: 16px;
+          top: 2px;
+          position: absolute;
+          right: 0;
         }
       }
 
@@ -395,9 +428,17 @@
         }
         td:nth-child(2) {
           border-left: none;
+          text-align: right;
         }
 
         thead {
+          font-weight: bold;
+          tr {
+            height: 50px;
+            td:nth-child(2) {
+              white-space: nowrap;
+            }
+          }
           td,
           tr {
             background-color: #eaeaea;

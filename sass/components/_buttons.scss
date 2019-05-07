@@ -56,10 +56,10 @@ $border-width: 2px;
   vertical-align: middle;
   outline: none;
 
-    &.map-funding-details-btn {
-        padding: 5px 10px;
-        height:35px;
-    }
+  &.map-funding-details-btn {
+    padding: 5px 10px;
+    height:35px;
+  }
 
   &:hover {
     font-weight: 600;
@@ -137,6 +137,16 @@ $border-width: 2px;
   color: $primaryFont;
   &.dark {
     color: $primaryFont;
+    &.ghsa-button {
+      background: $darkColorContainer;
+      color: $darkcolorText;
+      border: $darkcolor;
+      &:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    }
   }
 
   &:hover {
@@ -156,6 +166,7 @@ $border-width: 2px;
   position: relative;
   padding: 10px 15px 10px 45px;
   font-size: 14px;
+  line-height: 1.75; // center text with logo
   &:before {
     // this is terrible but it's the best i got
     // todo -> be a better programmer

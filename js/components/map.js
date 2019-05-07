@@ -133,8 +133,6 @@ const Map = {};
 								d3.event.transform.y = 0;
 						}
 
-						console.log(this.zoomLevel);
-
 						this.countries.style('stroke-width', `${1.5 / d3.event.transform.k}px`);
 						this.countries.attr('transform', d3.event.transform);
 

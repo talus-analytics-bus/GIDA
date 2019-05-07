@@ -300,9 +300,22 @@
 				setConstants(params);
 				indType = indTypeParam;
 
+				// When clicking tabs, update titles
+				$('input[name="map-tabs"]').change(function(){
+					if ($(this).attr('id') === 'org-tab') {
+						$('.map-page-title').text('Explore organization funders and recipients');
+						$('.map-page-instructions').text('Choose organization in table to view details.');
+					} else {
+						$('.map-page-title').text('Explore countries on a map');
+						$('.map-page-instructions').text('Choose country on map to view details.');
+					}
+				});
+
 				if (tabSelect == 'org') {
-					$('#org-tab').prop("checked", true);
+					$('#org-tab').click();
+					// $('#org-tab').prop("checked", true);
 				}
+
 
 				App.loadFundingData({ showGhsaOnly: params.showGhsaOnly === 'true' });
 				App.setSources();
@@ -862,7 +875,7 @@
 										// build tooltip
 										const container = d3.select(document.createElement('div'));
 										container.append('div')
-												.attr('class', 'tooltip-title info-box')
+												.attr('class', `tooltip-title info-box ${indType}`)
 												.text(d.properties.NAME);
 										if (d.undetermined !== true) {
 												if (indType === 'score') {
@@ -1279,7 +1292,7 @@
 		// initalizes components in the map options, incl. search and display toggle
 		function initMapOptions() {
 				// define legend display toggle behavior
-				$('.filter-collapse i').click(() => {
+				$('.filter-collapse').click(() => {
 						$('.filter-collapse i').toggleClass('rotated');
 						$('.country-option-column').slideToggle();
 				});
@@ -1396,6 +1409,8 @@
 				// The map page handles a indTypeParam. Update the filter to match it.
 				$(`input[name="ind"][ind="${indType}"]`).prop('checked', true);
 				if (indType === 'score' || indType === 'combined') {
+						$('.info-box').removeClass('combined').removeClass('score');
+						$('.info-box').addClass(indType);
 						$('.money-filters').slideUp();
 						$('.time-slider-box').slideUp();
 						$('.funder-recipient-toggle').css('visibility','hidden');
@@ -1424,6 +1439,8 @@
 								$('.funder-recipient-toggle').css('visibility','visible');
 								App.showGhsaOnly = true;
 						} else if (indType === 'score' || indType === 'combined') {
+								$('.info-box').removeClass('combined').removeClass('score');
+								$('.info-box').addClass(indType);
 								$('.money-filters').slideUp();
 								$('.score-filters').slideDown();
 								$('.time-slider-box').slideUp();
@@ -2209,13 +2226,13 @@
 				const receivedFunc = (supportType === 'financial') ? App.getTotalReceived : App.getInkindReceived;
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Disbursed';
-				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
+				dNoun += (supportType === 'financial') ? '<br>(financial support)' : '<br>(in-kind support)';
 				$('.fund-table-title .text').text(`Top ${funderNoun.toLowerCase()}s (${orgStartYear} - ${orgEndYear-1})`);
 				$('.rec-table-title .text').text(`Top recipients (${orgStartYear} - ${orgEndYear-1})`);
 				App.fundIcon('.fund-table-title span');
 				App.receiveIcon('.rec-table-title span');
 				$('.fund-col-name.head-text').text(funderNoun);
-				$('.d-col-name').text(dNoun);
+				$('.d-col-name').html(dNoun);
 
 				const countriesByFunding = [];
 				for (const iso in App.fundingLookup) {

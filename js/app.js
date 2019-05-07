@@ -287,7 +287,7 @@ const App = {};
 						.defer(d3.json, 'data/funding_data-032119-v4.json') // use updated CC tagging
 						.defer(d3.json, 'data/jee_score_data.json')
 						.defer(d3.json, 'data/currencies.json')
-						.defer(d3.json, 'data/submitted_data-032119-v5.json') // non-iati data
+						.defer(d3.json, 'data/submitted_data-050619-v3.json') // non-iati data
 						// .defer(d3.json, 'data/submitted_data.json') // non-iati data, created 15 June 2018
 						// .defer(d3.json, 'data/who-iati-v15.json') // WHO projects from funding data v15
 						.defer(d3.tsv, 'data/geographic_groupings.tsv')
@@ -1294,8 +1294,7 @@ const App = {};
 				App.showGhsaOnly = ghsaOnly;
 		};
 
-		App.ghsaInfoTooltipContent = 'The Global Health Security Agenda (GHSA) is a partnership of nations, international organizations, and non-governmental stakeholders to help build countries’ capacity to help create a world safe and secure from infectious disease threats. Only resources that have specifically been identified as being committed or disbursed under the GHSA are identified as GHSA financial resources in the GHS Tracking Dashboard.';
-		// App.ghsaInfoTooltipContent = 'The Global Health Security Agenda (GHSA) is a partnership of over 64 nations, international organizations, and non-governmental stakeholders to help build countries’ capacity to help create a world safe and secure from infectious disease threats and elevate global health security as a national and global priority. Only resources that have specifically been identified as being committed or disbursed under the GHSA are identified as GHSA financial resources in the GHS Tracking Dashboard';
+		App.ghsaInfoTooltipContent = 'The Global Health Security Agenda (GHSA) is a partnership of nations, international organizations, and non-governmental stakeholders to help build countries’ capacity to help create a world safe and secure from infectious disease threats. Only resources that have specifically been identified as being committed or disbursed under the GHSA are identified as GHSA financial resources in GIDA.';
 
 		/* ------------------ Data Functions ------------------- */
 		/**

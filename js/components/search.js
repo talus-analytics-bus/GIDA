@@ -65,7 +65,9 @@
 			});
 
 		// define domain
-		const countries = App.countries.slice(0);
+		const countries = App.countries
+			.slice(0)
+			.filter(d => d.NAME !== 'Not reported');
 		// if (param.includeNonCountries) {
 		// 	App.codeToNameMap.entries().forEach((d) => {
 		// 		if (!App.countries.find(c => c.ISO2 === d.key)) {

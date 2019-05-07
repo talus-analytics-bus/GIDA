@@ -17,7 +17,7 @@
 		padding: 0;
 		width: 100%;
 		pointer-events: all;
-		color: white !important;
+		// color: white !important;
 	}
 	.info-value-box:first-child {
 		position: relative;
@@ -99,6 +99,7 @@
 		text-align: center;
 		font-weight: 600;
 		font-size: 1.2em;
+		padding: 0 10px;
 	}
 	.row.c-and-d {
 		margin-right: 0px !important;
@@ -106,7 +107,7 @@
 	}
 	.info-value-box{
 		padding-left: 15px;
-		padding-right: 0px;
+		// padding-right: 0px;
 	}
 	.info-value {
 		font-family: 'RawlineRegular';
