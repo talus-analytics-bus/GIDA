@@ -483,7 +483,21 @@
   color: black;
 }
 
-/* line 142, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 140, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+.talus-secondary-btn.dark.ghsa-button {
+  background: #333333;
+  color: #eeeeee;
+  border: #222222;
+}
+
+/* line 144, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+.talus-secondary-btn.dark.ghsa-button:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+/* line 152, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn:hover {
   background-color: #808080;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#808080 0%), to(#808080 100%));
@@ -495,7 +509,7 @@
   font-weight: 400;
 }
 
-/* line 148, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 158, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .talus-secondary-btn.active, .talus-secondary-btn:active {
   background-color: #e6e6e6;
   background: -webkit-gradient(linear, left-top, left-bottom, from(#e6e6e6 0%), to(#f2f2f2 100%));
@@ -506,14 +520,14 @@
   color: black;
 }
 
-/* line 155, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 165, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .ghsa-button {
   position: relative;
   padding: 10px 15px 10px 45px;
   font-size: 14px;
 }
 
-/* line 159, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 169, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .ghsa-button:before {
   vertical-align: middle;
   white-space: pre;
@@ -529,7 +543,7 @@
   background-image: url("/img/gida-logo.png");
 }
 
-/* line 177, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 187, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .zoomButtons .glyphicon {
   color: #333333;
 }
