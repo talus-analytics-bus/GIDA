@@ -250,18 +250,23 @@
       }
 
       .filter-collapse {
+        cursor: pointer;
         width: 25%;
         position: absolute;
         top: 0px;
         right: 10px;
         height: 46px;
-        line-height: 50px;
+        line-height: 43px;
+        // line-height: 50px;
         padding-left: 20px;
         border: $darkpage-border;
         span {
           float: right;
           padding-right: 10px;
           font-size: 16px;
+          top: 2px;
+          position: absolute;
+          right: 0;
         }
       }
 

@@ -1279,7 +1279,7 @@
 		// initalizes components in the map options, incl. search and display toggle
 		function initMapOptions() {
 				// define legend display toggle behavior
-				$('.filter-collapse i').click(() => {
+				$('.filter-collapse').click(() => {
 						$('.filter-collapse i').toggleClass('rotated');
 						$('.country-option-column').slideToggle();
 				});
