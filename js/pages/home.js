@@ -300,9 +300,22 @@
 				setConstants(params);
 				indType = indTypeParam;
 
+				// When clicking tabs, update titles
+				$('input[name="map-tabs"]').change(function(){
+					if ($(this).attr('id') === 'org-tab') {
+						$('.map-page-title').text('Explore organization funders and recipients');
+						$('.map-page-instructions').text('Choose organization in table to view details.');
+					} else {
+						$('.map-page-title').text('Explore countries on a map');
+						$('.map-page-instructions').text('Choose country on map to view details.');
+					}
+				});
+
 				if (tabSelect == 'org') {
-					$('#org-tab').prop("checked", true);
+					$('#org-tab').click();
+					// $('#org-tab').prop("checked", true);
 				}
+
 
 				App.loadFundingData({ showGhsaOnly: params.showGhsaOnly === 'true' });
 				App.setSources();
