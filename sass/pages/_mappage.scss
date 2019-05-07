@@ -1,3 +1,15 @@
+// Uncomment the following lines to show JEE score colors.
+.info-box {
+  &.combined, &.score {
+    .info-score-text-container {
+      span, b {
+        color: unset !important; // override JEE score color
+      }
+    }
+  }
+}
+.tooltip-score-text { b { color: unset !important; }}
+
 .map-page-container {
   @include flexbox(column nowrap);
   justify-content: space-between;
@@ -248,16 +260,6 @@
         //   color: $darkcolor;
         //   background: transparent;
         // }
-
-        .info-box {
-          &.combined, &.score {
-            .info-score-text-container {
-              span, b {
-                color: unset !important; // override JEE score color
-              }
-            }
-          }
-        }
       }
 
       .filter-collapse {

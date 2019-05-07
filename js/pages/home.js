@@ -862,7 +862,7 @@
 										// build tooltip
 										const container = d3.select(document.createElement('div'));
 										container.append('div')
-												.attr('class', 'tooltip-title info-box')
+												.attr('class', `tooltip-title info-box ${indType}`)
 												.text(d.properties.NAME);
 										if (d.undetermined !== true) {
 												if (indType === 'score') {
