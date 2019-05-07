@@ -525,9 +525,10 @@
   position: relative;
   padding: 10px 15px 10px 45px;
   font-size: 14px;
+  line-height: 1.75;
 }
 
-/* line 169, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 170, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .ghsa-button:before {
   vertical-align: middle;
   white-space: pre;
@@ -543,7 +544,7 @@
   background-image: url("/img/gida-logo.png");
 }
 
-/* line 187, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
+/* line 188, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_buttons.scss */
 .zoomButtons .glyphicon {
   color: #333333;
 }
@@ -3124,17 +3125,22 @@ b {
 }
 
 /* line 93, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
+.analysis-container .country-table td:not(:first-child) {
+  text-align: right;
+}
+
+/* line 96, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
 td:nth-child(n+2) ~ .analysis-container .country-table.inkind-table {
   white-space: nowrap;
   text-align: right;
 }
 
-/* line 97, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
+/* line 100, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
 .analysis-container .country-table .flag-container {
   vertical-align: middle;
 }
 
-/* line 100, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
+/* line 103, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
 .analysis-container .country-table .name-container {
   display: inline-block;
   width: 220px;
@@ -3144,12 +3150,12 @@ td:nth-child(n+2) ~ .analysis-container .country-table.inkind-table {
   cursor: pointer;
 }
 
-/* line 110, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
+/* line 113, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
 .analysis-container .country-table.inkind-table .name-container {
   max-width: 75%;
 }
 
-/* line 116, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
+/* line 119, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysis.scss */
 .analysis-container .country-table .name-container span:hover {
   text-decoration: underline;
 }

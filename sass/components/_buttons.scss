@@ -166,6 +166,7 @@ $border-width: 2px;
   position: relative;
   padding: 10px 15px 10px 45px;
   font-size: 14px;
+  line-height: 1.75; // center text with logo
   &:before {
     // this is terrible but it's the best i got
     // todo -> be a better programmer
