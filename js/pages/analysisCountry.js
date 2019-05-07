@@ -331,13 +331,15 @@
 			const zeroDisbursements = (projectsJustForCountry !== undefined) ? (d3.sum(projectsJustForCountry, d => d.total_spent) === 0) : true;
 			const hasNoFinancialData = zeroCommittments && zeroDisbursements;
 
+			// Define default value for disbursed/committed radio buttons based on
+			// what data are available for the entity.
 			$('input[type=radio][value="total_spent"]').prop('checked', true);
 			if (zeroDisbursements) {
 				$('input[name=fundtype][value=total_committed').prop('checked', true).change();
 			}
 
-			// $('.money-type-cap').text('Disbursed');
-
+			// Define callback functions for when disbursed/committed radio buttons
+			// are clicked.
 			$('.toggle-disbursed').click(function () {
 				if ($(this).hasClass('active')) {
 				} else {
