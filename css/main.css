@@ -1130,10 +1130,10 @@ select.form-control {
 /* line 5, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.wide {
   padding: 0;
-  -webkit-transition: padding 0.5s ease;
-  -moz-transition: padding 0.5s ease;
-  -o-transition: padding 0.5s ease;
-  transition: padding 0.5s ease;
+  -webkit-transition: padding 1.0s ease;
+  -moz-transition: padding 1.0s ease;
+  -o-transition: padding 1.0s ease;
+  transition: padding 1.0s ease;
 }
 
 /* line 16, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
@@ -1141,14 +1141,14 @@ select.form-control {
   max-width: 1200px;
   padding-left: 22px;
   padding-right: 20px;
-  -webkit-transition: padding 0.5s ease;
-  -moz-transition: padding 0.5s ease;
-  -o-transition: padding 0.5s ease;
-  transition: padding 0.5s ease;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease;
+  -webkit-transition: padding 1.0s ease;
+  -moz-transition: padding 1.0s ease;
+  -o-transition: padding 1.0s ease;
+  transition: padding 1.0s ease;
+  -webkit-transition: width 1.0s ease;
+  -moz-transition: width 1.0s ease;
+  -o-transition: width 1.0s ease;
+  transition: width 1.0s ease;
 }
 
 /* line 32, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
@@ -1156,14 +1156,14 @@ select.form-control {
   max-width: unset;
   padding-left: 0;
   padding-right: 0;
-  -webkit-transition: padding 0.5s ease;
-  -moz-transition: padding 0.5s ease;
-  -o-transition: padding 0.5s ease;
-  transition: padding 0.5s ease;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease;
+  -webkit-transition: padding 1.0s ease;
+  -moz-transition: padding 1.0s ease;
+  -o-transition: padding 1.0s ease;
+  transition: padding 1.0s ease;
+  -webkit-transition: width 1.0s ease;
+  -moz-transition: width 1.0s ease;
+  -o-transition: width 1.0s ease;
+  transition: width 1.0s ease;
 }
 
 /* line 46, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
@@ -2404,6 +2404,18 @@ b {
 }
 
 /* line 19, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+.map-page-container .filter-section {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+/* line 22, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+.map-page-container .filter-section .filter-radio-boxes {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+/* line 27, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-title {
   -webkit-box-flex: 0 0 32px;
   -moz-box-flex: 0 0 32px;
@@ -2417,18 +2429,18 @@ b {
   font-weight: 700;
 }
 
-/* line 26, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 34, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-title:not(.dark) {
   color: #11315D;
 }
 
-/* line 29, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 37, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-instructions {
   font-style: italic;
   margin-bottom: 10px;
 }
 
-/* line 34, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 42, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-buttons {
   -webkit-box-flex: 0 0 50px;
   -moz-box-flex: 0 0 50px;
@@ -2442,7 +2454,7 @@ b {
   z-index: 1000;
 }
 
-/* line 43, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs {
   width: 100%;
   margin-top: -35px;
@@ -2452,129 +2464,129 @@ b {
 }
 
 @media (max-width: 1199px) {
-  /* line 43, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+  /* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
   .map-page-container .map-page-tabs {
     height: 1100px;
   }
 }
 
 @media (max-width: 992px) {
-  /* line 43, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+  /* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
   .map-page-container .map-page-tabs {
     height: 1550px;
   }
 }
 
 @media (max-width: 768px) {
-  /* line 43, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+  /* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
   .map-page-container .map-page-tabs {
     height: 1940px;
   }
 }
 
 @media (max-width: 496px) {
-  /* line 43, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+  /* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
   .map-page-container .map-page-tabs {
     height: 2000px;
   }
 }
 
-/* line 64, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 72, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-content {
   height: 800px !important;
   margin-bottom: 45px;
 }
 
-/* line 67, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 75, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-content .org-landing-page-options {
   margin: 0;
   padding: 0;
   padding-left: 25px;
 }
 
-/* line 72, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 80, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-content .table-content .sorting_disabled:after {
   content: "";
 }
 
-/* line 77, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 85, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .organization-content {
   width: 100%;
 }
 
-/* line 79, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 87, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .organization-content .source-text-row {
   position: absolute;
   right: 20px;
   bottom: 25px;
 }
 
-/* line 83, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 91, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .organization-content .source-text-row > div {
   height: 50px;
   display: grid;
 }
 
-/* line 86, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 94, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .organization-content .source-text-row > div .source-text {
   align-self: end;
   justify-self: end;
 }
 
-/* line 94, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 102, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading {
   margin: 25px -5px 0 -5px;
 }
 
-/* line 96, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 104, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .landing {
   line-height: 40px;
 }
 
-/* line 99, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 107, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .dark .country-search-input {
   background-color: #222222;
   color: #eeeeee;
 }
 
-/* line 103, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 111, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .dark .has-feedback i {
   color: #eeeeee;
 }
 
-/* line 106, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 114, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .live-search-results-container .live-search-results-box {
   background: -webkit-linear-gradient(top, #fefefe 0%, #f3f3f3 100%);
 }
 
-/* line 109, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 117, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .dark .live-search-results-container .live-search-results-box {
   background: #333333;
 }
 
-/* line 112, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 120, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .org-heading .dark .live-search-results-container .live-search-results-box div {
   color: #eeeeee !important;
 }
 
-/* line 117, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 125, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .map-content {
   height: 648px !important;
   padding: 0px;
   margin-bottom: -100px;
 }
 
-/* line 123, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 131, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .multiselect-native-select li label {
   color: #777777;
 }
 
-/* line 127, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 135, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .multiselect-native-select li.active label {
   color: #eeeeee;
 }
 
-/* line 131, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 139, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content {
   display: -webkit-box;
   display: -moz-box;
@@ -2589,7 +2601,7 @@ b {
   /*new*/
 }
 
-/* line 139, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 147, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane {
   /*@include flex(0 3 800px);*/
   -webkit-box-flex: 1 3 800px;
@@ -2613,7 +2625,7 @@ b {
   align-items: center;
 }
 
-/* line 153, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 161, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-header {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -2632,7 +2644,7 @@ b {
   align-content: flex-start;
 }
 
-/* line 161, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 169, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-header .map-title {
   font-size: 20px;
   font-weight: bold;
@@ -2640,21 +2652,21 @@ b {
   font-family: "Raleway";
 }
 
-/* line 167, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 175, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-header .map-title-2 {
   margin: -3px 0 0 3px;
   font-size: 20px;
   font-family: "Raleway";
 }
 
-/* line 174, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 182, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .funder-recipient-toggle {
   position: absolute;
   right: 295px;
   top: 0px;
 }
 
-/* line 180, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 188, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-container {
   -webkit-box-flex: 0 3 545px;
   -moz-box-flex: 0 3 545px;
@@ -2668,26 +2680,37 @@ b {
   /*new*/
 }
 
-/* line 187, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 195, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+.map-page-container .map-page-tabs .content .left-pane .map-container.dark > svg {
+  background: #333333;
+}
+
+/* line 198, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+.map-page-container .map-page-tabs .content .left-pane .map-container > svg {
+  background: #f4f4f4;
+}
+
+/* line 201, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-container .country.hatch, .map-page-container .map-page-tabs .content .left-pane .map-container .legend-bar.hatch, .map-page-container .map-page-tabs .content .left-pane .map-container circle.hatch {
   mask: url(#mask-stripe);
   fill: #989898 !important;
 }
 
-/* line 190, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 204, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .left-pane .map-container .country.hatch.dark, .map-page-container .map-page-tabs .content .left-pane .map-container .legend-bar.hatch.dark, .map-page-container .map-page-tabs .content .left-pane .map-container circle.hatch.dark {
   fill: #cccccc !important;
 }
 
-/* line 197, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 211, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-position {
   width: 80%;
   position: absolute;
   text-align: center;
-  bottom: 0;
+  bottom: -3px;
+  height: 99px;
 }
 
-/* line 204, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 219, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container {
   -webkit-box-flex: 0 0 0px;
   -moz-box-flex: 0 0 0px;
@@ -2699,7 +2722,7 @@ b {
   display: inline-block;
 }
 
-/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 225, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-display-tab {
   width: 140px;
   margin-left: auto;
@@ -2710,37 +2733,37 @@ b {
   border-bottom-width: 0px;
 }
 
-/* line 221, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 236, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-display-tab.dark {
   background-color: rgba(50, 50, 50, 0.9);
   border: 1px solid #666666;
   border-bottom-width: 0px;
 }
 
-/* line 227, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 242, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-display-tab .legend-tab-content {
   text-align: center;
 }
 
-/* line 231, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 246, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-content {
   padding: 5px 5px 0 5px;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #b2b2b2;
 }
 
-/* line 236, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 251, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-content.dark {
   background-color: rgba(50, 50, 50, 0.9);
   border: 1px solid #666666;
 }
 
-/* line 240, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 255, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-container .legend-content.dark .legend-box > svg > g > text {
   color: #eeeeee !important;
 }
 
-/* line 247, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 262, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .info-container {
   background: transparent;
   border: 1px solid #b2b2b2;
@@ -2749,14 +2772,14 @@ b {
   color: #333;
 }
 
-/* line 254, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 269, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .info-container.dark {
   color: #222222;
   border: 1px solid #666666;
   border-bottom-width: 0px;
 }
 
-/* line 266, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 281, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .filter-collapse {
   cursor: pointer;
   width: 25%;
@@ -2769,12 +2792,12 @@ b {
   border: 1px solid #b2b2b2;
 }
 
-/* line 277, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 292, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .filter-collapse.dark {
   border: 1px solid #666666;
 }
 
-/* line 278, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 293, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .filter-collapse span {
   float: right;
   padding-right: 10px;
@@ -2784,7 +2807,7 @@ b {
   right: 0;
 }
 
-/* line 288, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 303, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .country-option-column {
   width: 25%;
   position: absolute;
@@ -2792,7 +2815,7 @@ b {
   right: 10px;
 }
 
-/* line 295, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 310, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container {
   -webkit-box-flex: 1 0 350px;
   -moz-box-flex: 1 0 350px;
@@ -2806,111 +2829,111 @@ b {
   border: 1px solid #b2b2b2;
 }
 
-/* line 304, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 319, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container.dark {
   background-color: rgba(50, 50, 50, 0.9);
   border: 1px solid #666666;
 }
 
-/* line 309, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 324, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .selected-country-container {
   width: 100%;
 }
 
-/* line 312, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 327, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .selected-country-container .selected-country-name {
   width: 100%;
   height: auto;
 }
 
-/* line 318, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 333, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .search-container {
   position: relative;
 }
 
-/* line 323, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 338, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .search-container .live-search-results-container .live-search-results-contents {
   background: #eeeeee;
   position: absolute;
   top: 194px;
 }
 
-/* line 331, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 346, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .dropdown-label {
   margin-top: 5px;
 }
 
-/* line 335, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 350, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container .time-slider-box {
   height: 70px;
   margin: 15px 0px;
 }
 
-/* line 342, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 357, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle),
 .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle) {
   background: transparent;
 }
 
-/* line 345, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 360, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle).radio-option.multiline input,
 .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle).radio-option.multiline input {
   vertical-align: top;
 }
 
-/* line 346, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 361, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container div:not(.slider-handle).radio-option.multiline p,
 .map-page-container .map-page-tabs .content .map-and-search-container label:not(.slider-handle).radio-option.multiline p {
   display: inline-block;
-  max-width: 220px;
+  max-width: 170px;
 }
 
-/* line 353, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 368, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .map-and-search-container div .slider-handle,
 .map-page-container .map-page-tabs .content .map-and-search-container label .slider-handle {
   background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%);
 }
 
-/* line 359, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 374, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .org-table-country-search .slider-handle {
   background-image: linear-gradient(to bottom, #337ab7 0, #2e6da4 100%);
 }
 
-/* line 363, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 378, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content div,
 .map-page-container .map-page-tabs .content label {
   background: transparent;
   font-weight: normal;
 }
 
-/* line 370, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 385, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-box:not(.dark) .mask-bar:first-child {
   fill: none !important;
 }
 
-/* line 373, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 388, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .legend-box:not(.dark) .mask-bar:last-child {
   fill: #909090 !important;
 }
 
-/* line 377, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 392, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .slider-tick-vert {
   background-color: #999 !important;
 }
 
-/* line 384, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 399, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .paginate_button.dark.active a {
   background-color: #222222;
 }
 
-/* line 388, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 403, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .paginate_button.dark a {
   border: 1px solid #ccc;
   color: #ccc;
   background-color: #333333;
 }
 
-/* line 396, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 411, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .table-content {
   display: -webkit-box;
   display: -moz-box;
@@ -2922,7 +2945,7 @@ b {
   align-items: flex-start;
 }
 
-/* line 401, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 416, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .table-content .left-table,
 .map-page-container .map-page-tabs .content .table-content .right-table {
   padding: 10px;
@@ -2941,56 +2964,56 @@ b {
   align-items: center;
 }
 
-/* line 410, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 425, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .table-content .left-table div.dataTables_wrapper,
 .map-page-container .map-page-tabs .content .table-content .right-table div.dataTables_wrapper {
   width: 100%;
 }
 
-/* line 413, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 428, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content .table-content .left-table .table-title-container,
 .map-page-container .map-page-tabs .content .table-content .right-table .table-title-container {
   position: relative;
 }
 
-/* line 419, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 434, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table {
   width: 100%;
 }
 
-/* line 422, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 437, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table td,
 .map-page-container .map-page-tabs .content table tr {
   border: 1px solid #666666;
 }
 
-/* line 426, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 441, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table td:nth-child(1) {
   border-right: none;
 }
 
-/* line 429, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 444, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table td:nth-child(2) {
   border-left: none;
   text-align: right;
 }
 
-/* line 434, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 449, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table thead {
   font-weight: bold;
 }
 
-/* line 436, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 451, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table thead tr {
   height: 50px;
 }
 
-/* line 438, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 453, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table thead tr td:nth-child(2) {
   white-space: nowrap;
 }
 
-/* line 442, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 457, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table thead td,
 .map-page-container .map-page-tabs .content table thead tr {
   background-color: #eaeaea;
@@ -2998,21 +3021,21 @@ b {
   vertical-align: middle;
 }
 
-/* line 447, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 462, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table thead td.dark,
 .map-page-container .map-page-tabs .content table thead tr.dark {
   background-color: black;
   color: #eeeeee;
 }
 
-/* line 454, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 469, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table tbody td,
 .map-page-container .map-page-tabs .content table tbody tr {
   background-color: #eeeeee;
   color: black;
 }
 
-/* line 458, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 473, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table tbody td.active,
 .map-page-container .map-page-tabs .content table tbody tr.active {
   transform: translate(0, 0);
@@ -3022,7 +3045,7 @@ b {
   transition: background 125ms, outline 125ms;
 }
 
-/* line 465, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 480, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table tbody td.active td,
 .map-page-container .map-page-tabs .content table tbody tr.active td {
   border-color: #3b88fd;
@@ -3032,19 +3055,19 @@ b {
   transition: background-color 125ms, border-color 125ms, font-weight 125ms;
 }
 
-/* line 473, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 488, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .map-page-container .map-page-tabs .content table tbody td.dark,
 .map-page-container .map-page-tabs .content table tbody tr.dark {
   background-color: #222222;
   color: #eeeeee;
 }
 
-/* line 486, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 501, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .table-title-container {
   width: 100%;
 }
 
-/* line 489, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
+/* line 504, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_mappage.scss */
 .table-title-container .fund-table-title,
 .table-title-container .rec-table-title {
   margin-left: 35px;
