@@ -1,4 +1,26 @@
 donor_name,donor_code,donor_sector,donor_country,acronym,funder_ref,donor_name_original,comments
+AbbVie Foundation,avf,Foundation,,,,,
+AmeriCares,ac,Foundation,,,,,
+AstraZeneca,az,Private Sector,,,,,
+Bayer,bayer,Private Sector,,,,,
+Bristol-Myers Squibb,bms,Private Sector,,,,,
+Direct Relief,dr,International NGO,,,,,
+Eli Lilly and Company,elc,Private Sector,,,,,
+GlaxoSmithKline,gsk,Private Sector,,,,,
+Harvard Medical School,hms,"Academic, Training and Research",,,,,
+International Rescue Committee,irc,International NGO,,,,,
+Johnson & Johnson,jj,Private Sector,,,,,
+Novartis,novartis,Private Sector,,,,,
+Office of the United Nations High Commissioner for Refugees (UNHCR),unhcr,Multilateral,,,,,
+Partners in Health,pih,International NGO,,,,,
+Pfizer,pfizer,Private Sector,,,,,
+Pfizer Foundation,pf,Foundation,,,,,
+Project Hope,ph,International NGO,,,,,
+Roche,roche,Private Sector,,,,,
+Sanofi Foundation,sf,Foundation,,,,,
+Save the Children,stc,International NGO,,,,,
+University of Washington,uw,"Academic, Training and Research",,,,,
+UPS,ups,Private Sector,,,,,
 African Bio-Safety Association (AfBSA),afbsa,International NGO,,,,,New
 African Bio-Safety Network of Expertise (ABNE/NEPAD),abne-nepad,Multilateral,,,,,New
 African Union,afunion,Multilateral,,,,,New
@@ -95,7 +117,7 @@ Disability and Development Partners,gb-chc-1046001,International NGO,,,,Disabili
 Drugs for Neglected Diseases Initiative,dndi,International NGO,,,,Drugs for Neglected Diseases Initiative,
 East Africa,east-africa,Region,,,,East Africa,
 EC H2020-SFS-2016-2,H2020-SFS-2016-2,,,,,,New
-ECOWAS,ecowas,Region,,,,ECOWAS,
+Economic Community of West African States (ECOWAS),ecowas,Region,,,,ECOWAS,
 Elisabeth R. Griffin Foundation,erg-foundation,Foundation,,,,,New
 EMMS International,gb-sc-sc032327,International NGO,,,,EMMS International,
 Ethiopiaid UK,GB-CHC-802353,International NGO,GB,,,Ethiopiaid UK,
