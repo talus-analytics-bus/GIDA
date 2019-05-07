@@ -18,6 +18,7 @@
 
   .map-page-title {
     @include flex(0 0 32px);
+    margin-top:20px;
     font-size: 24px;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
