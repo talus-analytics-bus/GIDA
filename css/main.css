@@ -560,7 +560,12 @@
   padding: 0 20px 30px;
 }
 
-/* line 1, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 2, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+.country-option-column .info-container {
+  max-width: unset;
+}
+
+/* line 6, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container {
   display: none;
   width: 100%;
@@ -570,12 +575,12 @@
   background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* line 9, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 14, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container.dark {
   background-color: rgba(50, 50, 50, 0.9) !important;
 }
 
-/* line 13, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 18, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-box {
   transform-origin: top;
   display: inline-block;
@@ -585,22 +590,22 @@
   pointer-events: all;
 }
 
-/* line 22, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 27, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value-box:first-child {
   position: relative;
 }
 
-/* line 26, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 31, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value-box:last-child {
   position: relative;
 }
 
-/* line 31, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 36, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details {
   display: block;
 }
 
-/* line 33, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 38, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details .info-inkind-unit {
   font-family: 'Raleway', sans-serif;
   font-size: 1.25em;
@@ -609,25 +614,25 @@
   /* text-align: center; */
 }
 
-/* line 41, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 46, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details .info-inkind-value, .info-container .info-inkind-details .undetermined-value {
   display: inline-block;
 }
 
-/* line 44, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 49, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details .undetermined-value {
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   max-width: 370px;
 }
 
-/* line 55, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 60, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-inkind-details .info-inkind-value-label, .info-container .info-inkind-details .undetermined-label {
   max-width: 100px;
   margin: 10px auto 0 auto;
 }
 
-/* line 62, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 67, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-close-button {
   position: absolute;
   top: 8px;
@@ -642,21 +647,21 @@
   opacity: 0.75;
 }
 
-/* line 75, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 80, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-close-button:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
 }
 
-/* line 78, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 83, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-close-button img {
   width: 20px;
   height: 20px;
   margin-left: 0;
 }
 
-/* line 84, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 89, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-title {
   color: white !important;
   padding: 7px 50px 7px 11px;
@@ -666,14 +671,14 @@
   text-align: left;
 }
 
-/* line 92, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 97, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-profile-type {
   margin-top: 5px;
   text-align: center;
   font-size: 1.2em;
 }
 
-/* line 97, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 102, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-score-text-container {
   margin-top: 10px;
   text-align: center;
@@ -682,18 +687,18 @@
   padding: 0 10px;
 }
 
-/* line 104, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 109, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .row.c-and-d {
   margin-right: 0px !important;
   margin-left: 0px !important;
 }
 
-/* line 108, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 113, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value-box {
   padding-left: 15px;
 }
 
-/* line 112, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 117, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value {
   font-family: 'RawlineRegular';
   font-size: 18px;
@@ -703,12 +708,12 @@
   color: black !important;
 }
 
-/* line 119, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 124, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value.dark {
   color: white !important;
 }
 
-/* line 123, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 128, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value-label {
   text-align: left;
   margin-left: 0px;
@@ -718,12 +723,12 @@
   color: black !important;
 }
 
-/* line 132, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 137, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-value-label.dark {
   color: white !important;
 }
 
-/* line 136, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 141, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container .info-button-container {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -732,7 +737,7 @@
   border: #cccccc;
 }
 
-/* line 144, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 149, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-container img {
   position: relative;
   top: -1px;
@@ -741,7 +746,7 @@
   height: 16px;
 }
 
-/* line 160, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 165, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .undetermined-value {
   font-family: 'Raleway', sans-serif;
   font-size: 1.1em;
@@ -752,21 +757,21 @@
   line-height: 20px;
 }
 
-/* line 173, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .undetermined-label {
   max-width: 100px;
   margin: 10px auto 0 auto;
   text-align: left;
 }
 
-/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 183, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-value {
   font-family: 'Raleway', sans-serif;
   margin-top: 10px;
   text-align: left;
 }
 
-/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
+/* line 189, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_countryInfoBox.scss */
 .info-value-label {
   text-align: left;
   font-size: .8em;
@@ -1114,6 +1119,7 @@ select.form-control {
 .navbar {
   padding-left: 15px;
   padding-right: 25px;
+  width: 100%;
   border-bottom: 1px solid #b2b2b2;
   background-color: white;
   font-size: 16px;
@@ -1121,36 +1127,72 @@ select.form-control {
   max-height: 80px;
 }
 
-/* line 8, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 5, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+.navbar.wide {
+  padding: 0;
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+  -o-transition: padding 0.5s ease;
+  transition: padding 0.5s ease;
+}
+
+/* line 16, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .container-fluid {
   max-width: 1200px;
   padding-left: 22px;
   padding-right: 20px;
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+  -o-transition: padding 0.5s ease;
+  transition: padding 0.5s ease;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+
+/* line 32, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+.navbar.wide .container-fluid {
+  max-width: unset;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+  -o-transition: padding 0.5s ease;
+  transition: padding 0.5s ease;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+
+/* line 46, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+.navbar .container-fluid {
   position: relative;
 }
 
-/* line 16, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 51, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .nav-item {
   padding: 15px;
 }
 
-/* line 20, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 55, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > i {
   line-height: 53px;
 }
 
-/* line 24, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 59, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > a, .navbar .navbar-nav > li > i {
   color: #777;
   padding: 0px !important;
 }
 
-/* line 29, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 64, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav li:hover .glyphicon {
   color: #52a8e6;
 }
 
-/* line 33, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 68, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > .active > a, .navbar .navbar-nav > .active > i {
   background-color: white !important;
   font-weight: 900;
@@ -1158,12 +1200,12 @@ select.form-control {
   border-bottom: 2px solid #777;
 }
 
-/* line 40, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 75, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > .active > a:hover {
   color: #777;
 }
 
-/* line 44, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 79, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .nav-search-control {
   position: absolute;
   right: 15px;
@@ -1172,7 +1214,7 @@ select.form-control {
   display: none;
 }
 
-/* line 52, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 87, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown {
   position: absolute;
   right: 400px;
@@ -1186,22 +1228,22 @@ select.form-control {
   color: #777;
 }
 
-/* line 57, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 92, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown.about-dropdown {
   right: 19px;
 }
 
-/* line 58, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 93, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown.explore-dropdown {
   right: 408px;
 }
 
-/* line 70, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 105, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box {
   cursor: pointer;
 }
 
-/* line 73, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 108, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item {
   font-size: 0.875em;
   background: #fff;
@@ -1209,57 +1251,57 @@ select.form-control {
   margin: 5px 10px;
 }
 
-/* line 80, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 115, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item:hover, .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item.active {
   background-color: #f5f5f5;
 }
 
-/* line 92, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 127, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark {
   background-color: #222222;
   border-bottom: none;
 }
 
-/* line 96, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 131, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > li > a, .navbar.dark .navbar-nav > li > i {
   color: #eeeeee;
 }
 
-/* line 100, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 135, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > li > a:hover, .navbar.dark .navbar-nav > li > i:hover {
   color: #52a8e6;
   font-weight: 900;
 }
 
-/* line 105, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 140, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > .active > a, .navbar.dark .navbar-nav > .active > i {
   background-color: #222222 !important;
   color: white;
   border-bottom: 2px solid white;
 }
 
-/* line 111, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 146, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > .active > a:hover {
   color: white;
 }
 
-/* line 115, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 150, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .nav-search-control {
   color: #eeeeee;
 }
 
-/* line 119, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown {
   border: 1px solid #eeeeee;
   background: #222222;
 }
 
-/* line 123, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 158, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item {
   background: #222222;
 }
 
-/* line 126, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 161, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item:hover, .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item.active {
   background: #333333;
 }
@@ -1278,14 +1320,14 @@ select.form-control {
   }
 }
 
-/* line 148, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 190, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand {
   padding-top: 3px;
   cursor: pointer;
   height: auto;
 }
 
-/* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 196, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand .logo {
   display: inline-block;
   max-height: 70px;
@@ -1298,48 +1340,48 @@ select.form-control {
   background-image: url("/img/logo-light.png");
 }
 
-/* line 167, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 209, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand .logo.dark {
   background-image: url("/img/logo-dark.png");
 }
 
 @media (max-width: 440px) {
-  /* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+  /* line 196, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
   .navbar .navbar-header .navbar-brand .logo {
     width: 200px;
   }
 }
 
 @media (max-width: 340px) {
-  /* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+  /* line 196, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
   .navbar .navbar-header .navbar-brand .logo {
     width: 150px;
   }
 }
 
-/* line 180, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 222, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand span:hover {
   color: #000;
 }
 
-/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 226, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand a:hover {
   text-decoration: none;
 }
 
-/* line 200, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 242, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li {
   cursor: pointer;
   margin-top: 13px;
   padding-left: 60px;
 }
 
-/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 252, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li.light {
   color: #555;
 }
 
-/* line 214, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 256, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li.dark {
   color: white;
 }
@@ -5077,7 +5119,7 @@ body > div.toggle {
 }
 
 /*.country-search-input {
-    margin-top: 15px;
+margin-top: 15px;
 }*/
 /* line 173, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options,
@@ -5196,7 +5238,17 @@ a.active {
   font-weight: 600;
 }
 
-/* line 263, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 262, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+.container-fluid.wide, .wide .container-fluid {
+  width: 85%;
+}
+
+/* line 264, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+.container-fluid.wide .navbar-collapse, .wide .container-fluid .navbar-collapse {
+  padding-right: 15px;
+}
+
+/* line 270, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-container table.dataTable thead .sorting_asc:after {
   content: "" !important;
 }

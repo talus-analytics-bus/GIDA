@@ -375,9 +375,16 @@
 						}
 				};
 
+				const margin = {
+					left: -60,
+					right: 10,
+					top: 10,
+					bottom: 10,
+				}
+
 				App.newToggle(
 						'.funder-recipient-toggle',
-						{default: 'received'},
+						{default: 'received',  margin},
 						() => handleToggle('funded'),
 						() => handleToggle('received'),
 				);
@@ -406,7 +413,7 @@
 						});
 
 				// add map to map container
-				const mapObj = Map.createWorldMap(selector, App.geoData);
+				const mapObj = Map.createWorldMap(selector, App.geoData, {shiftX: 200, shiftY: -25});
 
 				if (showTooltips) {
 						// define country click behavior and attach tooltips

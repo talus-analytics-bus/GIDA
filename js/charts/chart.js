@@ -10,7 +10,7 @@ class Chart {
 		this.svg = d3.selectAll(selector)
 			.append('svg')
 			.attr('preserveAspectRatio', 'xMinYMin meet')
-			.attr('viewBox', `0 0 ${this.containerwidth} ${this.containerheight}`);
+			.attr('viewBox', `${params.shiftX || 0} ${params.shiftY} ${this.containerwidth} ${this.containerheight + 50}`);
 
 		this.params = params;
 		this.margin = this.params.margin || {
