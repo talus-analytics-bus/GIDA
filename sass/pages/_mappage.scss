@@ -395,9 +395,17 @@
         }
         td:nth-child(2) {
           border-left: none;
+          text-align: right;
         }
 
         thead {
+          font-weight: bold;
+          tr {
+            height: 50px;
+            td:nth-child(2) {
+              white-space: nowrap;
+            }
+          }
           td,
           tr {
             background-color: #eaeaea;

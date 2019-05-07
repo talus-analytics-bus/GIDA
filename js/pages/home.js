@@ -2209,13 +2209,13 @@
 				const receivedFunc = (supportType === 'financial') ? App.getTotalReceived : App.getInkindReceived;
 				const funderNoun = (supportType === 'financial') ? 'Funder' : 'Provider';
 				let dNoun = (orgMoneyType === 'org-committed') ? 'Committed' : 'Disbursed';
-				dNoun += (supportType === 'financial') ? ' (financial support)' : ' (in-kind support)';
+				dNoun += (supportType === 'financial') ? '<br>(financial support)' : '<br>(in-kind support)';
 				$('.fund-table-title .text').text(`Top ${funderNoun.toLowerCase()}s (${orgStartYear} - ${orgEndYear-1})`);
 				$('.rec-table-title .text').text(`Top recipients (${orgStartYear} - ${orgEndYear-1})`);
 				App.fundIcon('.fund-table-title span');
 				App.receiveIcon('.rec-table-title span');
 				$('.fund-col-name.head-text').text(funderNoun);
-				$('.d-col-name').text(dNoun);
+				$('.d-col-name').html(dNoun);
 
 				const countriesByFunding = [];
 				for (const iso in App.fundingLookup) {
