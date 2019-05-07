@@ -21,26 +21,28 @@
     -moz-transition: padding 1.0s ease;
     -o-transition: padding 1.0s ease;
     transition: padding 1.0s ease;
-    -webkit-transition: width 1.0s ease;
-    -moz-transition: width 1.0s ease;
-    -o-transition: width 1.0s ease;
-    transition: width 1.0s ease;
+    -webkit-transition: max-width 1.0s ease;
+    -moz-transition: max-width 1.0s ease;
+    -o-transition: max-width 1.0s ease;
+    transition: max-width 1.0s ease;
   }
   // To set wide mode, add wide class to navbar and 'container-fluid wide'
   // to routing.js loadtemplate context.
   &.wide {
     .container-fluid {
-      max-width: unset;
+      // max-max-width: unset;
+      max-width: 1366px;
+      width: 1366px;
       padding-left: 0;
       padding-right: 0;
       -webkit-transition: padding 1.0s ease;
       -moz-transition: padding 1.0s ease;
       -o-transition: padding 1.0s ease;
       transition: padding 1.0s ease;
-      -webkit-transition: width 1.0s ease;
-      -moz-transition: width 1.0s ease;
-      -o-transition: width 1.0s ease;
-      transition: width 1.0s ease;
+      -webkit-transition: max-width 1.0s ease;
+      -moz-transition: max-width 1.0s ease;
+      -o-transition: max-width 1.0s ease;
+      transition: max-width 1.0s ease;
     }
   }
   .container-fluid {

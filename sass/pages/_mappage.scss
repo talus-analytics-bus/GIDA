@@ -15,6 +15,16 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px 0;
+  min-width: 1366px;
+  width: 1366px;
+  // min-width: 1420px;
+  // min-width: 1170px;
+
+  // @media (min-width: 1500px) {
+  //   &.wide {
+  //     width: 1420px;
+  //   }
+  // }
 
   .filter-section {
     display: grid;

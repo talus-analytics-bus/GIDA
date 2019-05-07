@@ -239,7 +239,8 @@ const Routing = {};
 		crossroads.parse(newHash);
 	}
 	function loadTemplate(page, data) {
-		const containerClass = page === 'map' ? 'container-fluid wide' : 'container';
+		const containerClass = 'container wide';
+		// const containerClass = page === 'map' ? 'container-fluid wide' : 'container';
 		$('.navbar').toggleClass('wide', page === 'map');
 		const context = {
 			...data[0],
