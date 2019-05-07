@@ -321,7 +321,7 @@
 				App.setSources();
 
 				// build map and initialize search
-				map = buildMap();
+				map = buildMap('.map-container', {shiftX: 200, shiftY: -25});
 				initMapOptions();
 				initGhsaToggle();
 				initLegend();
@@ -398,7 +398,7 @@
 		/* ---------------------- Functions ----------------------- */
 
 		// builds the map, attaches tooltips to countries, populates coordinates dict
-		function buildMap(selector = '.map-container') {
+		function buildMap(selector, params = {}) {
 
 				// add title
 				d3.select(selector).append('div')
@@ -413,7 +413,7 @@
 						});
 
 				// add map to map container
-				const mapObj = Map.createWorldMap(selector, App.geoData, {shiftX: 200, shiftY: -25});
+				const mapObj = Map.createWorldMap(selector, App.geoData, params);
 
 				if (showTooltips) {
 						// define country click behavior and attach tooltips
