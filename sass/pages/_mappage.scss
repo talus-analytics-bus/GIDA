@@ -148,11 +148,11 @@
           .map-title {
             font-size: 20px;
             font-weight: bold;
-            margin-left: 3px;
+            margin: 3px 0 0 3px;
             font-family: "Raleway";
           }
           .map-title-2 {
-            margin-left: 3px;
+            margin: -3px 0 0 3px;
             font-size: 20px;
             font-family: "Raleway";
           }
@@ -233,19 +233,30 @@
 
       .info-container {
         background: transparent;
-        color: $darkcolor;
         border: $lightpage-border;
         width: 100%;
         border-bottom-width: 0px;
+        color: #333;
 
         &.dark{
+          color: $darkcolor;
           border: $darkpage-border;
           border-bottom-width: 0px;
         }
 
-        div {
-          color: $darkcolor;
-          background: transparent;
+        // div {
+        //   color: $darkcolor;
+        //   background: transparent;
+        // }
+
+        .info-box {
+          &.combined, &.score {
+            .info-score-text-container {
+              span, b {
+                color: unset !important; // override JEE score color
+              }
+            }
+          }
         }
       }
 
@@ -259,7 +270,8 @@
         line-height: 43px;
         // line-height: 50px;
         padding-left: 20px;
-        border: $darkpage-border;
+        border: $lightpage-border;
+        &.dark { border: $darkpage-border; }
         span {
           float: right;
           padding-right: 10px;

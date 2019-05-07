@@ -1396,6 +1396,8 @@
 				// The map page handles a indTypeParam. Update the filter to match it.
 				$(`input[name="ind"][ind="${indType}"]`).prop('checked', true);
 				if (indType === 'score' || indType === 'combined') {
+						$('.info-box').removeClass('combined').removeClass('score');
+						$('.info-box').addClass(indType);
 						$('.money-filters').slideUp();
 						$('.time-slider-box').slideUp();
 						$('.funder-recipient-toggle').css('visibility','hidden');
@@ -1424,6 +1426,8 @@
 								$('.funder-recipient-toggle').css('visibility','visible');
 								App.showGhsaOnly = true;
 						} else if (indType === 'score' || indType === 'combined') {
+								$('.info-box').removeClass('combined').removeClass('score');
+								$('.info-box').addClass(indType);
 								$('.money-filters').slideUp();
 								$('.score-filters').slideDown();
 								$('.time-slider-box').slideUp();
