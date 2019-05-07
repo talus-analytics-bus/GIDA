@@ -49,7 +49,7 @@
     }
 
     .org-content {
-      height: 750px !important;
+      height: 800px !important;
       margin-bottom: 45px;
       .org-landing-page-options {
         margin: 0;
@@ -63,6 +63,19 @@
 
     .organization-content {
       width: 100%;
+      .source-text-row {
+        position: absolute;
+        right: 20px;
+        bottom: 25px;
+        > div {
+          height: 50px;
+          display: grid;
+          .source-text{
+            align-self: end;
+            justify-self: end;
+          }
+        }
+      }
     }
 
     .org-heading {
