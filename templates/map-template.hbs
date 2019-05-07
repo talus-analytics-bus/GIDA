@@ -1,5 +1,5 @@
 <script id="map-template" type="text/x-handlebars-template">
-    <div class="map-page-container container">
+    <div class="map-page-container {{containerClass}}">
         <div class="map-page-title">
             Explore countries on a map
         </div>
@@ -89,62 +89,65 @@
                         <div class="map-options-container">
                             <div class="map-options-content">
                                 <div class="filter-section">
-                                    <div class="filter-box">
-                                        <label>
-                                            <input class="form-check-input ghsa-only-checkbox" type="checkbox" value=""
-                                                   id="ghsa-only-checkbox"> Show GHSA projects only
-                                            <img class="ghsa-info-img info-img" src="img/info.png"/>
-                                        </label>
-                                        <br>
-                                        <div class="dropdown-label">Click to show:</div>
-                                        <div class="ind-type-filter">
-                                            <div class="radio-option">
-                                                <input type="radio" name="ind" ind="money" checked/>
-                                                <span>Financial support</span>
-                                            </div>
-                                            <div class="radio-option multi-line">
-                                                <input type="radio" name="ind" ind="inkind"/>
-                                                In-kind support
-                                                <img class="inkind-support-info-img info-img" src="img/info.png"/>
-                                            </div>
-                                            <div class="radio-option">
-                                                <input type="radio" name="ind" ind="score"/>
-                                                <span>JEE score</span>
-                                                <img class="jee-info-img info-img" src="img/info.png"/>
-                                            </div>
-                                            <div class="radio-option multiline">
-                                                <input type="radio" name="ind" ind="combined"/>
-                                                <p>Combined financial resources and need metric <img class="combined-tooltip info-img" src="img/info.png"/></p>
-                                            </div>
-                                        </div>
-                                    </div><!-- filter-box -->
-                                    <div class="money-filters">
+                                  <label>
+                                  <input class="form-check-input ghsa-only-checkbox" type="checkbox" value=""
+                                  id="ghsa-only-checkbox"> Show GHSA projects only
+                                  <img class="ghsa-info-img info-img" src="img/info.png"/>
+                                  </label>
+                                    <div class="filter-radio-boxes">
+                                      <div class="type-filters">
                                         <div class="filter-box">
-                                            <div class="dropdown-label">Choose:</div>
-                                            {{!<div class="money-flow-type-filter">
-                                                <div class="radio-option">
-                                                    <input type="radio" name="rec-or-fund" ind="received" checked/>
-                                                    <span>Received</span>
-                                                </div>
-                                                <div class="or-text money-flow-or-text">or</div>
-                                                <div class="radio-option d-flow">
-                                                    <input type="radio" name="rec-or-fund" ind="funded"/>
-                                                    <span>Funded</span>
-                                                </div>
-                                            </div> }}
-                                            <div class="money-type-filter">
-                                                <div class="radio-option">
-                                                    <input type="radio" ind="committed" checked/>
-                                                    <span>Committed</span>
-                                                </div>
-                                                {{!<div class="or-text money-type-or-text">or</div>}}
-                                                <div class="radio-option d-type">
-                                                    <input type="radio" ind="disbursed"/>
-                                                    <span>Disbursed</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- filter-box -->
+                                          <div class="dropdown-label">Click to show:</div>
+                                          <div class="ind-type-filter">
+                                              <div class="radio-option">
+                                                  <input type="radio" name="ind" ind="money" checked/>
+                                                  <span>Financial support</span>
+                                              </div>
+                                              <div class="radio-option multi-line">
+                                                  <input type="radio" name="ind" ind="inkind"/>
+                                                  In-kind support
+                                                  <img class="inkind-support-info-img info-img" src="img/info.png"/>
+                                              </div>
+                                              <div class="radio-option">
+                                                  <input type="radio" name="ind" ind="score"/>
+                                                  <span>JEE score</span>
+                                                  <img class="jee-info-img info-img" src="img/info.png"/>
+                                              </div>
+                                              <div class="radio-option multiline">
+                                                  <input type="radio" name="ind" ind="combined"/>
+                                                  <p>Combined financial resources and need metric <img class="combined-tooltip info-img" src="img/info.png"/></p>
+                                              </div>
+                                          </div>
+                                      </div><!-- filter-box -->
+                                      </div>
+                                      <div class="money-filters">
+                                          <div class="filter-box">
+                                              <div class="dropdown-label">Choose:</div>
+                                              {{!<div class="money-flow-type-filter">
+                                                  <div class="radio-option">
+                                                      <input type="radio" name="rec-or-fund" ind="received" checked/>
+                                                      <span>Received</span>
+                                                  </div>
+                                                  <div class="or-text money-flow-or-text">or</div>
+                                                  <div class="radio-option d-flow">
+                                                      <input type="radio" name="rec-or-fund" ind="funded"/>
+                                                      <span>Funded</span>
+                                                  </div>
+                                              </div> }}
+                                              <div class="money-type-filter">
+                                                  <div class="radio-option">
+                                                      <input type="radio" ind="committed" checked/>
+                                                      <span>Committed</span>
+                                                  </div>
+                                                  {{!<div class="or-text money-type-or-text">or</div>}}
+                                                  <div class="radio-option d-type">
+                                                      <input type="radio" ind="disbursed"/>
+                                                      <span>Disbursed</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div><!-- filter-box -->
+                                    </div>
                                     <div class="time-slider-box">
                                         <div class="filter-box">
                                             <div class="dropdown-label">Select time range:</div>
@@ -160,7 +163,6 @@
                                         <select class="cc-select form-control" multiple="multiple"></select>
                                     </div>
                                 </div>
-                                <br>
                             </div><!-- map options content -->
                         </div><!-- map options container -->
                     </div><!-- Search -->

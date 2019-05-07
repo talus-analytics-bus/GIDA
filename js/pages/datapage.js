@@ -312,8 +312,6 @@
 				if (colData && colData.length > 0) {
 					const capacitiesDict = _.indexBy(App.capacities, 'id');
 					return colData.map(id => {
-						console.log('id');
-						console.log(id);
 						if (id === 'POE') return capacitiesDict['PoE'].name;
 						else return capacitiesDict[id].name
 					}).join(';\n');

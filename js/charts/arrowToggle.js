@@ -277,7 +277,7 @@
 										margin: {
 												top: 10,
 												bottom: 10,
-												left: 10,
+												left: params.margin ? (params.margin.left || 10) : 10,
 												right: 10,
 										},
 								},

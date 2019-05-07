@@ -1,6 +1,14 @@
 .navbar {
   padding-left: 15px;
   padding-right: 25px;
+  width:100%;
+  &.wide {
+    padding: 0;
+    -webkit-transition: padding 1.0s ease;
+    -moz-transition: padding 1.0s ease;
+    -o-transition: padding 1.0s ease;
+    transition: padding 1.0s ease;
+  }
   border-bottom: $lightpage-border;
   background-color: white;
   font-size: 16px;
@@ -9,6 +17,35 @@
     max-width: 1200px;
     padding-left: 22px;
     padding-right: 20px;
+    -webkit-transition: padding 1.0s ease;
+    -moz-transition: padding 1.0s ease;
+    -o-transition: padding 1.0s ease;
+    transition: padding 1.0s ease;
+    -webkit-transition: max-width 1.0s ease;
+    -moz-transition: max-width 1.0s ease;
+    -o-transition: max-width 1.0s ease;
+    transition: max-width 1.0s ease;
+  }
+  // To set wide mode, add wide class to navbar and 'container-fluid wide'
+  // to routing.js loadtemplate context.
+  &.wide {
+    .container-fluid {
+      // max-max-width: unset;
+      max-width: 1366px;
+      width: 1366px;
+      padding-left: 0;
+      padding-right: 0;
+      -webkit-transition: padding 1.0s ease;
+      -moz-transition: padding 1.0s ease;
+      -o-transition: padding 1.0s ease;
+      transition: padding 1.0s ease;
+      -webkit-transition: max-width 1.0s ease;
+      -moz-transition: max-width 1.0s ease;
+      -o-transition: max-width 1.0s ease;
+      transition: max-width 1.0s ease;
+    }
+  }
+  .container-fluid {
     position: relative;
   }
 
@@ -144,6 +181,13 @@
   }
   max-height: 80px;
 
+  // &.wide {
+  //   .navbar-header {
+  //     .navbar-brand {
+  //       padding-left: 0 !important;
+  //     }
+  //   }
+  // }
   .navbar-header {
     .navbar-brand {
       padding-top: 3px;

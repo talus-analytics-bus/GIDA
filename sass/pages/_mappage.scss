@@ -15,7 +15,25 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px 0;
+  min-width: 1366px;
+  width: 1366px;
+  // min-width: 1420px;
+  // min-width: 1170px;
 
+  // @media (min-width: 1500px) {
+  //   &.wide {
+  //     width: 1420px;
+  //   }
+  // }
+
+  .filter-section {
+    display: grid;
+    grid-auto-flow: row;
+    .filter-radio-boxes {
+      display: grid;
+      grid-auto-flow: column;
+    }
+  }
   .map-page-title {
     @include flex(0 0 32px);
     margin-top:20px;
@@ -184,6 +202,12 @@
           /*new*/
           margin-top: 0px;
           /*new*/
+          &.dark > svg {
+            background: #333333;
+          }
+          > svg {
+            background: #f4f4f4;
+          }
           .country.hatch, .legend-bar.hatch, circle.hatch {
             mask: url(#mask-stripe);
             fill: #989898 !important;
@@ -198,7 +222,8 @@
         width:80%;
         position: absolute;
         text-align: center;
-        bottom: 0;
+        bottom: -3px;
+        height: 99px;
       }
 
       .legend-container {
@@ -345,7 +370,7 @@
               input { vertical-align: top; }
               p {
                 display: inline-block;
-                max-width: 220px;
+                max-width: 170px;
               }
             }
           }

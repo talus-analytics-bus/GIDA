@@ -239,6 +239,13 @@ const Routing = {};
 		crossroads.parse(newHash);
 	}
 	function loadTemplate(page, data) {
-		$('#page-content').html(templates[page](data[0]));
+		const containerClass = 'container wide';
+		// const containerClass = page === 'map' ? 'container-fluid wide' : 'container';
+		$('.navbar').toggleClass('wide', page === 'map');
+		const context = {
+			...data[0],
+			containerClass: containerClass,
+		};
+		$('#page-content').html(templates[page](context));
 	}
 })();

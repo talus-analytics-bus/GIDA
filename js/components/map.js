@@ -35,6 +35,7 @@ const Map = {};
 						// this.chart.on('click', this.stopped, true);
 
 						this.margin.top = 30;
+						// this.margin.left = -200;
 
 						this.init();
 
@@ -180,7 +181,7 @@ const Map = {};
 						this.newGroup('buttons');
 
 						this.buttons
-								.attr('transform', 'translate(0,30)')
+								.attr('transform', `translate(${this.params.shiftX || 0}, ${30 + 25})`)
 								.style('font-family', 'Open Sans, sans-serif');
 
 						this.addResetButton();
@@ -306,8 +307,8 @@ const Map = {};
 		}
 
 
-		Map.createWorldMap = (selector, world) => {
-				const map = new WorldMap(selector, { world });
+		Map.createWorldMap = (selector, world, params = {}) => {
+				const map = new WorldMap(selector, { world, ...params });
 				map.addHatchDefs();
 				// map.addShadowDefs();
 
