@@ -90,6 +90,9 @@
 		td:first-child {
 			white-space: nowrap;
 		}
+		td:not(:first-child) {
+			text-align: right;
+		}
 		td:nth-child(n+2) ~ &.inkind-table {
 			white-space: nowrap;
 			text-align: right;
