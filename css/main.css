@@ -1120,6 +1120,7 @@ select.form-control {
   padding-left: 15px;
   padding-right: 25px;
   width: 100%;
+  z-index: 10000;
   border-bottom: 1px solid #b2b2b2;
   background-color: white;
   font-size: 16px;
@@ -1127,73 +1128,53 @@ select.form-control {
   max-height: 80px;
 }
 
-/* line 5, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 6, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.wide {
   padding: 0;
-  -webkit-transition: padding 1.0s ease;
-  -moz-transition: padding 1.0s ease;
-  -o-transition: padding 1.0s ease;
-  transition: padding 1.0s ease;
 }
 
-/* line 16, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 17, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .container-fluid {
   max-width: 1200px;
   padding-left: 22px;
   padding-right: 20px;
-  -webkit-transition: padding 1.0s ease;
-  -moz-transition: padding 1.0s ease;
-  -o-transition: padding 1.0s ease;
-  transition: padding 1.0s ease;
-  -webkit-transition: max-width 1.0s ease;
-  -moz-transition: max-width 1.0s ease;
-  -o-transition: max-width 1.0s ease;
-  transition: max-width 1.0s ease;
 }
 
-/* line 32, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 33, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.wide .container-fluid {
   max-width: 1366px;
   width: 1366px;
   padding-left: 0;
   padding-right: 0;
-  -webkit-transition: padding 1.0s ease;
-  -moz-transition: padding 1.0s ease;
-  -o-transition: padding 1.0s ease;
-  transition: padding 1.0s ease;
-  -webkit-transition: max-width 1.0s ease;
-  -moz-transition: max-width 1.0s ease;
-  -o-transition: max-width 1.0s ease;
-  transition: max-width 1.0s ease;
 }
 
-/* line 48, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 49, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .container-fluid {
   position: relative;
 }
 
-/* line 53, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 54, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .nav-item {
   padding: 15px;
 }
 
-/* line 57, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 58, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > i {
   line-height: 53px;
 }
 
-/* line 61, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 62, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > a, .navbar .navbar-nav > li > i {
   color: #777;
   padding: 0px !important;
 }
 
-/* line 66, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 67, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav li:hover .glyphicon {
   color: #52a8e6;
 }
 
-/* line 70, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 71, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > .active > a, .navbar .navbar-nav > .active > i {
   background-color: white !important;
   font-weight: 900;
@@ -1201,12 +1182,12 @@ select.form-control {
   border-bottom: 2px solid #777;
 }
 
-/* line 77, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 78, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > .active > a:hover {
   color: #777;
 }
 
-/* line 81, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 82, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .nav-search-control {
   position: absolute;
   right: 15px;
@@ -1215,7 +1196,7 @@ select.form-control {
   display: none;
 }
 
-/* line 89, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 90, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown {
   position: absolute;
   right: 400px;
@@ -1229,22 +1210,22 @@ select.form-control {
   color: #777;
 }
 
-/* line 94, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 95, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown.about-dropdown {
   right: 19px;
 }
 
-/* line 95, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 96, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown.explore-dropdown {
   right: 408px;
 }
 
-/* line 107, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 108, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box {
   cursor: pointer;
 }
 
-/* line 110, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 111, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item {
   font-size: 0.875em;
   background: #fff;
@@ -1252,57 +1233,57 @@ select.form-control {
   margin: 5px 10px;
 }
 
-/* line 117, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 118, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item:hover, .navbar .menu-dropdown .menu-dropdown-box .menu-dropdown-item.active {
   background-color: #f5f5f5;
 }
 
-/* line 129, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 130, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark {
   background-color: #222222;
   border-bottom: none;
 }
 
-/* line 133, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 134, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > li > a, .navbar.dark .navbar-nav > li > i {
   color: #eeeeee;
 }
 
-/* line 137, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 138, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > li > a:hover, .navbar.dark .navbar-nav > li > i:hover {
   color: #52a8e6;
   font-weight: 900;
 }
 
-/* line 142, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 143, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > .active > a, .navbar.dark .navbar-nav > .active > i {
   background-color: #222222 !important;
   color: white;
   border-bottom: 2px solid white;
 }
 
-/* line 148, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 149, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .navbar-nav > .active > a:hover {
   color: white;
 }
 
-/* line 152, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 153, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .nav-search-control {
   color: #eeeeee;
 }
 
-/* line 156, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 157, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown {
   border: 1px solid #eeeeee;
   background: #222222;
 }
 
-/* line 160, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 161, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item {
   background: #222222;
 }
 
-/* line 163, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 164, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item:hover, .navbar.dark .menu-dropdown .menu-dropdown-box .menu-dropdown-item.active {
   background: #333333;
 }
@@ -1321,14 +1302,14 @@ select.form-control {
   }
 }
 
-/* line 192, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 193, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand {
   padding-top: 3px;
   cursor: pointer;
   height: auto;
 }
 
-/* line 198, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 199, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand .logo {
   display: inline-block;
   max-height: 70px;
@@ -1341,48 +1322,48 @@ select.form-control {
   background-image: url("/img/logo-light.png");
 }
 
-/* line 211, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 212, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand .logo.dark {
   background-image: url("/img/logo-dark.png");
 }
 
 @media (max-width: 440px) {
-  /* line 198, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+  /* line 199, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
   .navbar .navbar-header .navbar-brand .logo {
     width: 200px;
   }
 }
 
 @media (max-width: 340px) {
-  /* line 198, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+  /* line 199, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
   .navbar .navbar-header .navbar-brand .logo {
     width: 150px;
   }
 }
 
-/* line 224, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 225, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand span:hover {
   color: #000;
 }
 
-/* line 228, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 229, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-header .navbar-brand a:hover {
   text-decoration: none;
 }
 
-/* line 244, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 245, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li {
   cursor: pointer;
   margin-top: 13px;
   padding-left: 60px;
 }
 
-/* line 254, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 255, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li.light {
   color: #555;
 }
 
-/* line 258, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
+/* line 259, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/components/_navbar.scss */
 .navbar .navbar-nav > li.dark {
   color: white;
 }
@@ -4336,8 +4317,8 @@ font-size: 0.95em;
 }
 
 /* line 48, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_analysisTable.scss */
-.country-funds-content .funds-table .money-cell,
-.country-funds-content .funds-table .inkind-cell {
+.country-funds-content .funds-table td.money-cell,
+.country-funds-content .funds-table td.inkind-cell {
   width: 120px;
   text-align: right;
   white-space: nowrap;
@@ -4880,35 +4861,40 @@ display: inline;
   width: 100%;
 }
 
-/* line 181, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 180, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+.data-container table .nowrap {
+  white-space: nowrap;
+}
+
+/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td {
   min-width: 200px;
 }
 
-/* line 182, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 185, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td, .data-container table tr {
   border: 1px solid #666666;
 }
 
-/* line 197, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 200, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td, .data-container table thead tr {
   background-color: #eaeaea;
   color: black;
 }
 
-/* line 200, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 203, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td.dark, .data-container table thead tr.dark {
   background-color: #555;
   color: white;
 }
 
-/* line 207, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td, .data-container table tbody tr {
   background-color: white;
   color: black;
 }
 
-/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 213, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td.dark, .data-container table tbody tr.dark {
   background-color: #222222;
   color: white;

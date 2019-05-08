@@ -45,8 +45,8 @@
 		@include box-shadow(1px 1px 3px rgba(0,0,0,0.2));
 	}
 	.funds-table {
-		.money-cell,
-		.inkind-cell {
+		td.money-cell,
+		td.inkind-cell {
 			width: 120px;
 			text-align: right;
 			white-space: nowrap;

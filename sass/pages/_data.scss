@@ -177,6 +177,9 @@ display: inline;
 
   .preview-container { width: 100%; }
   table {
+    .nowrap {
+      white-space: nowrap;
+    }
     width: 100%;
     td { min-width: 200px; }
     td,tr {

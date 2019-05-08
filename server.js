@@ -69,7 +69,13 @@ app.post('/download_data', function(req, res) {
     console.log('hiding ' + col);
     wb.definedName(col).hidden(true);
   });
+  const moneyFunc = function (datum, col, field) {
+    if (datum.within_data_years === false) return App.outsideYearRangeText;
+    else return datum[field];
+  };
   const exportColFuncs = {
+    total_committed: function (datum, col) { return moneyFunc(datum, col, 'total_committed'); },
+    total_spent: function (datum, col) { return moneyFunc(datum, col, 'total_spent'); },
     project_description: function (datum, col) {
       if (datum.source.name !== 'IATI via D-Portal') {
         if (unspecifiedValues.includes(datum[col.name])) return null;
@@ -128,7 +134,7 @@ app.post('/download_data', function(req, res) {
       if (datum.recipient_name_orig !== undefined) return 'Multiple';
       const colData = datum[col.name];
       if (!unspecifiedValues.includes(colData)) {
-        if (datum.recipient_sector === 'Country') {
+        if (datum.recipient_sector === 'Country' || datum.recipient_sector === 'Government') {
           return col.params.codeToNameMap['$' + colData];
         } else return 'n/a';
       } else return null;
@@ -175,6 +181,7 @@ app.post('/download_data', function(req, res) {
 
 const exportData = req.body.params.exportData;
 exportCols.forEach(col => {
+  console.log(col.name)
   for (let i = 0; i < exportData.length; i++) {
     // formatting row
     const datum = exportData[i];

@@ -115,7 +115,8 @@
 			function getMoneyCellValue (d, moneyField, param = {}) {
 				const allValuesUnspec = d.all_unspec === true;
 				const noValueReported = d.no_value_reported === true;
-				const unspecified = param.unspecifiedIsZero === true ? 0 : 'Specific amount unknown';
+				const unspecified = param.unspecifiedIsZero === true ? 0 : App.unspecifiedText;
+				if (d.within_data_years === false) return App.outsideYearRangeText;
 				let returnFunc = (moneyField !== 'total_other_d' && moneyField !== 'total_other_c') ? (p) => { return p[moneyField]; } : (p) => { return (p.assistance_type.toLowerCase() === "in-kind support" || p.assistance_type.toLowerCase() === "other support") ? 1 : 0 };
 				if (moneyField === 'total_other_d' || moneyField === 'total_other_c') {
 					if (moneyField === 'total_other_d') {
@@ -147,8 +148,8 @@
 				{ name: 'Funder', value: 'donor_name', valueFunc: (p) => { return p.donor_name_orig || p.donor_name; } },
 				{ name: 'Recipient', value: 'recipient_name', valueFunc: (p) => { return p.recipient_name_orig || p.recipient_name; } },
 				{ name: 'Project name', value: 'project_name' },
-				{ name: 'Committed', value: 'total_committed', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_committed'); } },
-				{ name: 'Disbursed', value: 'total_spent', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_spent'); } },
+				{ name: `Committed (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_committed', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_committed'); } },
+				{ name: `Disbursed (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_spent', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_spent'); } },
 				];
 			} else if (currentInfoTab === 'country') {
 				headerData = [
@@ -160,8 +161,8 @@
 					}
 					return d.recipient_country;
 				} },
-				{ name: 'Committed', value: 'total_committed', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_committed'); } },
-				{ name: 'Disbursed', value: 'total_spent', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_spent'); } },
+				{ name: `Committed (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_committed', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_committed'); } },
+				{ name: `Disbursed (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_spent', type: 'money', valueFunc: (d) => { return getMoneyCellValue(d, 'total_spent'); } },
 				];
 			} else if (currentInfoTab === 'ce') {
 				headerData = [
@@ -176,10 +177,10 @@
 						return 'None';
 					},
 				},
-				{ name: 'Committed funds', value: 'total_committed', type: 'money' },
-				{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
-				{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num' },
-				{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num' },
+				{ name: `Committed funds (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_committed', type: 'money' },
+				{ name: `Disbursed funds (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_spent', type: 'money' },
+				{ name: `Committed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_c', type: 'num' },
+				{ name: `Disbursed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_d', type: 'num' },
 				];
 			} else if (currentInfoTab === 'cc') {
 				headerData = [
@@ -191,10 +192,10 @@
 						return cap ? cap.name : d.cc;
 					},
 				},
-				{ name: 'Committed funds', value: 'total_committed', type: 'money', valueFunc: (d) => { if (d.unspecified) return 'Specific amount unknown'; else return d.total_committed; }},
-				{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
-				{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num' },
-				{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num' },
+				{ name: `Committed funds (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_committed', type: 'money', valueFunc: (d) => { if (d.unspecified) return App.unspecifiedText; else return d.total_committed; }},
+				{ name: `Disbursed funds (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_spent', type: 'money' },
+				{ name: `Committed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_c', type: 'num' },
+				{ name: `Disbursed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_d', type: 'num' },
 				];
 			} else if (currentInfoTab === 'inkind') {
 				headerData = [
@@ -212,7 +213,7 @@
 			}
 
 			// define row data
-			const unspecified = 'Specific amount unknown';
+			const unspecified = App.unspecifiedText;
 			function getDisplayValForCc (val, key) {
 					if (val[key] > 0) return val[key];
 					if (key.includes('other') && !val.had_no_unspecified_inkind_projects) return unspecified;
@@ -411,7 +412,7 @@
 				} else {
 					cellValue = d.rowData[d.colData.value];
 				}
-				if (cellValue === 'Specific amount unknown') {
+				if (App.nonMoneyValues.includes(cellValue)) {
 					d3.select(this).attr('data-sort', -1000);
 					return cellValue;
 				}

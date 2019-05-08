@@ -26,6 +26,7 @@
 				displayName: 'Project description', // name of checkbox
 				showByDefault: true,
 				hasCheckbox: true,
+				width: '350px',
 			},
 			{
 				name: 'source', // always export
@@ -85,16 +86,18 @@
 				func: false,
 				noDataText: 'Unspecified', // note: n/a if in-kind
 				showByDefault: true,
-				displayName: 'Amount committed',
+				displayName: `Amount committed (${App.dataStartYear} - ${App.dataEndYear})`,
 				hasCheckbox: true,
+				className: 'nowrap',
 			},
 			{
 				name: 'total_spent',
 				func: false,
 				noDataText: 'Unspecified', // note: n/a if in-kind
 				showByDefault: true,
-				displayName: 'Amount disbursed',
+				displayName: `Amount disbursed (${App.dataStartYear} - ${App.dataEndYear})`,
 				hasCheckbox: true,
+				className: 'nowrap',
 			},
 			{
 				name: 'donor_sector',
@@ -134,7 +137,7 @@
 		];
 
 		// data = [App.fundingData[0]] // DEV
-		data = Util.uniqueCollection(App.fundingData, 'project_id');
+		data = Util.uniqueCollection(App.fundingDataFull, 'project_id');
 
 		var downloadImg = document.createElement("img");
 		downloadImg.src = '/img/logo-download-light.svg';
@@ -267,6 +270,8 @@
 				a.download = fn + filenameStr + ".xlsx";
 				document.body.appendChild(a);
 				a.click();
+				console.log('Downloaded!')
+				console.log(blob);
 				return;
 			} catch (err) {
 				console.log(err);
@@ -284,6 +289,7 @@
 		const unspecifiedValues = [null, undefined, ''];
 		const moneyFunc = function (datum, type, row) {
 			if (!row.assistance_type.includes('financial')) return '-';
+			if (row.within_data_years === false) return App.outsideYearRangeText;
 			if (!unspecifiedValues.includes(datum)) {
 				return App.formatMoneyFull(datum);
 			} else return '-';
@@ -333,7 +339,7 @@
 			},
 			recipient_country: function (datum, type, row) {
 				if (!unspecifiedValues.includes(datum)) {
-					if (row.recipient_sector === 'Country') {
+					if (row.recipient_sector === 'Country' || row.recipient_sector === 'Government') {
 						return App.codeToNameMap.get(datum);
 					} else return 'n/a';
 				} else return null;
@@ -352,8 +358,10 @@
 				} else return null;
 			},
 			year_range: function (datum, type, row) {
+				if (datum === '') return null;
 				if (datum !== undefined) return datum;
 				else return null;
+
 				const t = row.transactions;
 				if (t.length > 0) {
 					const min = Math.min(...t.map(tt => {
@@ -404,6 +412,7 @@ return $('table.download-data-table').DataTable( {
 	autoWidth: true,
 	ordering: true,
 	scrollX: true,
+	scrollY: "400px",
 	order: [[4, 'desc']],
 	searching: true,
 	pageLength: 25,
@@ -521,7 +530,7 @@ const populateFilters = () => {
 		const valKey = 'val';
 		const nameKey = 'name';
 		const title = select.attr('title');
-		const items = Util.unique(App.fundingData, key).filter(d => d).sort().map(d => {
+		const items = Util.unique(App.fundingDataFull, key).filter(d => d).sort().map(d => {
 			return {
 				name: d,
 				val: d,

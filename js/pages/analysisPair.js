@@ -207,10 +207,10 @@
 							return cap ? cap.name : d.cc;
 						},
 					},
-					{ name: 'Committed funds', value: 'total_committed', type: 'money' },
-					{ name: 'Disbursed funds', value: 'total_spent', type: 'money' },
-					{ name: 'Committed in-kind projects', value: 'total_other_c', type: 'num', supportType: 'inkind' },
-					{ name: 'Disbursed in-kind projects', value: 'total_other_d', type: 'num', supportType: 'inkind' },
+					{ name: `Committed funds<br>(${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_committed', type: 'money' },
+					{ name: `Disbursed funds<br>(${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_spent', type: 'money' },
+					{ name: `Committed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_c', type: 'num', supportType: 'inkind' },
+					{ name: `Disbursed in-kind projects (${App.dataStartYear} - ${App.dataEndYear})`, value: 'total_other_d', type: 'num', supportType: 'inkind' },
 				];
 			} else if (currentInfoTab === 'inkind') {
 				headerData = [
