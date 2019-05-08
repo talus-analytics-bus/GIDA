@@ -83,7 +83,7 @@
 			},
 			{
 				name: 'total_committed',
-				func: false,
+				func: true,
 				noDataText: 'Unspecified', // note: n/a if in-kind
 				showByDefault: true,
 				displayName: `Amount committed (${App.dataStartYear} - ${App.dataEndYear})`,
@@ -92,7 +92,7 @@
 			},
 			{
 				name: 'total_spent',
-				func: false,
+				func: true,
 				noDataText: 'Unspecified', // note: n/a if in-kind
 				showByDefault: true,
 				displayName: `Amount disbursed (${App.dataStartYear} - ${App.dataEndYear})`,
@@ -236,6 +236,7 @@
 	* @param  {Object} [params={}] Parameters
 	*/
 	const downloadData = (params = {}) => {
+		params.outsideYearRangeText = App.outsideYearRangeText;
 		NProgress.start();
 		fetch('/download_data', {
 			method: 'POST',

@@ -108,7 +108,7 @@ const App = {};
 		// data definition variables
 		App.dataStartYear = 2014;
 		App.dataEndYear = 2019;
-		App.outsideYearRangeText = `No data available between ${App.dataStartYear}-${App.dataEndYear}`;
+		App.outsideYearRangeText = `No data available between ${App.dataStartYear} - ${App.dataEndYear}`;
 		App.unspecifiedText = 'Specific amount unknown';
 		App.nonMoneyValues = [App.outsideYearRangeText, App.unspecifiedText];
 

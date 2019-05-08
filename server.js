@@ -41,10 +41,8 @@ app.post('/download_data', function(req, res) {
 
   // Load template xlsx file
   const templateFn = './export/GIDA - Data Export Template.xlsx';
-  console.log('Loading template')
   xl.fromFileAsync(templateFn)
   .then(wb => {
-    console.log('TEmplate loaded')
     // Define constants
     const headerRow = 5;
     const startRow = headerRow + 1;
@@ -70,7 +68,7 @@ app.post('/download_data', function(req, res) {
     wb.definedName(col).hidden(true);
   });
   const moneyFunc = function (datum, col, field) {
-    if (datum.within_data_years === false) return App.outsideYearRangeText;
+    if (datum.within_data_years === false) return req.body.params.outsideYearRangeText;
     else return datum[field];
   };
   const exportColFuncs = {
