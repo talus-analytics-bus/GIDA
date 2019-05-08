@@ -134,6 +134,11 @@ body > div.toggle { visibility: hidden; }
     margin-bottom: 0;
   }
 }
+input[type="radio"] {
+  margin: 4px 3px 0 0;
+  top: -1px;
+  position: relative;
+}
 
 .support-type-toggle-options {
   margin-left: 20px !important;
@@ -187,15 +192,15 @@ margin-top: 15px;
     margin-left: 40px;
   }
   .radio-option {
-    span,
-    div {
-      position: relative;
-      top: 1px;
-    }
+    // span,
+    // div {
+    //   position: relative;
+    //   top: 1px;
+    // }
   }
-  .info-img.ghsa-info-img {
-    top: 1px;
-  }
+  // .info-img.ghsa-info-img {
+  //   top: 1px;
+  // }
 
   .info-img.jee-info-img {
     top: 0;
