@@ -4815,86 +4815,92 @@ display: inline;
 }
 
 /* line 133, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+.data-container .select-data-container .select-data-contents .field-contents .field-options form span {
+  position: relative;
+  top: -1px;
+}
+
+/* line 137, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .select-data-container .select-data-contents .field-contents .field-options form label {
   margin: 0 !important;
-  padding-left: 20px;
+  padding-left: 17px;
   font-weight: normal;
 }
 
-/* line 138, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 142, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .select-data-container .select-data-contents .field-contents .field-options form input {
   position: absolute;
   margin-left: 0;
   left: 0;
 }
 
-/* line 150, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 154, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .select-data-container .select-data-contents .field-contents .download-container {
   grid-area: download;
 }
 
-/* line 157, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 161, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .download-container {
   align-self: flex-end;
   padding: 10px;
 }
 
-/* line 166, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 170, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .paginate_button.dark.active a {
   background-color: #222222;
 }
 
-/* line 170, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 174, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .paginate_button.dark a {
   border: none;
   color: white;
   background-color: #36404d;
 }
 
-/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 182, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container .preview-container {
   width: 100%;
 }
 
-/* line 179, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 183, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table {
   width: 100%;
 }
 
-/* line 180, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table .nowrap {
   white-space: nowrap;
 }
 
-/* line 184, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 188, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td {
   min-width: 200px;
 }
 
-/* line 185, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 189, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table td, .data-container table tr {
   border: 1px solid #666666;
 }
 
-/* line 200, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 204, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td, .data-container table thead tr {
   background-color: #eaeaea;
   color: black;
 }
 
-/* line 203, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 207, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table thead td.dark, .data-container table thead tr.dark {
   background-color: #555;
   color: white;
 }
 
-/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 214, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td, .data-container table tbody tr {
   background-color: white;
   color: black;
 }
 
-/* line 213, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
+/* line 217, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/pages/_data.scss */
 .data-container table tbody td.dark, .data-container table tbody tr.dark {
   background-color: #222222;
   color: white;
@@ -5101,17 +5107,24 @@ input[type="radio"] {
   position: relative;
 }
 
-/* line 143, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 142, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+input[type="checkbox"] {
+  margin: 4px 6px 0 0;
+  top: -1px;
+  position: relative;
+}
+
+/* line 148, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .support-type-toggle-options {
   margin-left: 20px !important;
 }
 
-/* line 147, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 152, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-controls-container {
   text-align: right;
 }
 
-/* line 151, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 156, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-controls {
   display: inline-flex;
   flex-wrap: wrap;
@@ -5120,20 +5133,20 @@ input[type="radio"] {
   margin-top: 10px;
 }
 
-/* line 158, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 163, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-controls .search-container {
   width: 35%;
   margin-top: 25px;
 }
 
-/* line 163, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 168, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-controls .sectionTwo {
   width: 30%;
   margin-left: 15px;
   margin-top: 10px;
 }
 
-/* line 169, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 174, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-controls .sectionThree {
   width: 32%;
 }
@@ -5141,7 +5154,7 @@ input[type="radio"] {
 /*.country-search-input {
 margin-top: 15px;
 }*/
-/* line 178, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 183, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options,
 .support-type-toggle-options,
 .jee-sort-options {
@@ -5151,7 +5164,7 @@ margin-top: 15px;
   z-index: 9999;
 }
 
-/* line 185, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 190, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options.landing-page-options,
 .support-type-toggle-options.landing-page-options,
 .jee-sort-options.landing-page-options {
@@ -5160,7 +5173,7 @@ margin-top: 15px;
   text-align: left;
 }
 
-/* line 190, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 195, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options.inline,
 .support-type-toggle-options.inline,
 .jee-sort-options.inline {
@@ -5168,14 +5181,14 @@ margin-top: 15px;
   margin-left: 40px;
 }
 
-/* line 205, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 210, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options .info-img.jee-info-img,
 .support-type-toggle-options .info-img.jee-info-img,
 .jee-sort-options .info-img.jee-info-img {
   top: 0;
 }
 
-/* line 209, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 214, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options .ind-type-filter.two-line,
 .support-type-toggle-options .ind-type-filter.two-line,
 .jee-sort-options .ind-type-filter.two-line {
@@ -5184,73 +5197,73 @@ margin-top: 15px;
   left: 110px;
 }
 
-/* line 216, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 221, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .info-img.core-capacity-text {
   margin-left: 5px;
   height: 18px;
   width: 18px;
 }
 
-/* line 220, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 225, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .info-img.core-capacity-text.small {
   height: 13px;
   width: 13px;
 }
 
-/* line 227, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 232, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .ghsa-toggle-options .ind-type-filter.two-line {
   position: relative;
   top: -24px;
   left: 96px;
 }
 
-/* line 235, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 240, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .jee-sort-options .ind-type-filter.two-line {
   position: relative;
   top: -24px;
   left: 65px;
 }
 
-/* line 242, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 247, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .flag.globe {
   border: none;
 }
 
-/* line 246, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 251, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .no-data-message {
   margin-left: 15px;
   font-style: italic;
 }
 
-/* line 250, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 255, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .no-data-message.core-element {
   margin-left: 0;
   margin-top: 10px;
 }
 
-/* line 256, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 261, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .no-data-description {
   font-style: italic;
   display: none;
   margin-bottom: -10px;
 }
 
-/* line 263, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 268, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 a.active {
   font-weight: 600;
 }
 
-/* line 267, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 272, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .container-fluid.wide, .wide .container-fluid {
   width: 85%;
 }
 
-/* line 269, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 274, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .container-fluid.wide .navbar-collapse, .wide .container-fluid .navbar-collapse {
   padding-right: 15px;
 }
 
-/* line 275, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
+/* line 280, /Users/mikevanmaele/Documents/GitHub/GIDA/sass/main.scss */
 .landing-container table.dataTable thead .sorting_asc:after {
   content: "" !important;
 }
