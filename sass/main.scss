@@ -139,10 +139,13 @@ input[type="radio"] {
   top: -1px;
   position: relative;
 }
-input[type="checkbox"] {
-  margin: 4px 6px 0 0;
-  top: -1px;
-  position: relative;
+
+.field-options, .filter-section-options {
+  input[type="checkbox"]{
+    margin: 4px 6px 0 0;
+    top: -1px;
+    position: relative;
+  }
 }
 
 .support-type-toggle-options {
