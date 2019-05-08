@@ -396,7 +396,9 @@ defaultExportCols.forEach(colDatum => {
 		visible: false,
 		data: colDatum.name,
 		defaultContent: colDatum.noDataText,
-		render: exportColFuncs[colDatum.name] || ((d) => d),
+		render: {
+			'display': exportColFuncs[colDatum.name] || ((d) => d),
+		},
 	};
 	if (colObj.title === undefined) colObj.title = colObj.displayName;
 	cols.push(colObj);
