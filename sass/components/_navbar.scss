@@ -4,10 +4,10 @@
   width:100%;
   &.wide {
     padding: 0;
-    -webkit-transition: padding 1.0s ease;
-    -moz-transition: padding 1.0s ease;
-    -o-transition: padding 1.0s ease;
-    transition: padding 1.0s ease;
+    // -webkit-transition: padding 1.0s ease;
+    // -moz-transition: padding 1.0s ease;
+    // -o-transition: padding 1.0s ease;
+    // transition: padding 1.0s ease;
   }
   border-bottom: $lightpage-border;
   background-color: white;
@@ -17,14 +17,14 @@
     max-width: 1200px;
     padding-left: 22px;
     padding-right: 20px;
-    -webkit-transition: padding 1.0s ease;
-    -moz-transition: padding 1.0s ease;
-    -o-transition: padding 1.0s ease;
-    transition: padding 1.0s ease;
-    -webkit-transition: max-width 1.0s ease;
-    -moz-transition: max-width 1.0s ease;
-    -o-transition: max-width 1.0s ease;
-    transition: max-width 1.0s ease;
+    // -webkit-transition: padding 1.0s ease;
+    // -moz-transition: padding 1.0s ease;
+    // -o-transition: padding 1.0s ease;
+    // transition: padding 1.0s ease;
+    // -webkit-transition: max-width 1.0s ease;
+    // -moz-transition: max-width 1.0s ease;
+    // -o-transition: max-width 1.0s ease;
+    // transition: max-width 1.0s ease;
   }
   // To set wide mode, add wide class to navbar and 'container-fluid wide'
   // to routing.js loadtemplate context.
@@ -35,14 +35,14 @@
       width: 1366px;
       padding-left: 0;
       padding-right: 0;
-      -webkit-transition: padding 1.0s ease;
-      -moz-transition: padding 1.0s ease;
-      -o-transition: padding 1.0s ease;
-      transition: padding 1.0s ease;
-      -webkit-transition: max-width 1.0s ease;
-      -moz-transition: max-width 1.0s ease;
-      -o-transition: max-width 1.0s ease;
-      transition: max-width 1.0s ease;
+      // -webkit-transition: padding 1.0s ease;
+      // -moz-transition: padding 1.0s ease;
+      // -o-transition: padding 1.0s ease;
+      // transition: padding 1.0s ease;
+      // -webkit-transition: max-width 1.0s ease;
+      // -moz-transition: max-width 1.0s ease;
+      // -o-transition: max-width 1.0s ease;
+      // transition: max-width 1.0s ease;
     }
   }
   .container-fluid {
