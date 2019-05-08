@@ -270,8 +270,6 @@
 				a.download = fn + filenameStr + ".xlsx";
 				document.body.appendChild(a);
 				a.click();
-				console.log('Downloaded!')
-				console.log(blob);
 				return;
 			} catch (err) {
 				console.log(err);

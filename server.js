@@ -37,13 +37,14 @@ app.get(/^(.+)$/, function(req, res) {
 // if no hash, send to index
 app.use(bodyParser.json({limit: '500Mb'}));
 app.post('/download_data', function(req, res) {
-  console.log("download_data")
   const xl = require('xlsx-populate');
 
   // Load template xlsx file
   const templateFn = './export/GIDA - Data Export Template.xlsx';
+  console.log('Loading template')
   xl.fromFileAsync(templateFn)
   .then(wb => {
+    console.log('TEmplate loaded')
     // Define constants
     const headerRow = 5;
     const startRow = headerRow + 1;
@@ -66,7 +67,6 @@ app.post('/download_data', function(req, res) {
   const exportCols = req.body.params.exportCols;
   const hideCols = req.body.params.hideCols;
   hideCols.forEach(col => {
-    console.log('hiding ' + col);
     wb.definedName(col).hidden(true);
   });
   const moneyFunc = function (datum, col, field) {
@@ -181,7 +181,6 @@ app.post('/download_data', function(req, res) {
 
 const exportData = req.body.params.exportData;
 exportCols.forEach(col => {
-  console.log(col.name)
   for (let i = 0; i < exportData.length; i++) {
     // formatting row
     const datum = exportData[i];
