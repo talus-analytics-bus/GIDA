@@ -82,7 +82,7 @@
   .ghsa-toggle-options-container {
     position: absolute;
     top: 95px;
-    right: 160px;
+    right: 250px;
   }
   .ghsa-toggle-options {
     top: 0;
@@ -118,6 +118,7 @@
       font-weight: 900;
       font-style: "raleway";
       margin-left: 30px;
+      max-width: 600px;
     }
 
     img.ghsa-info-img {
