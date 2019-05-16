@@ -3199,10 +3199,8 @@ body > div.toggle {
   visibility: hidden; }
 
 .toggle-theme {
-  position: fixed !important;
-  bottom: 10px !important;
-  left: 10px !important;
-  z-index: 100; }
+  z-index: 100;
+  margin-right: 10px; }
   .toggle-theme .toggle-off {
     background-color: white; }
   .toggle-theme .toggle-on {

@@ -300,6 +300,17 @@
 		setConstants(params);
 		indType = indTypeParam;
 
+		$('#theme-toggle').change(function () {
+			const val = $(this).prop('checked');
+			if (val) {
+				App.toggleTheme('light');
+			} else {
+				App.toggleTheme('dark');
+			}
+		});
+
+		$('#theme-toggle').bootstrapToggle('on');
+
 		// When clicking tabs, update titles
 		$('input[name="map-tabs"]').change(function(){
 			if ($(this).attr('id') === 'org-tab') {

@@ -88,10 +88,8 @@ svg .chart {
 body > div.toggle { visibility: hidden; }
 
 .toggle-theme {
-  position: fixed !important;
-  bottom: 10px !important;
-  left: 10px !important;
   z-index: 100;
+  margin-right: 10px;
   // visibility: hidden;
   .toggle-off {
     background-color: $lightcolor;

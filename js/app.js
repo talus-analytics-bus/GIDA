@@ -75,14 +75,14 @@ const App = {};
 		};
 
 		// http://www.bootstraptoggle.com/
-		$('#theme-toggle').change(function () {
-			const val = $(this).prop('checked');
-			if (val) {
-				App.toggleTheme('light');
-			} else {
-				App.toggleTheme('dark');
-			}
-		});
+		// $('#theme-toggle').change(function () {
+		// 	const val = $(this).prop('checked');
+		// 	if (val) {
+		// 		App.toggleTheme('light');
+		// 	} else {
+		// 		App.toggleTheme('dark');
+		// 	}
+		// });
 
 		$('.explore-dropdown-map').click(() => {
 			$('.explore-dropdown').toggle();
