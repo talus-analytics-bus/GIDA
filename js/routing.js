@@ -202,9 +202,11 @@ const Routing = {};
 	function loadPage(pageName, func, ...data) {
 		if (pageName === 'map') {
 			$('body > div.toggle, .toggleForPrint').css('visibility', 'visible');
+			$('#theme-toggle').bootstrapToggle('on');
 			$('#footer').hide();
 		} else {
 			$('body > div.toggle, .toggleForPrint').css('visibility', 'hidden');
+			$('#theme-toggle').bootstrapToggle('off');
 			$('#footer').show();
 		}
 		let navName = pageName;
