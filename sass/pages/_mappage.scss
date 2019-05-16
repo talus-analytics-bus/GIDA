@@ -107,6 +107,9 @@
           }
         }
       }
+      .dark .source-text a {
+          color: $darkcolorText;
+      }
     }
 
     .org-heading {
