@@ -1645,6 +1645,10 @@ b {
           .map-page-container .map-page-tabs .organization-content .source-text-row > div .source-text {
             align-self: end;
             justify-self: end; }
+      .map-page-container .map-page-tabs .organization-content .dark .source-text a {
+        color: #eeeeee; }
+      .map-page-container .map-page-tabs .organization-content .dark .source-text a:hover {
+        color: #337ab7; }
     .map-page-container .map-page-tabs .org-heading {
       margin: 25px -5px 0 -5px; }
       .map-page-container .map-page-tabs .org-heading .landing {
