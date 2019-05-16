@@ -1647,8 +1647,6 @@ b {
             justify-self: end; }
       .map-page-container .map-page-tabs .organization-content .dark .source-text a {
         color: #eeeeee; }
-      .map-page-container .map-page-tabs .organization-content .dark .source-text a:hover {
-        color: #337ab7; }
     .map-page-container .map-page-tabs .org-heading {
       margin: 25px -5px 0 -5px; }
       .map-page-container .map-page-tabs .org-heading .landing {
@@ -3212,7 +3210,7 @@ body > div.toggle {
 
 #page-content {
   margin-top: 81px;
-  min-height: 100px; }
+  min-height: Calc(100vh - 203px); }
 
 .info-img {
   position: relative;

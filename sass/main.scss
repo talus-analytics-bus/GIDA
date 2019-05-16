@@ -103,7 +103,7 @@ body > div.toggle { visibility: hidden; }
 
 #page-content {
   margin-top: 81px;
-  min-height: 100px;
+  min-height: Calc(100vh - 203px);
 }
 
 .info-img {
