@@ -5,7 +5,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122495993-1"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
   function gtag() {
     dataLayer.push(arguments);
@@ -36,7 +36,7 @@
   <link href="css/nprogress.min.css" rel="stylesheet" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css">
   <link href="css/bootstrap-toggle.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css"/>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css" />
 
 </head>
 
@@ -44,106 +44,98 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-        data-target="#navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="navbar-brand">
-        <a href="/" class="logo"></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">
+          <a href="/" class="logo"></a>
+        </div>
       </div>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li class="nav-item dropdown">-->
-        <!--<a class="nav-link dropdown-toggle"-->
-        <!--href="#"-->
-        <!--id="nav-explore-dropdown"-->
-        <!--role="button"-->
-        <!--data-toggle="dropdown"-->
-        <!--aria-haspopup="true"-->
-        <!--aria-expanded="false">Explore</a>-->
-        <!--<div class="dropdown-menu" aria-labelledby="nav-explore-dropdown">-->
-        <!--<a class="dropdown-item" page="map">Map</a>-->
-        <!--<a class="dropdown-item" page="map">Organizations</a>-->
-        <!--</div>-->
-        <!--</li>-->
-        <li class="nav-item" page="map"><a page="map">Explore <span class="caret"></span></a></li>
-        <li class="nav-item" page="analysis"><a page="analysis">Analysis</a></li>
-        <li class="nav-item" page="data"><a page="data">Data</a></li>
-        <li class="nav-item" page="about"><a page="about">About <span class="caret"></span></a></li>
-        <!-- <li>
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <!--<li class="nav-item dropdown">-->
+          <!--<a class="nav-link dropdown-toggle"-->
+          <!--href="#"-->
+          <!--id="nav-explore-dropdown"-->
+          <!--role="button"-->
+          <!--data-toggle="dropdown"-->
+          <!--aria-haspopup="true"-->
+          <!--aria-expanded="false">Explore</a>-->
+          <!--<div class="dropdown-menu" aria-labelledby="nav-explore-dropdown">-->
+          <!--<a class="dropdown-item" page="map">Map</a>-->
+          <!--<a class="dropdown-item" page="map">Organizations</a>-->
+          <!--</div>-->
+          <!--</li>-->
+          <li class="nav-item" page="map"><a page="map">Explore <span class="caret"></span></a></li>
+          <li class="nav-item" page="analysis"><a page="analysis">Analysis</a></li>
+          <li class="nav-item" page="data"><a page="data">Data</a></li>
+          <li class="nav-item" page="about"><a page="about">About <span class="caret"></span></a></li>
+          <!-- <li>
           <a href="#" page="about" class="dropdown-toggle" data-toggle="dropdown" role="button"
           aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
           <ul id='about-dropdown' class="center-dropdown-menu dropdown-menu scrollable-menu">
           </ul>
         </li> -->
-        <li class="nav-item" page="search"><i class="glyphicon glyphicon-search form-control-feedback"></i></li>
-      </ul>
-    </div>
-    <div class="explore-dropdown menu-dropdown">
-      <div class="explore-dropdown-box menu-dropdown-box">
-        <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-map">Country map</div>
-        <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-org">Organizations</div>
+          <li class="nav-item" page="search"><i class="glyphicon glyphicon-search form-control-feedback"></i></li>
+        </ul>
       </div>
-    </div>
-    <div class="about-dropdown menu-dropdown">
-      <div class="about-dropdown-box menu-dropdown-box">
-        <div class="about-dropdown-item menu-dropdown-item about-dropdown-bg" page="background">Background</div>
-        <div class="about-dropdown-item menu-dropdown-item about-dropdown-data" page="data">Data sources</div>
-        <div class="about-dropdown-item menu-dropdown-item about-dropdown-research" page="research">Research</div>
-        <div class="about-dropdown-item menu-dropdown-item about-dropdown-submit" page="submit">Submit data</div>
-      </div>
-    </div>
-    <div class="nav-search-control nav-search-box">
-      <div class="form-group has-feedback">
-        <input type="text"
-        class="nav-country-search-input form-control"
-        placeholder="search for a country or organization">
-        <i class="glyphicon glyphicon-search form-control-feedback"></i>
-        <div class="live-search-results-container">
-          <div class="live-search-no-results-text">No results found</div>
-          <div class="live-search-results-contents"></div>
+      <div class="explore-dropdown menu-dropdown">
+        <div class="explore-dropdown-box menu-dropdown-box">
+          <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-map">Country map</div>
+          <div class="explore-dropdown-item menu-dropdown-item explore-dropdown-org">Organizations</div>
         </div>
       </div>
+      <div class="about-dropdown menu-dropdown">
+        <div class="about-dropdown-box menu-dropdown-box">
+          <div class="about-dropdown-item menu-dropdown-item about-dropdown-bg" page="background">Background</div>
+          <div class="about-dropdown-item menu-dropdown-item about-dropdown-data" page="data">Data sources</div>
+          <div class="about-dropdown-item menu-dropdown-item about-dropdown-research" page="research">Research</div>
+          <div class="about-dropdown-item menu-dropdown-item about-dropdown-submit" page="submit">Submit data</div>
+        </div>
+      </div>
+      <div class="nav-search-control nav-search-box">
+        <div class="form-group has-feedback">
+          <input type="text" class="nav-country-search-input form-control" placeholder="search for a country or organization">
+          <i class="glyphicon glyphicon-search form-control-feedback"></i>
+          <div class="live-search-results-container">
+            <div class="live-search-no-results-text">No results found</div>
+            <div class="live-search-results-contents"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container-fluid -->
+  </nav>
 
-    <!-- /.navbar-collapse -->
+  <div id="page-content"></div>
+
+  <div id="footer" style="display: none;">
+    <a href="https://ghss.georgetown.edu/" target="_blank">
+      <img alt="Georgetown University Medical Center Center for Global Health Science and Security" class="logo-georgetown" src="img/logo-georgetown.png" />
+    </a>
+    <span>Built by</span>
+    <a href="http://www.talusanalytics.com" target="_blank">
+      <img alt="Talus Analytics" class="logo-talus" src="img/talus-logo.png" />
+    </a>
   </div>
-  <!-- /.container-fluid -->
-</nav>
 
-<div id="page-content"></div>
-
-<!-- THEME SWITCHER -->
-<input id="theme-toggle"
-type="checkbox"
-data-toggle="toggle"
-data-size="mini"
-data-style="toggle-theme"
-data-on="Dark"
-data-off="Light"
-/>
-
-<div class="toggleForPrint">
-  Color mode<br />
-  for printing
-</div>
-
-<!-- General Libraries -->
-<!--<script src="lib/jquery-3.2.1.min.js"></script>
+  <!-- General Libraries -->
+  <!--<script src="lib/jquery-3.2.1.min.js"></script>
 <script src="lib/d3.min.js"></script>
 <script src="lib/popper.min.js"></script>
 <script src="lib/bootstrap.min.js"></script> -->
-<!-- Routing Libraries -->
-<!--<script src="lib/signals.min.js"></script>
+  <!-- Routing Libraries -->
+  <!--<script src="lib/signals.min.js"></script>
 <script src="lib/crossroads.min.js"></script>
 <script src="lib/hasher.min.js"></script>
 <script src="lib/handlebars-v3.0.0.js"></script>-->
-<!-- Miscellaneous Libraries -->
-<!--<script src="lib/wrap.js"></script>
+  <!-- Miscellaneous Libraries -->
+  <!--<script src="lib/wrap.js"></script>
 <script src="lib/fuse.min.js"></script>
 <script src="lib/nprogress.min.js"></script>
 <script src="lib/topojson.v2.min.js"></script>
@@ -154,41 +146,41 @@ data-off="Light"
 <script src="lib/jquery.noty.packaged.min.js"></script>
 <script src="lib/tooltipster.bundle.min.js"></script>
 <script src="lib/tooltipster-follower.min.js"></script>-->
-<!--<script src="lib/underscore-min.js"></script>-->
-<!--<script src="lib/jquery.nicescroll.min.js"></script>-->
+  <!--<script src="lib/underscore-min.js"></script>-->
+  <!--<script src="lib/jquery.nicescroll.min.js"></script>-->
 
-<script src="build/lib.min.js"></script>
+  <script src="build/lib.min.js"></script>
 
 
-<!-- Project Specific Files -->
-<script src="js/utility.js"></script>
-<script src="js/routing.js"></script>
-<script src="js/app.js"></script>
-<script src="js/charts/chart.js"></script>
-<script src="js/charts/arrowToggle.js"></script>
-<script src="js/charts/categoryChart.js"></script>
-<script src="js/charts/circlePack.js"></script>
-<script src="js/charts/networkMap.js"></script>
-<script src="js/charts/progressCircles.js"></script>
-<script src="js/charts/timeChart.js"></script>
-<script src="js/charts/lineTimeChart.js"></script>
-<script src="js/charts/readyScoreChart.js"></script>
-<script src="js/charts/valueSquares.js"></script>
-<script src="js/components/filters.js"></script>
-<script src="js/components/map.js"></script>
-<script src="js/components/search.js"></script>
-<script src="js/components/slider.js"></script>
-<script src="js/pages/landing.js"></script>
-<script src="js/pages/analysis.js"></script>
-<script src="js/pages/analysisCountry.js"></script>
-<script src="js/pages/analysisPair.js"></script>
-<script src="js/pages/analysisTable.js"></script>
-<script src="js/pages/home.js"></script>
-<script src="js/pages/settings.js"></script>
-<script src="js/pages/submit.js"></script>
-<script src="js/pages/datapage.js"></script>
-<script src="js/init.js"></script>
-<!--<script src="build/bundle.min.js"></script>-->
+  <!-- Project Specific Files -->
+  <script src="js/utility.js"></script>
+  <script src="js/routing.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/charts/chart.js"></script>
+  <script src="js/charts/arrowToggle.js"></script>
+  <script src="js/charts/categoryChart.js"></script>
+  <script src="js/charts/circlePack.js"></script>
+  <script src="js/charts/networkMap.js"></script>
+  <script src="js/charts/progressCircles.js"></script>
+  <script src="js/charts/timeChart.js"></script>
+  <script src="js/charts/lineTimeChart.js"></script>
+  <script src="js/charts/readyScoreChart.js"></script>
+  <script src="js/charts/valueSquares.js"></script>
+  <script src="js/components/filters.js"></script>
+  <script src="js/components/map.js"></script>
+  <script src="js/components/search.js"></script>
+  <script src="js/components/slider.js"></script>
+  <script src="js/pages/landing.js"></script>
+  <script src="js/pages/analysis.js"></script>
+  <script src="js/pages/analysisCountry.js"></script>
+  <script src="js/pages/analysisPair.js"></script>
+  <script src="js/pages/analysisTable.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/submit.js"></script>
+  <script src="js/pages/datapage.js"></script>
+  <script src="js/init.js"></script>
+  <!--<script src="build/bundle.min.js"></script>-->
 </body>
 
 </html>

@@ -1,14 +1,36 @@
 #footer {
+  @include flex(0 1 auto);
+  align-self: flex-end;
+  //position: relative;
+  //width: 100%;
+  padding: 15px;
+  //font-weight: 600;
+  //text-align: center;
+  //@include gradient(#fcfcfc, #f0f0f0);
+  //span {
+  //  margin-right: 1px;
+  //}
+
   position: relative;
   width: 100%;
-  padding: 10px;
-  font-weight: 600;
   text-align: center;
-  border-top: $border;
-  border-bottom: $border;
-  color: #555;
-  @include gradient(#fcfcfc, #f0f0f0);
+  font-size: 0.9em;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
 
-  span { margin-right: 1px; }
-  img { height: 42px; }
+  .logo-talus {
+    height: 42px;
+  }
+
+  .logo-georgetown {
+    height: 90px;
+  }
+
+  .built-by {
+    padding-left: 80px;
+  }
+
+  table {
+    margin: 1em auto;
+  }
 }
