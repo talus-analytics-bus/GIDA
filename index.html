@@ -38,6 +38,7 @@
   <link href="css/bootstrap-toggle.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css" />
 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
 </head>
 
 <body>
@@ -181,6 +182,23 @@
   <script src="js/pages/datapage.js"></script>
   <script src="js/init.js"></script>
   <!--<script src="build/bundle.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#CCCCCC",
+        "text": "#000000"
+      },
+      "button": {
+        "background": "#4b81e8"
+      }
+    },
+    "position": "bottom-right"
+  })});
+  </script>
+
 </body>
 
 </html>
