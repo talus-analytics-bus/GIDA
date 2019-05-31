@@ -37,6 +37,8 @@ app.get(/^(.+)$/, function(req, res) {
 // if no hash, send to index
 app.use(bodyParser.json({limit: '500Mb'}));
 app.post('/download_data', function(req, res) {
+  req.connection.setTimeout(100000); //100 seconds
+  console.log("Running download_data now")
   const xl = require('xlsx-populate');
 
   // Load template xlsx file
