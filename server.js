@@ -5,11 +5,8 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
-
 const formidable = require('formidable');
 const useHTTPSRedirection = process.env.USE_HTTPS_REDIRECTION || 'false';
-
-
 
 // Set the useHTTPSRedirection to false if you don't want the auto-redirection from HTTP to HTTPS
 if (useHTTPSRedirection === 'true') {
@@ -45,6 +42,7 @@ app.post('/download_data', function(req, res) {
   const templateFn = './export/GIDA - Data Export Template.xlsx';
   xl.fromFileAsync(templateFn)
   .then(wb => {
+    console.log("loaded template")
     // Define constants
     const headerRow = 5;
     const startRow = headerRow + 1;
