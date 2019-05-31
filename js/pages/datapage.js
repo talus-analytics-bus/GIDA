@@ -8,7 +8,7 @@
 	* Initialize the "Data" page content.
 	*/
 	App.initData = () => {
-
+		console.log('App.initData')
 		// Information about columns shown in the DataTable.
 		const defaultExportCols = [
 			{
