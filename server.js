@@ -177,24 +177,27 @@ app.post('/download_data', function(req, res) {
     },
   };
 
-const exportData = req.body.params.exportData;
-exportCols.forEach(col => {
-  for (let i = 0; i < exportData.length; i++) {
-    // formatting row
-    const datum = exportData[i];
-    const func = col.func ? exportColFuncs[col.name] : (datum, col) => {
-      const colData = datum[col.name];
-      if (!unspecifiedValues.includes(colData)) {
-        return colData;
-      } else return null;
-    };
-    let cellValue = func(datum, col);
-    if (cellValue === null) cellValue = col.noDataText;
+  const exportData = req.body.params.exportData.reverse();
+  let i = 0;
+  while (exportData.length > 0) {
+    const datum = exportData.pop();
+    exportCols.forEach(col => {
+      // formatting row
+      // const datum = exportData[i];
+      const func = col.func ? exportColFuncs[col.name] : (datum, col) => {
+        const colData = datum[col.name];
+        if (!unspecifiedValues.includes(colData)) {
+          return colData;
+        } else return null;
+      };
+      let cellValue = func(datum, col);
+      if (cellValue === null) cellValue = col.noDataText;
 
-    // populate cell
-    wb.definedName(col.name).cell(startRow).relativeCell(i,0).value(cellValue);
-    }
-  });
+      // populate cell
+      wb.definedName(col.name).cell(startRow).relativeCell(i,0).value(cellValue);
+    });
+    i++;
+  }
 
   // Hide unused rows
 
