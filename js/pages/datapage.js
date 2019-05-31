@@ -148,6 +148,7 @@
 			* Return columns to be included in data export (name and processing func.)
 			* @return {array} Columns to be included in export
 			*/
+			App.toggleLoadingScreen(true);
 			const getExportCols = (defaultExportCols) => {
 				let names = d3.selectAll('.field-options input:checked').data().map(d => d.name);
 				if (names.includes('donor_name')) {
@@ -252,6 +253,7 @@
 			return Promise.resolve(result.blob());
 		}).then((blobTmp) => {
 			NProgress.done();
+			App.toggleLoadingScreen(false);
 			try {
 				const blob = new Blob([blobTmp], {type: 'application/vnd.ms-excel'});
 				const downloadUrl = URL.createObjectURL(blob);

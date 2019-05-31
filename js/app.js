@@ -1423,6 +1423,10 @@ App.formatInkind = (val) => {
 	}
 };
 
+App.toggleLoadingScreen = (show) => {
+	if (show) $('#loading-screen').fadeIn();
+	else $('#loading-screen').fadeOut();
+}
 
 /* ------------------ Vendor Defaults ------------------- */
 // change number of paging buttons shown in DataTables
