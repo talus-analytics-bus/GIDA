@@ -1173,6 +1173,8 @@
 		function drawCategoryChart() {
 			// get data
 			const countryInd = (moneyType === 'd') ? 'recipient_country' : 'donor_code';
+			const entityName = (moneyType === 'd') ? 'recipient_name' : 'donor_name';
+			const entityNameOther = (moneyType === 'd') ? 'donor_name' : 'recipient_name';
 			const catData = [];
 			const fundsByCat = {};
 
@@ -1182,7 +1184,6 @@
 			} else {
 				projects = Util.uniqueCollection(lookup[iso], 'project_id')
 			}
-
 			/**
 			 * Returns the name of the funder/recipient of the project that should be displayed
 			 * in the UI. If the funder/recipient is a group of entities then the group of
@@ -1200,9 +1201,12 @@
 				}
 			};
 
+
 			projects.forEach((p) => {
 				// lookup[iso].forEach((p) => {
-				const recIso = p[countryInd];
+
+				const recIso = p[entityName + '_orig'] ? p[entityName + '_orig'] : p[entityName];
+				// const recIso = p[countryInd];
 				const catValues = p.core_capacities;
 				catValues.forEach((c) => {
 					if (!fundsByCat[c]) fundsByCat[c] = {};

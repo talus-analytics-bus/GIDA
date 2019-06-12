@@ -19,7 +19,6 @@
 	};
 
 	App.buildCategoryChart = (selector, param = {}) => {
-		console.log('App.buildCategoryChart')
 		const capacities = App.capacities.map(d => {
 			return {...d,
 				displayName: d.name.split(' - ').reverse()[0],
@@ -123,7 +122,6 @@
 			// determine whether this is a country with jee scores available
 			const showJee = param.showJee;
 			const scores = param.scores; // undefined if not available
-
 			let data = getRunningValues(rawData, newSelector)
 			.sort((a, b) => {
 				if (a[newSelector] < b[newSelector]) {
@@ -187,7 +185,6 @@
 			.attr('transform', d => `translate(0, ${y(d.displayName)})`);
 
 			barGroups = newGroups.merge(barGroups);
-
 			barGroups.selectAll('rect')
 			.data(d => d.children.map(c => ({ cc: d.name, country: c })))
 			.enter()
