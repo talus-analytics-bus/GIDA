@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy --staged gida
+          command: eb deploy --staged gida3
 
       - run:
           name: Notify Slack
