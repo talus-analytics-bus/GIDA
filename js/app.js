@@ -363,11 +363,14 @@ const App = {};
           App.geographicGroupCodes = _.unique(
             _.pluck(App.geographicGroupings, "group_code")
           );
+          worldData.objects.world3.geometries = worldData.objects.world3.geometries.filter(
+            d => d.properties.NAME !== "0"
+          );
           App.geoData = worldData;
           App.codes = donorCodeData;
           App.resolve_Scores = resolveScoresData;
 
-          App.countries = worldData.objects.countries.geometries.map(
+          App.countries = worldData.objects.world3.geometries.map(
             c => c.properties
           );
 
