@@ -45,3 +45,5 @@ workflows:
               only:
                 - master
                 - dev
+          context:
+            - AWS Credentials
